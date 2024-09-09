@@ -1,16 +1,30 @@
 extends Control
 
+enum GameState {GO_DICES,GO_ACTION,END_TURN}
+var current_state
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	change_state(GameState.GO_DICES)
+	$ButtonStates.connect("button_down",self,"on_button_states")
 
+func on_button_states():
+	$ButtonStates.disabled = true
+	if current_state == GameState.GO_DICES:
+		$Dice.roll()
+		var dice_val = yield($Dice,"end_roll")
+		$Belt.move_pawn(dice_val)
+		var army_index = yield($Belt,"end_move")
+		current_state == GameState.GO_DICES
+		change_state(GameState.GO_ACTION)
+	elif current_state == GameState.GO_ACTION:
+		$Belt.run_action()
+		yield($Belt,"end_action")
+		change_state(GameState.END_TURN)
+	elif current_state == GameState.END_TURN:
+		yield(get_tree().create_timer(1),"timeout")
+		change_state(GameState.GO_DICES)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func change_state(new_state):
+	current_state = new_state
+	$ButtonStates.text = GameState.keys()[current_state]
+	$ButtonStates.disabled = false

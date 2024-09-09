@@ -42,3 +42,10 @@ margin_top = 6.0
 margin_right = 263.0
 margin_bottom = 98.0
 color = Color( 0, 0.0156863, 1, 0.313726 )
+
+[node name="ButtonStates" type="Button" parent="."]
+margin_left = 583.0
+margin_top = 265.0
+margin_right = 702.0
+margin_bottom = 304.0
+text = "RUN DICES"

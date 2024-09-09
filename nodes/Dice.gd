@@ -2,6 +2,7 @@ extends Control
 class_name Dice
 
 var value = 1
+signal end_roll(value)
 
 func _ready():
 	randomize()
