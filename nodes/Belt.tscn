@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://nodes/Belt.gd" type="Script" id=1]
 [ext_resource path="res://assets/pawn.png" type="Texture" id=2]
+[ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=3]
 
 [node name="Belt" type="Control"]
 margin_right = 817.0
@@ -19,64 +20,40 @@ margin_right = 408.5
 margin_bottom = 45.0
 alignment = 1
 
-[node name="slot1" type="ColorRect" parent="HBox"]
+[node name="BeltSlot1" parent="HBox" instance=ExtResource( 3 )]
 margin_left = 200.0
 margin_right = 280.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
-[node name="slot2" type="ColorRect" parent="HBox"]
+[node name="BeltSlot2" parent="HBox" instance=ExtResource( 3 )]
 margin_left = 284.0
 margin_right = 364.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
-[node name="slot3" type="ColorRect" parent="HBox"]
+[node name="BeltSlot3" parent="HBox" instance=ExtResource( 3 )]
 margin_left = 368.0
 margin_right = 448.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
-[node name="slot4" type="ColorRect" parent="HBox"]
+[node name="BeltSlot4" parent="HBox" instance=ExtResource( 3 )]
 margin_left = 452.0
 margin_right = 532.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
-[node name="slot5" type="ColorRect" parent="HBox"]
+[node name="BeltSlot5" parent="HBox" instance=ExtResource( 3 )]
 margin_left = 536.0
 margin_right = 616.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
-[node name="slot6" type="ColorRect" parent="HBox"]
+[node name="BeltSlot6" parent="HBox" instance=ExtResource( 3 )]
 visible = false
 margin_left = 578.0
 margin_right = 658.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
-[node name="slot7" type="ColorRect" parent="HBox"]
+[node name="BeltSlot7" parent="HBox" instance=ExtResource( 3 )]
 visible = false
 margin_left = 620.0
 margin_right = 700.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
-[node name="slot8" type="ColorRect" parent="HBox"]
+[node name="BeltSlot8" parent="HBox" instance=ExtResource( 3 )]
 visible = false
 margin_left = 662.0
 margin_right = 742.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 90 )
-color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
 [node name="pawn" type="TextureRect" parent="."]
 margin_right = 39.0

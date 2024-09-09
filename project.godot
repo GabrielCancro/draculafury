@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://nodes/Belt.gd"
 }, {
 "base": "Control",
+"class": "BeltSlot",
+"language": "GDScript",
+"path": "res://nodes/BeltSlot.gd"
+}, {
+"base": "Control",
 "class": "Dice",
 "language": "GDScript",
 "path": "res://nodes/Dice.gd"
 } ]
 _global_script_class_icons={
 "Belt": "",
+"BeltSlot": "",
 "Dice": ""
 }
 
