@@ -3,7 +3,8 @@ extends Node
 var ENEMIES_ARRAY = []
 
 var ENEMIES = {
-	"goblin":{"img":"enemy01","mov":2,"dam":1,"fly":false}
+	"goblin":{"mov":2,"dam":1, "ran":1,"fly":false},
+	"bat":{"mov":2,"dam":1, "ran":1,"fly":true},
 }
 
 func get_enemy_data(code):
@@ -18,3 +19,7 @@ func add_enemy(code):
 	get_node("/root/Game/Enemies").add_child(node)
 	return node
 
+func add_rnd_enemy():
+	randomize()
+	var code = ENEMIES.keys()[ randi()%ENEMIES.keys().size() ]
+	add_enemy(code)
