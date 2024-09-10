@@ -36,6 +36,11 @@ config/name="draculafury"
 run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Effector="*res://autoloads/Effector.gd"
+EnemyManager="*res://autoloads/EnemyManager.gd"
+
 [display]
 
 window/size/width=1280

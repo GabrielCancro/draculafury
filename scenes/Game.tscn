@@ -49,3 +49,12 @@ margin_top = 265.0
 margin_right = 702.0
 margin_bottom = 304.0
 text = "RUN DICES"
+
+[node name="ButtonAddEnemy" type="Button" parent="."]
+margin_left = 1130.0
+margin_top = 98.0
+margin_right = 1249.0
+margin_bottom = 137.0
+text = "ADD ENEMY"
+
+[node name="Enemies" type="Control" parent="."]

@@ -6,6 +6,7 @@ var current_state
 func _ready():
 	change_state(GameState.GO_DICES)
 	$ButtonStates.connect("button_down",self,"on_button_states")
+	$ButtonAddEnemy.connect("button_down",EnemyManager,"add_enemy",["goblin"])
 
 func on_button_states():
 	$ButtonStates.disabled = true
