@@ -8,6 +8,7 @@ func _ready():
 	$ButtonStates.connect("button_down",self,"on_button_states")
 	$ButtonAddEnemy.connect("button_down",EnemyManager,"add_rnd_enemy")
 	$ButtonAddDice.connect("button_down",$DiceSet,"add_extra_dice")
+	Effector.add_hint($ButtonStates,"ASD")
 
 func on_button_states():
 	$ButtonStates.disabled = true
@@ -26,7 +27,13 @@ func on_button_states():
 		else: change_state(GameState.GO_DICES)
 	elif current_state == GameState.END_TURN:
 		yield(get_tree().create_timer(1.5),"timeout")
-		$DiceSet.reset_all_dices()
+		while true:
+			var army = $DiceSet.get_and_hide_first_dice_army()
+			if army:
+				ArmyManager.run_army_action(army)
+				yield(ArmyManager,"end_army_action")
+			else: break
+		$DiceSet.restore_all_dices()
 		yield(get_tree().create_timer(.7),"timeout")
 		change_state(GameState.GO_DICES)
 

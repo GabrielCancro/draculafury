@@ -5,6 +5,7 @@ var army
 
 func _ready():
 	set_army("knife")
+	Effector.add_hint($bgcolor,"army_desc_"+army)
 
 func set_army(code):
 	army = code

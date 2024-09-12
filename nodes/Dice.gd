@@ -10,10 +10,10 @@ func _ready():
 	randomize()
 	$Army.modulate.a = 0
 	$Sprite.modulate.a = 0
-	visible = false
 	$Button.connect("button_down",self,"roll")
 
 func roll():
+	Effector.show_float_text("roll_dice")
 	$Tween.interpolate_property($Sprite,"rotation",0,PI*4,1.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	$Tween.start()
 	for i in range(10):
@@ -27,7 +27,6 @@ func set_army(code):
 	print("SET ARMY ",code)
 	army = code
 	is_hide = false
-	visible = true
 	if army: 
 		$Army.texture = load("res://assets/ar_"+army+".png")
 		Effector.disappear($Sprite)
@@ -42,5 +41,3 @@ func hide_dice():
 	is_hide = true
 	Effector.disappear($Army)
 	Effector.disappear($Sprite)
-	yield(get_tree().create_timer(.5),"timeout")
-	visible = false

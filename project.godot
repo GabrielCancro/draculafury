@@ -41,6 +41,8 @@ config/icon="res://icon.png"
 Effector="*res://autoloads/Effector.gd"
 EnemyManager="*res://autoloads/EnemyManager.gd"
 PlayerManager="*res://autoloads/PlayerManager.gd"
+Lang="*res://autoloads/Lang.gd"
+ArmyManager="*res://autoloads/ArmyManager.gd"
 
 [display]
 
