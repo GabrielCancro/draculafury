@@ -1,13 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://nodes/BeltSlot.gd" type="Script" id=1]
+[ext_resource path="res://assets/ar_knife.png" type="Texture" id=2]
 
 [node name="BeltSlot" type="Control"]
+margin_right = 80.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 80, 90 )
+rect_pivot_offset = Vector2( 40, 0 )
 script = ExtResource( 1 )
 
 [node name="bgcolor" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
+
+[node name="bgselected" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.628906, 0.425003, 0.425003, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 41, 44 )
+texture = ExtResource( 2 )

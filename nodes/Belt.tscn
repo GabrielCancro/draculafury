@@ -55,12 +55,6 @@ visible = false
 margin_left = 662.0
 margin_right = 742.0
 
-[node name="pawn" type="TextureRect" parent="."]
-margin_right = 39.0
-margin_bottom = 45.0
-texture = ExtResource( 2 )
-expand = true
-
 [node name="Tween" type="Tween" parent="."]
 
 [node name="ButtonL" type="Button" parent="."]
@@ -78,3 +72,17 @@ margin_left = 215.5
 margin_top = 39.0
 margin_right = 246.5
 margin_bottom = 88.0
+
+[node name="pawn" type="Control" parent="."]
+margin_right = 80.0
+margin_bottom = 90.0
+
+[node name="pawn_img" type="TextureRect" parent="pawn"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -19.5
+margin_top = -23.0
+margin_right = 19.5
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+expand = true

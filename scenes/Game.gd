@@ -7,22 +7,27 @@ func _ready():
 	change_state(GameState.GO_DICES)
 	$ButtonStates.connect("button_down",self,"on_button_states")
 	$ButtonAddEnemy.connect("button_down",EnemyManager,"add_rnd_enemy")
+	$ButtonAddDice.connect("button_down",$DiceSet,"add_extra_dice")
 
 func on_button_states():
 	$ButtonStates.disabled = true
 	if current_state == GameState.GO_DICES:
-		$Dice.roll()
-		var dice_val = yield($Dice,"end_roll")
+		$DiceSet.roll_next_dice()
+		var dice_val = yield($DiceSet.current_dice,"end_roll")
 		$Belt.move_pawn(dice_val)
 		var army_index = yield($Belt,"end_move")
 		current_state == GameState.GO_DICES
 		change_state(GameState.GO_ACTION)
 	elif current_state == GameState.GO_ACTION:
-		$Belt.run_action()
-		yield($Belt,"end_action")
-		change_state(GameState.END_TURN)
+		$DiceSet.current_dice.set_army($Belt.current_slot.army)
+		$Belt.clear_selected_slot()
+		yield(get_tree().create_timer(.7),"timeout")
+		if $DiceSet.is_all_dices_rolled(): change_state(GameState.END_TURN)
+		else: change_state(GameState.GO_DICES)
 	elif current_state == GameState.END_TURN:
-		yield(get_tree().create_timer(1),"timeout")
+		yield(get_tree().create_timer(1.5),"timeout")
+		$DiceSet.reset_all_dices()
+		yield(get_tree().create_timer(.7),"timeout")
 		change_state(GameState.GO_DICES)
 
 func change_state(new_state):

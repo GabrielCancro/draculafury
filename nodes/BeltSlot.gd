@@ -1,7 +1,19 @@
 extends Control
 class_name BeltSlot
 
-var army_data
+var army
 
 func _ready():
-	pass # Replace with function body.
+	set_army("knife")
+
+func set_army(code):
+	army = code
+	$Sprite.texture = load("res://assets/ar_"+army+".png")
+
+func set_lighted(val):
+	if val:
+		Effector.appear($bgselected)
+		$bgselected.modulate.a = 0
+		$bgselected.visible = true
+	else:
+		 Effector.disappear($bgselected)
