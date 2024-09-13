@@ -5,6 +5,8 @@ var floor_y = 800
 var end_x = 1500
 var step_size = 120
 
+signal end_move()
+
 func _ready():
 	$Button.connect("button_down",self,"move")
 
@@ -25,13 +27,16 @@ func set_tile_pos(_x):
 	Effector.move_to(self,Vector2(nx,ny))
 
 func move(val = -enemy_data.mov):
+	yield(get_tree().create_timer(.35),"timeout")
 	for i in abs(val):
+		if enemy_data.tile_pos_x==0 and sign(val)<0: break
 		var swap_en = EnemyManager.get_enemy_in_pos(enemy_data.tile_pos_x+sign(val),enemy_data.tile_pos_y)
 		if swap_en: EnemyManager.swap_enemies(self,swap_en)
 		else: set_tile_pos(enemy_data.tile_pos_x+sign(val))
 		yield(get_tree().create_timer(.35),"timeout")
-		if enemy_data.tile_pos_x == 0: break
-	try_attack()
+	if try_attack(): yield(get_tree().create_timer(.7),"timeout")
+	yield(get_tree().create_timer(.2),"timeout")
+	emit_signal("end_move")
 
 func try_attack():
 	if enemy_data.tile_pos_x < enemy_data.ran:

@@ -38,3 +38,10 @@ func swap_enemies(en1,en2):
 	var pos2 = en2.enemy_data.tile_pos_x
 	en1.set_tile_pos(pos2)
 	en2.set_tile_pos(pos1)
+
+func get_enemies_ordered_by_pos():
+	ENEMIES_ACTIVES.sort_custom(self, "sort_custom")
+	return ENEMIES_ACTIVES
+	
+func sort_custom(a,b):
+	return ( a.enemy_data.tile_pos_x < b.enemy_data.tile_pos_x )

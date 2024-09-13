@@ -1,6 +1,6 @@
 extends Control
 
-enum GameState {GO_DICES,GO_ACTION,END_TURN}
+enum GameState {GO_DICES,GO_ACTION,END_TURN,ENEMY_TURN}
 var current_state
 
 func _ready():
@@ -35,6 +35,13 @@ func on_button_states():
 			else: break
 		$DiceSet.restore_all_dices()
 		yield(get_tree().create_timer(.7),"timeout")
+		change_state(GameState.ENEMY_TURN)
+	elif current_state == GameState.ENEMY_TURN:
+		yield(get_tree().create_timer(.5),"timeout")
+		for en in EnemyManager.get_enemies_ordered_by_pos():
+			en.move()
+			yield(en,"end_move")
+		yield(get_tree().create_timer(.5),"timeout")
 		change_state(GameState.GO_DICES)
 
 func change_state(new_state):

@@ -31,7 +31,7 @@ func shake(node,power=2,time=.5):
 func blood_bg():
 	var blood = get_node("/root/Game/blood")
 	blood.visible = true
-	tween.interpolate_property(blood,"modulate:a",.7,0,.7,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.interpolate_property(blood,"modulate:a",.5,0,.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
 func show_float_text(code):
