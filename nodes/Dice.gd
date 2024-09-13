@@ -10,6 +10,7 @@ func _ready():
 	randomize()
 	$Army.modulate.a = 0
 	$Sprite.modulate.a = 0
+	$Sprite.frame = 6
 	$Button.connect("button_down",self,"roll")
 
 func roll():
@@ -33,7 +34,7 @@ func set_army(code):
 		yield(get_tree().create_timer(.3),"timeout")
 		Effector.appear($Army)
 	else:
-		$Sprite.frame = 0
+		$Sprite.frame = 6
 		Effector.disappear($Army)
 		Effector.appear($Sprite)
 

@@ -28,6 +28,12 @@ func shake(node,power=2,time=.5):
 		yield(get_tree().create_timer(.025),"timeout")
 	node.position = ini_pos
 
+func blood_bg():
+	var blood = get_node("/root/Game/blood")
+	blood.visible = true
+	tween.interpolate_property(blood,"modulate:a",.7,0,.7,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.start()
+
 func show_float_text(code):
 	var node = preload("res://nodes/fx/FloatText.tscn").instance()
 	node.set_data(Lang.get_text(code))

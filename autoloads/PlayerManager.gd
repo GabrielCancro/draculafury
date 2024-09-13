@@ -14,3 +14,4 @@ func _ready():
 func damage(dam):
 	var player_node = get_node("/root/Game/Player")
 	Effector.shake(player_node)
+	Effector.blood_bg()
