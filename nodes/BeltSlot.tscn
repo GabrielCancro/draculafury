@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://nodes/BeltSlot.gd" type="Script" id=1]
-[ext_resource path="res://assets/ar_knife.png" type="Texture" id=2]
+[ext_resource path="res://assets/armies/ar_kick.png" type="Texture" id=2]
 
 [node name="BeltSlot" type="Control"]
 margin_right = 80.0
@@ -23,4 +23,5 @@ color = Color( 0.628906, 0.425003, 0.425003, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 41, 44 )
+scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 2 )

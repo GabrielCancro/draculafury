@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ar_knife.png-3d0db1d4ebbac685e5365bf358b8fec5.stex"
+path="res://.import/ar_stake.png-73b4620ea3d7fad4e2b9302cdb5aaadf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ar_knife.png"
-dest_files=[ "res://.import/ar_knife.png-3d0db1d4ebbac685e5365bf358b8fec5.stex" ]
+source_file="res://assets/armies/ar_stake.png"
+dest_files=[ "res://.import/ar_stake.png-73b4620ea3d7fad4e2b9302cdb5aaadf.stex" ]
 
 [params]
 

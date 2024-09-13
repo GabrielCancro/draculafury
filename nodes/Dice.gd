@@ -28,7 +28,7 @@ func set_army(code):
 	army = code
 	is_hide = false
 	if army: 
-		$Army.texture = load("res://assets/ar_"+army+".png")
+		$Army.texture = load("res://assets/armies/ar_"+army+".png")
 		Effector.disappear($Sprite)
 		yield(get_tree().create_timer(.3),"timeout")
 		Effector.appear($Army)

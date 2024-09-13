@@ -2,7 +2,7 @@ extends Node
 
 signal end_army_action()
 
-var ARMIES = ["kick","rapier","gun","shotgun","crossbow","stake","dynamite"]
+var ARMIES = ["kick","rapier","gun","shotgun","crossbow","stake","dynamite","dynamite","dynamite","dynamite"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
