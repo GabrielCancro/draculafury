@@ -42,7 +42,7 @@ func show_float_text(code):
 func add_hint(node,tx_code):
 	node.connect("mouse_entered",self,"_on_hint_enter_area",[node,tx_code,true])
 	node.connect("mouse_exited",self,"_on_hint_enter_area",[node,tx_code,false])
-	node.connect("tree_exited",self,"_on_hint_enter_area",[node,tx_code,false])
+	#node.connect("tree_exited",self,"_on_hint_enter_area",[node,tx_code,false])
 
 func _on_hint_enter_area(node,code,val):
 	print("HINT: ",node.name,"  ",val)

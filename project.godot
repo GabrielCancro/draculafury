@@ -46,8 +46,8 @@ ArmyManager="*res://autoloads/ArmyManager.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1600
+window/size/height=900
 window/size/test_width=640
 window/size/test_height=360
 window/stretch/mode="2d"
