@@ -11,7 +11,8 @@ func _ready():
 func run_army_action(code):
 	Effector.show_float_text("army_"+code)
 	var en = EnemyManager.get_first_enemy()
-	if en: 
+	yield(get_tree().create_timer(1),"timeout")
+	if en:
 		en.enemy_damage(randi()%5+4)
-		yield(get_tree().create_timer(2.5),"timeout")
+		yield(get_tree().create_timer(2.0),"timeout")
 	emit_signal("end_army_action")

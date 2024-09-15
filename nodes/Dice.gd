@@ -1,17 +1,21 @@
 extends Control
 class_name Dice
 
-var value = 1
+var value = -1
 var army
 var is_hide = true
 signal end_roll(value)
+signal on_click_dice(dice)
 
 func _ready():
 	randomize()
 	$Army.modulate.a = 0
 	$Sprite.modulate.a = 0
 	$Sprite.frame = 6
-	$Button.connect("button_down",self,"roll")
+	$Button.connect("button_down",self,"on_click")
+
+func on_click():
+	emit_signal("on_click_dice",self)
 
 func roll():
 	Effector.show_float_text("roll_dice")
@@ -34,6 +38,7 @@ func set_army(code):
 		yield(get_tree().create_timer(.3),"timeout")
 		Effector.appear($Army)
 	else:
+		value = -1
 		$Sprite.frame = 6
 		Effector.disappear($Army)
 		Effector.appear($Sprite)

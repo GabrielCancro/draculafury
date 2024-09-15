@@ -1,7 +1,7 @@
 extends Node2D
 
 var enemy_data
-var floor_y = 800
+var floor_y = 730
 var end_x = 1500
 var step_size = 120
 
@@ -23,6 +23,7 @@ func set_tile_pos(_x):
 	enemy_data["tile_pos_y"] = 0
 	if enemy_data.fly: enemy_data["tile_pos_y"] = 1
 	z_index = 100 - enemy_data.tile_pos_x*10 + enemy_data.tile_pos_y
+	z_index = 100 - enemy_data.tile_pos_x*10 + enemy_data.tile_pos_y
 	#print("MOVE ENEMY: "+enemy_data.name,"  to: ",_x)
 	var nx = end_x - step_size*8 + ( enemy_data.tile_pos_x * 100 )
 	var ny = floor_y - ( enemy_data.tile_pos_y * 180 )
@@ -39,7 +40,6 @@ func move(val = -enemy_data.mov):
 	if try_attack(): yield(get_tree().create_timer(.7),"timeout")
 	yield(get_tree().create_timer(.2),"timeout")
 	emit_signal("end_move")
-
 
 func try_attack():
 	if enemy_data.tile_pos_x < enemy_data.ran:

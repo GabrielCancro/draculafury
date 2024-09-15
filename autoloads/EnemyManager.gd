@@ -18,7 +18,6 @@ func add_enemy(code):
 	node.set_data(data)
 	get_node("/root/Game/Enemies").add_child(node)
 	ENEMIES_ACTIVES.append(node)
-	Effector.show_damage_text(100,node.position)
 	return node
 
 func add_rnd_enemy():
@@ -42,6 +41,8 @@ func swap_enemies(en1,en2):
 
 func re_ordered_enemies_array():
 	ENEMIES_ACTIVES.sort_custom(self, "sort_custom")
+	for i in range(ENEMIES_ACTIVES.size()):
+		move_child( ENEMIES_ACTIVES[i], i )
 	return ENEMIES_ACTIVES
 
 func get_first_enemy():

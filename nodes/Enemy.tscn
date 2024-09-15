@@ -9,9 +9,10 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0.513726, 0.513726, 1 )
-position = Vector2( -7, -74 )
+position = Vector2( -2.84217e-14, -4.54747e-13 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
+offset = Vector2( -8.75, -92.5 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = -79.0
@@ -22,10 +23,10 @@ focus_mode = 0
 flat = true
 
 [node name="Label" type="Label" parent="."]
-margin_left = 40.0
-margin_top = -25.0
-margin_right = 115.0
-margin_bottom = 13.0
+margin_left = -32.0
+margin_top = -17.0
+margin_right = 43.0
+margin_bottom = 21.0
 custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "50"
