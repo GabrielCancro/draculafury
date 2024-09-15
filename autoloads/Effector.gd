@@ -18,7 +18,7 @@ func move_to(node,pos):
 	tween.interpolate_property(node,"position",null,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
-func shake(node,power=2,time=.5):
+func shake(node,power=6,time=.5):
 	var ini_pos = node.position
 	randomize()
 	while time>0:
@@ -36,7 +36,12 @@ func blood_bg():
 
 func show_float_text(code):
 	var node = preload("res://nodes/fx/FloatText.tscn").instance()
-	node.set_data(Lang.get_text(code))
+	node.set_float(code)
+	get_node("/root/Game").add_child(node)
+
+func show_damage_text(val,pos):
+	var node = preload("res://nodes/fx/FloatText.tscn").instance()
+	node.set_damage(val,pos)
 	get_node("/root/Game").add_child(node)
 
 func add_hint(node,tx_code):

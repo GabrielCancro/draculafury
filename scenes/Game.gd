@@ -38,7 +38,7 @@ func on_button_states():
 		change_state(GameState.ENEMY_TURN)
 	elif current_state == GameState.ENEMY_TURN:
 		yield(get_tree().create_timer(.5),"timeout")
-		for en in EnemyManager.get_enemies_ordered_by_pos():
+		for en in EnemyManager.re_ordered_enemies_array():
 			en.move()
 			yield(en,"end_move")
 		yield(get_tree().create_timer(.5),"timeout")
