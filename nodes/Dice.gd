@@ -2,22 +2,27 @@ extends Control
 class_name Dice
 
 var value = -1
-var army
 var is_hide = true
 signal end_roll(value)
 signal on_click_dice(dice)
 
 func _ready():
 	randomize()
-	$Army.modulate.a = 0
-	$Sprite.modulate.a = 0
+	value = -1
 	$Sprite.frame = 6
 	$Button.connect("button_down",self,"on_click")
+
+func show_dice():
+	value = -1
+	$Sprite.frame = 6
+	is_hide = false
+	Effector.appear(self)
 
 func on_click():
 	emit_signal("on_click_dice",self)
 
 func roll():
+	if is_hide: return
 	Effector.show_float_text("roll_dice")
 	$Tween.interpolate_property($Sprite,"rotation",0,PI*4,1.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	$Tween.start()
@@ -28,22 +33,7 @@ func roll():
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_roll",value)
 
-func set_army(code):
-	print("SET ARMY ",code)
-	army = code
-	is_hide = false
-	if army: 
-		$Army.texture = load("res://assets/armies/ar_"+army+".png")
-		Effector.disappear($Sprite)
-		yield(get_tree().create_timer(.3),"timeout")
-		Effector.appear($Army)
-	else:
-		value = -1
-		$Sprite.frame = 6
-		Effector.disappear($Army)
-		Effector.appear($Sprite)
-
 func hide_dice():
+	value = -1
 	is_hide = true
-	Effector.disappear($Army)
-	Effector.disappear($Sprite)
+	Effector.disappear(self)

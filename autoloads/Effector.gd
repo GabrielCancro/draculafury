@@ -10,9 +10,12 @@ func appear(node):
 	tween.interpolate_property(node,"modulate:a",0,1,.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
-func disappear(node):
+func disappear(node,hide_end=false):
 	tween.interpolate_property(node,"modulate:a",null,0,.5,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.start()
+	if hide_end:
+		yield(tween,"tween_completed")
+		node.visible = false
 
 func move_to(node,pos):
 	tween.interpolate_property(node,"position",null,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)

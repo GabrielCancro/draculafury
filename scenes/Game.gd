@@ -20,21 +20,22 @@ func change_state(new_state):
 	if current_state == GameState.START:
 		Effector.show_float_text("PLAYER TURN!")
 		yield(get_tree().create_timer(1),"timeout")
-		$CLUI/DiceSet.restore_all_dices()
+		$CLUI/DiceSet.show_diceset()
 		yield(get_tree().create_timer(.5),"timeout")
 		$CLUI/ButtonAddDice.visible = true
 		show_states_button()
 	if current_state == GameState.ACTIONS:
-		$CLUI/DiceSet.roll_all_unrolled_dices()
+		$CLUI/DiceSet.roll_all_dices()
 		$CLUI/ButtonAddDice.visible = false
-		yield(get_tree().create_timer(1.5),"timeout")
+		yield($CLUI/DiceSet,"end_all_rolls")
 		disable_dices_click = false
 		show_states_button()
 	if current_state == GameState.ATTACKS:
 		disable_dices_click = true
+		$CLUI/DiceSet.hide_diceset()
 		yield(get_tree().create_timer(1.5),"timeout")
 		while true:
-			var army = $CLUI/DiceSet.get_and_hide_first_dice_army()
+			var army = $CLUI/PlayerActionList.get_and_hide_first_army()
 			if army:
 				ArmyManager.run_army_action(army)
 				yield(ArmyManager,"end_army_action")
@@ -71,14 +72,16 @@ func on_click_dice(dice):
 	if disable_dices_click:
 		Effector.show_float_text("disabled_dices_click")
 		return
-	if dice.army or dice.value==-1: return
+	if dice.value==-1: 
+		Effector.show_float_text("disabled_dice")
+		return
 	disable_dices_click = true
 	$CLUI/Belt.move_pawn(dice.value)
 	yield($CLUI/Belt,"end_move")
 	$CLUI/Belt.current_slot.set_lighted(true)
 	yield(get_tree().create_timer(.3),"timeout")
-	dice.set_army($CLUI/Belt.current_slot.army)
 	$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
 	$CLUI/Belt.clear_selected_slot()
+	dice.hide_dice()
 	yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false
