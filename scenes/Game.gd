@@ -11,6 +11,7 @@ func _ready():
 	$CLUI/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
 	Effector.add_hint($CLUI/ButtonStates,"ASD")
+	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
 
 func change_state(new_state):
 	current_state = new_state
@@ -77,6 +78,7 @@ func on_click_dice(dice):
 	$CLUI/Belt.current_slot.set_lighted(true)
 	yield(get_tree().create_timer(.3),"timeout")
 	dice.set_army($CLUI/Belt.current_slot.army)
+	$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
 	$CLUI/Belt.clear_selected_slot()
 	yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false

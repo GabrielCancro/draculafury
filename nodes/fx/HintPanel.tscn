@@ -41,6 +41,4 @@ rect_pivot_offset = Vector2( 710, 134 )
 custom_colors/default_color = Color( 0.87451, 0.87451, 0.87451, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "qweqwe[img=15]res://assets/slats/BT.png[/img] adasfqweqwe[img=15]res://assets/slats/BT.png[/img]qweqwe[img=15]res://assets/slatsqweqwe[img=15]res://assets/slats/BT.png[/img] adasfqweqwe[img=15]res://assets/slats/BT.png[/img]/BT.png[/img] adasfqweqwe[img=15]res://assets/slats/BT.png[/img]qweqwe[img=15]res://assets/slats/BT.png[/img] adasfqweqwe[img=15]res://assets/slats/BT.png[/img]qweqwe[img=15]res://assets/slats/BT.png[/img] ada"
-text = "qweqwe adasfqweqweqweqwe adasfqweqwe/BT.png adasfqweqweqweqwe adasfqweqweqweqwe ada"
 scroll_active = false

@@ -1,17 +1,19 @@
 extends Node
 
+signal on_change_stats(player_stats)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var PLAYER_STATS = {
+	"hp":10,
+	"hpm":10,
+	"xp":3,
+}
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 func damage(dam):
+	PLAYER_STATS.hp = max(PLAYER_STATS.hp-dam,0)
 	var player_node = get_node("/root/Game/Player")
 	Effector.shake(player_node)
 	Effector.blood_bg()
+	emit_signal("on_change_stats",PLAYER_STATS)

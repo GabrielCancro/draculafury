@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg7.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=5]
 [ext_resource path="res://nodes/fx/HintPanel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/player_character_1.png" type="Texture" id=7]
+[ext_resource path="res://nodes/PlayerUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://nodes/PlayerActionList.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -33,7 +35,7 @@ expand = true
 [node name="Player" type="Sprite" parent="."]
 unique_name_in_owner = true
 modulate = Color( 1, 0.984314, 0.564706, 1 )
-position = Vector2( 169, 759 )
+position = Vector2( 241, 759 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 7 )
 offset = Vector2( 32.5, -162.5 )
@@ -95,3 +97,15 @@ margin_left = -319.5
 margin_top = -161.0
 margin_right = 341.5
 margin_bottom = -32.0
+
+[node name="PlayerUI" parent="CLUI" instance=ExtResource( 8 )]
+margin_left = 11.0
+margin_top = 14.0
+margin_right = 11.0
+margin_bottom = 14.0
+
+[node name="PlayerActionList" parent="CLUI" instance=ExtResource( 9 )]
+margin_left = 68.0
+margin_top = 397.0
+margin_right = 108.0
+margin_bottom = 437.0
