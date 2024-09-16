@@ -24,27 +24,33 @@ margin_left = -408.5
 margin_top = -45.0
 margin_right = 408.5
 margin_bottom = 45.0
+custom_constants/separation = -4
 alignment = 1
 
 [node name="BeltSlot1" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 200.0
-margin_right = 280.0
+margin_left = 216.0
+margin_right = 296.0
+margin_bottom = 100.0
 
 [node name="BeltSlot2" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 284.0
-margin_right = 364.0
+margin_left = 292.0
+margin_right = 372.0
+margin_bottom = 100.0
 
 [node name="BeltSlot3" parent="HBox" instance=ExtResource( 3 )]
 margin_left = 368.0
 margin_right = 448.0
+margin_bottom = 100.0
 
 [node name="BeltSlot4" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 452.0
-margin_right = 532.0
+margin_left = 444.0
+margin_right = 524.0
+margin_bottom = 100.0
 
 [node name="BeltSlot5" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 536.0
-margin_right = 616.0
+margin_left = 520.0
+margin_right = 600.0
+margin_bottom = 100.0
 
 [node name="BeltSlot6" parent="HBox" instance=ExtResource( 3 )]
 visible = false
