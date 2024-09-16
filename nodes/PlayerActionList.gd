@@ -9,9 +9,10 @@ func _ready():
 
 func add_army(_army):
 	army = _army
-	for a in $HBox.get_children():
-		if !a.visible:
-			a.texture = load("res://assets/armies/ar_"+army+".png")
-			Effector.appear(a)
-			a.visible = true
+	for ar in $HBox.get_children():
+		if !ar.visible:
+			ar.modulate.a = 0
+			ar.texture = load("res://assets/armies/ar_"+army+".png")
+			Effector.appear(ar)
+			ar.visible = true
 			return

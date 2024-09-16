@@ -46,9 +46,9 @@ offset = Vector2( 32.5, -162.5 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -408.5
-margin_top = 34.0
+margin_top = 747.0
 margin_right = 408.5
-margin_bottom = 166.0
+margin_bottom = 879.0
 
 [node name="DiceSet" parent="CLUI" instance=ExtResource( 3 )]
 anchor_left = 0.5
@@ -56,9 +56,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -276.5
-margin_top = -297.0
+margin_top = 178.0
 margin_right = 276.5
-margin_bottom = -183.0
+margin_bottom = 292.0
 
 [node name="ButtonStates" type="Button" parent="CLUI"]
 anchor_left = 0.5
@@ -66,9 +66,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -123.0
-margin_top = -176.0
+margin_top = 105.0
 margin_right = 123.0
-margin_bottom = -112.0
+margin_bottom = 169.0
 custom_fonts/font = ExtResource( 5 )
 text = "RUN DICES"
 
@@ -81,31 +81,27 @@ custom_fonts/font = ExtResource( 5 )
 text = "ADD ENEMY"
 
 [node name="ButtonAddDice" type="Button" parent="CLUI"]
-margin_left = 1094.0
-margin_top = 173.0
-margin_right = 1283.0
-margin_bottom = 250.0
+margin_left = 1101.0
+margin_top = 650.0
+margin_right = 1149.0
+margin_bottom = 727.0
 custom_fonts/font = ExtResource( 5 )
-text = "ADD DICE"
+text = "+"
 
 [node name="HintPanel" parent="CLUI" instance=ExtResource( 6 )]
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -319.5
-margin_top = -161.0
-margin_right = 341.5
-margin_bottom = -32.0
+margin_left = -330.5
+margin_top = 24.0
+margin_right = 330.5
+margin_bottom = 153.0
 
 [node name="PlayerUI" parent="CLUI" instance=ExtResource( 8 )]
-margin_left = 11.0
-margin_top = 14.0
-margin_right = 11.0
-margin_bottom = 14.0
+margin_left = 43.0
+margin_top = 38.0
+margin_right = 43.0
+margin_bottom = 38.0
 
 [node name="PlayerActionList" parent="CLUI" instance=ExtResource( 9 )]
-margin_left = 68.0
-margin_top = 397.0
-margin_right = 108.0
-margin_bottom = 437.0
+margin_top = 186.0
+margin_bottom = 186.0
