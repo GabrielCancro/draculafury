@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/Game.gd" type="Script" id=4]
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=5]
 [ext_resource path="res://nodes/fx/HintPanel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/player_character_1.png" type="Texture" id=7]
+[ext_resource path="res://nodes/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://nodes/PlayerUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://nodes/PlayerActionList.tscn" type="PackedScene" id=9]
 [ext_resource path="res://nodes/WaveUI.tscn" type="PackedScene" id=10]
@@ -19,27 +19,30 @@ script = ExtResource( 4 )
 [node name="CLBG" type="CanvasLayer" parent="."]
 layer = -1
 
+[node name="bgcolor" type="ColorRect" parent="CLBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.243137, 0.0862745, 0.0901961, 1 )
+
+[node name="background" type="TextureRect" parent="CLBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+margin_bottom = -72.0
+texture = ExtResource( 1 )
+expand = true
+
 [node name="blood" type="ColorRect" parent="CLBG"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.654902, 0, 0, 1 )
 
-[node name="background" type="TextureRect" parent="CLBG"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 1 )
-expand = true
-
 [node name="Enemies" type="Control" parent="."]
 
-[node name="Player" type="Sprite" parent="."]
-unique_name_in_owner = true
-modulate = Color( 1, 0.984314, 0.564706, 1 )
-position = Vector2( 241, 759 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 7 )
-offset = Vector2( 32.5, -162.5 )
+[node name="Player" parent="." instance=ExtResource( 7 )]
+unique_name_in_owner = false
+position = Vector2( 327, 655 )
 
 [node name="CLUI" type="CanvasLayer" parent="."]
 
@@ -88,6 +91,14 @@ margin_right = 1149.0
 margin_bottom = 716.0
 custom_fonts/font = ExtResource( 5 )
 text = "+"
+
+[node name="ButtonAnim" type="Button" parent="CLUI"]
+margin_left = 35.0
+margin_top = 829.0
+margin_right = 153.0
+margin_bottom = 873.0
+custom_fonts/font = ExtResource( 5 )
+text = "ANIM"
 
 [node name="PlayerUI" parent="CLUI" instance=ExtResource( 8 )]
 margin_left = 43.0

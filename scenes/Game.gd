@@ -9,6 +9,7 @@ func _ready():
 	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")
 	$CLUI/ButtonAddEnemy.connect("button_down",EnemyManager,"add_rnd_enemy")
 	$CLUI/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
+	$CLUI/ButtonAnim.connect("button_down",$Player,"set_random_anim")
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
 	Effector.add_hint($CLUI/ButtonStates,"ASD")
 	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
