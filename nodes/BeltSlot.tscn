@@ -5,9 +5,9 @@
 [ext_resource path="res://assets/armies.png" type="Texture" id=3]
 
 [node name="BeltSlot" type="Control"]
-margin_right = 80.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 80, 100 )
+margin_right = 100.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 100, 130 )
 rect_pivot_offset = Vector2( 40, 0 )
 script = ExtResource( 1 )
 
@@ -18,21 +18,18 @@ anchor_bottom = 1.0
 color = Color( 0.266667, 0.0745098, 0.0745098, 1 )
 
 [node name="beltbg" type="Sprite" parent="."]
-position = Vector2( 48, 51 )
-scale = Vector2( 0.76383, 0.76383 )
+position = Vector2( 64, 67 )
 texture = ExtResource( 2 )
 
 [node name="bgselected" type="ColorRect" parent="."]
-visible = false
-margin_left = 3.0
-margin_top = 3.0
-margin_right = 75.0
-margin_bottom = 98.0
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 95.0
+margin_bottom = 123.0
 color = Color( 0.913725, 1, 0.301961, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 39.125, 49.5678 )
-scale = Vector2( 0.784575, 0.784575 )
+position = Vector2( 52, 64 )
 texture = ExtResource( 3 )
 hframes = 8
 frame = 7

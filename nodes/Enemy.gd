@@ -2,6 +2,7 @@ extends Node2D
 
 var enemy_data
 var floor_y = 730
+var fly_y = -220
 var end_x = 1500
 var step_size = 120
 
@@ -26,7 +27,7 @@ func set_tile_pos(_x):
 	z_index = 100 - enemy_data.tile_pos_x*10 + enemy_data.tile_pos_y
 	#print("MOVE ENEMY: "+enemy_data.name,"  to: ",_x)
 	var nx = end_x - step_size*8 + ( enemy_data.tile_pos_x * 100 )
-	var ny = floor_y - ( enemy_data.tile_pos_y * 180 )
+	var ny = floor_y + ( enemy_data.tile_pos_y * fly_y )
 	Effector.move_to(self,Vector2(nx,ny))
 
 func move(val = -enemy_data.mov):

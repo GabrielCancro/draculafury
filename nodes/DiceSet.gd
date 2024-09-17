@@ -29,12 +29,12 @@ func roll_all_dices():
 	emit_signal("end_all_rolls")
 
 func is_all_dices_rolled():
-	for d in $HBoxDices.get_children(): if !d.army and !d.is_hide: return false
+	for d in $HBoxDices.get_children(): if d.value==-1: return false
 	return true
 
 func add_extra_dice():
 	for d in $HBoxDices.get_children():
-		if d.is_hide:
+		if !d.visible:
 			d.show_dice()
 			break
 

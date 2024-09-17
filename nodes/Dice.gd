@@ -2,7 +2,6 @@ extends Control
 class_name Dice
 
 var value = -1
-var is_hide = true
 signal end_roll(value)
 signal on_click_dice(dice)
 
@@ -10,19 +9,20 @@ func _ready():
 	randomize()
 	value = -1
 	$Sprite.frame = 6
+	visible = false
 	$Button.connect("button_down",self,"on_click")
 
 func show_dice():
 	value = -1
 	$Sprite.frame = 6
-	is_hide = false
+	visible = true
 	Effector.appear(self)
 
 func on_click():
 	emit_signal("on_click_dice",self)
 
 func roll():
-	if is_hide: return
+	if !visible: return
 	Effector.show_float_text("roll_dice")
 	$Tween.interpolate_property($Sprite,"rotation",0,PI*4,1.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	$Tween.start()
@@ -35,5 +35,4 @@ func roll():
 
 func hide_dice():
 	value = -1
-	is_hide = true
-	Effector.disappear(self)
+	Effector.disappear(self,true)

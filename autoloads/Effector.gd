@@ -14,7 +14,7 @@ func disappear(node,hide_end=false):
 	tween.interpolate_property(node,"modulate:a",null,0,.5,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.start()
 	if hide_end:
-		yield(tween,"tween_completed")
+		yield(get_tree().create_timer(.5),"timeout")
 		node.visible = false
 
 func move_to(node,pos):

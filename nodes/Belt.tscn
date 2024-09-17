@@ -5,6 +5,7 @@
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=3]
 
 [node name="Belt" type="Control"]
+margin_top = -18.0
 margin_right = 817.0
 margin_bottom = 132.0
 mouse_filter = 1
@@ -21,36 +22,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -408.5
-margin_top = -45.0
+margin_top = -64.0
 margin_right = 408.5
-margin_bottom = 45.0
-custom_constants/separation = -4
+margin_bottom = 66.0
+custom_constants/separation = 0
 alignment = 1
 
 [node name="BeltSlot1" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 216.0
-margin_right = 296.0
-margin_bottom = 100.0
+margin_left = 158.0
+margin_right = 258.0
 
 [node name="BeltSlot2" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 292.0
-margin_right = 372.0
-margin_bottom = 100.0
+margin_left = 258.0
+margin_right = 358.0
 
 [node name="BeltSlot3" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 368.0
-margin_right = 448.0
-margin_bottom = 100.0
+margin_left = 358.0
+margin_right = 458.0
 
 [node name="BeltSlot4" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 444.0
-margin_right = 524.0
-margin_bottom = 100.0
+margin_left = 458.0
+margin_right = 558.0
 
 [node name="BeltSlot5" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 520.0
-margin_right = 600.0
-margin_bottom = 100.0
+margin_left = 558.0
+margin_right = 658.0
 
 [node name="BeltSlot6" parent="HBox" instance=ExtResource( 3 )]
 visible = false
@@ -72,31 +68,34 @@ margin_right = 742.0
 [node name="ButtonL" type="Button" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -248.5
-margin_top = 42.0
-margin_right = -217.5
-margin_bottom = 91.0
+margin_left = 322.5
+margin_top = 79.0
+margin_right = 353.5
+margin_bottom = 128.0
+text = "<<"
 
 [node name="ButtonR" type="Button" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 215.5
-margin_top = 39.0
-margin_right = 246.5
-margin_bottom = 88.0
+margin_left = 368.5
+margin_top = 78.0
+margin_right = 399.5
+margin_bottom = 127.0
+text = ">>"
 
 [node name="pawn" type="Control" parent="."]
-margin_right = 80.0
-margin_bottom = 90.0
+margin_right = 100.0
+margin_bottom = 130.0
 mouse_filter = 2
 
 [node name="pawn_img" type="TextureRect" parent="pawn"]
+modulate = Color( 0.917647, 1, 0, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -19.5
-margin_top = -23.0
-margin_right = 19.5
-margin_bottom = 22.0
+margin_left = -12.0
+margin_top = -9.0
+margin_right = 12.0
+margin_bottom = 17.0
 mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
