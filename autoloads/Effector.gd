@@ -22,14 +22,19 @@ func move_to(node,pos):
 	tween.start()
 
 func shake(node,power=6,time=.5):
-	var ini_pos = node.position
+	var isControl = ("rect_position" in node)
+	var ini_pos
+	if isControl: ini_pos = node.rect_position
+	else: ini_pos = node.position
 	randomize()
 	while time>0:
 		if !is_instance_valid(node): return
-		node.position = ini_pos + Vector2(rand_range(-power,power),rand_range(-power/2,power/2))
+		if isControl: node.rect_position = ini_pos + Vector2(rand_range(-power,power),rand_range(-power/2,power/2))
+		else: node.position = ini_pos + Vector2(rand_range(-power,power),rand_range(-power/2,power/2))
 		time -= .025
 		yield(get_tree().create_timer(.025),"timeout")
-	node.position = ini_pos
+	if isControl: node.rect_position = ini_pos
+	else: node.position = ini_pos
 
 func blood_bg():
 	var blood = get_node("/root/Game/CLBG/blood")

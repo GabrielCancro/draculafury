@@ -9,15 +9,16 @@ var step_size = 120
 signal end_move()
 
 func _ready():
+	modulate.a = 0
+	Effector.appear(self)
 	$Button.connect("button_down",self,"move")
 
 func set_data(_data):
 	enemy_data = _data
 	$Label.text = str(enemy_data.hp)
 	position = Vector2(1300,600)
-	set_tile_pos(8)
+	set_tile_pos(EnemyManager.max_x_pos)
 	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
-	Effector.appear(self)
 
 func set_tile_pos(_x):
 	enemy_data["tile_pos_x"] = _x 

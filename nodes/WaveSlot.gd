@@ -13,5 +13,5 @@ func set_data(_enemy):
 		$Sprite2.frame = EnemyManager.get_frame(enemy)
 		$Sprite2.visible = true
 	else:
-		$Sprite.modulate = Color(.3,.3,.3,1)
+		$Sprite.modulate = Color(.8,.8,.8,1)
 		$Sprite2.visible = false

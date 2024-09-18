@@ -1,7 +1,7 @@
 extends Node
 
 var ENEMIES_ACTIVES = []
-
+var max_x_pos = 8
 var ENEMIES = {
 	"vampire":{"hp":20,"mov":2,"dam":1, "ran":1,"fly":false},
 	"bat":{"hp":10,"mov":2,"dam":1, "ran":1,"fly":true},
