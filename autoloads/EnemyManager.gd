@@ -52,3 +52,6 @@ func get_first_enemy():
 
 func sort_custom(a,b):
 	return ( a.z_index > b.z_index )
+
+func get_frame(enemy):
+	return ENEMIES.keys().find(enemy)

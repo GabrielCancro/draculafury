@@ -82,7 +82,7 @@ margin_top = 213.0
 margin_right = 1577.0
 margin_bottom = 280.0
 custom_fonts/font = ExtResource( 5 )
-text = "ADD ENEMY"
+text = "ADVANCE"
 
 [node name="ButtonAddDice" type="Button" parent="CLUI"]
 margin_left = 1101.0

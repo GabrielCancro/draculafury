@@ -1,13 +1,13 @@
 extends Control
 
-enum GameState {START,ACTIONS,ATTACKS,ENEMIES}
+enum GameState {START,ACTIONS,ATTACKS,ENEMIES,WAVE}
 var current_state
 var disable_dices_click = true
 
 func _ready():
 	change_state(GameState.START)
 	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")
-	$CLUI/ButtonAddEnemy.connect("button_down",EnemyManager,"add_rnd_enemy")
+	$CLUI/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
 	$CLUI/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
 	$CLUI/ButtonAnim.connect("button_down",$Player,"set_random_anim")
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
@@ -25,13 +25,13 @@ func change_state(new_state):
 		yield(get_tree().create_timer(.5),"timeout")
 		$CLUI/ButtonAddDice.visible = true
 		show_states_button()
-	if current_state == GameState.ACTIONS:
+	elif current_state == GameState.ACTIONS:
 		$CLUI/DiceSet.roll_all_dices()
 		$CLUI/ButtonAddDice.visible = false
 		yield($CLUI/DiceSet,"end_all_rolls")
 		disable_dices_click = false
 		show_states_button()
-	if current_state == GameState.ATTACKS:
+	elif current_state == GameState.ATTACKS:
 		disable_dices_click = true
 		$CLUI/DiceSet.hide_diceset()
 		yield(get_tree().create_timer(1.5),"timeout")
@@ -43,7 +43,7 @@ func change_state(new_state):
 			else: break
 		yield(get_tree().create_timer(.7),"timeout")
 		change_state(GameState.ENEMIES)
-	if current_state == GameState.ENEMIES:
+	elif current_state == GameState.ENEMIES:
 		yield(get_tree().create_timer(.5),"timeout")
 		Effector.show_float_text("ENEMIES TURN!")
 		yield(get_tree().create_timer(.7),"timeout")
@@ -51,7 +51,11 @@ func change_state(new_state):
 		for en in EnemyManager.re_ordered_enemies_array():
 			en.move()
 			yield(en,"end_move")
-		yield(get_tree().create_timer(2.0),"timeout")
+		yield(get_tree().create_timer(1.5),"timeout")
+		change_state(GameState.WAVE)
+	elif current_state == GameState.WAVE:
+		get_node("/root/Game/CLUI/WaveUI").advance_wave()
+		yield(get_tree().create_timer(1.5),"timeout")
 		change_state(GameState.START)
 
 func on_button_states():
