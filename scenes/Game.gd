@@ -87,6 +87,12 @@ func on_click_dice(dice):
 	yield(get_tree().create_timer(.3),"timeout")
 	$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
 	$CLUI/Belt.clear_selected_slot()
-	dice.hide_dice()
-	yield(get_tree().create_timer(.3),"timeout")
+	if dice.value == 6: 
+		Effector.shake(dice)
+		yield(get_tree().create_timer(.2),"timeout")
+		dice.roll()
+		yield(get_tree().create_timer(.7),"timeout")
+	else:
+		dice.hide_dice()
+		yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false

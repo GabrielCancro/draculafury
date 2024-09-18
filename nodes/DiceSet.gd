@@ -2,6 +2,7 @@ extends Control
 
 var current_dice:Dice
 var amount_dices = 2
+var six_checked = 0
 signal on_click_dice(dice)
 signal end_all_rolls()
 

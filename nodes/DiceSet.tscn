@@ -5,52 +5,65 @@
 
 [node name="DiceSet" type="Control"]
 margin_right = 553.0
-margin_bottom = 114.0
+margin_bottom = 47.0
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.701961 )
 
 [node name="HBoxDices" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -256.0
-margin_top = -40.0
-margin_right = 256.0
-margin_bottom = 40.0
-custom_constants/separation = 28
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 19
 alignment = 1
 
 [node name="Dice1" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 0.0
+margin_left = 10.0
 margin_top = 0.0
-margin_right = 80.0
-margin_bottom = 80.0
+margin_right = 60.0
+margin_bottom = 50.0
 
 [node name="Dice2" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 108.0
+margin_left = 79.0
 margin_top = 0.0
-margin_right = 188.0
-margin_bottom = 80.0
+margin_right = 129.0
+margin_bottom = 50.0
 
 [node name="Dice3" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 216.0
+margin_left = 148.0
 margin_top = 0.0
-margin_right = 296.0
-margin_bottom = 80.0
+margin_right = 198.0
+margin_bottom = 50.0
 
 [node name="Dice4" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 324.0
+margin_left = 217.0
 margin_top = 0.0
-margin_right = 404.0
-margin_bottom = 80.0
+margin_right = 267.0
+margin_bottom = 50.0
 
 [node name="Dice5" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 432.0
+margin_left = 286.0
 margin_top = 0.0
-margin_right = 512.0
-margin_bottom = 80.0
+margin_right = 336.0
+margin_bottom = 50.0
+
+[node name="Dice6" parent="HBoxDices" instance=ExtResource( 1 )]
+margin_left = 355.0
+margin_top = 0.0
+margin_right = 405.0
+margin_bottom = 50.0
+
+[node name="Dice7" parent="HBoxDices" instance=ExtResource( 1 )]
+margin_left = 424.0
+margin_top = 0.0
+margin_right = 474.0
+margin_bottom = 50.0
+
+[node name="Dice8" parent="HBoxDices" instance=ExtResource( 1 )]
+margin_left = 493.0
+margin_top = 0.0
+margin_right = 543.0
+margin_bottom = 50.0

@@ -59,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -276.5
-margin_top = 172.0
-margin_right = 276.5
-margin_bottom = 286.0
+margin_left = -276.0
+margin_top = 244.0
+margin_right = 277.0
+margin_bottom = 301.0
 
 [node name="ButtonStates" type="Button" parent="CLUI"]
 anchor_left = 0.5
@@ -70,9 +70,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -123.0
-margin_top = 99.0
+margin_top = 158.0
 margin_right = 123.0
-margin_bottom = 163.0
+margin_bottom = 222.0
 custom_fonts/font = ExtResource( 5 )
 text = "RUN DICES"
 
@@ -85,10 +85,10 @@ custom_fonts/font = ExtResource( 5 )
 text = "ADVANCE"
 
 [node name="ButtonAddDice" type="Button" parent="CLUI"]
-margin_left = 1101.0
-margin_top = 639.0
-margin_right = 1149.0
-margin_bottom = 716.0
+margin_left = 1064.0
+margin_top = 696.0
+margin_right = 1112.0
+margin_bottom = 740.0
 custom_fonts/font = ExtResource( 5 )
 text = "+"
 
@@ -107,8 +107,10 @@ margin_right = 43.0
 margin_bottom = 38.0
 
 [node name="PlayerActionList" parent="CLUI" instance=ExtResource( 9 )]
-margin_top = 186.0
-margin_bottom = 186.0
+margin_left = -115.0
+margin_top = 213.0
+margin_right = 621.0
+margin_bottom = 314.0
 
 [node name="WaveUI" parent="CLUI" instance=ExtResource( 10 )]
 anchor_left = 1.0
@@ -125,3 +127,35 @@ margin_left = -372.5
 margin_top = 56.0
 margin_right = 288.5
 margin_bottom = 185.0
+
+[node name="OverFx" type="Control" parent="CLUI"]
+visible = false
+margin_right = 103.0
+margin_bottom = 47.0
+mouse_filter = 2
+
+[node name="c1" type="ColorRect" parent="CLUI/OverFx"]
+anchor_bottom = 1.0
+rect_min_size = Vector2( 3, 3 )
+color = Color( 0.72549, 0.72549, 0.72549, 1 )
+
+[node name="c2" type="ColorRect" parent="CLUI/OverFx"]
+anchor_right = 1.0
+rect_min_size = Vector2( 3, 3 )
+color = Color( 0.72549, 0.72549, 0.72549, 1 )
+
+[node name="c3" type="ColorRect" parent="CLUI/OverFx"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+rect_min_size = Vector2( 3, 3 )
+color = Color( 0.72549, 0.72549, 0.72549, 1 )
+
+[node name="c4" type="ColorRect" parent="CLUI/OverFx"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.0
+rect_min_size = Vector2( 3, 3 )
+color = Color( 0.72549, 0.72549, 0.72549, 1 )

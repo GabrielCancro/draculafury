@@ -10,6 +10,7 @@ func _ready():
 
 func set_army(code):
 	army = code
+	Effector.add_hint(self,"army_"+code)
 	$Sprite.frame = ArmyManager.ARMIES.find(code)
 
 func set_lighted(val):

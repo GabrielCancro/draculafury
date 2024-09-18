@@ -4,16 +4,16 @@
 [ext_resource path="res://nodes/Dice.gd" type="Script" id=2]
 
 [node name="Dice" type="Control"]
-margin_left = -40.0
-margin_top = -40.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 80, 80 )
+margin_left = -25.0
+margin_top = -25.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 50, 50 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 40, 40 )
-scale = Vector2( 0.7, 0.7 )
+position = Vector2( 25, 25 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 hframes = 7
 
