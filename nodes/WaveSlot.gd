@@ -8,6 +8,8 @@ func _ready():
 
 func set_data(_enemy):
 	enemy = _enemy
+	if enemy: Effector.add_hint(self,"enemy_desc_"+enemy)
+	else: Effector.add_hint(self,"wave_empty_slot")
 	if enemy:
 		$Sprite.modulate = Color(1,1,1,1)
 		$Sprite2.frame = EnemyManager.get_frame(enemy)

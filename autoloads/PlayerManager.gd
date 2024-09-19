@@ -17,3 +17,10 @@ func damage(dam):
 	Effector.shake(player_node)
 	Effector.blood_bg()
 	emit_signal("on_change_stats",PLAYER_STATS)
+
+func heal(val):
+	PLAYER_STATS.hp = min(PLAYER_STATS.hp+val,PLAYER_STATS.hpm)
+	var player_node = get_node("/root/Game/Player")
+	#Effector.shake(player_node)
+	#Effector.blood_bg()
+	emit_signal("on_change_stats",PLAYER_STATS)

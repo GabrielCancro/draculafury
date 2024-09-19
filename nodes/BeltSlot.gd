@@ -6,7 +6,7 @@ var army
 func _ready():
 	$bgselected.visible = false
 	set_army( ArmyManager.ARMIES[get_index()])
-	Effector.add_hint($bgcolor,"army_desc_"+army)
+	Effector.add_hint(self,"army_desc_"+army)
 
 func set_army(code):
 	army = code

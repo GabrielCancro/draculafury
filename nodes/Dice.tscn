@@ -22,9 +22,9 @@ hframes = 7
 [node name="Button" type="Button" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -33.0
-margin_top = -36.0
-margin_right = 35.0
-margin_bottom = 35.0
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 7.0
+margin_bottom = 8.0
 focus_mode = 0
 flat = true

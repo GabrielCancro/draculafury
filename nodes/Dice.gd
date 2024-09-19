@@ -6,6 +6,7 @@ signal end_roll(value)
 signal on_click_dice(dice)
 
 func _ready():
+	Effector.add_over($Button)
 	randomize()
 	value = -1
 	$Sprite.frame = 6
