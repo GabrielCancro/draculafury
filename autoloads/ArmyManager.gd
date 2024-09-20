@@ -20,10 +20,30 @@ func _run_breathe():
 	if EnemyManager.get_enemy_in_pos(0,0) or EnemyManager.get_enemy_in_pos(0,1):
 		Effector.show_float_text("UFFFFF!!")
 	else: PlayerManager.heal(10)
+	yield(get_tree().create_timer(.5),"timeout")
+	emit_signal("end_army_action")
 
 func _run_gun():
 	var en = EnemyManager.get_first_enemy()
 	if en:
-		en.enemy_damage(randi()%5+4)
-		yield(get_tree().create_timer(1.0),"timeout")
-		emit_signal("end_army_action")
+		en.enemy_damage(1)
+		yield(get_tree().create_timer(.7),"timeout")
+	emit_signal("end_army_action")
+
+func _run_kick():
+	var en = EnemyManager.get_enemy_in_pos(0,0)
+	if en:
+		en.enemy_damage(1)
+		yield(get_tree().create_timer(.7),"timeout")
+		EnemyManager.move_to_first_free_space(en)
+		EnemyManager.move_to_first_free_space(en)
+	yield(get_tree().create_timer(.5),"timeout")
+	emit_signal("end_army_action")
+
+func _run_rapier():
+	# TODO
+	var en = EnemyManager.get_first_enemy(2)
+	if en:
+		en.enemy_damage(2)
+	yield(get_tree().create_timer(.5),"timeout")
+	emit_signal("end_army_action")

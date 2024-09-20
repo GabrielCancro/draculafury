@@ -45,13 +45,22 @@ func re_ordered_enemies_array():
 		move_child( ENEMIES_ACTIVES[i], i )
 	return ENEMIES_ACTIVES
 
-func get_first_enemy():
+func get_first_enemy(ran=8):
 	re_ordered_enemies_array()
 	if ENEMIES_ACTIVES.size()<=0: return null
-	else: return ENEMIES_ACTIVES[0]
+	else: 
+		if ENEMIES_ACTIVES[0].enemy_data.tile_pos_x<ran: return ENEMIES_ACTIVES[0]
+		else: return null
 
 func sort_custom(a,b):
 	return ( a.z_index > b.z_index )
 
 func get_frame(enemy):
 	return ENEMIES.keys().find(enemy)
+
+func move_to_first_free_space(en):
+	for _x in range(en.enemy_data.tile_pos_x,8):
+		if !get_enemy_in_pos(_x,0):
+			en.set_tile_pos(_x)
+			break
+	return false
