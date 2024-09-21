@@ -2,7 +2,7 @@ extends Control
 class_name Belt
 
 var pawn_pos = 1
-var max_slots = 5
+var max_slots = 8
 var current_slot
 
 signal end_move(army_index)

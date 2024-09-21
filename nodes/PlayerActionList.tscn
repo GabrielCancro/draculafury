@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://nodes/PlayerActionList.gd" type="Script" id=1]
-[ext_resource path="res://assets/armies/ar_gun.png" type="Texture" id=2]
+[ext_resource path="res://assets/armies_icons.png" type="Texture" id=2]
 
 [node name="PlayerActionList" type="Control"]
 margin_right = 736.0
@@ -11,117 +11,142 @@ script = ExtResource( 1 )
 [node name="HBox" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -20.0
 custom_constants/separation = -8
 alignment = 1
 
-[node name="ar1" type="TextureRect" parent="HBox"]
-margin_left = 42.0
-margin_right = 142.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 2 )
-expand = true
+[node name="a1" type="ColorRect" parent="HBox"]
+margin_left = 76.0
+margin_right = 156.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ar1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.121569 )
-
-[node name="ar2" type="TextureRect" parent="HBox"]
-margin_left = 134.0
-margin_right = 234.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Sprite" type="Sprite" parent="HBox/a1"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
-expand = true
+hframes = 4
+vframes = 2
+
+[node name="a2" type="ColorRect" parent="HBox"]
+margin_left = 148.0
+margin_right = 228.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ar2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.121569 )
-
-[node name="ar3" type="TextureRect" parent="HBox"]
-margin_left = 226.0
-margin_right = 326.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Sprite" type="Sprite" parent="HBox/a2"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
-expand = true
+hframes = 4
+vframes = 2
+
+[node name="a3" type="ColorRect" parent="HBox"]
+margin_left = 220.0
+margin_right = 300.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ar3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.121569 )
-
-[node name="ar4" type="TextureRect" parent="HBox"]
-margin_left = 318.0
-margin_right = 418.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Sprite" type="Sprite" parent="HBox/a3"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
-expand = true
+hframes = 4
+vframes = 2
+
+[node name="a4" type="ColorRect" parent="HBox"]
+margin_left = 292.0
+margin_right = 372.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ar4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.121569 )
-
-[node name="ar5" type="TextureRect" parent="HBox"]
-margin_left = 410.0
-margin_right = 510.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Sprite" type="Sprite" parent="HBox/a4"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
-expand = true
+hframes = 4
+vframes = 2
+
+[node name="a5" type="ColorRect" parent="HBox"]
+margin_left = 364.0
+margin_right = 444.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ar5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.121569 )
-
-[node name="ar6" type="TextureRect" parent="HBox"]
-margin_left = 502.0
-margin_right = 602.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Sprite" type="Sprite" parent="HBox/a5"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
-expand = true
+hframes = 4
+vframes = 2
+
+[node name="a6" type="ColorRect" parent="HBox"]
+margin_left = 436.0
+margin_right = 516.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ar6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.121569 )
-
-[node name="ar7" type="TextureRect" parent="HBox"]
-margin_left = 594.0
-margin_right = 694.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Sprite" type="Sprite" parent="HBox/a6"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
-expand = true
+hframes = 4
+vframes = 2
+
+[node name="a7" type="ColorRect" parent="HBox"]
+margin_left = 508.0
+margin_right = 588.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="HBox/ar7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.121569 )
+[node name="Sprite" type="Sprite" parent="HBox/a7"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 2 )
+hframes = 4
+vframes = 2
+
+[node name="a8" type="ColorRect" parent="HBox"]
+margin_left = 580.0
+margin_right = 660.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="HBox/a8"]
+position = Vector2( 39, 39 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 2 )
+hframes = 4
+vframes = 2

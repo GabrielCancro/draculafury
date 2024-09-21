@@ -1,10 +1,10 @@
 extends Node
 
 var ENEMIES_ACTIVES = []
-var max_x_pos = 8
+var max_x_pos = 7
 var ENEMIES = {
-	"vampire":{"hp":20,"mov":2,"dam":1, "ran":1,"fly":false},
-	"bat":{"hp":10,"mov":2,"dam":1, "ran":1,"fly":true},
+	"vampire":{"hp":5,"mov":1,"dam":1, "ran":1,"fly":false},
+	"bat":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":true},
 }
 
 func get_enemy_data(code):
@@ -45,12 +45,21 @@ func re_ordered_enemies_array():
 		move_child( ENEMIES_ACTIVES[i], i )
 	return ENEMIES_ACTIVES
 
-func get_first_enemy(ran=8):
+func get_first_enemy(ran=max_x_pos+1,forced_y=-1):
 	re_ordered_enemies_array()
-	if ENEMIES_ACTIVES.size()<=0: return null
-	else: 
-		if ENEMIES_ACTIVES[0].enemy_data.tile_pos_x<ran: return ENEMIES_ACTIVES[0]
-		else: return null
+	for en in ENEMIES_ACTIVES:
+		if en.enemy_data.tile_pos_x < ran: 
+			if forced_y == -1 || en.enemy_data.tile_pos_y == forced_y: 
+				return en
+	return null
+
+func get_enemy_in_same_column(enemy):
+	if !enemy: return null
+	return get_enemy_in_pos(enemy.enemy_data.tile_pos_x, abs(enemy.enemy_data.tile_pos_y-1))
+
+func get_next_in_same_row(enemy):
+	if !enemy: return null
+	return get_enemy_in_pos(enemy.enemy_data.tile_pos_x+1, enemy.enemy_data.tile_pos_y)
 
 func sort_custom(a,b):
 	return ( a.z_index > b.z_index )
@@ -59,8 +68,16 @@ func get_frame(enemy):
 	return ENEMIES.keys().find(enemy)
 
 func move_to_first_free_space(en):
-	for _x in range(en.enemy_data.tile_pos_x,8):
+	for _x in range(en.enemy_data.tile_pos_x,EnemyManager.max_x_pos+1):
 		if !get_enemy_in_pos(_x,0):
 			en.set_tile_pos(_x)
 			break
+	return false
+
+func have_close_enemy(ran,forced_y=-1):
+	re_ordered_enemies_array()
+	for en in ENEMIES_ACTIVES:
+		if en.enemy_data.tile_pos_x < ran: 
+			if forced_y != -1 || en.enemy_data.tile_pos_y == forced_y:
+				return true
 	return false

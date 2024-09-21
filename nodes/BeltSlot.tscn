@@ -16,14 +16,15 @@ position = Vector2( 64, 67 )
 texture = ExtResource( 2 )
 
 [node name="bgselected" type="ColorRect" parent="."]
-margin_left = 9.0
+visible = false
+margin_left = 8.0
 margin_top = 6.0
-margin_right = 95.0
-margin_bottom = 123.0
+margin_right = 96.0
+margin_bottom = 125.0
 mouse_filter = 2
 color = Color( 0.913725, 1, 0.301961, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 52, 64 )
+position = Vector2( 52, 66 )
 texture = ExtResource( 3 )
 hframes = 8

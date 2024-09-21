@@ -11,7 +11,6 @@ func _ready():
 	$CLUI/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
 	$CLUI/ButtonAnim.connect("button_down",$Player,"set_random_anim")
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
-	Effector.add_hint($CLUI/ButtonStates,"ASD")
 	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
 
 func change_state(new_state):
@@ -46,7 +45,6 @@ func change_state(new_state):
 	elif current_state == GameState.ENEMIES:
 		yield(get_tree().create_timer(.5),"timeout")
 		Effector.show_float_text("ENEMIES TURN!")
-		yield(get_tree().create_timer(.7),"timeout")
 		yield(get_tree().create_timer(.5),"timeout")
 		for en in EnemyManager.re_ordered_enemies_array():
 			en.move()
@@ -69,8 +67,8 @@ func hide_states_button():
 
 func show_states_button():
 	$CLUI/ButtonStates.disabled = false
-	if current_state==GameState.START: $CLUI/ButtonStates.text = "ROLL DICES"
-	elif current_state==GameState.ACTIONS: $CLUI/ButtonStates.text = "ATTACK!!"
+	if current_state==GameState.START: $CLUI/ButtonStates.text = "ROLL"
+	elif current_state==GameState.ACTIONS: $CLUI/ButtonStates.text = "END"
 	Effector.appear($CLUI/ButtonStates)
 
 func on_click_dice(dice):

@@ -30,58 +30,57 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="BeltSlot1" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 158.0
-margin_right = 258.0
+margin_left = 8.0
+margin_right = 108.0
 
 [node name="BeltSlot2" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 258.0
-margin_right = 358.0
+margin_left = 108.0
+margin_right = 208.0
 
 [node name="BeltSlot3" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 358.0
-margin_right = 458.0
+margin_left = 208.0
+margin_right = 308.0
 
 [node name="BeltSlot4" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 458.0
-margin_right = 558.0
+margin_left = 308.0
+margin_right = 408.0
 
 [node name="BeltSlot5" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 558.0
-margin_right = 658.0
+margin_left = 408.0
+margin_right = 508.0
 
 [node name="BeltSlot6" parent="HBox" instance=ExtResource( 3 )]
-visible = false
-margin_left = 578.0
-margin_right = 658.0
+margin_left = 508.0
+margin_right = 608.0
 
 [node name="BeltSlot7" parent="HBox" instance=ExtResource( 3 )]
-visible = false
-margin_left = 620.0
-margin_right = 700.0
+margin_left = 608.0
+margin_right = 708.0
 
 [node name="BeltSlot8" parent="HBox" instance=ExtResource( 3 )]
-visible = false
-margin_left = 662.0
-margin_right = 742.0
+margin_left = 708.0
+margin_right = 808.0
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="ButtonL" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.278431 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 322.5
-margin_top = 79.0
-margin_right = 353.5
-margin_bottom = 128.0
+margin_left = -442.5
+margin_top = 92.0
+margin_right = -411.5
+margin_bottom = 141.0
 text = "<<"
 
 [node name="ButtonR" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.278431 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 368.5
-margin_top = 78.0
-margin_right = 399.5
-margin_bottom = 127.0
+margin_left = 431.5
+margin_top = 93.0
+margin_right = 462.5
+margin_bottom = 142.0
 text = ">>"
 
 [node name="pawn" type="Control" parent="."]

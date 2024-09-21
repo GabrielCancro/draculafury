@@ -4,7 +4,7 @@ var enemy_data
 var floor_y = 680
 var fly_y = -220
 var end_x = 1500
-var step_size = 120
+var step_size = 150
 
 signal end_move()
 
@@ -24,10 +24,9 @@ func set_tile_pos(_x):
 	enemy_data["tile_pos_x"] = _x 
 	enemy_data["tile_pos_y"] = 0
 	if enemy_data.fly: enemy_data["tile_pos_y"] = 1
-	z_index = 100 - enemy_data.tile_pos_x*10 + enemy_data.tile_pos_y
-	z_index = 100 - enemy_data.tile_pos_x*10 + enemy_data.tile_pos_y
+	z_index = 100 - enemy_data.tile_pos_x*10 - enemy_data.tile_pos_y
 	#print("MOVE ENEMY: "+enemy_data.name,"  to: ",_x)
-	var nx = end_x - step_size*8 + ( enemy_data.tile_pos_x * 100 )
+	var nx = 1600 - (EnemyManager.max_x_pos-enemy_data.tile_pos_x) * step_size - step_size/2
 	var ny = floor_y + ( enemy_data.tile_pos_y * fly_y )
 	Effector.move_to(self,Vector2(nx,ny))
 
@@ -53,10 +52,10 @@ func enemy_damage(dam):
 	enemy_data.hp -= dam
 	if enemy_data.hp<0: enemy_data.hp = 0
 	$Label.text = str(enemy_data.hp)
-	Effector.show_damage_text(dam,self.position+Vector2(0,-150))
-	Effector.shake(self)
+	Effector.damage_fx(self,dam)
 	if enemy_data.hp<=0:
 		EnemyManager.ENEMIES_ACTIVES.erase(self)
 		Effector.disappear(self)
 		yield(get_tree().create_timer(.5),"timeout")
+		PlayerManager.add_xp()
 		queue_free()
