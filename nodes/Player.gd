@@ -2,24 +2,25 @@ extends Sprite
 
 var anim = "idle"
 var step = 0
-var default_speed = .25
+var default_speed = 0.25
 
 signal end_anim
 
 var ANIMS = {
-	"idle":{"start":0,"end":1,"speed":.5},
-	"rapier":{"start":2,"end":6},
-	"gun":{"start":7,"end":9},
-	"crossbow":{"start":10,"end":12},
-	"dynamite":{"start":13,"end":15},
-	"shotgun":{"start":16,"end":18},
+	"idle":{"start":0,"end":1,"speed":0.5},
+	"rapier":{"start":8,"end":10},
+	"gun":{"start":12,"end":14},
+	"crossbow":{"start":16,"end":18},
+	"dynamite":{"start":20,"end":22},
+	"shotgun":{"start":24,"end":26},
 	"stake":{"start":19,"end":22},
-	"kick":{"start":23,"end":25},
-	"breathe":{"start":26,"end":29},
+	"kick":{"start":28,"end":30},
+	"breathe":{"start":2,"end":7},
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect("timeout",self,"animator_cb")
+	$Timer.wait_time = default_speed
 	animator_cb()
 	$Timer.start()
 

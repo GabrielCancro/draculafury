@@ -62,18 +62,20 @@ func show_damage_text(val,pos):
 func add_hint(node,tx_code):
 	node.connect("mouse_entered",self,"_on_hint_enter_area",[node,tx_code,true])
 	node.connect("mouse_exited",self,"_on_hint_enter_area",[node,tx_code,false])
+	var HintNode = node.get_node_or_null("HintNode")
+	if HintNode: HintNode.visible = false
 	#node.connect("tree_exited",self,"_on_hint_enter_area",[node,tx_code,false])
 
 func _on_hint_enter_area(node,code,val):
 	if val: get_node("/root/Game/CLUI/HintPanel").show_hint(code,node)
 	else: get_node("/root/Game/CLUI/HintPanel").hide_hint()
-	add_over(node)
+	var HintNode = node.get_node_or_null("HintNode")
+	if HintNode: HintNode.visible = val
 
 func add_over(node):
 	node.connect("mouse_entered",self,"_on_over_enter_area",[node,true])
 	node.connect("mouse_exited",self,"_on_over_enter_area",[node,false])
+	_on_over_enter_area(node,false)
 
 func _on_over_enter_area(node,val):
-	get_node("/root/Game/CLUI/OverFx").visible = val
-	get_node("/root/Game/CLUI/OverFx").rect_size = node.rect_size
-	get_node("/root/Game/CLUI/OverFx").rect_global_position = node.rect_global_position
+	node.get_node_or_null("HintNode").visible = val

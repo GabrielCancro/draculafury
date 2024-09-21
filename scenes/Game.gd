@@ -6,12 +6,14 @@ var disable_dices_click = true
 
 func _ready():
 	change_state(GameState.START)
-	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")
-	$CLUI/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
-	$CLUI/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
-	$CLUI/ButtonAnim.connect("button_down",$Player,"set_random_anim")
+	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")	
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
 	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
+	
+	$CLUI/ButtonHacks.connect("button_down",self,"on_button_hacks")
+	$CLUI/Hacks/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
+	$CLUI/Hacks/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
+	$CLUI/Hacks/ButtonAnim.connect("button_down",$Player,"set_random_anim")
 
 func change_state(new_state):
 	current_state = new_state
@@ -22,11 +24,9 @@ func change_state(new_state):
 		yield(get_tree().create_timer(1),"timeout")
 		$CLUI/DiceSet.show_diceset()
 		yield(get_tree().create_timer(.5),"timeout")
-		$CLUI/ButtonAddDice.visible = true
 		show_states_button()
 	elif current_state == GameState.ACTIONS:
 		$CLUI/DiceSet.roll_all_dices()
-		$CLUI/ButtonAddDice.visible = false
 		yield($CLUI/DiceSet,"end_all_rolls")
 		disable_dices_click = false
 		show_states_button()
@@ -61,6 +61,9 @@ func on_button_states():
 	if new_state >= GameState.keys().size(): new_state = 0
 	change_state(new_state)
 
+func on_button_hacks():
+	$CLUI/Hacks.visible = !$CLUI/Hacks.visible 
+
 func hide_states_button():
 	$CLUI/ButtonStates.disabled = true
 	Effector.disappear($CLUI/ButtonStates)
@@ -85,12 +88,12 @@ func on_click_dice(dice):
 	yield(get_tree().create_timer(.3),"timeout")
 	$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
 	$CLUI/Belt.clear_selected_slot()
-	if dice.value == 6: 
-		Effector.shake(dice)
-		yield(get_tree().create_timer(.2),"timeout")
-		dice.roll()
-		yield(get_tree().create_timer(.7),"timeout")
-	else:
-		dice.hide_dice()
-		yield(get_tree().create_timer(.3),"timeout")
+#	if dice.value == 6: 
+#		Effector.shake(dice)
+#		yield(get_tree().create_timer(.2),"timeout")
+#		dice.roll()
+#		yield(get_tree().create_timer(.7),"timeout")
+#	else:
+	dice.hide_dice()
+	yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false
