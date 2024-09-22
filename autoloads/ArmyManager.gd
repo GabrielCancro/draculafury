@@ -4,7 +4,7 @@ signal end_army_action()
 
 var ARMIES = ["breathe","kick","rapier","gun","shotgun","crossbow","stake","dynamite"]
 var PLAYER
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pass # Replace with function body.
 
@@ -83,6 +83,9 @@ func _run_stake():
 	emit_signal("end_army_action")
 
 func _run_dynamite():
+	var fxdyn = preload("res://nodes/fx/fx_dynamite.tscn").instance()
+	get_node("/root/Game").add_child(fxdyn)
+	yield(get_tree().create_timer(1),"timeout")
 	for en in EnemyManager.ENEMIES_ACTIVES:
 		en.enemy_damage(5)
 	yield(get_tree().create_timer(.7),"timeout")

@@ -13,7 +13,7 @@ var ANIMS = {
 	"crossbow":{"start":16,"end":18},
 	"dynamite":{"start":20,"end":22},
 	"shotgun":{"start":24,"end":26},
-	"stake":{"start":19,"end":22},
+	"stake":{"start":32,"end":34},
 	"kick":{"start":28,"end":30},
 	"breathe":{"start":2,"end":7},
 }

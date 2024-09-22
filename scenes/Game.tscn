@@ -206,7 +206,6 @@ rect_min_size = Vector2( 3, 3 )
 color = Color( 0.72549, 0.72549, 0.72549, 1 )
 
 [node name="Hacks" type="Control" parent="CLUI"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -227,9 +226,17 @@ custom_fonts/font = ExtResource( 5 )
 text = "ADD DICE"
 
 [node name="ButtonAnim" type="Button" parent="CLUI/Hacks"]
-margin_left = 43.0
-margin_top = 823.0
-margin_right = 270.0
+margin_left = 59.0
+margin_top = 834.0
+margin_right = 256.0
 margin_bottom = 878.0
 custom_fonts/font = ExtResource( 5 )
 text = "ANIMATE!"
+
+[node name="ButtonFxDyn" type="Button" parent="CLUI/Hacks"]
+margin_left = 13.0
+margin_top = 771.0
+margin_right = 204.0
+margin_bottom = 815.0
+custom_fonts/font = ExtResource( 5 )
+text = "Dynamite!"

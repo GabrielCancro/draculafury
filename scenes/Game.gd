@@ -14,6 +14,7 @@ func _ready():
 	$CLUI/Hacks/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
 	$CLUI/Hacks/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
 	$CLUI/Hacks/ButtonAnim.connect("button_down",$Player,"set_random_anim")
+	$CLUI/Hacks/ButtonFxDyn.connect("button_down",ArmyManager,"run_army_action",["dynamite"])
 
 func change_state(new_state):
 	current_state = new_state
