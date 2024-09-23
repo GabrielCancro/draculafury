@@ -15,6 +15,7 @@ func _ready():
 	$CLUI/Hacks/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")
 	$CLUI/Hacks/ButtonAnim.connect("button_down",$Player,"set_random_anim")
 	$CLUI/Hacks/ButtonFxDyn.connect("button_down",ArmyManager,"run_army_action",["dynamite"])
+	$CLUI/Hacks/ButtonUpgrade.connect("button_down",$CLUI/UpgradePopup,"show_popup")
 
 func change_state(new_state):
 	current_state = new_state

@@ -2,16 +2,21 @@ extends Control
 class_name BeltSlot
 
 var army
+signal on_click_belt_slot(belt_slot)
 
 func _ready():
 	$bgselected.visible = false
-	set_army( ArmyManager.ARMIES[get_index()])
-	Effector.add_hint(self,"army_desc_"+army)
+	$Button.connect("button_down",self,"on_click")
 
 func set_army(code):
 	army = code
-	Effector.add_hint(self,"army_"+code)
-	$Sprite.frame = ArmyManager.ARMIES.find(code)
+	if army: 
+		Effector.add_hint(self,"army_"+code)
+		$Sprite.frame = ArmyManager.ARMIES.find(code)
+		$Sprite.visible = true
+	else:
+		Effector.add_hint(self,"army_none")
+		$Sprite.visible = false
 
 func set_lighted(val):
 	if val:
@@ -20,3 +25,7 @@ func set_lighted(val):
 		$bgselected.visible = true
 	else:
 		 Effector.disappear($bgselected)
+
+func on_click():
+	print("CLICK ON BELT SLOT ",army)
+	emit_signal("on_click_belt_slot",self)

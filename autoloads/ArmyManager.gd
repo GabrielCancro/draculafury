@@ -5,8 +5,10 @@ signal end_army_action()
 var ARMIES = ["breathe","kick","rapier","gun","shotgun","crossbow","stake","dynamite"]
 var PLAYER
 
-func _ready():
-	pass # Replace with function body.
+func get_random_army():
+	randomize()
+	var i = randi()%ARMIES.size()
+	return ARMIES[i]
 
 func run_army_action(code):
 	#Effector.show_float_text(code)
@@ -19,12 +21,11 @@ func run_army_action(code):
 	else:
 		PLAYER.set_anim(code)
 		yield(PLAYER,"end_anim")
-	call("_run_"+code)
-
+		call("_run_"+code)
 
 func _condition_breathe(): return !EnemyManager.have_close_enemy(1)
 func _run_breathe():
-	PlayerManager.heal(10)
+	PlayerManager.PLPlayerManager.heal(10)
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 

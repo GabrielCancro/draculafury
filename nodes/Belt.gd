@@ -2,7 +2,7 @@ extends Control
 class_name Belt
 
 var pawn_pos = 1
-var max_slots = 8
+var max_slots = 0
 var current_slot
 
 signal end_move(army_index)
@@ -11,6 +11,15 @@ func _ready():
 	$pawn.rect_global_position = $HBox.get_child(0).rect_global_position
 	$ButtonR.connect("button_down",self,"move_pawn",[3])
 	$ButtonL.connect("button_down",self,"move_pawn",[-1])
+	update_belt()
+	yield(get_tree().create_timer(.1),"timeout")
+	$pawn.rect_global_position = $HBox/BeltSlot1.rect_global_position
+
+func update_belt():
+	max_slots = PlayerManager.PLAYER_ARMIES.size()
+	for bs in $HBox.get_children(): 
+		bs.visible = (bs.get_index() < max_slots)
+		if bs.visible: bs.set_army(PlayerManager.PLAYER_ARMIES[bs.get_index()])
 
 func move_pawn(mov):
 	pawn_pos += sign(mov)
