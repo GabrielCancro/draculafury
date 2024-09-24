@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg7.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -11,6 +11,13 @@
 [ext_resource path="res://nodes/PlayerActionList.tscn" type="PackedScene" id=9]
 [ext_resource path="res://nodes/WaveUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://nodes/UpgradePopup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 1
+outline_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+font_data = ExtResource( 12 )
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -104,6 +111,19 @@ unique_name_in_owner = false
 position = Vector2( 327, 667 )
 
 [node name="CLUI" type="CanvasLayer" parent="."]
+
+[node name="lb_version" type="Label" parent="CLUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -123.0
+margin_bottom = 49.0
+custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 1 )
+text = "v 0.02"
+align = 1
+valign = 1
+autowrap = true
 
 [node name="Belt" parent="CLUI" instance=ExtResource( 2 )]
 anchor_left = 0.5
@@ -201,6 +221,7 @@ rect_min_size = Vector2( 3, 3 )
 color = Color( 0.72549, 0.72549, 0.72549, 1 )
 
 [node name="Hacks" type="Control" parent="CLUI"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -245,6 +266,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "Dynamite!"
 
 [node name="UpgradePopup" parent="CLUI" instance=ExtResource( 11 )]
+unique_name_in_owner = true
 visible = false
 
 [node name="HintPanel" parent="CLUI" instance=ExtResource( 6 )]

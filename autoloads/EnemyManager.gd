@@ -67,17 +67,19 @@ func sort_custom(a,b):
 func get_frame(enemy):
 	return ENEMIES.keys().find(enemy)
 
-func move_to_first_free_space(en):
+func move_to_first_free_space(en,ran=1):
+	var candidate = en.enemy_data.tile_pos_x
 	for _x in range(en.enemy_data.tile_pos_x,EnemyManager.max_x_pos+1):
-		if !get_enemy_in_pos(_x,0):
-			en.set_tile_pos(_x)
+		if !get_enemy_in_pos(_x,en.enemy_data.tile_pos_y):
+			candidate = _x
+			if _x >= en.enemy_data.tile_pos_x+ran: break
 			break
-	return false
+	en.set_tile_pos(candidate)
 
 func have_close_enemy(ran,forced_y=-1):
 	re_ordered_enemies_array()
 	for en in ENEMIES_ACTIVES:
 		if en.enemy_data.tile_pos_x < ran: 
-			if forced_y != -1 || en.enemy_data.tile_pos_y == forced_y:
+			if forced_y == -1 || en.enemy_data.tile_pos_y == forced_y:
 				return true
 	return false

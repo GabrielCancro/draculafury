@@ -25,7 +25,7 @@ func run_army_action(code):
 
 func _condition_breathe(): return !EnemyManager.have_close_enemy(1)
 func _run_breathe():
-	PlayerManager.PLPlayerManager.heal(10)
+	PlayerManager.heal(1)
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 
@@ -35,8 +35,7 @@ func _run_kick():
 	if en:
 		en.enemy_damage(1)
 		yield(get_tree().create_timer(.7),"timeout")
-		EnemyManager.move_to_first_free_space(en)
-		EnemyManager.move_to_first_free_space(en)
+		EnemyManager.move_to_first_free_space(en,2)
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 

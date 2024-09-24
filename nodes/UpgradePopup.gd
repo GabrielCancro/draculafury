@@ -1,8 +1,11 @@
 extends Control
 
 var current_option
+var ini_belt_extra_pos
+signal on_hide_popup()
 
 func _ready():
+	ini_belt_extra_pos = $BeltExtra.rect_global_position
 	$ButtonCancel.connect("button_down",self,"hide_popup")
 	$ButtonNewArmy.connect("button_down",self,"on_click_button",["new_army"])
 	$ButtonUpgArmy.connect("button_down",self,"on_click_button",["upg_army"])
@@ -10,17 +13,23 @@ func _ready():
 
 func show_popup():
 	update_belt()
+	$Label.text = Lang.get_text("ui_end_wave")
 	$BeltExtra.visible = false
+	$BeltExtra.modulate.a = 1
+	$BeltExtra.rect_global_position = ini_belt_extra_pos
 	$ButtonNewArmy.visible = true
 	$ButtonUpgArmy.visible = true
 	current_option = null
 	visible = true
+	Effector.appear(self)
 
 func hide_popup():
-	visible = false
+	Effector.disappear(self,true)
+	emit_signal("on_hide_popup")
 
 func update_belt():
 	for bs in $HBox.get_children(): 
+		bs.modulate.a = 1
 		bs.visible = (bs.get_index() < PlayerManager.PLAYER_ARMIES.size())
 		if bs.visible: bs.set_army(PlayerManager.PLAYER_ARMIES[bs.get_index()])
 
@@ -29,7 +38,8 @@ func on_click_button(code):
 	$ButtonNewArmy.visible = false
 	$ButtonUpgArmy.visible = false
 	if code == "new_army": 
-		$BeltExtra.set_army( ArmyManager.get_random_army() )
+		$Label.text = Lang.get_text("ui_upg_new_army")
+		$BeltExtra.set_army( get_random_new_army() )
 		$BeltExtra.visible = true
 		if PlayerManager.PLAYER_ARMIES.size()<8:
 			var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
@@ -37,14 +47,21 @@ func on_click_button(code):
 			bs.visible = true
 
 func on_click_belt_slot(belt_slot):
-	print(PlayerManager.PLAYER_ARMIES)
+	print(PlayerManager.PLAYER_ARMIES," ",belt_slot.get_index())
 	if current_option == "new_army":
+		current_option = null
+		Effector.disappear($BeltExtra)
+		Effector.move_to($BeltExtra,belt_slot.rect_global_position)
+		yield(get_tree().create_timer(.3),"timeout")
 		if belt_slot.get_index()==PlayerManager.PLAYER_ARMIES.size():
 			PlayerManager.PLAYER_ARMIES.append($BeltExtra.army)
-			var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
-			Effector.disappear(bs)
+			belt_slot.set_army($BeltExtra.army)
+			#Effector.disappear(bs)
 		else:
 			PlayerManager.PLAYER_ARMIES[belt_slot.get_index()] = $BeltExtra.army
 			belt_slot.set_army($BeltExtra.army)
-		Effector.disappear($BeltExtra)
-		current_option = null
+
+func get_random_new_army():
+	randomize()
+	var i = 3 + randi()%ArmyManager.ARMIES.size()-3
+	return ArmyManager.ARMIES[i]

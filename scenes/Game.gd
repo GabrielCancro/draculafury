@@ -9,6 +9,7 @@ func _ready():
 	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")	
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
 	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
+	$CLUI/UpgradePopup.connect("on_hide_popup",$CLUI/Belt,"update_belt")
 	
 	$CLUI/ButtonHacks.connect("button_down",self,"on_button_hacks")
 	$CLUI/Hacks/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
@@ -54,7 +55,13 @@ func change_state(new_state):
 		yield(get_tree().create_timer(1.5),"timeout")
 		change_state(GameState.WAVE)
 	elif current_state == GameState.WAVE:
-		get_node("/root/Game/CLUI/WaveUI").advance_wave()
+		if ($CLUI/WaveUI.WAVE.size()<=0 
+		&& EnemyManager.ENEMIES_ACTIVES.size()<=0): 
+			$CLUI/UpgradePopup.show_popup()
+			yield($CLUI/UpgradePopup,"on_hide_popup")
+			yield(get_tree().create_timer(1.5),"timeout")
+			$CLUI/WaveUI.next_wave()
+		$CLUI/WaveUI.advance_wave()
 		yield(get_tree().create_timer(1.5),"timeout")
 		change_state(GameState.START)
 

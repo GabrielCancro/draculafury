@@ -18,7 +18,10 @@ func disappear(node,hide_end=false):
 		node.visible = false
 
 func move_to(node,pos):
-	tween.interpolate_property(node,"position",null,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	if ("rect_position" in node):
+		tween.interpolate_property(node,"rect_global_position",null,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	else:
+		tween.interpolate_property(node,"global_position",null,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
 func shake(node,power=6,time=.5):
