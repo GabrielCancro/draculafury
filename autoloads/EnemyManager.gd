@@ -68,12 +68,12 @@ func get_frame(enemy):
 	return ENEMIES.keys().find(enemy)
 
 func move_to_first_free_space(en,ran=1):
+	if !is_instance_valid(en): return
 	var candidate = en.enemy_data.tile_pos_x
 	for _x in range(en.enemy_data.tile_pos_x,EnemyManager.max_x_pos+1):
 		if !get_enemy_in_pos(_x,en.enemy_data.tile_pos_y):
 			candidate = _x
 			if _x >= en.enemy_data.tile_pos_x+ran: break
-			break
 	en.set_tile_pos(candidate)
 
 func have_close_enemy(ran,forced_y=-1):
