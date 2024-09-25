@@ -95,7 +95,8 @@ func on_click_dice(dice):
 	yield($CLUI/Belt,"end_move")
 	$CLUI/Belt.current_slot.set_lighted(true)
 	yield(get_tree().create_timer(.3),"timeout")
-	$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
+	if $CLUI/Belt.current_slot.reduce_amount():
+		$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
 	$CLUI/Belt.clear_selected_slot()
 #	if dice.value == 6: 
 #		Effector.shake(dice)
@@ -106,3 +107,6 @@ func on_click_dice(dice):
 	dice.hide_dice()
 	yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false
+
+func set_floor_marks():
+	pass

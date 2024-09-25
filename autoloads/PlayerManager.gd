@@ -8,7 +8,7 @@ var PLAYER_STATS = {
 	"xp":0,
 }
 
-var PLAYER_ARMIES = ["breathe","kick","rapier","breathe","gun"]
+var PLAYER_ARMIES = ["breathe","gun","kick","gun","rapier"]
 
 func _ready():
 	pass

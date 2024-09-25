@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://nodes/BeltSlot.gd" type="Script" id=1]
 [ext_resource path="res://assets/belt_slot.png" type="Texture" id=2]
 [ext_resource path="res://assets/armies.png" type="Texture" id=3]
 [ext_resource path="res://assets/pawn.png" type="Texture" id=4]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 41
+outline_size = 2
+outline_color = Color( 0.192157, 0.192157, 0.192157, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 29
+outline_size = 3
+outline_color = Color( 0.203922, 0, 0, 1 )
+extra_spacing_char = -4
+font_data = ExtResource( 5 )
 
 [node name="BeltSlot" type="Control"]
 margin_right = 100.0
@@ -47,3 +61,44 @@ margin_bottom = -5.0
 focus_mode = 0
 mouse_filter = 1
 flat = true
+
+[node name="lb_amount" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -99.0
+margin_top = 86.0
+margin_right = -1.0
+margin_bottom = 128.0
+custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "x3"
+align = 2
+valign = 1
+autowrap = true
+
+[node name="panel_reload" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 5.0
+margin_right = -1.0
+margin_bottom = -2.0
+mouse_filter = 2
+color = Color( 0.239216, 0.00392157, 0.00392157, 0.678431 )
+
+[node name="label" type="Label" parent="panel_reload"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -59.5
+margin_top = 16.0
+margin_right = 59.5
+margin_bottom = 47.0
+custom_colors/font_color = Color( 0.87451, 0, 0, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "RELOAD"
+align = 1
+valign = 1
+autowrap = true

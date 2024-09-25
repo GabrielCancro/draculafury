@@ -4,7 +4,7 @@ var ENEMIES_ACTIVES = []
 var max_x_pos = 7
 var ENEMIES = {
 	"vampire":{"hp":5,"mov":1,"dam":1, "ran":1,"fly":false},
-	"bat":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":true},
+	"bat":{"hp":3,"mov":1,"dam":1, "ran":1,"fly":true},
 }
 
 func get_enemy_data(code):
@@ -76,7 +76,7 @@ func move_to_first_free_space(en,ran=1):
 			if _x >= en.enemy_data.tile_pos_x+ran: break
 	en.set_tile_pos(candidate)
 
-func have_close_enemy(ran,forced_y=-1):
+func have_close_enemy(ran=max_x_pos+1,forced_y=-1):
 	re_ordered_enemies_array()
 	for en in ENEMIES_ACTIVES:
 		if en.enemy_data.tile_pos_x < ran: 

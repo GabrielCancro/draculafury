@@ -4,7 +4,7 @@ var enemy_data
 var floor_y = 680
 var fly_y = -220
 var end_x = 1500
-var step_size = 150
+var step_size = 1050 / EnemyManager.max_x_pos
 
 signal end_move()
 

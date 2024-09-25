@@ -106,6 +106,20 @@ margin_right = 410.0
 margin_bottom = 679.0
 color = Color( 1, 1, 1, 0.188235 )
 
+[node name="c9" type="ColorRect" parent="Floor"]
+margin_left = 400.0
+margin_top = 669.0
+margin_right = 410.0
+margin_bottom = 679.0
+color = Color( 1, 1, 1, 0.188235 )
+
+[node name="c10" type="ColorRect" parent="Floor"]
+margin_left = 400.0
+margin_top = 669.0
+margin_right = 410.0
+margin_bottom = 679.0
+color = Color( 1, 1, 1, 0.188235 )
+
 [node name="Player" parent="." instance=ExtResource( 7 )]
 unique_name_in_owner = false
 position = Vector2( 327, 667 )

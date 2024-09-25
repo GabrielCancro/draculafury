@@ -3,6 +3,7 @@ extends Node
 signal end_army_action()
 
 var ARMIES = ["breathe","kick","rapier","gun","shotgun","crossbow","stake","dynamite"]
+var ARMIES_AMOUNT = {"gun":3,"shotgun":2,"crossbow":3,"stake":1,"dynamite":1}
 var PLAYER
 
 func get_random_army():
@@ -23,7 +24,7 @@ func run_army_action(code):
 		yield(PLAYER,"end_anim")
 		call("_run_"+code)
 
-func _condition_breathe(): return !EnemyManager.have_close_enemy(1)
+func _condition_breathe(): return !EnemyManager.have_close_enemy(1) && PlayerManager.PLAYER_STATS.hp<PlayerManager.PLAYER_STATS.hpm
 func _run_breathe():
 	PlayerManager.heal(1)
 	yield(get_tree().create_timer(.5),"timeout")
@@ -51,6 +52,7 @@ func _run_rapier():
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 
+func _condition_gun(): return EnemyManager.have_close_enemy()
 func _run_gun():
 	var en = EnemyManager.get_first_enemy()
 	if en:
@@ -58,6 +60,7 @@ func _run_gun():
 		yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 
+func _condition_shotgun(): return EnemyManager.have_close_enemy()
 func _run_shotgun():
 	var en = EnemyManager.get_first_enemy()
 	if en: en.enemy_damage(2)
@@ -69,19 +72,21 @@ func _run_shotgun():
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 	
-func _condition_crossbow(): return !EnemyManager.have_close_enemy(1)
+func _condition_crossbow(): return EnemyManager.have_close_enemy() && !EnemyManager.have_close_enemy(1)
 func _run_crossbow():
 	var en = EnemyManager.get_first_enemy(99,1)
 	if en: en.enemy_damage(2)
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 
+func _condition_stake(): return EnemyManager.have_close_enemy()
 func _run_stake():
 	var en = EnemyManager.get_first_enemy()
 	if en: en.enemy_damage(10)
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 
+func _condition_dynamite(): return EnemyManager.have_close_enemy()
 func _run_dynamite():
 	var fxdyn = preload("res://nodes/fx/fx_dynamite.tscn").instance()
 	get_node("/root/Game").add_child(fxdyn)
@@ -90,3 +95,8 @@ func _run_dynamite():
 		en.enemy_damage(5)
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
+
+func get_army_amount(code):
+	if code in ARMIES_AMOUNT.keys():
+		return ARMIES_AMOUNT[code]
+	else: return -1
