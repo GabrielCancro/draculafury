@@ -3,8 +3,7 @@ extends Node2D
 var enemy_data
 var floor_y = 680
 var fly_y = -220
-var end_x = 1500
-var step_size = 1050 / EnemyManager.max_x_pos
+var step_size
 
 signal end_move()
 
@@ -14,10 +13,11 @@ func _ready():
 	$Button.connect("button_down",self,"move")
 
 func set_data(_data):
+	step_size = (1600 - EnemyManager.end_x_pos)/EnemyManager.max_x_pos
 	enemy_data = _data
 	$Label.text = str(enemy_data.hp)
 	position = Vector2(1300,600)
-	set_tile_pos(EnemyManager.max_x_pos)
+	set_tile_pos(EnemyManager.max_x_pos-1)
 	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
 
 func set_tile_pos(_x):
@@ -26,7 +26,7 @@ func set_tile_pos(_x):
 	if enemy_data.fly: enemy_data["tile_pos_y"] = 1
 	z_index = 100 - enemy_data.tile_pos_x*10 - enemy_data.tile_pos_y
 	#print("MOVE ENEMY: "+enemy_data.name,"  to: ",_x)
-	var nx = 1600 - (EnemyManager.max_x_pos-enemy_data.tile_pos_x) * step_size - step_size/2
+	var nx = EnemyManager.end_x_pos + (step_size*enemy_data.tile_pos_x)
 	var ny = floor_y + ( enemy_data.tile_pos_y * fly_y )
 	Effector.move_to(self,Vector2(nx,ny))
 

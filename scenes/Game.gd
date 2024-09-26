@@ -5,6 +5,7 @@ var current_state
 var disable_dices_click = true
 
 func _ready():
+	set_floor_marks()
 	change_state(GameState.START)
 	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")	
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
@@ -109,4 +110,7 @@ func on_click_dice(dice):
 	disable_dices_click = false
 
 func set_floor_marks():
-	pass
+	for fn in $Floor.get_children():
+		fn.visible = (fn.get_index()<=EnemyManager.max_x_pos)
+		fn.rect_global_position.x = EnemyManager.end_x_pos + (1600-EnemyManager.end_x_pos) / EnemyManager.max_x_pos * fn.get_index()
+		if fn.visible: print("fn ",fn.rect_global_position.x)
