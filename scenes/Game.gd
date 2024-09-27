@@ -6,7 +6,8 @@ var disable_dices_click = true
 
 func _ready():
 	set_floor_marks()
-	change_state(GameState.START)
+	$CLUI/ButtonStates.disabled = true
+	$CLUI/ButtonStates.modulate.a = 0
 	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")	
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
 	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
@@ -18,6 +19,9 @@ func _ready():
 	$CLUI/Hacks/ButtonAnim.connect("button_down",$Player,"set_random_anim")
 	$CLUI/Hacks/ButtonFxDyn.connect("button_down",ArmyManager,"run_army_action",["dynamite"])
 	$CLUI/Hacks/ButtonUpgrade.connect("button_down",$CLUI/UpgradePopup,"show_popup")
+	
+	yield(get_tree().create_timer(5),"timeout")
+	change_state(GameState.START)
 
 func change_state(new_state):
 	current_state = new_state
@@ -37,7 +41,7 @@ func change_state(new_state):
 	elif current_state == GameState.ATTACKS:
 		disable_dices_click = true
 		$CLUI/DiceSet.hide_diceset()
-		yield(get_tree().create_timer(1.5),"timeout")
+		yield(get_tree().create_timer(1),"timeout")
 		while true:
 			var army = $CLUI/PlayerActionList.get_and_hide_first_army()
 			if army:
@@ -53,17 +57,18 @@ func change_state(new_state):
 		for en in EnemyManager.re_ordered_enemies_array():
 			en.move()
 			yield(en,"end_move")
-		yield(get_tree().create_timer(1.5),"timeout")
+		yield(get_tree().create_timer(.5),"timeout")
 		change_state(GameState.WAVE)
 	elif current_state == GameState.WAVE:
 		if ($CLUI/WaveUI.WAVE.size()<=0 
 		&& EnemyManager.ENEMIES_ACTIVES.size()<=0): 
 			$CLUI/UpgradePopup.show_popup()
 			yield($CLUI/UpgradePopup,"on_hide_popup")
-			yield(get_tree().create_timer(1.5),"timeout")
+			yield(get_tree().create_timer(1),"timeout")
 			$CLUI/WaveUI.next_wave()
+			yield(get_tree().create_timer(2.5),"timeout")
 		$CLUI/WaveUI.advance_wave()
-		yield(get_tree().create_timer(1.5),"timeout")
+		yield(get_tree().create_timer(1.0),"timeout")
 		change_state(GameState.START)
 
 func on_button_states():

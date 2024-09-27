@@ -1,7 +1,7 @@
 extends Node2D
 
 var enemy_data
-var floor_y = 680
+var floor_y = 670
 var fly_y = -220
 var step_size
 

@@ -122,7 +122,7 @@ color = Color( 1, 1, 1, 0.188235 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 unique_name_in_owner = false
-position = Vector2( 327, 667 )
+position = Vector2( 327, 683 )
 
 [node name="CLUI" type="CanvasLayer" parent="."]
 
@@ -201,38 +201,6 @@ margin_left = -612.0
 margin_top = 32.0
 margin_right = -8.0
 margin_bottom = 217.0
-
-[node name="OverFx" type="Control" parent="CLUI"]
-visible = false
-margin_right = 97.0
-margin_bottom = 45.0
-mouse_filter = 2
-
-[node name="c1" type="ColorRect" parent="CLUI/OverFx"]
-anchor_bottom = 1.0
-rect_min_size = Vector2( 3, 3 )
-color = Color( 0.72549, 0.72549, 0.72549, 1 )
-
-[node name="c2" type="ColorRect" parent="CLUI/OverFx"]
-anchor_right = 1.0
-rect_min_size = Vector2( 3, 3 )
-color = Color( 0.72549, 0.72549, 0.72549, 1 )
-
-[node name="c3" type="ColorRect" parent="CLUI/OverFx"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -3.0
-rect_min_size = Vector2( 3, 3 )
-color = Color( 0.72549, 0.72549, 0.72549, 1 )
-
-[node name="c4" type="ColorRect" parent="CLUI/OverFx"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -3.0
-rect_min_size = Vector2( 3, 3 )
-color = Color( 0.72549, 0.72549, 0.72549, 1 )
 
 [node name="Hacks" type="Control" parent="CLUI"]
 visible = false

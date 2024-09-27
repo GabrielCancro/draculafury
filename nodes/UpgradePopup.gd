@@ -12,6 +12,7 @@ func _ready():
 	for bs in $HBox.get_children(): bs.connect("on_click_belt_slot",self,"on_click_belt_slot")
 
 func show_popup():
+	modulate.a = 0
 	update_belt()
 	$Label.text = Lang.get_text("ui_end_wave")
 	$BeltExtra.visible = false
@@ -34,6 +35,7 @@ func update_belt():
 		if bs.visible: bs.set_army(PlayerManager.PLAYER_ARMIES[bs.get_index()])
 
 func on_click_button(code):
+	if code=="upg_army": return
 	current_option = code
 	$ButtonNewArmy.visible = false
 	$ButtonUpgArmy.visible = false
@@ -63,5 +65,5 @@ func on_click_belt_slot(belt_slot):
 
 func get_random_new_army():
 	randomize()
-	var i = 3 + randi()%ArmyManager.ARMIES.size()-3
+	var i = 4 + randi()%ArmyManager.ARMIES.size()-4
 	return ArmyManager.ARMIES[i]

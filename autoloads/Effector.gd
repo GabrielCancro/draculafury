@@ -39,6 +39,11 @@ func shake(node,power=6,time=.5):
 	if isControl: node.rect_position = ini_pos
 	else: node.position = ini_pos
 
+func scale_boom(node):
+	var prop = "scale" if ("scale" in node) else "rect_scale"
+	tween.interpolate_property(node,prop,Vector2(1.2,1.2),Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.start()
+
 func damage_fx(node,dam):
 	show_damage_text(dam,node.position+Vector2(0,-150))
 	shake(node)
@@ -82,3 +87,8 @@ func add_over(node):
 
 func _on_over_enter_area(node,val):
 	node.get_node_or_null("HintNode").visible = val
+
+func remove_all_children(node):
+	for sl in node.get_children(): 
+		node.remove_child(sl)
+		sl.queue_free()

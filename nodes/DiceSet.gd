@@ -39,8 +39,9 @@ func roll_all_dices():
 		print("DICE CHECKED ",checked_dices)
 		var dice = $HBoxDices.get_child(checked_dices)
 		if dice.value==6: 
-			Effector.shake(dice)
-			yield(get_tree().create_timer(1.2),"timeout")
+			#Effector.shake(dice)
+			Effector.scale_boom(dice)
+			yield(get_tree().create_timer(.7),"timeout")
 			add_extra_dice().roll()
 			yield(get_tree().create_timer(1.2),"timeout")
 		checked_dices += 1

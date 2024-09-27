@@ -20,6 +20,7 @@ func show_dice():
 	Effector.appear(self)
 
 func on_click():
+	Effector.scale_boom(self)
 	emit_signal("on_click_dice",self)
 
 func roll():
@@ -36,4 +37,5 @@ func roll():
 
 func hide_dice():
 	value = -1
+	$HintNode.visible = false
 	Effector.disappear(self,true)
