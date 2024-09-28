@@ -29,6 +29,12 @@ func heal(val):
 
 func add_xp(val=1):
 	PLAYER_STATS.xp += val
-	if PLAYER_STATS.xp>10: 
+	if PLAYER_STATS.xp>=10:
+		emit_signal("on_change_stats",PLAYER_STATS)
+		yield(get_tree().create_timer(1),"timeout")
+		Effector.show_float_text("level_up")
+		yield(get_tree().create_timer(1),"timeout")
+		Effector.show_float_text("extra_dice")
+		get_node("/root/Game/CLUI/DiceSet").amount_dices += 1
 		PLAYER_STATS.xp -= 10
 	emit_signal("on_change_stats",PLAYER_STATS)

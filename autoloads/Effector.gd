@@ -67,7 +67,7 @@ func show_damage_text(val,pos):
 	node.set_damage(val,pos)
 	get_node("/root/Game/CLUI").add_child(node)
 
-func add_hint(node,tx_code):
+func add_hint(node,tx_code=null):
 	node.connect("mouse_entered",self,"_on_hint_enter_area",[node,tx_code,true])
 	node.connect("mouse_exited",self,"_on_hint_enter_area",[node,tx_code,false])
 	var HintNode = node.get_node_or_null("HintNode")
@@ -75,6 +75,7 @@ func add_hint(node,tx_code):
 	#node.connect("tree_exited",self,"_on_hint_enter_area",[node,tx_code,false])
 
 func _on_hint_enter_area(node,code,val):
+	if !code: code = node.hint_code
 	if val: get_node("/root/Game/CLUI/HintPanel").show_hint(code,node)
 	else: get_node("/root/Game/CLUI/HintPanel").hide_hint()
 	var HintNode = node.get_node_or_null("HintNode")

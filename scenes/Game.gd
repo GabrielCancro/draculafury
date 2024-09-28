@@ -19,6 +19,7 @@ func _ready():
 	$CLUI/Hacks/ButtonAnim.connect("button_down",$Player,"set_random_anim")
 	$CLUI/Hacks/ButtonFxDyn.connect("button_down",ArmyManager,"run_army_action",["dynamite"])
 	$CLUI/Hacks/ButtonUpgrade.connect("button_down",$CLUI/UpgradePopup,"show_popup")
+	$CLUI/Hacks/ButtonXP.connect("button_down",PlayerManager,"add_xp")
 	
 	yield(get_tree().create_timer(5),"timeout")
 	change_state(GameState.START)

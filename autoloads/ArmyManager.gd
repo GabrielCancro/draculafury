@@ -72,7 +72,7 @@ func _run_shotgun():
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 	
-func _condition_crossbow(): return EnemyManager.have_close_enemy() && !EnemyManager.have_close_enemy(1)
+func _condition_crossbow(): return EnemyManager.have_close_enemy(99,1) && !EnemyManager.have_close_enemy(1)
 func _run_crossbow():
 	var en = EnemyManager.get_first_enemy(99,1)
 	if en: en.enemy_damage(2)

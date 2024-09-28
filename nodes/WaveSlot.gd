@@ -12,7 +12,7 @@ func set_data(_enemy):
 	else: Effector.add_hint(self,"wave_empty_slot")
 	if enemy:
 		$Sprite.modulate = Color(1,1,1,1)
-		$Sprite2.frame = EnemyManager.get_frame(enemy)
+		$Sprite2.frame = EnemyManager.get_enemy_data(enemy).ret
 		$Sprite2.visible = true
 	else:
 		$Sprite.modulate = Color(.8,.8,.8,1)

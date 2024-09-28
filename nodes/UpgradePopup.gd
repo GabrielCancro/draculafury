@@ -65,5 +65,5 @@ func on_click_belt_slot(belt_slot):
 
 func get_random_new_army():
 	randomize()
-	var i = 4 + randi()%ArmyManager.ARMIES.size()-4
+	var i = 4 + randi()%(ArmyManager.ARMIES.size()-4)
 	return ArmyManager.ARMIES[i]

@@ -6,10 +6,12 @@ var end_x_pos = 500
 var ENEMIES = {
 	"vampire":{"hp":5,"mov":1,"dam":1, "ran":1,"fly":false},
 	"bat":{"hp":3,"mov":1,"dam":1, "ran":1,"fly":true},
+	"spawn":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":false,"ret":0},
 }
 
 func get_enemy_data(code):
 	var data = ENEMIES[code].duplicate()
+	if !"ret" in data: data["ret"] = ENEMIES.keys().find(code)
 	data.name = code
 	return data
 
