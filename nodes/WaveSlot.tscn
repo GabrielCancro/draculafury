@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/enemies/enemy_retraits.png" type="Texture" id=1]
 [ext_resource path="res://nodes/WaveSlot.gd" type="Script" id=2]
 [ext_resource path="res://assets/pawn.png" type="Texture" id=3]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 29
+outline_size = 7
+outline_color = Color( 0.203922, 0, 0, 1 )
+font_data = ExtResource( 4 )
 
 [node name="WaveSlot" type="Control"]
 margin_left = 106.0
@@ -34,3 +41,18 @@ frame = 4
 position = Vector2( 75, 88.5 )
 texture = ExtResource( 1 )
 hframes = 5
+
+[node name="label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_top = 137.0
+margin_right = 99.0
+margin_bottom = 185.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 1 )
+text = "SPAWN"
+align = 1
+valign = 1
+autowrap = true

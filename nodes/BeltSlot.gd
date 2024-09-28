@@ -3,13 +3,14 @@ class_name BeltSlot
 
 var army
 var amount
-var hint_code = "army_none"
+onready var hint_data={"owner":self,"panel":"default","code":"army_none","over_node":"HintNode","callback":null}
+
 signal on_click_belt_slot(belt_slot)
 
 func _ready():
 	$bgselected.visible = false
 	$Button.connect("button_down",self,"on_click")
-	Effector.add_hint(self)
+	Effector.add_hint(hint_data)
 
 func set_army(code):
 	army = code
@@ -17,11 +18,11 @@ func set_army(code):
 	$lb_amount.text = "x"+str(amount)
 	$lb_amount.visible = (amount!=-1)
 	if army: 
-		hint_code = "army_"+code
+		hint_data.code = "army_"+code
 		$Sprite.frame = ArmyManager.ARMIES.find(code)
 		$Sprite.visible = true
 	else:
-		hint_code = "army_none"
+		hint_data.code = "army_none"
 		$Sprite.visible = false
 
 func set_lighted(val):
