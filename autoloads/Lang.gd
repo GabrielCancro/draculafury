@@ -19,6 +19,13 @@ var texts = {
 	
 	"ui_end_wave_es":"Fin de Oleada!",
 	"ui_upg_new_army_es":"Selecciona un slot de tu cinturón para colocar tu nueva arma!",
+	
+	"en_vampire_name_es":"Vampiro",
+	"en_vampire_desc_es":"Un asqueroso vampiro en busca de sangre.",
+	"en_bat_name_es":"Murcielago",
+	"en_bat_desc_es":"Este murcielago no es solo una rata con alas, parece peligroso.",
+
+	"en_ab_extra_mov_desc_es":"Movimiento Extra: tiene 30% de posibilidad de avanzar un casillero extra en su turno.",
 }
 
 var images = {

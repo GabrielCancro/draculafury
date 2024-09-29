@@ -4,12 +4,14 @@ var enemy_data
 var floor_y = 670
 var fly_y = -220
 var step_size
+var hint_data={"owner":self,"panel":"enemy","code":null,"over_node":null,"callback":null,"over_area":"Button"}
 
 signal end_move()
 
 func _ready():
 	modulate.a = 0
 	Effector.appear(self)
+	Effector.add_hint(hint_data)
 	$Button.connect("button_down",self,"move")
 
 func set_data(_data):
@@ -32,6 +34,7 @@ func set_tile_pos(_x):
 
 func move(val = -enemy_data.mov):
 	yield(get_tree().create_timer(.35),"timeout")
+	if "ability" in enemy_data && enemy_data.ability=="extra_mov" && randi()%100<30: val -= 1
 	for i in abs(val):
 		if enemy_data.tile_pos_x==0 and sign(val)<0: break
 		var swap_en = EnemyManager.get_enemy_in_pos(enemy_data.tile_pos_x+sign(val),enemy_data.tile_pos_y)

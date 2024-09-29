@@ -30,9 +30,9 @@ func _run_breathe():
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 
-func _condition_kick(): return EnemyManager.have_close_enemy(2)
+func _condition_kick(): return EnemyManager.have_close_enemy(2,0)
 func _run_kick():
-	var en = EnemyManager.get_first_enemy(2)
+	var en = EnemyManager.get_first_enemy(2,0)
 	if en:
 		en.enemy_damage(1)
 		yield(get_tree().create_timer(.7),"timeout")

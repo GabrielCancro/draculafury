@@ -16,7 +16,7 @@ offset = Vector2( -8.75, -92.5 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = -79.0
-margin_top = -154.0
+margin_top = -184.0
 margin_right = 69.0
 margin_bottom = 17.0
 focus_mode = 0

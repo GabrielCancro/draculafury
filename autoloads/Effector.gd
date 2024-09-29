@@ -69,8 +69,10 @@ func show_damage_text(val,pos):
 
 func add_hint(hint_data):
 	#hint_data={"owner":self,"panel":null,"code":"tx_code","over_node":null,"callback":null}
-	hint_data["owner"].connect("mouse_entered",self,"_on_hint_enter_area",[hint_data,true])
-	hint_data["owner"].connect("mouse_exited",self,"_on_hint_enter_area",[hint_data,false])
+	var over_area = hint_data["owner"]
+	if "over_area" in hint_data: over_area = hint_data["owner"].get_node(hint_data["over_area"])
+	over_area.connect("mouse_entered",self,"_on_hint_enter_area",[hint_data,true])
+	over_area.connect("mouse_exited",self,"_on_hint_enter_area",[hint_data,false])
 	if hint_data["over_node"]: hint_data["owner"].get_node(hint_data["over_node"]).visible = false
 	#node.connect("tree_exited",self,"_on_hint_enter_area",[node,tx_code,false])
 
@@ -79,6 +81,7 @@ func _on_hint_enter_area(hint_data,val):
 	if hint_data.panel:
 		var HintPanel
 		if hint_data.panel=="default": HintPanel = get_node("/root/Game/CLUI/HintPanel")
+		if hint_data.panel=="enemy": HintPanel = get_node("/root/Game/CLUI/HintPanelEnemy")
 		if val: HintPanel.show_hint(hint_data)
 		else: HintPanel.hide_hint()
 	hint_data["is_visible"] = val

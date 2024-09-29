@@ -45,10 +45,10 @@ hframes = 5
 [node name="label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -75.0
-margin_top = 137.0
-margin_right = 99.0
-margin_bottom = 185.0
+margin_left = -67.0
+margin_top = 169.0
+margin_right = 107.0
+margin_bottom = 217.0
 custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )

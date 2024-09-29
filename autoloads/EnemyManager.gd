@@ -4,9 +4,8 @@ var ENEMIES_ACTIVES = []
 var max_x_pos = 5
 var end_x_pos = 500
 var ENEMIES = {
-	"vampire":{"hp":5,"mov":1,"dam":1, "ran":1,"fly":false},
-	"bat":{"hp":3,"mov":1,"dam":1, "ran":1,"fly":true},
-	"spawn":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":false,"ret":0},
+	"vampire":{"hp":5,"mov":1,"dam":3, "ran":1,"fly":false,"ability":"extra_mov"},
+	"bat":{"hp":3,"mov":2,"dam":2, "ran":1,"fly":true}
 }
 
 func get_enemy_data(code):

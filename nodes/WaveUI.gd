@@ -6,10 +6,10 @@ var max_slots = 5
 
 var WAVE = []
 var ALL_WAVES = [
-	["spawn",null,null,"spawn",null,null,"spawn"],
-	["spawn","spawn",null,null,"vampire","spawn",null,"vampire"],
-	["spawn","spawn",null,"vampire",null,null,"vampire"],
-	["vampire",null,"spawn","vampire",null,"vampire","vampire"],
+	["vampire",null,null,"vampire",null,null,"vampire"],
+	["vampire","bat",null,null,"vampire"],
+	["bat",null,"bat","vampire",null,"bat"],
+	["vampire",null,"bat","vampire",null,"vampire","bat"],
 	["vampire",null,"bat",null,"vampire",null,"bat"],
 	["bat","bat",null,"vampire","bat",null,"bat","vampire"],
 	["bat","vampire","bat",null,null,null,"vampire","vampire"],
