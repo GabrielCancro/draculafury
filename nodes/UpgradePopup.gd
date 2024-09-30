@@ -15,11 +15,12 @@ func show_popup():
 	modulate.a = 0
 	update_belt()
 	$Label.text = Lang.get_text("ui_end_wave")
+	$Label_subtext.text = ""
 	$BeltExtra.visible = false
 	$BeltExtra.modulate.a = 1
 	$BeltExtra.rect_global_position = ini_belt_extra_pos
 	$ButtonNewArmy.visible = true
-	$ButtonUpgArmy.visible = true
+	$ButtonUpgArmy.visible = false
 	current_option = null
 	visible = true
 	Effector.appear(self)
@@ -40,7 +41,7 @@ func on_click_button(code):
 	$ButtonNewArmy.visible = false
 	$ButtonUpgArmy.visible = false
 	if code == "new_army": 
-		$Label.text = Lang.get_text("ui_upg_new_army")
+		$Label_subtext.text = Lang.get_text("ui_upg_new_army")
 		$BeltExtra.set_army( get_random_new_army() )
 		$BeltExtra.visible = true
 		if PlayerManager.PLAYER_ARMIES.size()<8:

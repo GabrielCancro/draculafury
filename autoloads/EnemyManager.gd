@@ -4,9 +4,14 @@ var ENEMIES_ACTIVES = []
 var max_x_pos = 5
 var end_x_pos = 500
 var ENEMIES = {
-	"vampire":{"hp":5,"mov":1,"dam":3, "ran":1,"fly":false,"ability":"extra_mov"},
-	"bat":{"hp":3,"mov":2,"dam":2, "ran":1,"fly":true}
+	"vampire":{"hp":5,"mov":1,"dam":2, "ran":1,"fly":false,"ability":"extra_mov"},
+	"bat":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":true}
 }
+
+func _ready(): initialize_data()
+
+func initialize_data():
+	ENEMIES_ACTIVES = []
 
 func get_enemy_data(code):
 	var data = ENEMIES[code].duplicate()
@@ -85,3 +90,7 @@ func have_close_enemy(ran=max_x_pos+1,forced_y=-1):
 			if forced_y == -1 || en.enemy_data.tile_pos_y == forced_y:
 				return true
 	return false
+
+func force_move_enemy():
+	for en in re_ordered_enemies_array():
+		en.move()

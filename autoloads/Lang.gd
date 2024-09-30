@@ -21,20 +21,17 @@ var texts = {
 	"army_crossbow_desc_es":"Largo alcance, Daño 2, al primer enemigo que esté volando. Solo sirve contra enemigos voladores.",
 	"army_stake_desc_es":"Largo alcance, Daño 10, primer enemigo, incluso si esta volando.",
 	"army_dynamite_desc_es":"Daño en area, Daño 5, a todos los enemigos, incluso voladores.",
-
-	"wave_empty_slot_es":"No hay ningun enemigo aquí.",
-	"enemy_desc_bat_es":"Murcielago: \nMovimiento 1, Ataque 1, Alcance 1\n Volador",
-	"enemy_desc_vampire_es":"Vampiro: \nMovimiento 1, Ataque 1, Alcance 1",
 	
 	"ui_end_wave_es":"Fin de Oleada!",
-	"ui_upg_new_army_es":"Selecciona un slot de tu cinturón para colocar tu nueva arma!",
-	
+	"ui_upg_new_army_es":"Elige un espacio de tu cinturon para colocar tu arma nueva, si está ocupado será reemplazado.",
+
 	"en_vampire_name_es":"Vampiro",
 	"en_vampire_desc_es":"Un asqueroso vampiro en busca de sangre.",
 	"en_bat_name_es":"Murcielago",
 	"en_bat_desc_es":"Este murcielago no es solo una rata con alas, parece peligroso.",
 
 	"en_ab_extra_mov_desc_es":"Movimiento Extra: tiene 30% de posibilidad de avanzar un casillero extra en su turno.",
+
 }
 
 var images = {

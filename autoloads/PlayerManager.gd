@@ -2,16 +2,14 @@ extends Node
 
 signal on_change_stats(player_stats)
 
-var PLAYER_STATS = {
-	"hp":10,
-	"hpm":10,
-	"xp":0,
-}
+var PLAYER_STATS
+var PLAYER_ARMIES
 
-var PLAYER_ARMIES = ["breathe","gun","kick","gun","rapier"]
+func _ready(): initialize_data()
 
-func _ready():
-	pass
+func initialize_data():
+	PLAYER_STATS = { "hp":10, "hpm":10, "xp":0,}
+	PLAYER_ARMIES = ["breathe","gun","kick","gun","rapier"]
 
 func damage(dam):
 	PLAYER_STATS.hp = max(PLAYER_STATS.hp-dam,0)
@@ -19,6 +17,9 @@ func damage(dam):
 	Effector.shake(player_node)
 	Effector.blood_bg()
 	emit_signal("on_change_stats",PLAYER_STATS)
+	if PLAYER_STATS.hp<=0:
+		yield(get_tree().create_timer(1),"timeout")
+		get_node("/root/Game/CLUI/EndGamePanel").show_popup()
 
 func heal(val):
 	PLAYER_STATS.hp = min(PLAYER_STATS.hp+val,PLAYER_STATS.hpm)

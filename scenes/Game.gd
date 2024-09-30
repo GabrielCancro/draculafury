@@ -6,6 +6,8 @@ var disable_dices_click = true
 
 func _ready():
 	set_floor_marks()
+	EnemyManager.initialize_data()
+	PlayerManager.initialize_data()
 	$CLUI/ButtonStates.disabled = true
 	$CLUI/ButtonStates.modulate.a = 0
 	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")	
@@ -20,6 +22,7 @@ func _ready():
 	$CLUI/Hacks/ButtonFxDyn.connect("button_down",ArmyManager,"run_army_action",["dynamite"])
 	$CLUI/Hacks/ButtonUpgrade.connect("button_down",$CLUI/UpgradePopup,"show_popup")
 	$CLUI/Hacks/ButtonXP.connect("button_down",PlayerManager,"add_xp")
+	$CLUI/Hacks/ButtonMovEnemies.connect("button_down",EnemyManager,"force_move_enemy")
 	
 	yield(get_tree().create_timer(5),"timeout")
 	change_state(GameState.START)
