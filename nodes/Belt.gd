@@ -40,7 +40,5 @@ func clear_selected_slot():
 
 func set_shadow_pawn(val=0):
 	$pawn2.visible = (val!=0)
-	var pos = pawn_pos+val
-	if pos>max_slots: pos -= max_slots
-	if pos<0: pos += max_slots
-	$pawn2.rect_global_position = $HBox.get_child(pos-1).rect_global_position
+	var pos = (pawn_pos+val-1)%max_slots
+	$pawn2.rect_global_position = $HBox.get_child(pos).rect_global_position
