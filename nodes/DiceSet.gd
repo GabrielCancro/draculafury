@@ -42,7 +42,9 @@ func roll_all_dices():
 			#Effector.shake(dice)
 			Effector.scale_boom(dice)
 			yield(get_tree().create_timer(.7),"timeout")
-			add_extra_dice().roll()
+			var new_dice = add_extra_dice()
+			if new_dice: new_dice.roll()
+			else: checked_dices = 99
 			yield(get_tree().create_timer(1.2),"timeout")
 		checked_dices += 1
 	yield(get_tree().create_timer(1),"timeout")

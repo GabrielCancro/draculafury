@@ -2,12 +2,12 @@ extends Sprite
 
 var anim = "idle"
 var step = 0
-var default_speed = 0.25
+var default_speed = .15
 
 signal end_anim
 
 var ANIMS = {
-	"idle":{"start":0,"end":1,"speed":0.5},
+	"idle":{"start":0,"end":3,"speed":.15},
 	"rapier":{"start":8,"end":10},
 	"gun":{"start":12,"end":14},
 	"crossbow":{"start":16,"end":18},

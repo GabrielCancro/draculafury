@@ -65,6 +65,12 @@ func on_click_belt_slot(belt_slot):
 			belt_slot.set_army($BeltExtra.army)
 
 func get_random_new_army():
+	var only_once_armies = ["stake","dynamite"]
+	var armies = []
+	for i in range(4,ArmyManager.ARMIES.size()):
+		var ar = ArmyManager.ARMIES[i]
+		if only_once_armies.find(ar)!=-1 && PlayerManager.PLAYER_ARMIES.find(ar)!=-1: continue
+		else: armies.append(ar)
 	randomize()
-	var i = 4 + randi()%(ArmyManager.ARMIES.size()-4)
-	return ArmyManager.ARMIES[i]
+	print("ARMIES ",armies)
+	return armies[ randi()%armies.size() ]
