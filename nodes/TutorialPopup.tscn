@@ -34,34 +34,24 @@ margin_top = 40.0
 margin_right = 1365.0
 margin_bottom = 204.0
 custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
-custom_constants/line_spacing = -1
+custom_constants/line_spacing = 4
 custom_fonts/font = SubResource( 1 )
 text = "Lazna tus dados y elige cual utilizar, esto moverá tu mano en el cinturón de armas para utilizarlas!
 Si sacas algún 6 (seis) obtendrás un dado extra!!"
 valign = 1
 autowrap = true
 
-[node name="lb_desc4" type="Label" parent="ColorRect"]
-margin_left = 109.0
-margin_top = 117.0
-margin_right = 1249.0
-margin_bottom = 281.0
-custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
-custom_constants/line_spacing = -1
-custom_fonts/font = SubResource( 1 )
-valign = 1
-autowrap = true
-
 [node name="lb_desc2" type="Label" parent="ColorRect"]
-margin_left = 56.0
+margin_left = 96.0
 margin_top = 251.0
-margin_right = 1080.0
+margin_right = 1120.0
 margin_bottom = 336.0
 custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
-custom_constants/line_spacing = -1
+custom_constants/line_spacing = 4
 custom_fonts/font = SubResource( 1 )
 text = "Los enemigos intentarán dañarte, evitalo a toda costa! 
 Al destruirlos ganarás experiencia."
+align = 2
 valign = 1
 autowrap = true
 
@@ -93,20 +83,20 @@ frame = 5
 
 [node name="Sprite3" type="Sprite" parent="ColorRect"]
 modulate = Color( 0.305882, 0.305882, 0.305882, 1 )
-position = Vector2( 1315, 263.282 )
+position = Vector2( 1310, 263.282 )
 scale = Vector2( 1.60563, 1.60563 )
 texture = ExtResource( 4 )
 hframes = 5
 
 [node name="Sprite4" type="Sprite" parent="ColorRect"]
 modulate = Color( 0.517647, 0.517647, 0.517647, 1 )
-position = Vector2( 1267, 279.282 )
+position = Vector2( 1262, 279.282 )
 scale = Vector2( 1.60563, 1.60563 )
 texture = ExtResource( 4 )
 hframes = 5
 
 [node name="Sprite5" type="Sprite" parent="ColorRect"]
-position = Vector2( 1227, 295.282 )
+position = Vector2( 1222, 295.282 )
 scale = Vector2( 1.60563, 1.60563 )
 texture = ExtResource( 4 )
 hframes = 5
