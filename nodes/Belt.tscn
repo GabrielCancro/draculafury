@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://nodes/Belt.gd" type="Script" id=1]
 [ext_resource path="res://assets/hand.png" type="Texture" id=2]
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/pawn.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -87,15 +88,26 @@ margin_right = 112.0
 margin_bottom = 142.0
 mouse_filter = 2
 
+[node name="TextureRect" type="TextureRect" parent="pawn"]
+modulate = Color( 0.188235, 0.188235, 0.188235, 1 )
+margin_left = 8.0
+margin_top = 47.0
+margin_right = 79.0
+margin_bottom = 124.0
+rect_rotation = -90.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+expand = true
+
 [node name="pawn_img" type="TextureRect" parent="pawn"]
 modulate = Color( 0.890196, 0.909804, 0.670588, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -46.0
+margin_left = -39.0
 margin_top = -28.0
-margin_right = 24.0
+margin_right = 31.0
 margin_bottom = 48.0
-rect_rotation = -19.1445
+rect_rotation = -30.0
 rect_pivot_offset = Vector2( 34, 31 )
 mouse_filter = 2
 texture = ExtResource( 2 )

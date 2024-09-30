@@ -24,7 +24,12 @@ func _ready():
 	$CLUI/Hacks/ButtonXP.connect("button_down",PlayerManager,"add_xp")
 	$CLUI/Hacks/ButtonMovEnemies.connect("button_down",EnemyManager,"force_move_enemy")
 	
-	yield(get_tree().create_timer(5),"timeout")
+	yield($CLUI/TutorialPopup,"close_popup")
+	yield(get_tree().create_timer(.5),"timeout")
+	$CLUI/WaveUI.next_wave()
+	yield(get_tree().create_timer(2),"timeout")
+	$CLUI/WaveUI.advance_wave()
+	yield(get_tree().create_timer(2),"timeout")
 	change_state(GameState.START)
 
 func change_state(new_state):

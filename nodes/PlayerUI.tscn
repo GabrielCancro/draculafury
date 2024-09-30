@@ -1,13 +1,65 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/player_retrait_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/player_retrait_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=3]
 [ext_resource path="res://assets/PlayerXp.png" type="Texture" id=4]
 [ext_resource path="res://nodes/PlayerUI.gd" type="Script" id=5]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/pawn.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 39
+outline_size = 7
+outline_color = Color( 0.203922, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 7
+outline_color = Color( 0.145098, 0.145098, 0.239216, 1 )
+font_data = ExtResource( 6 )
 
 [node name="PlayerUI" type="Control"]
+margin_right = 540.0
+margin_bottom = 204.0
 script = ExtResource( 5 )
+
+[node name="HintNode" type="Sprite" parent="."]
+modulate = Color( 0.529412, 0.556863, 0.788235, 1 )
+position = Vector2( 231, 199 )
+rotation = -1.5708
+scale = Vector2( 0.526613, 0.534794 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 103.0
+margin_top = 75.0
+margin_right = 333.0
+margin_bottom = 123.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 1 )
+text = "HP: 10/10"
+valign = 1
+autowrap = true
+
+[node name="label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 90.0
+margin_top = 128.0
+margin_right = 320.0
+margin_bottom = 176.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "XP: 0/10"
+valign = 1
+autowrap = true
 
 [node name="RetrairBg" type="TextureRect" parent="."]
 margin_right = 40.0

@@ -20,10 +20,6 @@ var ALL_WAVES = [
 
 func _ready():
 	Effector.remove_all_children($Grid)
-	yield(get_tree().create_timer(1),"timeout")
-	next_wave()
-	yield(get_tree().create_timer(2),"timeout")
-	advance_wave()
 
 func next_wave():
 	WAVE = ALL_WAVES.pop_front()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg7.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://nodes/HintPanelEnemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://nodes/HintPanelArmy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://nodes/EndGamePanel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://nodes/TutorialPopup.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -137,7 +138,7 @@ margin_bottom = 49.0
 custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
-text = "v 0.05"
+text = "v 0.06"
 align = 1
 valign = 1
 autowrap = true
@@ -186,10 +187,10 @@ custom_fonts/font = ExtResource( 5 )
 text = "H"
 
 [node name="PlayerUI" parent="CLUI" instance=ExtResource( 8 )]
-margin_left = 43.0
-margin_top = 38.0
-margin_right = 43.0
-margin_bottom = 38.0
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 564.0
+margin_bottom = 236.0
 
 [node name="PlayerActionList" parent="CLUI" instance=ExtResource( 9 )]
 margin_left = -105.0
@@ -206,6 +207,7 @@ margin_right = -8.0
 margin_bottom = 217.0
 
 [node name="Hacks" type="Control" parent="CLUI"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -288,4 +290,7 @@ margin_right = 1097.0
 margin_bottom = 622.0
 
 [node name="EndGamePanel" parent="CLUI" instance=ExtResource( 15 )]
+visible = false
+
+[node name="TutorialPopup" parent="CLUI" instance=ExtResource( 16 )]
 visible = false
