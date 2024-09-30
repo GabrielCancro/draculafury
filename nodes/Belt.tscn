@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://nodes/Belt.gd" type="Script" id=1]
-[ext_resource path="res://assets/pawn.png" type="Texture" id=2]
+[ext_resource path="res://assets/hand.png" type="Texture" id=2]
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("pawn_img:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.68302, 1, 1.31951 ),
+"update": 0,
+"values": [ -30.0, 0.0, -30.0 ]
+}
 
 [node name="Belt" type="Control"]
 margin_top = -18.0
@@ -63,26 +80,6 @@ margin_right = 808.0
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="ButtonL" type="Button" parent="."]
-modulate = Color( 1, 1, 1, 0.278431 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -442.5
-margin_top = 92.0
-margin_right = -411.5
-margin_bottom = 141.0
-text = "<<"
-
-[node name="ButtonR" type="Button" parent="."]
-modulate = Color( 1, 1, 1, 0.278431 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 431.5
-margin_top = 93.0
-margin_right = 462.5
-margin_bottom = 142.0
-text = ">>"
-
 [node name="pawn" type="Control" parent="."]
 margin_left = 12.0
 margin_top = 12.0
@@ -91,13 +88,18 @@ margin_bottom = 142.0
 mouse_filter = 2
 
 [node name="pawn_img" type="TextureRect" parent="pawn"]
-modulate = Color( 0.917647, 1, 0, 1 )
+modulate = Color( 0.890196, 0.909804, 0.670588, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -12.0
-margin_top = -9.0
-margin_right = 12.0
-margin_bottom = 17.0
+margin_left = -46.0
+margin_top = -28.0
+margin_right = 24.0
+margin_bottom = 48.0
+rect_rotation = -19.1445
+rect_pivot_offset = Vector2( 34, 31 )
 mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="pawn"]
+anims/idle = SubResource( 1 )

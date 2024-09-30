@@ -117,6 +117,7 @@ func on_click_dice(dice):
 
 func set_floor_marks():
 	for fn in $Floor.get_children():
-		fn.visible = (fn.get_index()<=EnemyManager.max_x_pos)
+		fn.visible = (fn.get_index()<EnemyManager.max_x_pos)
 		fn.rect_global_position.x = EnemyManager.end_x_pos + (1600-EnemyManager.end_x_pos) / EnemyManager.max_x_pos * fn.get_index()
+		fn.rect_global_position.x -= fn.rect_size.x/2
 		if fn.visible: print("fn ",fn.rect_global_position.x)

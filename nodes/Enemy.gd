@@ -12,7 +12,6 @@ func _ready():
 	modulate.a = 0
 	Effector.appear(self)
 	Effector.add_hint(hint_data)
-	$Button.connect("button_down",self,"move")
 
 func set_data(_data):
 	step_size = (1600 - EnemyManager.end_x_pos)/EnemyManager.max_x_pos

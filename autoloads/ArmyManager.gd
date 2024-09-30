@@ -6,6 +6,11 @@ var ARMIES = ["breathe","kick","rapier","gun","shotgun","crossbow","stake","dyna
 var ARMIES_AMOUNT = {"gun":3,"shotgun":2,"crossbow":3,"stake":1,"dynamite":1}
 var PLAYER
 
+func get_army_data(code):
+	var army_data = {"name":code,"amount":-1}
+	if code in ARMIES_AMOUNT: army_data.amount = ARMIES_AMOUNT[code]
+	return army_data
+
 func get_random_army():
 	randomize()
 	var i = randi()%ARMIES.size()
@@ -72,7 +77,7 @@ func _run_shotgun():
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 	
-func _condition_crossbow(): return EnemyManager.have_close_enemy(99,1) && !EnemyManager.have_close_enemy(1)
+func _condition_crossbow(): return EnemyManager.have_close_enemy(99,1)
 func _run_crossbow():
 	var en = EnemyManager.get_first_enemy(99,1)
 	if en: en.enemy_damage(2)

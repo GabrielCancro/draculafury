@@ -8,9 +8,8 @@ var current_slot
 signal end_move(army_index)
 
 func _ready():
-	$ButtonR.connect("button_down",self,"move_pawn",[3])
-	$ButtonL.connect("button_down",self,"move_pawn",[-1])
 	update_belt()
+	$pawn/AnimationPlayer.play("idle")
 
 func update_belt():
 	max_slots = PlayerManager.PLAYER_ARMIES.size()
