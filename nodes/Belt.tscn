@@ -81,6 +81,27 @@ margin_right = 808.0
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="pawn2" type="Control" parent="."]
+margin_left = -108.0
+margin_top = 12.0
+margin_right = -8.0
+margin_bottom = 142.0
+mouse_filter = 2
+
+[node name="pawn_img" type="TextureRect" parent="pawn2"]
+modulate = Color( 1, 1, 1, 0.403922 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -39.0
+margin_top = -28.0
+margin_right = 31.0
+margin_bottom = 48.0
+rect_rotation = -30.0
+rect_pivot_offset = Vector2( 34, 31 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+
 [node name="pawn" type="Control" parent="."]
 margin_left = 12.0
 margin_top = 12.0
@@ -115,24 +136,3 @@ expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pawn"]
 anims/idle = SubResource( 1 )
-
-[node name="pawn2" type="Control" parent="."]
-margin_left = -108.0
-margin_top = 12.0
-margin_right = -8.0
-margin_bottom = 142.0
-mouse_filter = 2
-
-[node name="pawn_img" type="TextureRect" parent="pawn2"]
-modulate = Color( 1, 1, 1, 0.403922 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -39.0
-margin_top = -28.0
-margin_right = 31.0
-margin_bottom = 48.0
-rect_rotation = -30.0
-rect_pivot_offset = Vector2( 34, 31 )
-mouse_filter = 2
-texture = ExtResource( 2 )
-expand = true
