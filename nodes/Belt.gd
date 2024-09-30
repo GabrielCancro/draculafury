@@ -10,6 +10,7 @@ signal end_move(army_index)
 func _ready():
 	update_belt()
 	$pawn/AnimationPlayer.play("idle")
+	set_shadow_pawn(0)
 
 func update_belt():
 	max_slots = PlayerManager.PLAYER_ARMIES.size()
@@ -36,3 +37,10 @@ func move_pawn(mov):
 
 func clear_selected_slot():
 	if current_slot: current_slot.set_lighted(false)
+
+func set_shadow_pawn(val=0):
+	$pawn2.visible = (val==0)
+	var pos = pawn_pos+val
+	if pos>max_slots: pos -= max_slots
+	if pos<0: pos += max_slots
+	$pawn.rect_global_position = $HBox.get_child(pos-1).rect_global_position

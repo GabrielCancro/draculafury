@@ -4,9 +4,11 @@ class_name Dice
 var value = -1
 signal end_roll(dice)
 signal on_click_dice(dice)
+var hint_data={"owner":self,"panel":null,"code":null,"over_node":"HintNode","callback":"hint_cb"}
+
 
 func _ready():
-	Effector.add_over(self)
+	Effector.add_hint(hint_data)
 	randomize()
 	value = -1
 	$Sprite.frame = 6
@@ -39,3 +41,9 @@ func hide_dice():
 	value = -1
 	$HintNode.visible = false
 	Effector.disappear(self,true)
+
+func hint_cb():
+	if $HintNode.visible && value>0:
+		get_node("/root/Game/CLUI/Belt").set_shadow_pawn(value)
+	else:
+		get_node("/root/Game/CLUI/Belt").set_shadow_pawn(0)
