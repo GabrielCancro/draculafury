@@ -9,7 +9,7 @@ func _ready():
 	$SpriteBg.visible = false
 	$Button.connect("button_down",self,"on_click")
 	Effector.add_hint(hint_data)
-	$AnimationPlayer.play("floor")
+	#$AnimationPlayer.play("floor")
 
 func on_click():
 	print("ITEM CLICK ",item)

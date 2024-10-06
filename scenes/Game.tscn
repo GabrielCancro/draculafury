@@ -54,6 +54,12 @@ color = Color( 0.654902, 0, 0, 1 )
 
 [node name="Enemies" type="Control" parent="."]
 
+[node name="ItemNode" parent="." instance=ExtResource( 18 )]
+margin_left = 1449.0
+margin_top = 699.0
+margin_right = 1549.0
+margin_bottom = 799.0
+
 [node name="Floor" type="Control" parent="."]
 
 [node name="c1" type="ColorRect" parent="Floor"]
@@ -302,9 +308,3 @@ visible = false
 
 [node name="TutorialPopup" parent="CLUI" instance=ExtResource( 16 )]
 visible = false
-
-[node name="ItemNode" parent="CLUI" instance=ExtResource( 18 )]
-margin_left = 1131.0
-margin_top = 610.0
-margin_right = 1231.0
-margin_bottom = 710.0
