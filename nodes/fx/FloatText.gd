@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	z_index = 9999
+	z_index = 999
 	$Tween.interpolate_property(self,"position",position,position+Vector2(0,-50),1.5,Tween.TRANS_QUAD,Tween.EASE_IN)
 	$Tween.interpolate_property(self,"modulate",Color(1,1,1,1),Color(1,1,1,0),.5,Tween.TRANS_QUAD,Tween.EASE_IN,1.0)
 	$Tween.start()

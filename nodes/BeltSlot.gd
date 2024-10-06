@@ -3,7 +3,7 @@ class_name BeltSlot
 
 var army
 var amount
-onready var hint_data={"owner":self,"panel":"army","code":"army_none","over_node":"HintNode","callback":null}
+var hint_data={"owner":self,"panel":"army","code":"army_none","over_node":"HintNode","callback":null}
 
 signal on_click_belt_slot(belt_slot)
 
