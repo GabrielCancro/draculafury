@@ -23,6 +23,7 @@ func _ready():
 	$CLUI/Hacks/ButtonUpgrade.connect("button_down",$CLUI/UpgradePopup,"show_popup")
 	$CLUI/Hacks/ButtonXP.connect("button_down",PlayerManager,"add_xp")
 	$CLUI/Hacks/ButtonMovEnemies.connect("button_down",EnemyManager,"force_move_enemy")
+	$CLUI/Hacks/ButtonAddItem.connect("button_down",ItemManager,"throw_random_item")
 	
 	yield($CLUI/TutorialPopup,"close_popup")
 	yield(get_tree().create_timer(.5),"timeout")
