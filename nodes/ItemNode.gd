@@ -8,10 +8,10 @@ signal on_click_item(item_node)
 
 func set_data(_data):
 	item_data = _data
+	$Sprite.frame = item_data.ico
 
 func _ready():
 	modulate.a = 0
-	$SpriteBg.visible = false
 	$Button.connect("button_down",self,"on_click")
 	hint_data.code = "item_"+item_data.code
 	Effector.add_hint(hint_data)
@@ -35,7 +35,5 @@ func move_to_pos(pos):
 
 func on_click():
 	print("ITEM CLICK ",item_data.code)
-	if is_infloor:
-		is_infloor = false
-		ItemManager.reorder_items()
+	if is_infloor: ItemManager.take_item(self)
 	emit_signal("on_click_item",self)
