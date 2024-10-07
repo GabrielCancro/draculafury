@@ -29,7 +29,12 @@ var texts = {
 	"en_vampire_desc_es":"Un asqueroso vampiro en busca de sangre.",
 	"en_bat_name_es":"Murcielago",
 	"en_bat_desc_es":"Este murcielago no es solo una rata con alas, parece peligroso.",
-
+	
+	"it_crucifix_name_es":"Crucifijo",
+	"it_crucifix_desc_es":"Todos los enemigos reciben un punto de daño.",
+	"it_garlic_name_es":"Ajo",
+	"it_garlic_desc_es":"Recuperas 2 puntos de daño.",
+	
 	"en_ab_extra_mov_desc_es":"Movimiento Extra: tiene 30% de posibilidad de avanzar un casillero extra en su turno.",
 	"tuto_dices_es":"Lanza tus dados y elige el orden, esto moverá tu mano en el cinturón de armas para utilizarlas.\nPor cada 6 (seis) obtendrás un dado extra!!",
 	"tuto_enemies_es":"Los enemigos intentarán dañarte, evitalo a toda costa.\nAl destruirlos ganarás experiencia.",

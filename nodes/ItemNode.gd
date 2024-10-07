@@ -1,6 +1,6 @@
 extends Control
 
-var item_data = "cruz" #"code":"cruz","ico":1}
+var item_data #"code":"cruz","ico":1}
 var is_infloor = true
 var hint_data={"owner":self,"panel":"item","code":"item_none","over_node":"HintNode","callback":null}
 
@@ -36,4 +36,23 @@ func move_to_pos(pos):
 func on_click():
 	print("ITEM CLICK ",item_data.code)
 	if is_infloor: ItemManager.take_item(self)
+	else: 
+		$Button.disabled = true
+		rect_size = Vector2(0,0)
+		move_to_pos(rect_position+Vector2(50,0))
+		ItemManager.run_item_action(item_data.code)
+		var result = yield(ItemManager,"end_item_action")
+		yield(get_tree().create_timer(.5),"timeout")
+		if result:
+			move_to_pos(rect_position+Vector2(50,0))
+			Effector.disappear(self)
+			yield(get_tree().create_timer(.5),"timeout")
+			ItemManager.ITEMS_PLAYER.erase(self)
+			queue_free()
+			yield(get_tree().create_timer(.5),"timeout")
+			ItemManager.reorder_items()
+		else:
+			move_to_pos(rect_position+Vector2(-50,0))
+			$Button.disabled = false
+			rect_size = Vector2(100,100)
 	emit_signal("on_click_item",self)

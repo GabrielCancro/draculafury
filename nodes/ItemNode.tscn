@@ -20,6 +20,7 @@ position = Vector2( 50, 50 )
 texture = ExtResource( 2 )
 hframes = 3
 vframes = 4
+frame = 5
 
 [node name="Button" type="Button" parent="."]
 anchor_right = 1.0
