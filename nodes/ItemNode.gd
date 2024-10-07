@@ -35,8 +35,14 @@ func move_to_pos(pos):
 
 func on_click():
 	print("ITEM CLICK ",item_data.code)
-	if is_infloor: ItemManager.take_item(self)
+	emit_signal("on_click_item",self)
+	if is_infloor: 
+		ItemManager.take_item(self)
 	else: 
+		var GAME = get_node("/root/Game")
+		if GAME.current_state!=GAME.GameState.ACTIONS:
+			Effector.show_float_text("ui_no_item_face")
+			return
 		$Button.disabled = true
 		rect_size = Vector2(0,0)
 		move_to_pos(rect_position+Vector2(50,0))
@@ -55,4 +61,3 @@ func on_click():
 			move_to_pos(rect_position+Vector2(-50,0))
 			$Button.disabled = false
 			rect_size = Vector2(100,100)
-	emit_signal("on_click_item",self)

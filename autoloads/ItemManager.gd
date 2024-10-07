@@ -3,9 +3,9 @@ extends Node
 var ITEMS_DATA = {
 	"crucifix": {"ico":0},
 	"garlic": {"ico":1},
-	"stake": {"ico":2},
-	"potion": {"ico":3},
-	"ron": {"ico":4},
+	#"stake": {"ico":2},
+	#"potion": {"ico":3},
+	#"ron": {"ico":4},
 	"dice": {"ico":5},
 }
 var ITEMS_INFLOOR = []
@@ -75,3 +75,8 @@ func _run_crucifix():
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_item_action",true)
 
+func _condition_dice(): return true
+func _run_dice():
+	var new_dice = get_node("/root/Game/CLUI/DiceSet").add_extra_dice()
+	if new_dice: new_dice.roll()
+	emit_signal("end_item_action",true)
