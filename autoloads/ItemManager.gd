@@ -1,6 +1,7 @@
 extends Node
 
-var probability = 10
+var probability_base = 15
+var probability = probability_base
 
 var ITEMS_DATA = {
 	"crucifix": {"ico":0},
@@ -25,7 +26,7 @@ func throw_random_item():
 	var rnd_index = randi()%ITEMS_DATA.keys().size()
 	var data = get_item_data(ITEMS_DATA.keys()[rnd_index])
 	it.set_data(data)
-	it.rect_position = Vector2(1000,580)
+	it.rect_position = Vector2(1000,600)
 	ITEMS_INFLOOR.append(it)
 	get_node("/root/Game/ItemContainer").add_child(it)
 
@@ -39,7 +40,7 @@ func take_item(item_node):
 func throw_with_probability():
 	randomize()
 	if randi()%100<probability:
-		probability = 10
+		probability = probability_base
 		throw_random_item()
 	else:
 		probability *= 2

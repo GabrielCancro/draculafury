@@ -9,6 +9,7 @@ signal on_click_item(item_node)
 func set_data(_data):
 	item_data = _data
 	$Sprite.frame = item_data.ico
+	$Sprite.z_index = 150
 
 func _ready():
 	modulate.a = 0
