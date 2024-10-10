@@ -1,11 +1,13 @@
 extends Node
 
+var probability = 10
+
 var ITEMS_DATA = {
 	"crucifix": {"ico":0},
 	"garlic": {"ico":1},
 	#"stake": {"ico":2},
 	#"potion": {"ico":3},
-	#"ron": {"ico":4},
+	"ron": {"ico":4},
 	"dice": {"ico":5},
 }
 var ITEMS_INFLOOR = []
@@ -33,6 +35,14 @@ func take_item(item_node):
 		ITEMS_INFLOOR.erase(item_node)
 		ITEMS_PLAYER.append(item_node)
 		reorder_items()
+
+func throw_with_probability():
+	randomize()
+	if randi()%100<probability:
+		probability = 10
+		throw_random_item()
+	else:
+		probability *= 2
 
 func reorder_items():
 	var i = 0
@@ -79,4 +89,10 @@ func _condition_dice(): return true
 func _run_dice():
 	var new_dice = get_node("/root/Game/CLUI/DiceSet").add_extra_dice()
 	if new_dice: new_dice.roll()
+	emit_signal("end_item_action",true)
+
+func _condition_ron(): return true
+func _run_ron():
+	var army = get_node("/root/Game/CLUI/Belt").current_slot.army
+	get_node("/root/Game/CLUI/PlayerActionList").add_army(army)
 	emit_signal("end_item_action",true)

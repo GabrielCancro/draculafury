@@ -37,6 +37,8 @@ var texts = {
 	"it_crucifix_desc_es":"Todos los enemigos reciben un punto de daño.",
 	"it_garlic_name_es":"Ajo",
 	"it_garlic_desc_es":"Recuperas 2 puntos de daño.",
+	"it_ron_name_es":"Ron",
+	"it_ron_desc_es":"Vuelve a utilizar el arma que indica tu mano de tu cinturón de armas.",
 	"it_dice_name_es":"Dado",
 	"it_dice_desc_es":"Añade un dado extra a tu tirada.",
 	
