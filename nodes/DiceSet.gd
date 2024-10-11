@@ -15,12 +15,6 @@ func _ready():
 func on_click_dice(dice):
 	emit_signal("on_click_dice",dice)
 
-func on_dice_result(dice):
-	if dice.value==6: 
-		Effector.shake(dice)
-		yield(get_tree().create_timer(.7),"timeout")
-		add_extra_dice().roll()
-
 func show_diceset():
 	Effector.appear(self)
 	for d in $HBoxDices.get_children():
@@ -51,8 +45,7 @@ func roll_all_dices():
 	while checked_dices<$HBoxDices.get_child_count():
 		print("DICE CHECKED ",checked_dices)
 		var dice = $HBoxDices.get_child(checked_dices)
-		if dice.value==6: 
-			#Effector.shake(dice)
+		if dice.value==6:
 			Effector.scale_boom(dice)
 			yield(get_tree().create_timer(.7),"timeout")
 			var new_dice = add_extra_dice()

@@ -95,7 +95,12 @@ func _condition_dice(): return true
 func _run_dice():
 	var new_dice = get_node("/root/Game/CLUI/DiceSet").add_extra_dice()
 	if new_dice: new_dice.roll()
-	emit_signal("end_item_action",true)
+	yield(new_dice,"end_roll")
+	if new_dice.value == 6: 
+		Effector.scale_boom(new_dice)
+		yield(get_tree().create_timer(.3),"timeout")
+		_run_dice()
+	else: emit_signal("end_item_action",true)
 
 func _condition_ron(): return true
 func _run_ron():
