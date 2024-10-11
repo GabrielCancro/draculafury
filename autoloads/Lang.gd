@@ -19,12 +19,13 @@ var texts = {
 	"army_gun_desc_es":"Largo alcance, Daño 1, al primer enemigo, incluso si está volando.",
 	"army_shotgun_desc_es":"Largo alcance, Daños 2, al primer enemigo incluso si esta volando, además causa 1 daño a los enemigos adyacentes.",
 	"army_crossbow_desc_es":"Largo alcance, Daño 2, al primer enemigo que esté volando. Solo sirve contra enemigos voladores.",
-	"army_stake_desc_es":"Largo alcance, Daño 10, primer enemigo, incluso si esta volando.",
-	"army_dynamite_desc_es":"Daño en area, Daño 5, a todos los enemigos, incluso voladores.",
+	"army_stake_desc_es":"Largo alcance, Daño 3, primer enemigo, incluso si esta volando.",
+	"army_dynamite_desc_es":"Daño en area, Daño 2, a todos los enemigos, incluso voladores.",
 	
 	"ui_end_wave_es":"Fin de Oleada!",
 	"ui_upg_new_army_es":"Elige un espacio de tu cinturon para colocar tu arma nueva, si está ocupado será reemplazado.",
 	"ui_no_item_face_es":"No puedes usar items ahora.",
+	"ui_player_extra_dice_es":"Dado extra",
 
 	"en_vampire_name_es":"Vampiro",
 	"en_vampire_desc_es":"Un asqueroso vampiro en busca de sangre.",
@@ -38,7 +39,7 @@ var texts = {
 	"it_garlic_name_es":"Ajo",
 	"it_garlic_desc_es":"Recuperas 2 puntos de daño.",
 	"it_ron_name_es":"Ron",
-	"it_ron_desc_es":"Vuelve a utilizar el arma que indica tu mano de tu cinturón de armas.",
+	"it_ron_desc_es":"Vuelve a utilizar el arma que indica la mano en tu cinturón de armas.",
 	"it_dice_name_es":"Dado",
 	"it_dice_desc_es":"Añade un dado extra a tu tirada.",
 	

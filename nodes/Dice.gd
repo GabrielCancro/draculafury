@@ -22,6 +22,7 @@ func show_dice():
 	Effector.appear(self)
 
 func on_click():
+	if !$HintNode.visible: return
 	Effector.scale_boom(self)
 	emit_signal("on_click_dice",self)
 

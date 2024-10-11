@@ -5,6 +5,7 @@ var amount_dices = 2
 var six_checked = 0
 signal on_click_dice(dice)
 signal end_all_rolls()
+signal end_dice_part_collect()
 
 func _ready():
 	for d in $HBoxDices.get_children(): 
@@ -29,6 +30,18 @@ func hide_diceset():
 	Effector.disappear(self)
 	for d in $HBoxDices.get_children(): 
 		d.hide_dice()
+
+func get_dice_parts():
+	yield(get_tree().create_timer(.2),"timeout")
+	for d in $HBoxDices.get_children(): 
+		if d.visible: 
+			Effector.move_to(d,Vector2(200,200))
+			d.hide_dice()
+			yield(get_tree().create_timer(.3),"timeout")
+			PlayerManager.add_dice_parts()
+			if PlayerManager.PLAYER_STATS.dice_parts==6: yield(get_tree().create_timer(2),"timeout")
+	yield(get_tree().create_timer(.3),"timeout")
+	emit_signal("end_dice_part_collect")
 
 func roll_all_dices():
 	for d in $HBoxDices.get_children():

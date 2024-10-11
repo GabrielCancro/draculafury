@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/player_retrait_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/player_retrait_1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://nodes/PlayerUI.gd" type="Script" id=5]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/pawn.png" type="Texture" id=7]
+[ext_resource path="res://assets/dice_icon.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 39
@@ -18,6 +19,12 @@ font_data = ExtResource( 6 )
 size = 32
 outline_size = 7
 outline_color = Color( 0.145098, 0.145098, 0.239216, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 6
+outline_color = Color( 0.270588, 0.278431, 0.121569, 1 )
 font_data = ExtResource( 6 )
 
 [node name="PlayerUI" type="Control"]
@@ -61,6 +68,20 @@ text = "XP: 0/10"
 valign = 1
 autowrap = true
 
+[node name="label3" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 116.0
+margin_top = 19.0
+margin_right = 372.0
+margin_bottom = 67.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "Dado extra: 1/6"
+valign = 1
+autowrap = true
+
 [node name="RetrairBg" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -82,6 +103,62 @@ texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 3 )
 tint_under = Color( 0.321569, 0.321569, 0.321569, 1 )
 tint_progress = Color( 1, 0.231373, 0.231373, 1 )
+
+[node name="HBoxDiceParts" type="HBoxContainer" parent="."]
+modulate = Color( 0.67451, 0.745098, 0.333333, 1 )
+margin_left = 140.0
+margin_top = 20.0
+margin_right = 365.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 112, 20 )
+custom_constants/separation = -13
+
+[node name="D1" type="TextureRect" parent="HBoxDiceParts"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="D2" type="TextureRect" parent="HBoxDiceParts"]
+margin_left = 37.0
+margin_right = 87.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="D3" type="TextureRect" parent="HBoxDiceParts"]
+margin_left = 74.0
+margin_right = 124.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="D4" type="TextureRect" parent="HBoxDiceParts"]
+margin_left = 111.0
+margin_right = 161.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="D5" type="TextureRect" parent="HBoxDiceParts"]
+margin_left = 148.0
+margin_right = 198.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="D6" type="TextureRect" parent="HBoxDiceParts"]
+margin_left = 185.0
+margin_right = 235.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
 
 [node name="XPHBox" type="HBoxContainer" parent="."]
 margin_left = 121.0

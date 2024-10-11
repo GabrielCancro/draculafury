@@ -39,12 +39,12 @@ vframes = 4
 [node name="lb_desc" type="Label" parent="."]
 margin_left = 109.0
 margin_top = 7.0
-margin_right = 580.0
+margin_right = 567.0
 margin_bottom = 128.0
 custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 11 )
-text = "Todos los enemigos retroceden un casillero, además te curas 1pv"
+text = "Todos los enemigos retroceden un casillero, además te 1pv"
 valign = 1
 autowrap = true
 

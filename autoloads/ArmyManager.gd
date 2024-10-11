@@ -87,7 +87,7 @@ func _run_crossbow():
 func _condition_stake(): return EnemyManager.have_close_enemy()
 func _run_stake():
 	var en = EnemyManager.get_first_enemy()
-	if en: en.enemy_damage(10)
+	if en: en.enemy_damage(3)
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 
@@ -97,7 +97,7 @@ func _run_dynamite():
 	get_node("/root/Game").add_child(fxdyn)
 	yield(get_tree().create_timer(1),"timeout")
 	for en in EnemyManager.ENEMIES_ACTIVES:
-		en.enemy_damage(5)
+		en.enemy_damage(2)
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 

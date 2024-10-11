@@ -50,8 +50,9 @@ func change_state(new_state):
 		show_states_button()
 	elif current_state == GameState.ATTACKS:
 		disable_dices_click = true
-		$CLUI/DiceSet.hide_diceset()
-		yield(get_tree().create_timer(1),"timeout")
+		$CLUI/DiceSet.get_dice_parts()
+		yield($CLUI/DiceSet,"end_dice_part_collect")
+		yield(get_tree().create_timer(.2),"timeout")
 		while true:
 			var army = $CLUI/PlayerActionList.get_and_hide_first_army()
 			if army:
@@ -106,6 +107,7 @@ func on_click_dice(dice):
 	if dice.value==-1: 
 		Effector.show_float_text("disabled_dice")
 		return
+	$CLUI/ButtonStates.disabled = true
 	disable_dices_click = true
 	$CLUI/Belt.move_pawn(dice.value)
 	yield($CLUI/Belt,"end_move")
@@ -123,6 +125,7 @@ func on_click_dice(dice):
 	dice.hide_dice()
 	yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false
+	$CLUI/ButtonStates.disabled = false
 
 func set_floor_marks():
 	for fn in $Floor.get_children():

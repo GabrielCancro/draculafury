@@ -20,15 +20,19 @@ func get_item_data(code):
 	_data["code"]=code
 	return _data
 
-func throw_random_item():
+func throw_item(code, xpos=null):
 	var it = preload("res://nodes/ItemNode.tscn").instance()
-	randomize()
-	var rnd_index = randi()%ITEMS_DATA.keys().size()
-	var data = get_item_data(ITEMS_DATA.keys()[rnd_index])
+	var data = get_item_data(code)
 	it.set_data(data)
 	it.rect_position = Vector2(1000,600)
+	if xpos: it.rect_position.x = xpos
 	ITEMS_INFLOOR.append(it)
 	get_node("/root/Game/ItemContainer").add_child(it)
+
+func throw_random_item(xpos=null):
+	randomize()
+	var rnd_index = randi()%ITEMS_DATA.keys().size()
+	throw_item( ITEMS_DATA.keys()[rnd_index], xpos )
 
 func take_item(item_node):
 	if item_node.is_infloor:
@@ -37,11 +41,11 @@ func take_item(item_node):
 		ITEMS_PLAYER.append(item_node)
 		reorder_items()
 
-func throw_with_probability():
+func throw_with_probability(xpos=null):
 	randomize()
 	if randi()%100<probability:
 		probability = probability_base
-		throw_random_item()
+		throw_random_item(xpos)
 	else:
 		probability *= 2
 
@@ -57,6 +61,7 @@ func use_item(item_node):
 	Effector.disappear(self)
 	yield(get_tree().create_timer(.5),"timeout")
 	queue_free()
+	reorder_items()
 
 func run_item_action(code):
 	yield(get_tree().create_timer(.2),"timeout")

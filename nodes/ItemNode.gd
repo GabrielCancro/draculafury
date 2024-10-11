@@ -35,6 +35,7 @@ func move_to_pos(pos):
 	$Tween.start()
 
 func on_click():
+	if !$HintNode.visible: return
 	print("ITEM CLICK ",item_data.code)
 	emit_signal("on_click_item",self)
 	if is_infloor: 

@@ -14,7 +14,7 @@ func _ready():
 
 func set_army(code):
 	army = code
-	amount = ArmyManager.get_army_amount(army)
+	if amount==null: amount = ArmyManager.get_army_amount(army)
 	$lb_amount.text = "x"+str(amount)
 	$lb_amount.visible = (amount!=-1)
 	if army: 
