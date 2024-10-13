@@ -204,7 +204,7 @@ margin_bottom = 404.0
 [node name="WaveUI" parent="CLUI" instance=ExtResource( 10 )]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -612.0
+margin_left = -418.0
 margin_top = 32.0
 margin_right = -8.0
 margin_bottom = 217.0

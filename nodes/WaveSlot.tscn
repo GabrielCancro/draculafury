@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/enemies/enemy_retraits.png" type="Texture" id=1]
 [ext_resource path="res://nodes/WaveSlot.gd" type="Script" id=2]
 [ext_resource path="res://assets/pawn.png" type="Texture" id=3]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 41
+outline_size = 4
+outline_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 29
@@ -41,6 +47,21 @@ frame = 4
 position = Vector2( 75, 88.5 )
 texture = ExtResource( 1 )
 hframes = 5
+
+[node name="lb_amount" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -99.0
+margin_top = 126.0
+margin_right = -25.0
+margin_bottom = 168.0
+custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "x3"
+align = 2
+valign = 1
+autowrap = true
 
 [node name="label" type="Label" parent="."]
 anchor_left = 0.5
