@@ -20,12 +20,28 @@ func get_enemy_data(code):
 	return data
 
 func add_enemy(code):
-	var node = preload("res://nodes/Enemy.tscn").instance()
 	var data = get_enemy_data(code)
-	node.set_data(data)
-	get_node("/root/Game/Enemies").add_child(node)
-	ENEMIES_ACTIVES.append(node)
-	return node
+	var _ypos = 0
+	if data.fly: _ypos = 1
+	var _xpos = get_rnd_free_xpos(_ypos)
+	if _xpos!=-1:
+		var node = preload("res://nodes/Enemy.tscn").instance()
+		node.set_data(data,_xpos)
+		get_node("/root/Game/Enemies").add_child(node)
+		ENEMIES_ACTIVES.append(node)
+		return node
+	else:
+		return null
+
+func get_rnd_free_xpos(_ypos=0):
+	randomize()
+	var arr = [1,2,3,4,5,6,7,8,9,10]
+	arr.shuffle()
+	for _xpos in arr:
+		if _xpos>=max_x_pos: continue
+		if get_enemy_in_pos(_xpos,_ypos): continue
+		else: return _xpos
+	return -1
 
 func add_rnd_enemy():
 	randomize()

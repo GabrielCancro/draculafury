@@ -6,16 +6,12 @@ var max_slots = 3
 
 var WAVE = []
 var ALL_WAVES = [
-	[null,"1*bat","2*bat","1*vampire",null,null,"2*vampire"],
-	["vampire","bat",null,null,"vampire"],
+	["1*vampire",null,"1*vampire",null,"1*vampire"],
+	["2*vampire",null,null,"2*bat"],
 	["bat",null,"bat","vampire",null,"bat"],
-	["vampire",null,"bat","vampire",null,"vampire","bat"],
-	["vampire",null,"bat",null,"vampire",null,"bat"],
-	["bat","bat",null,"vampire","bat",null,"bat","vampire"],
-	["bat","vampire","bat",null,null,null,"vampire","vampire"],
-	["bat",null,"bat","vampire",null,"bat","vampire"],
-	["bat",null,null,"bat","vampire","bat","vampire","bat","vampire"],
-	["vampire","bat","vampire","bat","vampire","bat","vampire"],
+	["2*vampire",null,"2*bat","2*vampire",null,"1*vampire","3*bat"],
+	["3*vampire",null,"1*bat",null,"1*vampire",null,"2*bat"],
+	["1*bat","1*bat",null,"2*vampire","2*bat",null,"3*bat","1*vampire"],
 ]
 
 func _ready():
@@ -48,6 +44,7 @@ func advance_wave():
 		$Tween.start()
 		Effector.show_float_text("No hay espacio!")
 		yield(get_tree().create_timer(.4),"timeout")
+		WAVE[0] = str(slot_info.amount)+"*"+slot_info.enemy
 	else:
 		#$Tween.interpolate_property(sl,"rect_position",null,sl.rect_position+Vector2(10,55),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 		$Tween.interpolate_property(sl,"modulate:a",null,0,.3,Tween.TRANS_QUAD,Tween.EASE_IN)
@@ -57,9 +54,9 @@ func advance_wave():
 		if is_instance_valid(sl):
 			$Grid.remove_child(sl)
 			sl.queue_free()
-			
-	if WAVE.size()>=max_slots: add_slot(WAVE[max_slots-1])
-	else: reorder_grid()
+		if WAVE.size()>=max_slots: add_slot(WAVE[max_slots-1])
+		else: reorder_grid()
+	
 	print("************WAVE ",WAVE," ",WAVE.size())
 	return true
 

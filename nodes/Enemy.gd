@@ -13,12 +13,12 @@ func _ready():
 	Effector.appear(self)
 	Effector.add_hint(hint_data)
 
-func set_data(_data):
+func set_data(_data,_xpos):
 	step_size = (1600 - EnemyManager.end_x_pos)/EnemyManager.max_x_pos
 	enemy_data = _data
 	$Label.text = str(enemy_data.hp)
 	position = Vector2(1300,600)
-	set_tile_pos(EnemyManager.max_x_pos-1)
+	set_tile_pos(_xpos)
 	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
 
 func set_tile_pos(_x):
