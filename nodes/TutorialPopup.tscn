@@ -26,6 +26,7 @@ margin_left = -705.0
 margin_top = -343.0
 margin_right = 705.0
 margin_bottom = 87.0
+rect_pivot_offset = Vector2( 705, 215 )
 color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 
 [node name="lb_desc" type="Label" parent="ColorRect"]

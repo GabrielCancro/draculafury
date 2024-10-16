@@ -13,6 +13,7 @@ size = 31
 font_data = ExtResource( 1 )
 
 [node name="HintPanel" type="ColorRect"]
+rect_pivot_offset = Vector2( 0, 58 )
 color = Color( 0.0585938, 0.0585938, 0.0585938, 0.862745 )
 script = ExtResource( 3 )
 

@@ -12,8 +12,9 @@ func show_hint(hint_data):
 	if "ability" in enemy_data: $lb_ability.text = Lang.get_text("en_ab_"+enemy_data.ability+"_desc")
 	else: $lb_ability.text = ""
 	$Sprite2.frame = EnemyManager.get_enemy_data(enemy_data.name).ret
+	rect_global_position.y = 240
 	rect_global_position.x = hint_data.owner.global_position.x - 470
-	if enemy_data.fly: rect_global_position.x -= 70
+	if enemy_data.fly: rect_global_position.x -= 80
 	visible = true
 
 func hide_hint():
