@@ -44,6 +44,7 @@ PlayerManager="*res://autoloads/PlayerManager.gd"
 Lang="*res://autoloads/Lang.gd"
 ArmyManager="*res://autoloads/ArmyManager.gd"
 ItemManager="*res://autoloads/ItemManager.gd"
+SizerManager="*res://autoloads/SizerManager.gd"
 
 [display]
 
