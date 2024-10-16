@@ -14,16 +14,17 @@ func _ready():
 
 func set_army(code):
 	army = code
-	if amount==null: amount = ArmyManager.get_army_amount(army)
-	$lb_amount.text = "x"+str(amount)
-	$lb_amount.visible = (amount!=-1)
 	if army: 
 		hint_data.code = "army_"+code
 		$Sprite.frame = ArmyManager.ARMIES.find(code)
 		$Sprite.visible = true
+		if amount==null: amount = ArmyManager.get_army_amount(army)
+		$lb_amount.text = "x"+str(amount)
+		$lb_amount.visible = (amount!=-1)
 	else:
 		hint_data.code = "army_none"
 		$Sprite.visible = false
+		$lb_amount.visible = false
 
 func set_lighted(val):
 	if val:

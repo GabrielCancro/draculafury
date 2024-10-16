@@ -26,6 +26,7 @@ var texts = {
 	"ui_upg_new_army_es":"Elige un espacio de tu cinturon para colocar tu arma nueva, si está ocupado será reemplazado.",
 	"ui_no_item_face_es":"No puedes usar items ahora.",
 	"ui_player_extra_dice_es":"Dado extra",
+	"ui_max_dices_es":"Máximo de dados alcanzado!",
 
 	"en_vampire_name_es":"Vampiro",
 	"en_vampire_desc_es":"Un asqueroso vampiro en busca de sangre.",

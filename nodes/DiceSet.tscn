@@ -21,49 +21,31 @@ custom_constants/separation = 19
 alignment = 1
 
 [node name="Dice1" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 10.0
+margin_left = 113.0
 margin_top = 0.0
-margin_right = 60.0
+margin_right = 163.0
 margin_bottom = 50.0
 
 [node name="Dice2" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 79.0
+margin_left = 182.0
 margin_top = 0.0
-margin_right = 129.0
+margin_right = 232.0
 margin_bottom = 50.0
 
 [node name="Dice3" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 148.0
+margin_left = 251.0
 margin_top = 0.0
-margin_right = 198.0
+margin_right = 301.0
 margin_bottom = 50.0
 
 [node name="Dice4" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 217.0
+margin_left = 320.0
 margin_top = 0.0
-margin_right = 267.0
+margin_right = 370.0
 margin_bottom = 50.0
 
 [node name="Dice5" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 286.0
+margin_left = 389.0
 margin_top = 0.0
-margin_right = 336.0
-margin_bottom = 50.0
-
-[node name="Dice6" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 355.0
-margin_top = 0.0
-margin_right = 405.0
-margin_bottom = 50.0
-
-[node name="Dice7" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 424.0
-margin_top = 0.0
-margin_right = 474.0
-margin_bottom = 50.0
-
-[node name="Dice8" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 493.0
-margin_top = 0.0
-margin_right = 543.0
+margin_right = 439.0
 margin_bottom = 50.0

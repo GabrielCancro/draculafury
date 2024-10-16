@@ -76,6 +76,13 @@ func get_first_enemy(ran=max_x_pos+1,forced_y=-1):
 				return en
 	return null
 
+func get_next_enemy_that(en_orig):
+	re_ordered_enemies_array()
+	for en in ENEMIES_ACTIVES:
+		if en.enemy_data.tile_pos_x > en_orig.enemy_data.tile_pos_x:
+			return en
+	return null
+
 func get_enemy_in_same_column(enemy):
 	if !enemy: return null
 	return get_enemy_in_pos(enemy.enemy_data.tile_pos_x, abs(enemy.enemy_data.tile_pos_y-1))

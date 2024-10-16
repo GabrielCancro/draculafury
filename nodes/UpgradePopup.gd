@@ -33,7 +33,9 @@ func update_belt():
 	for bs in $HBox.get_children(): 
 		bs.modulate.a = 1
 		bs.visible = (bs.get_index() < PlayerManager.PLAYER_ARMIES.size())
-		if bs.visible: bs.set_army(PlayerManager.PLAYER_ARMIES[bs.get_index()])
+		if bs.visible: 
+			bs.amount = get_node("/root/Game/CLUI/Belt/HBox").get_child(bs.get_index()).amount
+			bs.set_army(PlayerManager.PLAYER_ARMIES[bs.get_index()])
 
 func on_click_button(code):
 	if code=="upg_army": return
@@ -42,6 +44,7 @@ func on_click_button(code):
 	$ButtonUpgArmy.visible = false
 	if code == "new_army": 
 		$Label_subtext.text = Lang.get_text("ui_upg_new_army")
+		$BeltExtra.amount = null
 		$BeltExtra.set_army( get_random_new_army() )
 		$BeltExtra.visible = true
 		if PlayerManager.PLAYER_ARMIES.size()<8:

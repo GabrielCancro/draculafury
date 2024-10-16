@@ -11,6 +11,7 @@ func _ready():
 	update_belt()
 	$pawn/AnimationPlayer.play("idle")
 	set_shadow_pawn(0)
+	current_slot = $HBox.get_child(0)
 
 func update_belt():
 	max_slots = PlayerManager.PLAYER_ARMIES.size()

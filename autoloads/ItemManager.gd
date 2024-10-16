@@ -2,6 +2,7 @@ extends Node
 
 var probability_base = 15
 var probability = probability_base
+var items_usage_enabled = false
 
 var ITEMS_DATA = {
 	"crucifix": {"ico":0},
@@ -52,16 +53,11 @@ func throw_with_probability(xpos=null):
 func reorder_items():
 	var i = 0
 	for it in ITEMS_PLAYER:
+		if !is_instance_valid(it): continue
 		if !it.is_infloor:
 			it.move_to_pos(Vector2(30,130+80*(ITEMS_PLAYER.size()-i)))
 			i+=1
-
-func use_item(item_node):
-	$Button.disabled = true
-	Effector.disappear(self)
-	yield(get_tree().create_timer(.5),"timeout")
-	queue_free()
-	reorder_items()
+	enable_items_usage(items_usage_enabled)
 
 func run_item_action(code):
 	yield(get_tree().create_timer(.2),"timeout")
@@ -94,16 +90,32 @@ func _run_crucifix():
 func _condition_dice(): return true
 func _run_dice():
 	var new_dice = get_node("/root/Game/CLUI/DiceSet").add_extra_dice()
-	if new_dice: new_dice.roll()
-	yield(new_dice,"end_roll")
-	if new_dice.value == 6: 
-		Effector.scale_boom(new_dice)
-		yield(get_tree().create_timer(.3),"timeout")
-		_run_dice()
-	else: emit_signal("end_item_action",true)
+	if new_dice: 
+		new_dice.roll()
+		yield(new_dice,"end_roll")
+		if new_dice.value == 6: 
+			Effector.scale_boom(new_dice)
+			yield(get_tree().create_timer(.3),"timeout")
+			_run_dice()
+		emit_signal("end_item_action",true)
+	else:
+		emit_signal("end_item_action",false)
 
 func _condition_ron(): return true
 func _run_ron():
-	var army = get_node("/root/Game/CLUI/Belt").current_slot.army
-	get_node("/root/Game/CLUI/PlayerActionList").add_army(army)
+	var belt = get_node("/root/Game/CLUI/Belt")
+	var player_action_list = get_node("/root/Game/CLUI/PlayerActionList")
+	belt.current_slot.set_lighted(true)
+	yield(get_tree().create_timer(.5),"timeout")
+	if belt.current_slot.reduce_amount():
+		player_action_list.add_army(belt.current_slot.army)
+	belt.clear_selected_slot()
+	yield(get_tree().create_timer(.2),"timeout")
 	emit_signal("end_item_action",true)
+
+func enable_items_usage(val):
+	items_usage_enabled = val
+	for it in ITEMS_PLAYER:
+		if !it.is_infloor:
+			if val: it.modulate = Color(1,1,1,1)
+			else: it.modulate = Color(.4,.4,.4,1)

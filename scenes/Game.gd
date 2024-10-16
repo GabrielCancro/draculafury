@@ -25,6 +25,11 @@ func _ready():
 	$CLUI/Hacks/ButtonMovEnemies.connect("button_down",EnemyManager,"force_move_enemy")
 	$CLUI/Hacks/ButtonAddItem.connect("button_down",ItemManager,"throw_random_item")
 	
+	$CLUI/Hacks/ButtonScale1.connect("button_down",SizerManager,"rescale_ui",[1])
+	$CLUI/Hacks/ButtonScale2.connect("button_down",SizerManager,"rescale_ui",[.9])
+	$CLUI/Hacks/ButtonScale3.connect("button_down",SizerManager,"rescale_ui",[.8])
+	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.7])
+	
 	yield($CLUI/TutorialPopup,"close_popup")
 	yield(get_tree().create_timer(.5),"timeout")
 	$CLUI/WaveUI.next_wave()
@@ -47,9 +52,11 @@ func change_state(new_state):
 		$CLUI/DiceSet.roll_all_dices()
 		yield($CLUI/DiceSet,"end_all_rolls")
 		disable_dices_click = false
+		ItemManager.enable_items_usage(true)
 		show_states_button()
 	elif current_state == GameState.ATTACKS:
 		disable_dices_click = true
+		ItemManager.enable_items_usage(false)
 		$CLUI/DiceSet.get_dice_parts()
 		yield($CLUI/DiceSet,"end_dice_part_collect")
 		yield(get_tree().create_timer(.2),"timeout")

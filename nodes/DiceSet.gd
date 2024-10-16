@@ -65,6 +65,7 @@ func add_extra_dice():
 		if !d.visible:
 			d.show_dice()
 			return d
+	Effector.show_float_text("ui_max_dices")
 	return null
 
 func get_and_hide_first_dice_army():

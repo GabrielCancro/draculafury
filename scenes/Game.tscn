@@ -278,6 +278,53 @@ margin_bottom = 756.0
 custom_fonts/font = ExtResource( 5 )
 text = "Add Item"
 
+[node name="ButtonScale1" type="Button" parent="CLUI/Hacks"]
+margin_left = 719.0
+margin_top = 24.0
+margin_right = 783.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 5 )
+text = "1.0"
+
+[node name="ButtonScale2" type="Button" parent="CLUI/Hacks"]
+margin_left = 799.0
+margin_top = 24.0
+margin_right = 881.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 5 )
+text = "0.9"
+
+[node name="ButtonScale3" type="Button" parent="CLUI/Hacks"]
+margin_left = 895.0
+margin_top = 24.0
+margin_right = 977.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 5 )
+text = "0.8"
+
+[node name="ButtonScale4" type="Button" parent="CLUI/Hacks"]
+margin_left = 992.0
+margin_top = 24.0
+margin_right = 1074.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 5 )
+text = "0.7"
+
+[node name="LabelScale" type="Label" parent="CLUI/Hacks"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 723.0
+margin_top = 84.0
+margin_right = 984.0
+margin_bottom = 131.0
+custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 1 )
+text = "1600x800"
+align = 1
+valign = 1
+autowrap = true
+
 [node name="UpgradePopup" parent="CLUI" instance=ExtResource( 11 )]
 unique_name_in_owner = true
 visible = false

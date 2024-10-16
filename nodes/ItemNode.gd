@@ -56,9 +56,8 @@ func on_click():
 			Effector.disappear(self)
 			yield(get_tree().create_timer(.5),"timeout")
 			ItemManager.ITEMS_PLAYER.erase(self)
-			queue_free()
-			yield(get_tree().create_timer(.5),"timeout")
 			ItemManager.reorder_items()
+			queue_free()
 		else:
 			move_to_pos(rect_position+Vector2(-50,0))
 			$Button.disabled = false

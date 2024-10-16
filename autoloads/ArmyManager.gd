@@ -69,11 +69,10 @@ func _condition_shotgun(): return EnemyManager.have_close_enemy()
 func _run_shotgun():
 	var en = EnemyManager.get_first_enemy()
 	if en: en.enemy_damage(2)
-	var en2 = EnemyManager.get_enemy_in_same_column(en)
-	var en3 = EnemyManager.get_enemy_in_same_column(en)
-	if en2 || en3: yield(get_tree().create_timer(.5),"timeout")
-	if en2: en2.enemy_damage(1)
-	if en3: en3.enemy_damage(1)
+	var en2 = EnemyManager.get_next_enemy_that(en)
+	if en2: 
+		yield(get_tree().create_timer(.5),"timeout")
+		en2.enemy_damage(1)
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 	
