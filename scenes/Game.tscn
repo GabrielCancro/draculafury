@@ -141,7 +141,7 @@ margin_bottom = 49.0
 custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
-text = "v 0.06"
+text = "v 0.08"
 align = 1
 valign = 1
 autowrap = true
@@ -210,7 +210,6 @@ margin_right = -8.0
 margin_bottom = 217.0
 
 [node name="Hacks" type="Control" parent="CLUI"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -279,36 +278,44 @@ custom_fonts/font = ExtResource( 5 )
 text = "Add Item"
 
 [node name="ButtonScale1" type="Button" parent="CLUI/Hacks"]
-margin_left = 719.0
+margin_left = 687.0
 margin_top = 24.0
-margin_right = 783.0
+margin_right = 751.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 5 )
 text = "1.0"
 
 [node name="ButtonScale2" type="Button" parent="CLUI/Hacks"]
-margin_left = 799.0
+margin_left = 767.0
 margin_top = 24.0
-margin_right = 881.0
+margin_right = 849.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 5 )
 text = "0.9"
 
 [node name="ButtonScale3" type="Button" parent="CLUI/Hacks"]
-margin_left = 895.0
+margin_left = 863.0
 margin_top = 24.0
-margin_right = 977.0
+margin_right = 945.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 5 )
 text = "0.8"
 
 [node name="ButtonScale4" type="Button" parent="CLUI/Hacks"]
-margin_left = 992.0
+margin_left = 960.0
 margin_top = 24.0
-margin_right = 1074.0
+margin_right = 1042.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 5 )
 text = "0.7"
+
+[node name="ButtonScale5" type="Button" parent="CLUI/Hacks"]
+margin_left = 1056.0
+margin_top = 24.0
+margin_right = 1138.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 5 )
+text = "0.6"
 
 [node name="LabelScale" type="Label" parent="CLUI/Hacks"]
 anchor_left = 1.0
@@ -320,7 +327,7 @@ margin_bottom = 131.0
 custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
-text = "1600x800"
+text = "------"
 align = 1
 valign = 1
 autowrap = true

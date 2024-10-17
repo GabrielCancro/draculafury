@@ -29,6 +29,7 @@ func _ready():
 	$CLUI/Hacks/ButtonScale2.connect("button_down",SizerManager,"rescale_ui",[.9])
 	$CLUI/Hacks/ButtonScale3.connect("button_down",SizerManager,"rescale_ui",[.8])
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.7])
+	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
 	
 	yield($CLUI/TutorialPopup,"close_popup")
 	yield(get_tree().create_timer(.5),"timeout")

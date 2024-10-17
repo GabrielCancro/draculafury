@@ -5,6 +5,7 @@ var hint_data={"owner":self,"panel":null,"code":null,"over_node":"HintNode","cal
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerManager.connect("on_change_stats",self,"update_stats")
+	SizerManager.connect("on_size_change",self,"on_size_change")
 	Effector.add_hint(hint_data)
 	hint_cb()
 
@@ -25,3 +26,6 @@ func hint_cb():
 	$label.text = "HP: " + str(PlayerManager.PLAYER_STATS.hp) + "/" + str(PlayerManager.PLAYER_STATS.hpm)
 	$label2.text = "XP: " + str(PlayerManager.PLAYER_STATS.xp) + "/10"
 	$label3.text = Lang.get_text("ui_player_extra_dice")+": " + str(PlayerManager.PLAYER_STATS.dice_parts) + "/6"
+
+func on_size_change(scale):
+	rect_scale = Vector2(scale,scale)

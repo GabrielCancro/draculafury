@@ -1,6 +1,8 @@
 extends ColorRect
 
-func _ready(): visible = false
+func _ready(): 
+	SizerManager.connect("on_size_change",self,"on_size_change")
+	visible = false
 
 func show_hint(hint_data):
 	var enemy_data = hint_data.owner.enemy_data
@@ -19,3 +21,6 @@ func show_hint(hint_data):
 
 func hide_hint():
 	visible = false
+
+func on_size_change(scale):
+	rect_scale = Vector2(scale,scale)
