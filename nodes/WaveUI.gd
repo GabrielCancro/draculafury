@@ -15,7 +15,6 @@ var ALL_WAVES = [
 ]
 
 func _ready():
-	SizerManager.connect("on_size_change",self,"on_size_change")
 	Effector.remove_all_children($Grid)
 
 func next_wave():
@@ -98,6 +97,3 @@ func get_slot_info(code):
 		data.amount = int( code.substr(0,1) )
 		data.enemy = code.substr(2,-1) 
 	return data
-
-func on_size_change(scale):
-	rect_scale = Vector2(scale,scale)

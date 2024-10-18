@@ -52,12 +52,14 @@ func throw_with_probability(xpos=null):
 
 func reorder_items():
 	var i = 0
+	var dist = 80 * SizerManager.current_scale
 	for it in ITEMS_PLAYER:
 		if !is_instance_valid(it): continue
+		it.rect_scale = Vector2(1,1)
 		if !it.is_infloor:
-			it.move_to_pos(Vector2(30,130+80*(ITEMS_PLAYER.size()-i)))
+			it.move_to_pos(Vector2(30,50+dist*(ITEMS_PLAYER.size()-i+1)))
+			it.rect_scale *= SizerManager.current_scale
 			i+=1
-	enable_items_usage(items_usage_enabled)
 
 func run_item_action(code):
 	yield(get_tree().create_timer(.2),"timeout")

@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="draculafury"
-run/main_scene="res://scenes/Game.tscn"
+run/main_scene="res://scenes/Levels.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -45,6 +45,7 @@ Lang="*res://autoloads/Lang.gd"
 ArmyManager="*res://autoloads/ArmyManager.gd"
 ItemManager="*res://autoloads/ItemManager.gd"
 SizerManager="*res://autoloads/SizerManager.gd"
+LevelManager="*res://autoloads/LevelManager.gd"
 
 [display]
 
