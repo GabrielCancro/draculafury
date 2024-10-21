@@ -16,6 +16,7 @@ func show_hint(hint_data):
 	rect_global_position.y = 240
 	rect_global_position.x = hint_data.owner.global_position.x - 470
 	if enemy_data.fly: rect_global_position.x -= 80
+	if rect_global_position.x < 20: rect_global_position.x  = 20
 	visible = true
 
 func hide_hint():

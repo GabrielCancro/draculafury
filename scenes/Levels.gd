@@ -9,7 +9,7 @@ func _ready():
 
 func on_click_level(btn):
 	var lv = btn.get_index()+1
-	if lv==1:
+	if lv<=3:
 		LevelManager.goto_level(lv)
 
 func on_over(btn,val):
