@@ -46,6 +46,12 @@ var texts = {
 	
 	"tuto_dices_es":"Lanza tus dados y elige el orden, esto moverá tu mano en el cinturón de armas para utilizarlas.\nPor cada 6 (seis) obtendrás un dado extra!!",
 	"tuto_enemies_es":"Los enemigos intentarán dañarte, evitalo a toda costa.\nAl destruirlos ganarás experiencia.",
+
+	"level_name_1_es":"La Tumba",
+	"level_name_2_es":"La Catedral",
+	"level_name_3_es":"El Pantano",
+	"level_name_4_es":"La Aldea",
+	"level_name_5_es":"El Castillo",
 }
 
 var images = {

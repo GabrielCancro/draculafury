@@ -5,17 +5,11 @@ var space_slot = 105
 var max_slots = 3
 
 var WAVE = []
-var ALL_WAVES = [
-	["1*vampire",null,"1*vampire",null,"1*vampire"],
-	["2*vampire",null,null,"2*bat"],
-	["bat",null,"bat","vampire",null,"bat"],
-	["2*vampire",null,"2*bat","2*vampire",null,"1*vampire","3*bat"],
-	["3*vampire",null,"1*bat",null,"1*vampire",null,"2*bat"],
-	["1*bat","1*bat",null,"2*vampire","2*bat",null,"3*bat","1*vampire"],
-]
+var ALL_WAVES = []
 
 func _ready():
 	Effector.remove_all_children($Grid)
+	ALL_WAVES = LevelManager.get_level_waves()
 
 func next_wave():
 	WAVE = ALL_WAVES.pop_front()

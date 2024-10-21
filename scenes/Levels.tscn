@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Levels.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/map.jpg" type="Texture" id=2]
@@ -9,6 +9,12 @@
 size = 70
 outline_size = 7
 outline_color = Color( 0.203922, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 9
+outline_color = Color( 0.478431, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Levels" type="Control"]
@@ -37,6 +43,19 @@ custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
 text = "Elige un escenario"
+valign = 1
+autowrap = true
+
+[node name="lb_level_name" type="Label" parent="."]
+margin_left = -567.0
+margin_top = 84.0
+margin_right = -115.0
+margin_bottom = 155.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "Cementerio"
+align = 1
 valign = 1
 autowrap = true
 
