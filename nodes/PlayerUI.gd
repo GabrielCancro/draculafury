@@ -5,6 +5,7 @@ var hint_data={"owner":self,"panel":null,"code":null,"over_node":"HintNode","cal
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Effector.add_hint(hint_data)
+	PlayerManager.connect("on_change_stats",self,"update_stats")
 	hint_cb()
 
 func update_stats(ps):
