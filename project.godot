@@ -46,6 +46,7 @@ ArmyManager="*res://autoloads/ArmyManager.gd"
 ItemManager="*res://autoloads/ItemManager.gd"
 SizerManager="*res://autoloads/SizerManager.gd"
 LevelManager="*res://autoloads/LevelManager.gd"
+UpgradesManager="*res://autoloads/UpgradesManager.gd"
 
 [display]
 

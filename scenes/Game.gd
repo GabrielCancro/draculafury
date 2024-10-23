@@ -14,6 +14,7 @@ func _ready():
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
 	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
 	$CLUI/UpgradePopup.connect("on_hide_popup",$CLUI/Belt,"update_belt")
+	$CLBG/background.texture = load("res://assets/backgrounds/bg"+str(LevelManager.current_level)+".jpg")
 	
 	$CLUI/ButtonHacks.connect("button_down",self,"on_button_hacks")
 	$CLUI/Hacks/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
@@ -30,6 +31,8 @@ func _ready():
 	$CLUI/Hacks/ButtonScale3.connect("button_down",SizerManager,"rescale_ui",[.8])
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.7])
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
+	
+	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
 	
 	yield($CLUI/TutorialPopup,"close_popup")
 	yield(get_tree().create_timer(.5),"timeout")
@@ -135,3 +138,6 @@ func set_floor_marks():
 		fn.rect_global_position.x = EnemyManager.end_x_pos + (1600-EnemyManager.end_x_pos) / EnemyManager.max_x_pos * fn.get_index()
 		fn.rect_global_position.x -= fn.rect_size.x/2
 		if fn.visible: print("fn ",fn.rect_global_position.x)
+
+func goto_menu():
+	get_tree().change_scene("res://scenes/Levels.tscn")
