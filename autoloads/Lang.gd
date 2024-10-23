@@ -57,6 +57,8 @@ var texts = {
 	"level_name_3_es":"El Pantano",
 	"level_name_4_es":"La Aldea",
 	"level_name_5_es":"El Castillo",
+	
+	"upg_life_es": "Un objeto que por el momento no hace ni sirve para nada.",
 }
 
 var images = {

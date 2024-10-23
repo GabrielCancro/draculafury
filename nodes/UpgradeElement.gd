@@ -22,6 +22,7 @@ func toggle_select():
 
 func update_state():
 	var enabled = UpgradesManager.UPGRADES[upg_data.code].enabled
-	if !enabled: modulate = Color(0,0,0,1)
-	elif selected: modulate = Color(1,1,1,1)
+	if enabled: modulate = Color(1,1,1,1)
 	else: modulate = Color(.4,.2,.2,1)
+	if selected: $Sprite.material = preload("res://assets/sh_outline.tres")
+	else: $Sprite.material = null
