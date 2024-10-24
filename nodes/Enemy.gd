@@ -35,6 +35,7 @@ func set_tile_pos(_x):
 func move(val = -enemy_data.mov):
 	yield(get_tree().create_timer(.35),"timeout")
 	if "ability" in enemy_data && enemy_data.ability=="extra_mov" && randi()%100<30: val -= 1
+	set_stoned_skin(true)
 	for i in abs(val):
 		if enemy_data.tile_pos_x==0 and sign(val)<0: break
 		var swap_en = EnemyManager.get_enemy_in_pos(enemy_data.tile_pos_x+sign(val),enemy_data.tile_pos_y)
@@ -67,11 +68,14 @@ func enemy_damage(dam):
 
 func set_stoned_skin(val):
 	if !"ability" in enemy_data or enemy_data.ability!="stone_skin": return false
-	if !"stoned_skin" in enemy_data.ability: enemy_data["stoned_skin"] = false
-	var haveChange = enemy_data["stoned_skin"] != val
+	if !"stoned_skin" in enemy_data: enemy_data["stoned_skin"] = false
+	var have_change = (enemy_data["stoned_skin"] != val)
 	enemy_data["stoned_skin"] = val
 	if val: 
 		$Sprite.material = preload("res://assets/sh_outline.tres")
-		$Sprite.material.set_shader_param("line_color",Color(.7,.7,.7,1))
-	else: $Sprite.material = null
-	return haveChange
+		$Sprite.material.set_shader_param("line_color",Color(.8,.8,.8,1))
+		$Sprite.material.set_shader_param("line_scale",8)
+	else: 
+		$Sprite.material = null
+		if have_change: Effector.shake(self)
+	return have_change
