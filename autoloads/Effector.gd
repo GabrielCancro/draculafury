@@ -24,6 +24,13 @@ func move_to(node,pos):
 		tween.interpolate_property(node,"global_position",null,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
+func move_to_yoyo(node,to_pos):
+	var prop = "position" if ("position" in node) else "rect_position"
+	var pos_ini = node.get(prop)
+	tween.interpolate_property(node,prop,pos_ini,pos_ini+to_pos,.15,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.interpolate_property(node,prop,pos_ini+to_pos,pos_ini,.2,Tween.TRANS_QUAD,Tween.EASE_OUT,.15)
+	tween.start()
+
 func shake(node,power=6,time=.5):
 	var isControl = ("rect_position" in node)
 	var ini_pos

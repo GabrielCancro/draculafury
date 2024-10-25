@@ -9,7 +9,7 @@ var ALL_WAVES = {
 		["1*bat",null,"1*bat","1*vampire",null,"2*bat"],
 	],
 	"lv_2":[
-		["1*gargoyle","1*gargoyle","1*vampire",null,"1*vampire"],
+		["1*bat","1*gargoyle","1*vampire",null,"1*vampire"],
 		["2*vampire",null,"1*gargoyle","2*bat"],
 		["3*bat",null,null,"1*vampire",null,"2*bat"],
 		["1*bat",null,"1*gargoyle",null,"1*gargoyle",null,"2*bat"],

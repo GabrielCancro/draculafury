@@ -3,6 +3,7 @@ extends Node2D
 var enemy_data
 var floor_y = 670
 var fly_y = -220
+var fly_ttl = 0
 var step_size
 var hint_data={"owner":self,"panel":"enemy","code":null,"over_node":null,"callback":null,"over_area":"Button"}
 
@@ -12,6 +13,11 @@ func _ready():
 	modulate.a = 0
 	Effector.appear(self)
 	Effector.add_hint(hint_data)
+
+func _process(delta):
+	if enemy_data.fly: 
+		fly_ttl += delta*7
+		$Sprite.position.y = sin(fly_ttl)*10
 
 func set_data(_data,_xpos):
 	step_size = (1600 - EnemyManager.end_x_pos)/EnemyManager.max_x_pos
@@ -48,6 +54,8 @@ func move(val = -enemy_data.mov):
 
 func try_attack():
 	if enemy_data.tile_pos_x < enemy_data.ran:
+		Effector.move_to_yoyo(self,Vector2(-60,0))
+		yield(get_tree().create_timer(.2),"timeout")
 		PlayerManager.damage(enemy_data.dam)
 		return true
 	else: return false
