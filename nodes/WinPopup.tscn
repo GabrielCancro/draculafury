@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/gold_dices.png" type="Texture" id=3]
+[ext_resource path="res://assets/hand.png" type="Texture" id=4]
+[ext_resource path="res://nodes/WinPopup.gd" type="Script" id=5]
+[ext_resource path="res://assets/items.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 39
+outline_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+font_data = ExtResource( 2 )
+
+[node name="WinPopup" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.384314, 0.384314, 0.384314, 0.635294 )
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -705.0
+margin_top = -343.0
+margin_right = 705.0
+margin_bottom = 87.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+
+[node name="lb_desc" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -322.5
+margin_top = -102.0
+margin_right = 322.5
+margin_bottom = 70.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 1 )
+text = "Has ganado! Es hora de recuperar fuerzas y prepararte para la siguiente jornada!
+	"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ButtonReset" type="Button" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -124.5
+margin_top = -55.0
+margin_right = 124.5
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "OK"
+
+[node name="Sprite2" type="Sprite" parent="ColorRect"]
+modulate = Color( 0.956863, 1, 0.235294, 1 )
+position = Vector2( 110, 101 )
+scale = Vector2( 1.69178, 1.69178 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="ColorRect"]
+position = Vector2( 198, 191 )
+rotation = 0.181445
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+hframes = 7
+
+[node name="Sprite6" type="Sprite" parent="ColorRect"]
+position = Vector2( 135, 283 )
+rotation = -0.523598
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+hframes = 7
+frame = 1
+
+[node name="Sprite7" type="Sprite" parent="ColorRect"]
+position = Vector2( 235, 334 )
+rotation = 0.785397
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+hframes = 7
+frame = 2
+
+[node name="Sprite3" type="Sprite" parent="ColorRect"]
+modulate = Color( 0.788235, 0.25098, 0.25098, 1 )
+position = Vector2( 1318, 97 )
+rotation = -0.261799
+scale = Vector2( 1.60563, 1.60563 )
+texture = ExtResource( 6 )
+hframes = 3
+vframes = 4
+
+[node name="Sprite4" type="Sprite" parent="ColorRect"]
+modulate = Color( 0.788235, 0.25098, 0.25098, 1 )
+position = Vector2( 1201, 237 )
+rotation = 0.523598
+scale = Vector2( 1.60563, 1.60563 )
+texture = ExtResource( 6 )
+hframes = 3
+vframes = 4
+
+[node name="Sprite5" type="Sprite" parent="ColorRect"]
+modulate = Color( 0.788235, 0.25098, 0.25098, 1 )
+position = Vector2( 1330, 333 )
+scale = Vector2( 1.60563, 1.60563 )
+texture = ExtResource( 6 )
+hframes = 3
+vframes = 4

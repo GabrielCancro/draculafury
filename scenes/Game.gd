@@ -83,14 +83,18 @@ func change_state(new_state):
 		change_state(GameState.WAVE)
 	elif current_state == GameState.WAVE:
 		if ($CLUI/WaveUI.WAVE.size()<=0 
-		&& EnemyManager.ENEMIES_ACTIVES.size()<=0): 
-			$CLUI/UpgradePopup.show_popup()
-			yield($CLUI/UpgradePopup,"on_hide_popup")
-			yield(get_tree().create_timer(1),"timeout")
-			$CLUI/WaveUI.next_wave()
-			yield(get_tree().create_timer(2.5),"timeout")
+		&& EnemyManager.ENEMIES_ACTIVES.size()<=0):
+			if($CLUI/WaveUI.ALL_WAVES.size()>0):
+				$CLUI/UpgradePopup.show_popup()
+				yield($CLUI/UpgradePopup,"on_hide_popup")
+				yield(get_tree().create_timer(1),"timeout")
+				$CLUI/WaveUI.next_wave()
+				yield(get_tree().create_timer(2.5),"timeout")
+			else: 
+				$CLUI/WinPopup.show_popup()
+				return
 		$CLUI/WaveUI.advance_wave()
-		yield(get_tree().create_timer(1.0),"timeout")
+		yield(get_tree().create_timer(.7),"timeout")
 		change_state(GameState.START)
 
 func on_button_states():
