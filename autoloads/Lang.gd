@@ -60,6 +60,11 @@ var texts = {
 	"level_name_5_es":"El Castillo",
 	
 	"upg_life_es": "Un objeto que por el momento no hace ni sirve para nada.",
+	
+	"menu_start_es":"Comenzar",
+	"menu_start_en":"Start",
+	"menu_lang_es": "Idioma: Español",
+	"menu_lang_en": "Lang: English",
 }
 
 var images = {
@@ -78,3 +83,7 @@ func get_text(code):
 			for k in images.keys(): tx = tx.replace(k,images[k])
 			return "[center]"+tx+"[/center]"
 		else: return tx
+
+func change_lang():
+	if lang=="en": lang = "es"
+	else: lang = "en"
