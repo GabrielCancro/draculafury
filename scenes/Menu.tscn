@@ -1,10 +1,58 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=4]
 [ext_resource path="res://assets/shWavy.tres" type="Material" id=5]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+render_mode blend_add;
+uniform sampler2D noise;
+uniform sampler2D noise2;
+uniform float brightness = 2.5;
+uniform float time_scale = 1.0;
+void fragment() {
+	float PI = 3.1415;
+	vec2 cc_uv = UV - vec2(.5); 
+	float angle = atan(cc_uv.y, cc_uv.x) / PI + 1.;
+	float p = sqrt(dot(cc_uv, cc_uv)); 
+	vec2 puv = vec2(p, angle * .5);
+	vec2 uv = puv * 2.;
+	float time = TIME * time_scale;
+	vec4 old_colo = COLOR;
+	COLOR = vec4(.0);
+	for(int i = 1; i <= 5; i++){
+		float intensive = .1 + .07 * float(i);
+		vec2 offset = (texture(noise, vec2(time*.35*(.5+fract(sin(float(i)*55.))), angle)).rg - vec2(.5)) * intensive; 
+		vec2 uuv = uv + offset;
+		float dist = abs(uuv.x - .5);
+		float rand_speed = .2 + .05 * fract(cos(float(i)*1144.));
+		float gone = smoothstep(.1 + 0.05 * (float(i) - .5), 1.0, texture(noise2, uv + vec2(time*rand_speed)).g);
+		COLOR += gone * old_colo / dist * .01 * texture(noise2, uuv + vec2(time)).g;
+	}
+	vec4 light = old_colo * smoothstep(1.0, -2.0, abs(uv.x - .5) * 2.0) * texture(noise2, uv).a; 
+	COLOR += light * brightness;  
+}
+ "
+
+[sub_resource type="OpenSimplexNoise" id=9]
+
+[sub_resource type="NoiseTexture" id=7]
+noise = SubResource( 9 )
+
+[sub_resource type="OpenSimplexNoise" id=10]
+
+[sub_resource type="NoiseTexture" id=8]
+noise = SubResource( 10 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/brightness = 0.5
+shader_param/time_scale = 0.2
+shader_param/noise = SubResource( 7 )
+shader_param/noise2 = SubResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 107
@@ -35,15 +83,29 @@ margin_bottom = 48.0
 texture = ExtResource( 2 )
 expand = true
 
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color( 0.92549, 0, 0, 1 )
+material = SubResource( 6 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -866.5
+margin_top = -1171.0
+margin_right = 866.5
+margin_bottom = 275.0
+texture = ExtResource( 2 )
+expand = true
+
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -353.0
-margin_top = -360.0
+margin_top = -408.0
 margin_right = 353.0
-margin_bottom = -216.0
+margin_bottom = -193.0
 custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 4 )
@@ -59,9 +121,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -180.0
-margin_top = 14.0
+margin_top = 54.0
 margin_right = 180.0
-margin_bottom = 114.0
+margin_bottom = 154.0
 focus_mode = 0
 flat = true
 
@@ -90,9 +152,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -180.0
-margin_top = 150.0
+margin_top = 190.0
 margin_right = 180.0
-margin_bottom = 250.0
+margin_bottom = 290.0
 focus_mode = 0
 flat = true
 
