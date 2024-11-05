@@ -34,8 +34,8 @@ func _ready():
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
 	
-	yield($CLUI/TutorialPopup,"close_popup")
-	yield(get_tree().create_timer(.5),"timeout")
+	#yield($CLUI/TutorialPopup,"close_popup")
+	yield(get_tree().create_timer(1),"timeout")
 	$CLUI/WaveUI.next_wave()
 	yield(get_tree().create_timer(2),"timeout")
 	$CLUI/WaveUI.advance_wave()
@@ -111,8 +111,8 @@ func hide_states_button():
 
 func show_states_button():
 	$CLUI/ButtonStates.disabled = false
-	if current_state==GameState.START: $CLUI/ButtonStates.text = "ROLL"
-	elif current_state==GameState.ACTIONS: $CLUI/ButtonStates.text = "END"
+	if current_state==GameState.START: $CLUI/ButtonStates/Label.text = "ROLL"
+	elif current_state==GameState.ACTIONS: $CLUI/ButtonStates/Label.text = "END"
 	Effector.appear($CLUI/ButtonStates)
 
 func on_click_dice(dice):

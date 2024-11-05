@@ -3,16 +3,32 @@ extends Control
 var WaveSlot = preload("res://nodes/WaveSlot.tscn")
 var space_slot = 105
 var max_slots = 3
+var waves_runned = 0
 
 var WAVE = []
-var ALL_WAVES = []
+var ALL_WAVES = [
+	["1*vampire",null,"1*vampire",null,"1*vampire"],
+	["2*vampire",null,null,"2*bat"],
+	["1*bat",null,"1*bat","1*vampire",null,"2*bat"],
+	["1*bat","1*gargoyle","1*vampire",null,"1*vampire"],
+	["2*vampire",null,"1*gargoyle","2*bat"],
+	["3*bat",null,null,"1*vampire",null,"2*bat"],
+	["1*bat",null,"1*gargoyle",null,"1*gargoyle",null,"2*bat"],
+	["1*vampire",null,"2*wolf","1*bat","1*vampire"],
+	["1*vampire","1*wolf",null,"2*wolf",null,null,"2*bat"],
+	["1*vampire",null,"2*wolf","1*bat","1*vampire"],
+	["1*vampire","1*wolf",null,"2*wolf",null,null,"2*bat"],
+	["3*wolf",null,null,"2*wolf",null,null,null,"3*wolf"],
+]
 
 func _ready():
 	Effector.remove_all_children($Grid)
-	ALL_WAVES = LevelManager.get_level_waves()
+	#ALL_WAVES = LevelManager.get_level_waves()
 
 func next_wave():
+	waves_runned += 1
 	WAVE = ALL_WAVES.pop_front()
+	$lb_wave.text = "WAVE\n"+str(waves_runned)+"/"+str(ALL_WAVES.size()+waves_runned)
 	Effector.remove_all_children($Grid)
 	yield(get_tree().create_timer(.5),"timeout")
 	for i in range(max_slots): add_slot(WAVE[i])
