@@ -2,6 +2,7 @@ extends Control
 
 var item_data #"code":"cruz","ico":1}
 var is_infloor = true
+var fly_ttl = 0
 var hint_data={"owner":self,"panel":"item","code":"item_none","over_node":"HintNode","callback":null}
 
 signal on_click_item(item_node)
@@ -13,9 +14,8 @@ func set_data(_data):
 
 func _ready():
 	modulate.a = 0
+	$HintNode.visible = false
 	$Button.connect("button_down",self,"on_click")
-	hint_data.code = "item_"+item_data.code
-	Effector.add_hint(hint_data)
 	fall_anim()
 
 func fall_anim():
@@ -34,12 +34,19 @@ func move_to_pos(pos):
 	$Tween.interpolate_property(self,"rect_position",null,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	$Tween.start()
 
+func _process(delta):
+	fly_ttl += delta*4
+	rect_position.y += sin(fly_ttl)*0.3
+
 func on_click():
-	if !$HintNode.visible: return
+	if !is_infloor &&!$HintNode.visible: return
 	print("ITEM CLICK ",item_data.code)
 	emit_signal("on_click_item",self)
 	if is_infloor: 
+		set_process(false)
 		ItemManager.take_item(self)
+		hint_data.code = "item_"+item_data.code
+		Effector.add_hint(hint_data)
 	else: 
 		var GAME = get_node("/root/Game")
 		if GAME.current_state!=GAME.GameState.ACTIONS:

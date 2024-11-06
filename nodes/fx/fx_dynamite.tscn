@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/armies_icons.png" type="Texture" id=1]
+[ext_resource path="res://assets/proy_dynamite.png" type="Texture" id=1]
 [ext_resource path="res://nodes/fx/fx_dynamite.gd" type="Script" id=2]
 
 [node name="fx_dynamite" type="Node2D"]
@@ -8,6 +8,3 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 4
-vframes = 2
-frame = 7

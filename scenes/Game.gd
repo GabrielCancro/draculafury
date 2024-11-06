@@ -47,7 +47,7 @@ func change_state(new_state):
 	print("NEW STATE ",GameState.keys()[current_state])
 	hide_states_button()
 	if current_state == GameState.START:
-		Effector.show_float_text("PLAYER TURN!")
+		Effector.show_float_text("player_turn")
 		yield(get_tree().create_timer(1),"timeout")
 		$CLUI/DiceSet.show_diceset()
 		yield(get_tree().create_timer(.5),"timeout")
@@ -74,7 +74,7 @@ func change_state(new_state):
 		change_state(GameState.ENEMIES)
 	elif current_state == GameState.ENEMIES:
 		yield(get_tree().create_timer(.5),"timeout")
-		Effector.show_float_text("ENEMIES TURN!")
+		Effector.show_float_text("enemy_turn")
 		yield(get_tree().create_timer(.5),"timeout")
 		for en in EnemyManager.re_ordered_enemies_array():
 			en.move()

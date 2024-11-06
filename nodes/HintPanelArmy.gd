@@ -13,7 +13,7 @@ func show_hint(hint_data):
 	$Sprite.frame = ArmyManager.ARMIES.find(army_data.name)
 	if "rect_global_position" in hint_data.owner: 
 		rect_global_position.y = hint_data.owner.rect_global_position.y - 300
-		if rect_global_position.y<100: rect_global_position.y = 100
+		if rect_global_position.y<400: rect_global_position.y = 670
 		rect_global_position.x = 850-rect_size.x*rect_scale.x*.5
 	visible = true
 

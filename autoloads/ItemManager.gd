@@ -60,6 +60,7 @@ func reorder_items():
 			it.move_to_pos(Vector2(30,50+dist*(ITEMS_PLAYER.size()-i+1)))
 			it.rect_scale *= SizerManager.current_scale
 			i+=1
+	enable_items_usage(items_usage_enabled)
 
 func run_item_action(code):
 	yield(get_tree().create_timer(.2),"timeout")

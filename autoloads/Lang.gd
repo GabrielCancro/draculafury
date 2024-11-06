@@ -27,6 +27,8 @@ var texts = {
 	"ui_no_item_face_es":"No puedes usar items ahora.",
 	"ui_player_extra_dice_es":"Dado extra",
 	"ui_max_dices_es":"Máximo de dados alcanzado!",
+	"player_turn_es":"ES TU TURNO",
+	"enemy_turn_es":"TURNO DE LOS ENEMIGOS",
 
 	"en_vampire_name_es":"Vampiro",
 	"en_vampire_desc_es":"Un asqueroso vampiro en busca de sangre.",

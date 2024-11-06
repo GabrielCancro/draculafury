@@ -10,6 +10,7 @@ func _ready():
 
 func set_float(code,style="normal"):
 	position = Vector2(1600,900)/2
+	position.y -= 200
 	if style=="normal":
 		$Label.text = Lang.get_text(code)
 	if style=="damage":

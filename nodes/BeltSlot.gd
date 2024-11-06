@@ -21,10 +21,12 @@ func set_army(code):
 		if amount==null: amount = ArmyManager.get_army_amount(army)
 		$lb_amount.text = "x"+str(amount)
 		$lb_amount.visible = (amount!=-1)
+		$panel_reload.visible = (amount==0)
 	else:
 		hint_data.code = "army_none"
 		$Sprite.visible = false
 		$lb_amount.visible = false
+		$panel_reload.visible = false
 
 func set_lighted(val):
 	if val:

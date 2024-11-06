@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=4]
 [ext_resource path="res://assets/shWavy.tres" type="Material" id=5]
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=11]
 code = "shader_type canvas_item;
 render_mode blend_add;
 uniform sampler2D noise;
@@ -39,20 +39,20 @@ void fragment() {
 
 [sub_resource type="OpenSimplexNoise" id=9]
 
-[sub_resource type="NoiseTexture" id=7]
+[sub_resource type="NoiseTexture" id=12]
 noise = SubResource( 9 )
 
 [sub_resource type="OpenSimplexNoise" id=10]
 
-[sub_resource type="NoiseTexture" id=8]
+[sub_resource type="NoiseTexture" id=13]
 noise = SubResource( 10 )
 
 [sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+shader = SubResource( 11 )
 shader_param/brightness = 0.5
 shader_param/time_scale = 0.2
-shader_param/noise = SubResource( 7 )
-shader_param/noise2 = SubResource( 8 )
+shader_param/noise = SubResource( 12 )
+shader_param/noise2 = SubResource( 13 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 107
