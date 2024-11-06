@@ -22,6 +22,7 @@ func show_popup():
 	$ButtonNewArmy.visible = true
 	$ButtonUpgArmy.visible = false
 	current_option = null
+	on_click_button("new_army")
 	visible = true
 	Effector.appear(self)
 

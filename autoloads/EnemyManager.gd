@@ -1,10 +1,10 @@
 extends Node
 
 var ENEMIES_ACTIVES = []
-var max_x_pos = 5
+var max_x_pos = 6
 var end_x_pos = 500
 var ENEMIES = {
-	"vampire":{"hp":5,"mov":1,"dam":2, "ran":1,"fly":false,"ability":"extra_mov"},
+	"vampire":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":false,"ability":"extra_mov"},
 	"bat":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":true},
 	"wolf":{"hp":4,"mov":2,"dam":2, "ran":1,"fly":false},
 	"gargoyle":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":true,"ability":"stone_skin"},
