@@ -2,27 +2,31 @@ extends Control
 
 var current_option
 var ini_belt_extra_pos
+var new_army
+var new_army_data
 signal on_hide_popup()
 
 func _ready():
-	ini_belt_extra_pos = $BeltExtra.rect_global_position
 	$ButtonCancel.connect("button_down",self,"hide_popup")
-	$ButtonNewArmy.connect("button_down",self,"on_click_button",["new_army"])
-	$ButtonUpgArmy.connect("button_down",self,"on_click_button",["upg_army"])
 	for bs in $HBox.get_children(): bs.connect("on_click_belt_slot",self,"on_click_belt_slot")
 
 func show_popup():
 	modulate.a = 0
 	update_belt()
 	$Label.text = Lang.get_text("ui_end_wave")
-	$Label_subtext.text = ""
-	$BeltExtra.visible = false
-	$BeltExtra.modulate.a = 1
-	$BeltExtra.rect_global_position = ini_belt_extra_pos
-	$ButtonNewArmy.visible = true
-	$ButtonUpgArmy.visible = false
-	current_option = null
-	on_click_button("new_army")
+	$Label_subtext.text = Lang.get_text("ui_upg_new_army")
+	new_army = get_random_new_army()
+	new_army_data = ArmyManager.get_army_data(new_army)
+	$NewArmyPanel/lb_name.text = Lang.get_text("army_"+new_army_data.name+"_name")
+	$NewArmyPanel/lb_amount.text = ""
+	if new_army_data.amount>0: $NewArmyPanel/lb_amount.text = "x"+str(new_army_data.amount)
+	$NewArmyPanel/lb_desc.text = Lang.get_text("army_"+new_army_data.name+"_desc")
+	$NewArmyPanel/Sprite.frame = ArmyManager.ARMIES.find(new_army_data.name)
+	Effector.appear($NewArmyPanel)
+	if PlayerManager.PLAYER_ARMIES.size()<8:
+		var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
+		bs.set_army(null)
+		bs.visible = true
 	visible = true
 	Effector.appear(self)
 
@@ -38,35 +42,15 @@ func update_belt():
 			bs.amount = get_node("/root/Game/CLUI/Belt/HBox").get_child(bs.get_index()).amount
 			bs.set_army(PlayerManager.PLAYER_ARMIES[bs.get_index()])
 
-func on_click_button(code):
-	if code=="upg_army": return
-	current_option = code
-	$ButtonNewArmy.visible = false
-	$ButtonUpgArmy.visible = false
-	if code == "new_army": 
-		$Label_subtext.text = Lang.get_text("ui_upg_new_army")
-		$BeltExtra.amount = null
-		$BeltExtra.set_army( get_random_new_army() )
-		$BeltExtra.visible = true
-		if PlayerManager.PLAYER_ARMIES.size()<8:
-			var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
-			bs.set_army(null)
-			bs.visible = true
-
 func on_click_belt_slot(belt_slot):
 	print(PlayerManager.PLAYER_ARMIES," ",belt_slot.get_index())
-	if current_option == "new_army":
-		current_option = null
-		Effector.disappear($BeltExtra)
-		Effector.move_to($BeltExtra,belt_slot.rect_global_position)
-		yield(get_tree().create_timer(.3),"timeout")
-		if belt_slot.get_index()==PlayerManager.PLAYER_ARMIES.size():
-			PlayerManager.PLAYER_ARMIES.append($BeltExtra.army)
-			belt_slot.set_army($BeltExtra.army)
-			#Effector.disappear(bs)
-		else:
-			PlayerManager.PLAYER_ARMIES[belt_slot.get_index()] = $BeltExtra.army
-			belt_slot.set_army($BeltExtra.army)
+	Effector.disappear($NewArmyPanel)
+	#Effector.move_to($BeltExtra,belt_slot.rect_global_position)
+	yield(get_tree().create_timer(.3),"timeout")
+	if belt_slot.get_index()==PlayerManager.PLAYER_ARMIES.size():
+		PlayerManager.PLAYER_ARMIES.append(new_army)
+		belt_slot.set_army(new_army)
+		#Effector.disappear(bs)
 
 func get_random_new_army():
 	var only_once_armies = ["stake","dynamite"]
