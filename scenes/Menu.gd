@@ -8,7 +8,7 @@ func _ready():
 
 func on_click(val):
 	if val=="start":
-		get_tree().change_scene("res://scenes/Game.tscn")
+		get_tree().change_scene("res://scenes/Prestart.tscn")
 	elif val=="lang":
 		Lang.change_lang()
 		localizate()

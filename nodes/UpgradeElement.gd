@@ -1,28 +1,28 @@
 extends Control
 
 var upg_data
-var selected
+var state # -1 unabled, 0/1 selected
 
 func set_data(upg_code):
 	upg_data = UpgradesManager.get_upgrade_data(upg_code)
 	$Sprite.frame = upg_data.ico
-	selected = UpgradesManager.UPGRADES[upg_data.code].selected
+	state = UpgradesManager.UPGRADES[upg_data.code].state
 	update_state()
 
 func _ready():
 	pass # Replace with function body.
 
-func select(val):
-	UpgradesManager.UPGRADES[upg_data.code].selected = val
-	selected = val
+func change_sate(val):
+	UpgradesManager.UPGRADES[upg_data.code].state = val
+	state = val
 	update_state()
 
 func toggle_select():
-	select(!selected)
+	if state ==0: change_sate(1)
+	elif state ==1: change_sate(0)
 
 func update_state():
-	var enabled = UpgradesManager.UPGRADES[upg_data.code].enabled
-	if enabled: modulate = Color(1,1,1,1)
+	if state != -1: modulate = Color(1,1,1,1)
 	else: modulate = Color(.4,.2,.2,1)
-	if selected: $Sprite.material = preload("res://assets/sh_outline.tres")
+	if state == 1: $Sprite.material = preload("res://assets/sh_outline.tres")
 	else: $Sprite.material = null

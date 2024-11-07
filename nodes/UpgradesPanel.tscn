@@ -84,13 +84,17 @@ custom_constants/vseparation = 28
 columns = 2
 
 [node name="upg1" parent="Grid" instance=ExtResource( 2 )]
+margin_right = 100.0
+margin_bottom = 100.0
 
 [node name="upg2" parent="Grid" instance=ExtResource( 2 )]
 margin_left = 104.0
 margin_right = 204.0
+margin_bottom = 100.0
 
 [node name="upg3" parent="Grid" instance=ExtResource( 2 )]
 margin_top = 128.0
+margin_right = 100.0
 margin_bottom = 228.0
 
 [node name="upg4" parent="Grid" instance=ExtResource( 2 )]
@@ -101,6 +105,7 @@ margin_bottom = 228.0
 
 [node name="upg5" parent="Grid" instance=ExtResource( 2 )]
 margin_top = 256.0
+margin_right = 100.0
 margin_bottom = 356.0
 
 [node name="upg6" parent="Grid" instance=ExtResource( 2 )]
@@ -111,6 +116,7 @@ margin_bottom = 356.0
 
 [node name="upg7" parent="Grid" instance=ExtResource( 2 )]
 margin_top = 384.0
+margin_right = 100.0
 margin_bottom = 484.0
 
 [node name="upg8" parent="Grid" instance=ExtResource( 2 )]

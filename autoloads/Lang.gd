@@ -51,8 +51,7 @@ var texts = {
 	"it_dice_name_es":"Dado",
 	"it_dice_desc_es":"Añade un dado extra a tu tirada.",
 	
-	"tuto_dices_es":"Lanza tus dados y elige el orden, esto moverá tu mano en el cinturón de armas para utilizarlas.\nPor cada 6 (seis) obtendrás un dado extra!!",
-	"tuto_enemies_es":"Los enemigos intentarán dañarte, evitalo a toda costa.\nAl destruirlos ganarás experiencia.",
+	"tuto_all_es":"Lazna tus dados y elige cual utilizar, esto moverá tu mano en el cinturón de armas para utilizarlas!\nSi sacas algún 6 (seis) obtendrás un dado extra!!\n\nLos enemigos intentarán dañarte, evitalo a toda costa!\nAl destruirlos ganarás experiencia.",
 	"win_game_es":"Has ganado! Es hora de recuperar fuerzas y prepararte para la siguiente jornada!",
 	
 	"level_name_1_es":"La Tumba",
@@ -67,6 +66,17 @@ var texts = {
 	"menu_start_en":"Start",
 	"menu_lang_es": "Idioma: Español",
 	"menu_lang_en": "Lang: English",
+	
+	"prestart_title_es":"Prepara tu\n   equipo inicial..",
+	"prestart_end_es":"Continuar",
+	
+	"upg1_desc_es":"MEJORA 01: Descripcion de la mejora, cosas que hace y beneficios que otorga y beneficios que otorga y beneficios que otorga y beneficios que otorga.",
+	"upg2_desc_es":"MEJORA 02: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
+	"upg3_desc_es":"MEJORA 03: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
+	"upg4_desc_es":"MEJORA 04: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
+	"upg5_desc_es":"MEJORA 05: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
+	"upg6_desc_es":"MEJORA 06: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
+	"upg7_desc_es":"MEJORA 07: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
 }
 
 var images = {

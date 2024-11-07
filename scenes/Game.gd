@@ -36,6 +36,10 @@ func _ready():
 	
 	#yield($CLUI/TutorialPopup,"close_popup")
 	yield(get_tree().create_timer(1),"timeout")
+	$CLUI/TutorialPopup.show_popup("all")
+	yield($CLUI/TutorialPopup,"close_popup")
+	
+	yield(get_tree().create_timer(1),"timeout")
 	$CLUI/WaveUI.next_wave()
 	yield(get_tree().create_timer(2),"timeout")
 	$CLUI/WaveUI.advance_wave()

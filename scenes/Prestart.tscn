@@ -1,0 +1,159 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/backgrounds/army_bg.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=3]
+[ext_resource path="res://nodes/UpgradeElement.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Prestart.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 107
+outline_size = 11
+outline_color = Color( 0.329412, 0.0156863, 0.0156863, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 81
+outline_size = 7
+outline_color = Color( 0.329412, 0.0156863, 0.0156863, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+outline_size = 3
+outline_color = Color( 0.329412, 0.0156863, 0.0156863, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_size = 4
+outline_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Prestart" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.345098, 0.345098, 0.345098, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -390.0
+margin_top = 47.0
+margin_right = -27.0
+margin_bottom = 205.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 1 )
+text = "1/5"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 44.0
+margin_top = 51.0
+margin_right = 1030.0
+margin_bottom = 266.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "Prepara tu
+   equipo inicial.."
+valign = 1
+autowrap = true
+
+[node name="lb_desc" type="Label" parent="."]
+margin_left = 68.0
+margin_top = 660.0
+margin_right = 1054.0
+margin_bottom = 875.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 4 )
+text = "Descripcion, Descripcion, Descripcion, Descripcion, Descripcion, Descripcion, Descripcion, Descripcion,"
+valign = 1
+autowrap = true
+
+[node name="Upgrades" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UpgradeElement" parent="Upgrades" instance=ExtResource( 4 )]
+margin_left = 70.0
+margin_top = 289.0
+margin_right = 270.0
+margin_bottom = 489.0
+
+[node name="UpgradeElement2" parent="Upgrades" instance=ExtResource( 4 )]
+margin_left = 542.0
+margin_top = 282.0
+margin_right = 742.0
+margin_bottom = 482.0
+
+[node name="UpgradeElement3" parent="Upgrades" instance=ExtResource( 4 )]
+margin_left = 296.0
+margin_top = 457.0
+margin_right = 496.0
+margin_bottom = 657.0
+
+[node name="UpgradeElement4" parent="Upgrades" instance=ExtResource( 4 )]
+margin_left = 787.0
+margin_top = 457.0
+margin_right = 987.0
+margin_bottom = 657.0
+
+[node name="UpgradeElement5" parent="Upgrades" instance=ExtResource( 4 )]
+margin_left = 909.0
+margin_top = 171.0
+margin_right = 1109.0
+margin_bottom = 371.0
+
+[node name="UpgradeElement6" parent="Upgrades" instance=ExtResource( 4 )]
+margin_left = 1120.0
+margin_top = 467.0
+margin_right = 1320.0
+margin_bottom = 667.0
+
+[node name="UpgradeElement7" parent="Upgrades" instance=ExtResource( 4 )]
+margin_left = 1336.0
+margin_top = 282.0
+margin_right = 1536.0
+margin_bottom = 482.0
+
+[node name="btn1" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 388.0
+margin_top = 286.0
+margin_right = 748.0
+margin_bottom = 386.0
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="btn1"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="btn1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "Listo!"
+align = 1
+valign = 1
+autowrap = true
