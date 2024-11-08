@@ -10,6 +10,9 @@ func _ready():
 		btn.connect("mouse_entered",self,"on_upg_btn",[upg,"enter"])
 		btn.connect("mouse_exited",self,"on_upg_btn",[upg,"exit"])
 		btn.connect("button_down",self,"on_upg_btn",[upg,"click"])
+	for upg in UpgradesManager.UPGRADES: 
+		if UpgradesManager.UPGRADES[upg].state==1: UpgradesManager.UPGRADES[upg].state = 0
+	UpgradesManager.used = 0
 	localizate()
 	update_points()
 
