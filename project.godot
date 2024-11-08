@@ -47,6 +47,7 @@ ItemManager="*res://autoloads/ItemManager.gd"
 SizerManager="*res://autoloads/SizerManager.gd"
 LevelManager="*res://autoloads/LevelManager.gd"
 UpgradesManager="*res://autoloads/UpgradesManager.gd"
+SaveManager="*res://autoloads/SaveManager.gd"
 
 [display]
 
