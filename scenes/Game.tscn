@@ -382,18 +382,21 @@ margin_right = 633.0
 margin_bottom = -102.0
 
 [node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
+visible = false
 margin_left = -651.0
 margin_top = 244.0
 margin_right = -158.0
 margin_bottom = 419.0
 
 [node name="HintPanelArmy" parent="CLUI" instance=ExtResource( 14 )]
+visible = false
 margin_left = 516.0
 margin_top = 447.0
 margin_right = 1097.0
 margin_bottom = 622.0
 
 [node name="HintPanelItem" parent="CLUI" instance=ExtResource( 17 )]
+visible = false
 margin_left = 520.0
 margin_top = 300.0
 margin_right = 1101.0
