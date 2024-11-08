@@ -67,7 +67,7 @@ func blood_bg():
 func show_float_text(code):
 	var node = preload("res://nodes/fx/FloatText.tscn").instance()
 	node.set_float(code)
-	get_node("/root/Game/CLUI").add_child(node)
+	get_node("/root").add_child(node)
 
 func show_damage_text(val,pos):
 	var node = preload("res://nodes/fx/FloatText.tscn").instance()

@@ -18,8 +18,14 @@ func change_sate(val):
 	update_state()
 
 func toggle_select():
-	if state ==0: change_sate(1)
-	elif state ==1: change_sate(0)
+	if state ==0:
+		if UpgradesManager.used < UpgradesManager.points:
+			UpgradesManager.used += 1
+			change_sate(1)
+		else: Effector.show_float_text("no_upgrade_points")
+	elif state ==1: 
+		UpgradesManager.used -= 1
+		change_sate(0)
 
 func update_state():
 	if state != -1: modulate = Color(1,1,1,1)

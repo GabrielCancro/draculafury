@@ -42,7 +42,7 @@ anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="Label" type="Label" parent="."]
+[node name="lb_points" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -390.0
@@ -57,7 +57,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Label2" type="Label" parent="."]
+[node name="lb_title" type="Label" parent="."]
 margin_left = 44.0
 margin_top = 51.0
 margin_right = 1030.0

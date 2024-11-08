@@ -1,5 +1,8 @@
 extends Node
 
+var used = 0
+var points = 3 
+
 var UPGRADES = {
 	"upg1":{"name":"life", "ico":0, "state":0},
 	"upg2":{"name":"life", "ico":1, "state":0},
