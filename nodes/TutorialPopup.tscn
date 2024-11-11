@@ -1,36 +1,51 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=3]
 [ext_resource path="res://assets/enemies/enemy_retraits.png" type="Texture" id=4]
 [ext_resource path="res://nodes/TutorialPopup.gd" type="Script" id=5]
+[ext_resource path="res://assets/cuted.png" type="Texture" id=6]
+[ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 39
 outline_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 39
+outline_size = 5
+outline_color = Color( 0.192157, 0.0627451, 0.0627451, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_size = 5
+outline_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+font_data = ExtResource( 2 )
+
 [node name="TutorialPopup" type="ColorRect"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.384314, 0.384314, 0.384314, 0.635294 )
+color = Color( 0.384314, 0.384314, 0.384314, 0.203922 )
 script = ExtResource( 5 )
 
 [node name="Pages" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="all" type="ColorRect" parent="Pages"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 75.0
-margin_top = 87.0
-margin_right = 1485.0
-margin_bottom = 517.0
+margin_left = -705.0
+margin_top = -215.0
+margin_right = 705.0
+margin_bottom = 215.0
 rect_pivot_offset = Vector2( 705, 215 )
 color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 
@@ -95,3 +110,395 @@ position = Vector2( 1222, 295.282 )
 scale = Vector2( 1.60563, 1.60563 )
 texture = ExtResource( 4 )
 hframes = 5
+
+[node name="welcome" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/welcome"]
+modulate = Color( 0, 0, 0, 0.784314 )
+margin_left = -1847.0
+margin_top = -1640.0
+margin_right = 2366.0
+margin_bottom = 2739.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/welcome"]
+margin_left = 518.0
+margin_top = 234.0
+margin_right = 1228.0
+margin_bottom = 450.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Bienvenido Cazador, 
+Te estabamos esperando. Drácula ha despertado y sus criaturas rondan por todos lados, no perdamos el tiempo!"
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/welcome"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 175.0
+margin_top = -319.0
+margin_right = 424.0
+margin_bottom = -232.0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/welcome/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/welcome/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="enemy" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/enemy"]
+modulate = Color( 0, 0, 0, 0.784314 )
+margin_left = -703.0
+margin_top = -1265.0
+margin_right = 3124.0
+margin_bottom = 2412.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/enemy"]
+margin_left = 209.0
+margin_top = 113.0
+margin_right = 919.0
+margin_bottom = 329.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Menos mal que estas aquí! Ese vampiro intentará matarte, utiliza las armas de tu cinturón para terminar con él."
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/enemy"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -148.0
+margin_top = -552.0
+margin_right = 101.0
+margin_bottom = -465.0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/enemy/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/enemy/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="belt" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/belt"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4145.0
+margin_top = -843.0
+margin_right = 4117.0
+margin_bottom = 1632.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/belt"]
+margin_left = 741.0
+margin_top = 214.0
+margin_right = 1464.0
+margin_bottom = 494.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Cuando hayas terminado "
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/belt"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 478.0
+margin_top = -380.0
+margin_right = 727.0
+margin_bottom = -293.0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/belt/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/belt/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="dices" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/dices"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3295.0
+margin_top = -2425.0
+margin_right = 2169.0
+margin_bottom = 2786.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/dices"]
+margin_left = 764.0
+margin_top = 277.0
+margin_right = 1474.0
+margin_bottom = 523.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Lo primero es arrojar tus dados, esto te permitira mover tu \"mano\" por el cinturón para escoger un arma.
+Dale al botón de ROLL."
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/dices"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -676.0
+margin_top = -171.0
+margin_right = -427.0
+margin_bottom = -84.0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="result" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/result"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4661.0
+margin_top = -1135.0
+margin_right = 4603.0
+margin_bottom = 1840.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/result"]
+margin_left = 621.0
+margin_top = 207.0
+margin_right = 1331.0
+margin_bottom = 453.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Muy bien, al clickear esos dados tu mano avanzará por el cinturón y activarás la casilla en la que caigas, intenta utilizar tu primer dado.."
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/result"]
+modulate = Color( 1, 1, 1, 0.482353 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -211.0
+margin_right = -6.0
+margin_bottom = -155.0
+custom_fonts/font = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="end" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/end"]
+visible = false
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3295.0
+margin_top = -2797.0
+margin_right = 2169.0
+margin_bottom = 3122.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/end"]
+margin_left = 626.0
+margin_top = 277.0
+margin_right = 1336.0
+margin_bottom = 523.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Has activado tu revolver! Ahora finaliza tu turno presionando el boton de finalizar para realizar tu acción."
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/end"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -676.0
+margin_top = -171.0
+margin_right = -427.0
+margin_bottom = -84.0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="diceparts" type="ColorRect" parent="Pages"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/diceparts"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4145.0
+margin_top = -675.0
+margin_right = 4117.0
+margin_bottom = 1213.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/diceparts"]
+margin_left = 700.0
+margin_top = 218.0
+margin_right = 1410.0
+margin_bottom = 464.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Los dados que no hayas utilizado se acumularán, al sumar seis acumulaciones obtiendrás un dado extra!"
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/diceparts"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 322.0
+margin_top = -448.0
+margin_right = 571.0
+margin_bottom = -361.0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/diceparts/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/diceparts/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true

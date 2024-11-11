@@ -5,6 +5,8 @@ var space_slot = 105
 var max_slots = 3
 var waves_runned = 0
 
+var first_tuto_enemy 
+
 var WAVE = []
 var ALL_WAVES = [
 	["1*vampire",null,"1*vampire",null,"1*vampire"],
@@ -22,6 +24,7 @@ var ALL_WAVES = [
 ]
 
 func _ready():
+	first_tuto_enemy = SaveManager.tuto
 	Effector.remove_all_children($Grid)
 	#ALL_WAVES = LevelManager.get_level_waves()
 
@@ -45,7 +48,12 @@ func advance_wave():
 	if slot_info.enemy:
 		for i in range(slot_info.amount):
 			yield(get_tree().create_timer(.3),"timeout")
-			if EnemyManager.add_enemy(slot_info.enemy): slot_info.amount -= 1
+			if EnemyManager.add_enemy(slot_info.enemy): 
+				slot_info.amount -= 1
+				if first_tuto_enemy:
+					first_tuto_enemy = false
+					var en = EnemyManager.get_first_enemy()
+					if en: en.set_tile_pos(4)
 			else: break
 	
 	if slot_info.amount>0:

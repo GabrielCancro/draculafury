@@ -4,10 +4,13 @@ enum GameState {START,ACTIONS,ATTACKS,ENEMIES,WAVE}
 var current_state
 var disable_dices_click = true
 
+signal end_tuto_sequence
+
 func _ready():
 	set_floor_marks()
 	EnemyManager.initialize_data()
 	PlayerManager.initialize_data()
+	$CLUI/TutorialBlocker.visible = false
 	$CLUI/ButtonStates.disabled = true
 	$CLUI/ButtonStates.modulate.a = 0
 	$CLUI/ButtonStates.connect("button_down",self,"on_button_states")	
@@ -33,18 +36,10 @@ func _ready():
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
-	
-	#yield($CLUI/TutorialPopup,"close_popup")
 	yield(get_tree().create_timer(1),"timeout")
-	$CLUI/TutorialPopup.show_popup("all")
-	yield($CLUI/TutorialPopup,"close_popup")
 	
-	yield(get_tree().create_timer(1),"timeout")
-	$CLUI/WaveUI.next_wave()
-	yield(get_tree().create_timer(2),"timeout")
-	$CLUI/WaveUI.advance_wave()
-	yield(get_tree().create_timer(2),"timeout")
-	change_state(GameState.START)
+	tutorial_sequence()
+	yield(self,"end_tuto_sequence")
 
 func change_state(new_state):
 	current_state = new_state
@@ -149,3 +144,47 @@ func set_floor_marks():
 
 func goto_menu():
 	get_tree().change_scene("res://scenes/Levels.tscn")
+
+func tutorial_sequence():
+	$CLUI/TutorialBlocker.visible = true
+	yield(get_tree().create_timer(1),"timeout")
+	$CLUI/TutorialPopup.show_popup("welcome")
+	yield($CLUI/TutorialPopup,"close_popup")
+	
+	yield(get_tree().create_timer(.5),"timeout")
+	$CLUI/WaveUI.next_wave()
+	yield(get_tree().create_timer(2),"timeout")
+	$CLUI/WaveUI.advance_wave()
+	yield(get_tree().create_timer(2),"timeout")
+	$CLUI/TutorialPopup.show_popup("enemy")
+	yield($CLUI/TutorialPopup,"close_popup")
+	
+	yield(get_tree().create_timer(1),"timeout")
+	$CLUI/TutorialPopup.show_popup("belt")
+	yield($CLUI/TutorialPopup,"close_popup")
+	
+	change_state(GameState.START)
+	yield(get_tree().create_timer(2),"timeout")
+	$CLUI/TutorialPopup.show_popup("dices")
+	yield($CLUI/TutorialPopup,"close_popup")
+	
+	on_button_states()
+	yield(get_tree().create_timer(1.4),"timeout")
+	$CLUI/DiceSet/HBoxDices/Dice1.force(3)
+	$CLUI/DiceSet/HBoxDices/Dice2.force(5)
+
+	$CLUI/TutorialPopup.show_popup("result")
+	yield($CLUI/TutorialPopup,"close_popup")
+	yield(get_tree().create_timer(0.5),"timeout")
+	on_click_dice($CLUI/DiceSet/HBoxDices/Dice1)
+	
+	yield(get_tree().create_timer(1.5),"timeout")
+	$CLUI/TutorialPopup.show_popup("end")
+	yield($CLUI/TutorialPopup,"close_popup")
+	yield(get_tree().create_timer(.2),"timeout")
+	$CLUI/TutorialPopup.show_popup("diceparts")
+	yield($CLUI/TutorialPopup,"close_popup")
+	on_button_states()
+	
+	$CLUI/TutorialBlocker.visible = false
+	#emit_signal("end_tuto_sequence")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dices1.ogg-0a2ac22f60eb9f28edb83e236e405847.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/dices1.ogg"
+dest_files=[ "res://.import/dices1.ogg-0a2ac22f60eb9f28edb83e236e405847.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

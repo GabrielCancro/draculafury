@@ -48,3 +48,8 @@ func hint_cb():
 		get_node("/root/Game/CLUI/Belt").set_shadow_pawn(value)
 	else:
 		get_node("/root/Game/CLUI/Belt").set_shadow_pawn(0)
+
+func force(val):
+	value = val
+	$Sprite.frame= value-1
+	

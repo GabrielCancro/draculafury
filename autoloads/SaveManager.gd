@@ -1,6 +1,8 @@
 extends Node
 
 var demo = false
+var tuto = true
+
 var default_data = { 
 	"upgrades":[], 
 	"upgrades_unlocked":[], 

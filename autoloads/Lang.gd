@@ -77,6 +77,14 @@ var texts = {
 	"upg5_desc_es":"MEJORA 05: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
 	"upg6_desc_es":"MEJORA 06: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
 	"upg7_desc_es":"MEJORA 07: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
+	
+	"tuto_welcome_es":"Bienvenido Cazador,\nTe estabamos esperando. Drácula ha despertado y sus criaturas rondan por todos lados, no perdamos el tiempo!",
+	"tuto_enemy_es":"Menos mal que estas aquí! Ese vampiro intentará matarte, utiliza las armas de tu cinturón para terminar con él.",
+	"tuto_belt_es":"Este es tu cinturón de armas, aqui tienes todas tus herramientas para terminar con la peste de Drácula. Ahora veremos como funciona.",
+	"tuto_dices_es":"Lo primero es arrojar tus dados, esto te permitira mover tu \"mano\" por el cinturón para escoger un arma.\nDale al botón de ROLL.",
+	"tuto_result_es":"Muy bien, al clickear esos dados tu mano avanzará por el cinturón y activarás la casilla en la que caigas, intenta utilizar tu primer dado..",
+	"tuto_end_es":"Has activado tu revolver! Ahora finaliza tu turno presionando el boton de finalizar para realizar tu acción.",
+	"tuto_diceparts_es":"Los dados que no hayas utilizado se acumularán, al sumar seis acumulaciones obtiendrás un dado extra!",
 }
 
 var images = {

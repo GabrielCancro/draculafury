@@ -408,5 +408,10 @@ visible = false
 [node name="WinPopup" parent="CLUI" instance=ExtResource( 18 )]
 visible = false
 
+[node name="TutorialBlocker" type="ColorRect" parent="CLUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0, 0, 0, 0 )
+
 [node name="TutorialPopup" parent="CLUI" instance=ExtResource( 16 )]
-visible = false

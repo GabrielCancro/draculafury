@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pawn1.ogg-7d862cd60f7e37405f7366b273e3bf12.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/pawn1.ogg"
+dest_files=[ "res://.import/pawn1.ogg-7d862cd60f7e37405f7366b273e3bf12.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

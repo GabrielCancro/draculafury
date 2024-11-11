@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kick.ogg-c4095f0538dd652c936f7147b3d5cdab.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/kick.ogg"
+dest_files=[ "res://.import/kick.ogg-c4095f0538dd652c936f7147b3d5cdab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
