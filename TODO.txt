@@ -1,12 +1,24 @@
-  -EXPERIENCE IMPROVEMENT / WHY
+  -Ver como hacer para mostrar que al ganar experiencia ganas puntos de equipamiento
   -SOUNDS AND MUSIC
-  -TRADUCTIONS ENG
+  -traduccion al ingles
   -END GAME SCENE
-  -SAVE PROGRES
+  -SAVE PROGRESS (solo guardar puntos de equipamiento)
   -END DEMO
   -TUTORIAL
   -FINAL BOSS
   -HACK SKIP WAVES
+  -INTEGRAR ARTE (player, menu, boss final)
+  -IDEAS PARA EL EQUIPAMIENTO INICIAL:
+	1 Amuleto, cura 10% al finalizar cada wave
+	2 Bolso, empezas con 3 items randoms
+	3 Mapa, empezas en la catedral (saltea las primeras waves)
+	4 chaleco, +30% de vida
+	5 cigarretes, la habilidad de respiro sana el doble
+	6 Cargadores, las pistolas tienen el doble de carga
+	7 Explosivos, cada 3 oleadas recibes un item de explosivo
+	8 Balas de plata, las pistolas tienen 50% de hacer doble daño
+	9 Armamento, comienzas con una escopeta extra en tu cinturon
+
 
 OK-IMPLEMENT ACTIONS
 OK-ADD DIFFERENTS HINTS 
