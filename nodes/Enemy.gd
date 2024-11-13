@@ -70,7 +70,7 @@ func enemy_damage(dam):
 		Effector.disappear(self)
 		yield(get_tree().create_timer(.5),"timeout")
 		EnemyManager.ENEMIES_ACTIVES.erase(self)
-		PlayerManager.add_xp()
+		PlayerManager.add_xp(5)
 		ItemManager.throw_with_probability(position.x+20)
 		queue_free()
 

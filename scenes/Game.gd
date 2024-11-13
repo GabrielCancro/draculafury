@@ -148,8 +148,14 @@ func goto_menu():
 	get_tree().change_scene("res://scenes/Levels.tscn")
 
 func tutorial_sequence():
-#	change_state(GameState.START)
-#	return
+	yield(get_tree().create_timer(1),"timeout")
+	$CLUI/WaveUI.next_wave()
+	yield(get_tree().create_timer(.5),"timeout")
+	$CLUI/WaveUI.advance_wave()
+	yield(get_tree().create_timer(.5),"timeout")
+	change_state(GameState.START)
+	return
+	
 	$CLUI/TutorialBlocker.visible = true
 	yield(get_tree().create_timer(1),"timeout")
 	$CLUI/TutorialPopup.show_popup("welcome")
@@ -192,3 +198,6 @@ func tutorial_sequence():
 	
 	$CLUI/TutorialBlocker.visible = false
 	#emit_signal("end_tuto_sequence")
+
+func on_skip_tutorial():
+	return

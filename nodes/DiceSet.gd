@@ -32,9 +32,8 @@ func get_dice_parts():
 			Effector.move_to(d,Vector2(200,200))
 			d.hide_dice()
 			yield(get_tree().create_timer(.3),"timeout")
-			PlayerManager.add_dice_parts()
-			if PlayerManager.PLAYER_STATS.dice_parts==6: yield(get_tree().create_timer(2),"timeout")
-	yield(get_tree().create_timer(.3),"timeout")
+			PlayerManager.add_xp(1)
+			yield(get_tree().create_timer(.3),"timeout")
 	emit_signal("end_dice_part_collect")
 
 func roll_all_dices():
