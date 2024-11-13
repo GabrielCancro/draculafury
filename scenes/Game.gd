@@ -60,6 +60,8 @@ func change_state(new_state):
 	elif current_state == GameState.ATTACKS:
 		disable_dices_click = true
 		ItemManager.enable_items_usage(false)
+		yield(get_tree().create_timer(.2),"timeout")
+		ItemManager.clear_floor_items()
 		$CLUI/DiceSet.get_dice_parts()
 		yield($CLUI/DiceSet,"end_dice_part_collect")
 		yield(get_tree().create_timer(.2),"timeout")
@@ -146,6 +148,8 @@ func goto_menu():
 	get_tree().change_scene("res://scenes/Levels.tscn")
 
 func tutorial_sequence():
+#	change_state(GameState.START)
+#	return
 	$CLUI/TutorialBlocker.visible = true
 	yield(get_tree().create_timer(1),"timeout")
 	$CLUI/TutorialPopup.show_popup("welcome")

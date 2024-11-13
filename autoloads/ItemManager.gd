@@ -36,6 +36,9 @@ func throw_random_item(xpos=null):
 	throw_item( ITEMS_DATA.keys()[rnd_index], xpos )
 
 func take_item(item_node):
+	if ITEMS_PLAYER.size()>=3:
+		Effector.show_float_text("have_many_items")
+		return
 	if item_node.is_infloor:
 		item_node.is_infloor = false
 		ITEMS_INFLOOR.erase(item_node)
@@ -122,3 +125,10 @@ func enable_items_usage(val):
 		if !it.is_infloor:
 			if val: it.modulate = Color(1,1,1,1)
 			else: it.modulate = Color(.4,.4,.4,1)
+
+func clear_floor_items():
+	for it in ITEMS_INFLOOR: Effector.disappear(it)
+	yield(get_tree().create_timer(.7),"timeout")
+	for it in ITEMS_INFLOOR:
+		ITEMS_INFLOOR.erase(it)
+		it.queue_free()
