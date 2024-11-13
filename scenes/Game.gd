@@ -4,6 +4,7 @@ enum GameState {START,ACTIONS,ATTACKS,ENEMIES,WAVE}
 var current_state
 var disable_dices_click = true
 
+var skip_tutorial = false
 signal end_tuto_sequence
 
 func _ready():
@@ -36,10 +37,8 @@ func _ready():
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
-	yield(get_tree().create_timer(1),"timeout")
-	
+	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")	
 	tutorial_sequence()
-	yield(self,"end_tuto_sequence")
 
 func change_state(new_state):
 	current_state = new_state
@@ -70,6 +69,9 @@ func change_state(new_state):
 			if army:
 				ArmyManager.run_army_action(army)
 				yield(ArmyManager,"end_army_action")
+				if UpgradesManager.points==0 && PlayerManager.PLAYER_STATS.kills==1:
+					$CLUI/TutorialPopup.show_popup("deadenemy")
+					yield(get_node("/root/Game/CLUI/TutorialPopup"),"close_popup")
 			else: break
 		yield(get_tree().create_timer(.7),"timeout")
 		change_state(GameState.ENEMIES)
@@ -99,6 +101,7 @@ func change_state(new_state):
 		change_state(GameState.START)
 
 func on_button_states():
+	Sounds.play_sound("button1")
 	var new_state = current_state + 1
 	if new_state >= GameState.keys().size(): new_state = 0
 	change_state(new_state)
@@ -148,16 +151,9 @@ func goto_menu():
 	get_tree().change_scene("res://scenes/Levels.tscn")
 
 func tutorial_sequence():
-	yield(get_tree().create_timer(1),"timeout")
-	$CLUI/WaveUI.next_wave()
-	yield(get_tree().create_timer(.5),"timeout")
-	$CLUI/WaveUI.advance_wave()
-	yield(get_tree().create_timer(.5),"timeout")
-	change_state(GameState.START)
-	return
-	
+	$CLUI/WaveUI.first_tuto_enemy = true
 	$CLUI/TutorialBlocker.visible = true
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(2.5),"timeout")
 	$CLUI/TutorialPopup.show_popup("welcome")
 	yield($CLUI/TutorialPopup,"close_popup")
 	
@@ -166,38 +162,56 @@ func tutorial_sequence():
 	yield(get_tree().create_timer(2),"timeout")
 	$CLUI/WaveUI.advance_wave()
 	yield(get_tree().create_timer(2),"timeout")
+	
+	if skip_tutorial: return
 	$CLUI/TutorialPopup.show_popup("enemy")
 	yield($CLUI/TutorialPopup,"close_popup")
+	if skip_tutorial: return
 	
 	yield(get_tree().create_timer(1),"timeout")
 	$CLUI/TutorialPopup.show_popup("belt")
 	yield($CLUI/TutorialPopup,"close_popup")
+	if skip_tutorial: return
 	
 	change_state(GameState.START)
 	yield(get_tree().create_timer(2),"timeout")
 	$CLUI/TutorialPopup.show_popup("dices")
 	yield($CLUI/TutorialPopup,"close_popup")
+	if skip_tutorial: return
 	
 	on_button_states()
-	yield(get_tree().create_timer(1.4),"timeout")
+	yield(get_tree().create_timer(1.25),"timeout")
 	$CLUI/DiceSet/HBoxDices/Dice1.force(3)
 	$CLUI/DiceSet/HBoxDices/Dice2.force(5)
-
+	
+	yield(get_tree().create_timer(1),"timeout")
 	$CLUI/TutorialPopup.show_popup("result")
 	yield($CLUI/TutorialPopup,"close_popup")
+	if skip_tutorial: return
 	yield(get_tree().create_timer(0.5),"timeout")
 	on_click_dice($CLUI/DiceSet/HBoxDices/Dice1)
 	
-	yield(get_tree().create_timer(1.5),"timeout")
+	yield(get_tree().create_timer(3),"timeout")
 	$CLUI/TutorialPopup.show_popup("end")
 	yield($CLUI/TutorialPopup,"close_popup")
+	if skip_tutorial: return
 	yield(get_tree().create_timer(.2),"timeout")
 	$CLUI/TutorialPopup.show_popup("diceparts")
 	yield($CLUI/TutorialPopup,"close_popup")
+	if skip_tutorial: return
 	on_button_states()
 	
+	yield(get_tree().create_timer(9),"timeout")
+	$CLUI/TutorialPopup.show_popup("startgame")
+	yield($CLUI/TutorialPopup,"close_popup")
+	if skip_tutorial: return
 	$CLUI/TutorialBlocker.visible = false
 	#emit_signal("end_tuto_sequence")
 
 func on_skip_tutorial():
+	skip_tutorial = true
+	$CLUI/TutorialBlocker.visible = false
+	if current_state==null: 
+		if $CLUI/WaveUI.WAVE.size()==0: yield(get_tree().create_timer(6),"timeout")
+		change_state(GameState.START)
 	return

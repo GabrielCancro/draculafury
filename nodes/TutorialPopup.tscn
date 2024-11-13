@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
@@ -25,11 +25,16 @@ outline_size = 5
 outline_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 34
+outline_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+font_data = ExtResource( 2 )
+
 [node name="TutorialPopup" type="ColorRect"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.384314, 0.384314, 0.384314, 0.203922 )
+color = Color( 0.384314, 0.384314, 0.384314, 0 )
 script = ExtResource( 5 )
 
 [node name="Pages" type="Control" parent="."]
@@ -149,6 +154,7 @@ margin_left = 175.0
 margin_top = -319.0
 margin_right = 424.0
 margin_bottom = -232.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 flat = true
 
@@ -207,6 +213,7 @@ margin_left = -148.0
 margin_top = -552.0
 margin_right = 101.0
 margin_bottom = -465.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 flat = true
 __meta__ = {
@@ -272,6 +279,7 @@ margin_left = 478.0
 margin_top = -380.0
 margin_right = 727.0
 margin_bottom = -293.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 flat = true
 __meta__ = {
@@ -338,6 +346,7 @@ margin_left = -676.0
 margin_top = -171.0
 margin_right = -427.0
 margin_bottom = -84.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 flat = true
 __meta__ = {
@@ -386,7 +395,9 @@ margin_left = -62.0
 margin_top = -211.0
 margin_right = -6.0
 margin_bottom = -155.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
+flat = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -432,6 +443,7 @@ margin_left = -676.0
 margin_top = -171.0
 margin_right = -427.0
 margin_bottom = -84.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 flat = true
 __meta__ = {
@@ -451,10 +463,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -4145.0
-margin_top = -675.0
-margin_right = 4117.0
-margin_bottom = 1213.0
+margin_left = -1259.0
+margin_top = -513.0
+margin_right = 1260.0
+margin_bottom = 1113.0
+rect_scale = Vector2( 1, 0.965443 )
 texture = ExtResource( 6 )
 expand = true
 
@@ -466,7 +479,7 @@ margin_bottom = 464.0
 custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
 custom_constants/line_spacing = 4
 custom_fonts/font = SubResource( 2 )
-text = "Los dados que no hayas utilizado se acumularán, al sumar seis acumulaciones obtiendrás un dado extra!"
+text = "Los dados que no hayas utilizado te darán un poco de experiencia."
 valign = 1
 autowrap = true
 
@@ -479,6 +492,7 @@ margin_left = 322.0
 margin_top = -448.0
 margin_right = 571.0
 margin_bottom = -361.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 flat = true
 __meta__ = {
@@ -502,3 +516,229 @@ text = "OK"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="startgame" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/startgame"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -13007.0
+margin_top = -1739.0
+margin_right = 12874.0
+margin_bottom = 1966.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/startgame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -338.0
+margin_top = -354.5
+margin_right = 338.0
+margin_bottom = -253.5
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Ahora si. Acaba con ellos!!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/startgame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.5
+margin_top = -235.5
+margin_right = 124.5
+margin_bottom = -148.5
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/startgame/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/startgame/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="getsix" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/getsix"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4661.0
+margin_top = -1135.0
+margin_right = 4603.0
+margin_bottom = 1840.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/getsix"]
+margin_left = 621.0
+margin_top = 207.0
+margin_right = 1331.0
+margin_bottom = 453.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Cada vez que saques un SEIS en algún dado obtienes un dado extra!"
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/getsix"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -1.0
+margin_right = 449.0
+margin_bottom = 86.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/getsix/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/getsix/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="deadenemy" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted3" type="TextureRect" parent="Pages/deadenemy"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -344.0
+margin_top = -956.0
+margin_right = 837.0
+margin_bottom = -41.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="cutted4" type="TextureRect" parent="Pages/deadenemy"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -996.0
+margin_top = 252.0
+margin_right = 940.0
+margin_bottom = 1130.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/deadenemy"]
+margin_left = 521.0
+margin_top = 5.0
+margin_right = 1220.0
+margin_bottom = 285.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Cuando destruyas a un enemigo ganarás bastante experiencia.. Al llenar tu barra XP obtendrás un dado extra para toda tu partida!"
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/deadenemy"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 241.0
+margin_top = -621.0
+margin_right = 490.0
+margin_bottom = -534.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/deadenemy/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/deadenemy/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="btn_skip" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -212.0
+margin_bottom = 115.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "skip"
+flat = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/roll_dices.ogg-5174a1127bdf34b67cddb3b25e8489ba.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/roll_dices.ogg"
+dest_files=[ "res://.import/roll_dices.ogg-5174a1127bdf34b67cddb3b25e8489ba.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -37,6 +37,7 @@ func get_dice_parts():
 	emit_signal("end_dice_part_collect")
 
 func roll_all_dices():
+	Sounds.play_sound("roll_dices")
 	for d in $HBoxDices.get_children():
 		if d.value == -1: d.roll()
 	yield(get_tree().create_timer(1.8),"timeout")
@@ -45,6 +46,9 @@ func roll_all_dices():
 		print("DICE CHECKED ",checked_dices)
 		var dice = $HBoxDices.get_child(checked_dices)
 		if dice.value==6:
+			if UpgradesManager.points==0:
+				get_node("/root/Game/CLUI/TutorialPopup").show_popup("getsix")
+				yield(get_node("/root/Game/CLUI/TutorialPopup"),"close_popup")
 			Effector.scale_boom(dice)
 			yield(get_tree().create_timer(.7),"timeout")
 			var new_dice = add_extra_dice()

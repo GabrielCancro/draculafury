@@ -26,6 +26,7 @@ func run_army_action(code):
 		emit_signal("end_army_action")
 	else:
 		PLAYER.set_anim(code)
+		Sounds.play_sound("army_"+code)
 		yield(PLAYER,"end_anim")
 		call("_run_"+code)
 

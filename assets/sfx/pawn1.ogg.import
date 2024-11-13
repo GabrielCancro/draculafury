@@ -11,5 +11,5 @@ dest_files=[ "res://.import/pawn1.ogg-7d862cd60f7e37405f7366b273e3bf12.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

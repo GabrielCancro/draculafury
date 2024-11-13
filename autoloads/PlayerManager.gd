@@ -8,7 +8,7 @@ var PLAYER_ARMIES
 func _ready(): initialize_data()
 
 func initialize_data():
-	PLAYER_STATS = { "hp":10, "hpm":10, "xp":0, "level":0}
+	PLAYER_STATS = { "hp":10, "hpm":10, "xp":0, "level":0, "kills":0}
 	PLAYER_ARMIES = ["breathe","gun","kick","gun","rapier"]
 
 func damage(dam):
@@ -29,15 +29,17 @@ func heal(val):
 	emit_signal("on_change_stats",PLAYER_STATS)
 
 func add_xp(val=1):
+	Sounds.play_sound("xp")
 	PLAYER_STATS.xp += val
-	if PLAYER_STATS.xp>=10:
+	if PLAYER_STATS.xp>=get_next_level_xp():
 		emit_signal("on_change_stats",PLAYER_STATS)
 		yield(get_tree().create_timer(1),"timeout")
 		Effector.show_float_text("level_up")
 		yield(get_tree().create_timer(1),"timeout")
 		Effector.show_float_text("extra_dice")
 		get_node("/root/Game/CLUI/DiceSet").amount_dices += 1
-		PLAYER_STATS.xp -= 10
+		PLAYER_STATS.xp -= get_next_level_xp()
+		PLAYER_STATS.level += 1
 	emit_signal("on_change_stats",PLAYER_STATS)
 
 

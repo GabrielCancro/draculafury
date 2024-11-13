@@ -24,7 +24,7 @@ var ALL_WAVES = [
 ]
 
 func _ready():
-	first_tuto_enemy = SaveManager.tuto
+	$lb_wave.text = ""
 	Effector.remove_all_children($Grid)
 	#ALL_WAVES = LevelManager.get_level_waves()
 

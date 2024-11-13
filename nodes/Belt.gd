@@ -28,6 +28,7 @@ func move_pawn(mov):
 	var slot_node = $HBox.get_child(pawn_pos-1)
 	$Tween.interpolate_property($pawn,"rect_global_position",null,slot_node.rect_global_position,.25,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	$Tween.start()
+	Sounds.play_sound("pawn1")
 	yield(get_tree().create_timer(.3),"timeout")
 	mov -= sign(mov)
 	if mov==0: 

@@ -84,7 +84,10 @@ var texts = {
 	"tuto_dices_es":"Lo primero es arrojar tus dados, esto te permitira mover tu \"mano\" por el cinturón para escoger un arma.\nDale al botón de ROLL.",
 	"tuto_result_es":"Muy bien, al clickear esos dados tu mano avanzará por el cinturón y activarás la casilla en la que caigas, intenta utilizar tu primer dado..",
 	"tuto_end_es":"Has activado tu revolver! Ahora finaliza tu turno presionando el boton de finalizar para realizar tu acción.",
-	"tuto_diceparts_es":"Los dados que no hayas utilizado se acumularán, al sumar seis acumulaciones obtiendrás un dado extra!",
+	"tuto_diceparts_es":"Los dados que no hayas utilizado te darán un poco de experiencia.",
+	"tuto_startgame_es":"Ahora si. Acaba con ellos!!",
+	"tuto_getsix_es":"Cada vez que saques un SEIS en algún dado obtienes un dado extra!",
+	"tuto_deadenemy_es":"Cuando destruyas a un enemigo ganarás bastante experiencia. Al llenar tu barra XP obtendrás un dado extra para el resto de tu partida!",
 }
 
 var images = {

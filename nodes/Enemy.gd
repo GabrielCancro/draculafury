@@ -8,6 +8,7 @@ var step_size
 var hint_data={"owner":self,"panel":"enemy","code":null,"over_node":null,"callback":null,"over_area":"Button"}
 
 signal end_move()
+signal end_anim()
 
 func _ready():
 	modulate.a = 0
@@ -69,9 +70,11 @@ func enemy_damage(dam):
 	if enemy_data.hp<=0:
 		Effector.disappear(self)
 		yield(get_tree().create_timer(.5),"timeout")
+		PlayerManager.PLAYER_STATS.kills += 1
 		EnemyManager.ENEMIES_ACTIVES.erase(self)
-		PlayerManager.add_xp(5)
 		ItemManager.throw_with_probability(position.x+20)
+		yield(get_tree().create_timer(.5),"timeout")
+		PlayerManager.add_xp(5)
 		queue_free()
 
 func set_stoned_skin(val):

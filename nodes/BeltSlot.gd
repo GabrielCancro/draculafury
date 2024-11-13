@@ -45,6 +45,7 @@ func reduce_amount():
 		amount = ArmyManager.get_army_amount(army)
 		$panel_reload.visible = false
 		$lb_amount.text = "x"+str(amount)
+		Sounds.play_sound("reload")
 		return false
 	if amount == 0: 
 		$panel_reload.visible = true

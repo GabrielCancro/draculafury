@@ -7,8 +7,10 @@ func _ready():
 	localizate()
 
 func on_click(val):
+	Sounds.play_sound("button1")
 	if val=="start":
-		get_tree().change_scene("res://scenes/Prestart.tscn")
+		if UpgradesManager.points>0: get_tree().change_scene("res://scenes/Prestart.tscn")
+		else: get_tree().change_scene("res://scenes/Game.tscn")
 	elif val=="lang":
 		Lang.change_lang()
 		localizate()
