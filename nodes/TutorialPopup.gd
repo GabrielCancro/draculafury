@@ -14,6 +14,7 @@ func _ready():
 
 func show_popup(page):
 	if page in showed: 
+		yield(get_tree().create_timer(.1),"timeout")
 		emit_signal("close_popup")
 		return
 	showed.append(page)

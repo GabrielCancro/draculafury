@@ -11,5 +11,5 @@ func show_popup():
 	Effector.appear(self)
 
 func on_click_reset():
-	get_tree().reload_current_scene()
+	get_tree().change_scene("res://scenes/Menu.tscn")
 	

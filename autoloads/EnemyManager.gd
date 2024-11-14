@@ -37,7 +37,7 @@ func add_enemy(code):
 
 func get_rnd_free_xpos(_ypos=0):
 	randomize()
-	var arr = [1,2,3,4,5,6,7,8,9,10]
+	var arr = [2,3,4,5,6,7,8,9,10]
 	arr.shuffle()
 	for _xpos in arr:
 		if _xpos>=max_x_pos: continue
