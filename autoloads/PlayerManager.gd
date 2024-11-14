@@ -35,7 +35,6 @@ func add_xp(val=1):
 
 func check_level_up():
 	if PLAYER_STATS.xp>=get_next_level_xp():
-		emit_signal("on_change_stats",PLAYER_STATS)
 		yield(get_tree().create_timer(1),"timeout")
 		Effector.show_float_text("level_up")
 		yield(get_tree().create_timer(1),"timeout")
@@ -43,7 +42,6 @@ func check_level_up():
 		get_node("/root/Game/CLUI/DiceSet").amount_dices += 1
 		PLAYER_STATS.xp -= get_next_level_xp()
 		PLAYER_STATS.level += 1
-		emit_signal("on_change_stats",PLAYER_STATS)
 		return true
 
 func get_next_level_xp():

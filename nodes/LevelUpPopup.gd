@@ -7,7 +7,6 @@ func _ready():
 	$ColorRect/lb_desc.text = Lang.get_text("ui_levelup_es")
 
 func show_popup():
-	$ColorRect/lb_desc.text = Lang.get_text("win_game")
 	modulate.a = 0
 	visible = true
 	Effector.appear(self)

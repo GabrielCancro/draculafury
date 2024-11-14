@@ -79,6 +79,7 @@ func change_state(new_state):
 			yield(get_tree().create_timer(.6),"timeout")
 			$CLUI/LevelUpPopup.show_popup()
 			yield($CLUI/LevelUpPopup,"close_popup")
+			PlayerManager.add_xp(0)
 			yield(get_tree().create_timer(.6),"timeout")
 		change_state(GameState.ENEMIES)
 	elif current_state == GameState.ENEMIES:
