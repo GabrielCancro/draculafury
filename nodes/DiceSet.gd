@@ -36,6 +36,13 @@ func get_dice_parts():
 			yield(get_tree().create_timer(.3),"timeout")
 	emit_signal("end_dice_part_collect")
 
+func clear_unused_dices():
+	yield(get_tree().create_timer(.2),"timeout")
+	for d in $HBoxDices.get_children(): 
+		if d.visible: 
+			yield(get_tree().create_timer(.1),"timeout")
+			d.hide_dice()
+
 func roll_all_dices():
 	Sounds.play_sound("roll_dices")
 	for d in $HBoxDices.get_children():

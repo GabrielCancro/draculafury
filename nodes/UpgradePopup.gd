@@ -61,7 +61,8 @@ func get_random_new_army():
 	var armies = []
 	for i in range(4,ArmyManager.ARMIES.size()):
 		var ar = ArmyManager.ARMIES[i]
-		if only_once_armies.find(ar)!=-1 && PlayerManager.PLAYER_ARMIES.find(ar)!=-1: continue
+		if only_once_armies.find(ar)!=-1 && PlayerManager.PLAYER_STATS.level==0: continue
+		elif only_once_armies.find(ar)!=-1 && PlayerManager.PLAYER_ARMIES.find(ar)!=-1: continue
 		else: armies.append(ar)
 	randomize()
 	return armies[ randi()%armies.size() ]

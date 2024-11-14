@@ -372,7 +372,6 @@ valign = 1
 autowrap = true
 
 [node name="UpgradePopup" parent="CLUI" instance=ExtResource( 11 )]
-unique_name_in_owner = true
 visible = false
 
 [node name="HintPanel" parent="CLUI" instance=ExtResource( 6 )]

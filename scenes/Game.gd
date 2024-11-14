@@ -61,8 +61,9 @@ func change_state(new_state):
 		ItemManager.enable_items_usage(false)
 		yield(get_tree().create_timer(.2),"timeout")
 		ItemManager.clear_floor_items()
-		$CLUI/DiceSet.get_dice_parts()
-		yield($CLUI/DiceSet,"end_dice_part_collect")
+		$CLUI/DiceSet.clear_unused_dices()
+#		$CLUI/DiceSet.get_dice_parts()
+#		yield($CLUI/DiceSet,"end_dice_part_collect")
 		yield(get_tree().create_timer(.2),"timeout")
 		while true:
 			var army = $CLUI/PlayerActionList.get_and_hide_first_army()
@@ -194,10 +195,10 @@ func tutorial_sequence():
 	yield(get_tree().create_timer(3),"timeout")
 	$CLUI/TutorialPopup.show_popup("end")
 	yield($CLUI/TutorialPopup,"close_popup")
-	if skip_tutorial: return
-	yield(get_tree().create_timer(.2),"timeout")
-	$CLUI/TutorialPopup.show_popup("diceparts")
-	yield($CLUI/TutorialPopup,"close_popup")
+#	if skip_tutorial: return
+#	yield(get_tree().create_timer(.2),"timeout")
+#	$CLUI/TutorialPopup.show_popup("diceparts")
+#	yield($CLUI/TutorialPopup,"close_popup")
 	if skip_tutorial: return
 	on_button_states()
 	

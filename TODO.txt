@@ -4,7 +4,7 @@
   -END GAME SCENE
   -SAVE PROGRESS (solo guardar puntos de equipamiento)
   -END DEMO
-  -TUTORIAL
+OK-TUTORIAL
   -FINAL BOSS
   -HACK SKIP WAVES
   -INTEGRAR ARTE (player, menu, boss final)
@@ -19,6 +19,11 @@
 	8 Balas de plata, las pistolas tienen 50% de hacer doble daño
 	9 Armamento, comienzas con una escopeta extra en tu cinturon
 
+OK-sable pega 2 a los de la primer y segunda casilla (incluso voladores) 
+OK-le baje la vida y daño al vampiro para que sea mas facilon y despues creamos al vampiro duro llamado engendro..
+OK-le sacamos que los dados sobrantes te den experiencia, que no hagan nada y chau..
+OK-modificar la ballesta para que priorice voladores pero pegue tmb a los terrestres
+OK-que la dinamita y la estaca aparezcan como opcion cuando hayas pasado de nivel (en las primeras oleadas solo aparece escopeta o ballesta).
 
 OK-IMPLEMENT ACTIONS
 OK-ADD DIFFERENTS HINTS 

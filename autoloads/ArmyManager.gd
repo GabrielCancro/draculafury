@@ -48,13 +48,15 @@ func _run_kick():
 
 func _condition_rapier(): return EnemyManager.have_close_enemy(2)
 func _run_rapier():
-	# TODO
-	var en = EnemyManager.get_first_enemy()
+	var en = EnemyManager.get_enemy_in_pos(0,0)
 	if en: en.enemy_damage(2)
-	var en2 = EnemyManager.get_enemy_in_same_column(en)
-	if en2: 
-		yield(get_tree().create_timer(.5),"timeout")
-		en2.enemy_damage(2)
+	en = EnemyManager.get_enemy_in_pos(0,1)
+	if en: en.enemy_damage(2)
+	yield(get_tree().create_timer(.25),"timeout")
+	en = EnemyManager.get_enemy_in_pos(1,0)
+	if en: en.enemy_damage(2)
+	en = EnemyManager.get_enemy_in_pos(1,1)
+	if en: en.enemy_damage(2)
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 
@@ -77,10 +79,13 @@ func _run_shotgun():
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 	
-func _condition_crossbow(): return EnemyManager.have_close_enemy(99,1)
+func _condition_crossbow(): return EnemyManager.have_close_enemy()
 func _run_crossbow():
 	var en = EnemyManager.get_first_enemy(99,1)
 	if en: en.enemy_damage(2)
+	else:
+		en = EnemyManager.get_first_enemy(99,0)
+		if en: en.enemy_damage(1)
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 

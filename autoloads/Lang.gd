@@ -15,10 +15,10 @@ var texts = {
 
 	"army_breathe_desc_es":"Recupera un punto de salud. No puede usarse si hay un enemigo cerca.",
 	"army_kick_desc_es":"Alcance 2, Daño 2, y empuja hacia atrás al enemigo.",
-	"army_rapier_desc_es":"Alcance 2, Daño 2, tambien daña al al enemigo que este arriba o abajo del objetivo.",
+	"army_rapier_desc_es":"Alcance 2, Daño 2, a todos los enemigos de la primera y segunda casilla, incluso voladores.",
 	"army_gun_desc_es":"Largo alcance, Daño 1, al primer enemigo, incluso si está volando.",
 	"army_shotgun_desc_es":"Largo alcance, Daños 2, al primer enemigo incluso si esta volando, además causa 1 daño al siguiente enemigo.",
-	"army_crossbow_desc_es":"Largo alcance, Daño 2, al primer enemigo que esté volando. Solo sirve contra enemigos voladores.",
+	"army_crossbow_desc_es":"Largo alcance, Daño 2, al primer enemigo que esté volando. Si no hay voladores, 1 daño al primer enemigo.",
 	"army_stake_desc_es":"Largo alcance, Daño 3, primer enemigo, incluso si esta volando.",
 	"army_dynamite_desc_es":"Daño en area, Daño 2, a todos los enemigos, incluso voladores.",
 	
