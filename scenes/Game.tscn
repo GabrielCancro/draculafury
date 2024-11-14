@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg7.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://nodes/HintPanelItem.tscn" type="PackedScene" id=17]
 [ext_resource path="res://nodes/WinPopup.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=19]
+[ext_resource path="res://nodes/LevelUpPopup.tscn" type="PackedScene" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -405,6 +406,9 @@ margin_bottom = 475.0
 visible = false
 
 [node name="WinPopup" parent="CLUI" instance=ExtResource( 18 )]
+visible = false
+
+[node name="LevelUpPopup" parent="CLUI" instance=ExtResource( 20 )]
 visible = false
 
 [node name="TutorialBlocker" type="ColorRect" parent="CLUI"]

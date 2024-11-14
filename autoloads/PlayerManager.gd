@@ -31,6 +31,9 @@ func heal(val):
 func add_xp(val=1):
 	Sounds.play_sound("xp")
 	PLAYER_STATS.xp += val
+	emit_signal("on_change_stats",PLAYER_STATS)
+
+func check_level_up():
 	if PLAYER_STATS.xp>=get_next_level_xp():
 		emit_signal("on_change_stats",PLAYER_STATS)
 		yield(get_tree().create_timer(1),"timeout")
@@ -40,8 +43,8 @@ func add_xp(val=1):
 		get_node("/root/Game/CLUI/DiceSet").amount_dices += 1
 		PLAYER_STATS.xp -= get_next_level_xp()
 		PLAYER_STATS.level += 1
-	emit_signal("on_change_stats",PLAYER_STATS)
-
+		emit_signal("on_change_stats",PLAYER_STATS)
+		return true
 
 func get_next_level_xp():
 	return 50 + PLAYER_STATS.level * 20

@@ -72,9 +72,14 @@ func change_state(new_state):
 				yield(ArmyManager,"end_army_action")
 				if UpgradesManager.points==0 && PlayerManager.PLAYER_STATS.kills==1:
 					$CLUI/TutorialPopup.show_popup("deadenemy")
-					yield(get_node("/root/Game/CLUI/TutorialPopup"),"close_popup")
+					yield($CLUI/TutorialPopup,"close_popup")
 			else: break
 		yield(get_tree().create_timer(.7),"timeout")
+		if PlayerManager.check_level_up():
+			yield(get_tree().create_timer(.6),"timeout")
+			$CLUI/LevelUpPopup.show_popup()
+			yield($CLUI/LevelUpPopup,"close_popup")
+			yield(get_tree().create_timer(.6),"timeout")
 		change_state(GameState.ENEMIES)
 	elif current_state == GameState.ENEMIES:
 		yield(get_tree().create_timer(.5),"timeout")
