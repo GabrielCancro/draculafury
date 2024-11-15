@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=2]
@@ -60,6 +60,12 @@ outline_size = 11
 outline_color = Color( 0.329412, 0.0156863, 0.0156863, 1 )
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=14]
+size = 60
+outline_size = 11
+outline_color = Color( 0.329412, 0.0156863, 0.0156863, 1 )
+font_data = ExtResource( 3 )
+
 [sub_resource type="DynamicFont" id=1]
 size = 40
 outline_size = 4
@@ -111,6 +117,23 @@ custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 4 )
 text = "Dracula  +
 			+  Fury"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="lb_level" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -777.0
+margin_top = 254.0
+margin_right = -444.0
+margin_bottom = 348.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 14 )
+text = "NIVEL 1"
 align = 1
 valign = 1
 autowrap = true
@@ -173,6 +196,36 @@ custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
 text = "Idioma Español"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="btn3" type="Button" parent="."]
+modulate = Color( 1, 0.384314, 0.384314, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -777.0
+margin_top = 351.0
+margin_right = -458.0
+margin_bottom = 431.0
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="btn3"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Label" type="Label" parent="btn3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 1 )
+text = "CLEAR DATA"
 align = 1
 valign = 1
 autowrap = true

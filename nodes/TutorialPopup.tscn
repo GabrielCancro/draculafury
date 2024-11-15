@@ -660,29 +660,16 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 705, 215 )
 color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
 
-[node name="cutted3" type="TextureRect" parent="Pages/deadenemy"]
+[node name="cutted" type="TextureRect" parent="Pages/deadenemy"]
 modulate = Color( 0, 0, 0, 0.784314 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -344.0
-margin_top = -956.0
-margin_right = 837.0
-margin_bottom = -41.0
-texture = ExtResource( 6 )
-expand = true
-
-[node name="cutted4" type="TextureRect" parent="Pages/deadenemy"]
-modulate = Color( 0, 0, 0, 0.784314 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -996.0
-margin_top = 252.0
-margin_right = 940.0
-margin_bottom = 1130.0
+margin_left = -4038.0
+margin_top = -1673.0
+margin_right = 2876.0
+margin_bottom = 1089.0
 texture = ExtResource( 6 )
 expand = true
 
@@ -694,7 +681,7 @@ margin_bottom = 285.0
 custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
 custom_constants/line_spacing = 4
 custom_fonts/font = SubResource( 2 )
-text = "Cuando destruyas a un enemigo ganarás bastante experiencia.. Al llenar tu barra XP obtendrás un dado extra para toda tu partida!"
+text = "Cuando vences a un enemigo ganas experiencia. Al pasar de nivel podrás desbloquear beneficios para tu proxima travesía!"
 valign = 1
 autowrap = true
 

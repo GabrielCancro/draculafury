@@ -28,6 +28,7 @@ var texts = {
 	"ui_player_extra_dice_es":"Dado extra",
 	"ui_max_dices_es":"Máximo de dados alcanzado!",
 	"ui_levelup_es":"Has pasado de nivel..\n\n + Ahora eres mas reconocido, ganas un punto de equipamiento para tu próxima partida.\n\n + Ahora eres mas habilidoso, ganas un dado extra para el resto de esta partida.",
+	"ui_level_es":"Nivel",
 	"player_turn_es":"ES TU TURNO",
 	"enemy_turn_es":"TURNO DE LOS ENEMIGOS",
 
@@ -54,7 +55,7 @@ var texts = {
 	
 	"tuto_all_es":"Lazna tus dados y elige cual utilizar, esto moverá tu mano en el cinturón de armas para utilizarlas!\nSi sacas algún 6 (seis) obtendrás un dado extra!!\n\nLos enemigos intentarán dañarte, evitalo a toda costa!\nAl destruirlos ganarás experiencia.",
 	"win_game_es":"Has ganado! Es hora de recuperar fuerzas y prepararte para la siguiente jornada!",
-	
+	"msg_level_up_es":"Has pasado de nivel!",
 	"level_name_1_es":"La Tumba",
 	"level_name_2_es":"La Catedral",
 	"level_name_3_es":"El Pantano",
@@ -88,7 +89,7 @@ var texts = {
 	"tuto_diceparts_es":"Los dados que no hayas utilizado te darán un poco de experiencia.",
 	"tuto_startgame_es":"Ahora si. Acaba con ellos!!",
 	"tuto_getsix_es":"Cada vez que saques un SEIS en algún dado obtienes un dado extra!",
-	"tuto_deadenemy_es":"Cuando destruyas a un enemigo ganarás bastante experiencia. Al llenar tu barra XP obtendrás un dado extra para el resto de tu partida!",
+	"tuto_deadenemy_es":"Cuando vences a un enemigo ganas experiencia. Al pasar de nivel podrás desbloquear beneficios para tu proxima travesía!",
 }
 
 var images = {

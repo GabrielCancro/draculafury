@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/player_retrait_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/player_retrait_1.png" type="Texture" id=2]
@@ -26,6 +26,12 @@ font_data = ExtResource( 6 )
 size = 30
 outline_size = 6
 outline_color = Color( 0.270588, 0.278431, 0.121569, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 41
+outline_size = 7
+outline_color = Color( 0.145098, 0.145098, 0.239216, 1 )
 font_data = ExtResource( 6 )
 
 [node name="PlayerUI" type="Control"]
@@ -81,6 +87,20 @@ custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 3 )
 text = "Dado extra: 1/6"
+valign = 1
+autowrap = true
+
+[node name="lb_level" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -113.0
+margin_top = 15.0
+margin_right = 95.0
+margin_bottom = 63.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 4 )
+text = "Nivel 1"
 valign = 1
 autowrap = true
 
