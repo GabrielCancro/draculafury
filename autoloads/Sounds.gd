@@ -5,9 +5,10 @@ var song:AudioStreamPlayer
 
 
 func _ready():
-	var song = AudioStreamPlayer.new()
+	song = AudioStreamPlayer.new()
 	add_child(song)
 	song.stream = preload("res://assets/sfx/song1.ogg")
+	song.volume_db = -15
 
 func set_audio_scene(_scene):
 	scene = _scene

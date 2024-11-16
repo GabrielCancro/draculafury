@@ -38,8 +38,10 @@ func _ready():
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
 	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")
-	Sounds.play_music()
 	tutorial_sequence()
+	
+	yield(get_tree().create_timer(1),"timeout")
+	Sounds.play_music()
 
 func change_state(new_state):
 	current_state = new_state
