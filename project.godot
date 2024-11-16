@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="draculafury"
-run/main_scene="res://scenes/Menu.tscn"
+run/main_scene="res://scenes/Splash.tscn"
 config/icon="res://icon.png"
 
 [autoload]

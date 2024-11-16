@@ -1,11 +1,11 @@
 extends Control
 
-
 func _ready():
 	$btn1.connect("button_down",self,"on_click",["start"])
 	$btn2.connect("button_down",self,"on_click",["lang"])
 	$btn3.connect("button_down",self,"on_click",["clear"])
 	localizate()
+	Sounds.stop_music()
 
 func on_click(val):
 	Sounds.play_sound("button1")

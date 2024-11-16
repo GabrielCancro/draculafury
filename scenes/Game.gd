@@ -37,7 +37,8 @@ func _ready():
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
-	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")	
+	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")
+	Sounds.play_music()
 	tutorial_sequence()
 
 func change_state(new_state):

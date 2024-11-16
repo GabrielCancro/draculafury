@@ -1,9 +1,13 @@
 extends Node
 
 var scene
+var song:AudioStreamPlayer
+
 
 func _ready():
-	pass
+	var song = AudioStreamPlayer.new()
+	add_child(song)
+	song.stream = preload("res://assets/sfx/song1.ogg")
 
 func set_audio_scene(_scene):
 	scene = _scene
@@ -16,3 +20,10 @@ func play_sound(id):
 	audio.play()
 	yield(audio,"finished")
 	audio.queue_free()
+
+func play_music():
+	song.play()
+	
+func stop_music():
+	song.stop()
+	song.seek(0)
