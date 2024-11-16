@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=4]
 [ext_resource path="res://assets/shWavy.tres" type="Material" id=5]
+[ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=6]
 
 [sub_resource type="Shader" id=11]
 code = "shader_type canvas_item;
@@ -229,3 +230,27 @@ text = "CLEAR DATA"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="btn_h1" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -775.0
+margin_top = 93.0
+margin_right = -704.0
+margin_bottom = 150.0
+custom_fonts/font = ExtResource( 6 )
+text = "+"
+
+[node name="btn_h2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -775.0
+margin_top = 166.0
+margin_right = -704.0
+margin_bottom = 223.0
+custom_fonts/font = ExtResource( 6 )
+text = "-"

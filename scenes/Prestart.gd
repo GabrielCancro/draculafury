@@ -1,5 +1,7 @@
 extends Control
 
+var used_points = 0
+
 func _ready():
 	$btn1.connect("button_down",self,"on_click_end")
 	$lb_desc.text = ""
@@ -31,4 +33,4 @@ func on_upg_btn(upg,val):
 	if val=="exit": $lb_desc.text = ""
 
 func update_points():
-	$lb_points.text = str(UpgradesManager.used)+"/"+str(UpgradesManager.points)
+	$lb_points.text = str(used_points)+"/"+str(SaveManager.savedData.level)

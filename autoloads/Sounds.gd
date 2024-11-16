@@ -7,7 +7,7 @@ var song:AudioStreamPlayer
 func _ready():
 	song = AudioStreamPlayer.new()
 	add_child(song)
-	song.stream = preload("res://assets/sfx/song1.ogg")
+	song.stream = load("res://assets/sfx/song1.ogg")
 	song.volume_db = -15
 
 func set_audio_scene(_scene):
