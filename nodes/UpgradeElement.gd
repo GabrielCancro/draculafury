@@ -1,34 +1,26 @@
 extends Control
 
 var upg_data
-var state # -1 unabled, 0/1 selected
+var active = false
+var selected = false
 
 func set_data(upg_code):
 	upg_data = UpgradesManager.get_upgrade_data(upg_code)
 	$Sprite.frame = upg_data.ico
-	state = UpgradesManager.UPGRADES[upg_data.code].state
-	update_state()
+	$lb_req.text = str(upg_data.lvreq)
+	activate(false)
+	select(false)
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
-func change_sate(val):
-	UpgradesManager.UPGRADES[upg_data.code].state = val
-	state = val
-	update_state()
+func activate(val):
+	active = val
+	$lb_req.visible = !active
+	if active: $Sprite.modulate = Color(1,1,1,1)
+	else: $Sprite.modulate = Color(0,0,0,1)
 
-func toggle_select():
-	if state ==0:
-		if UpgradesManager.used < UpgradesManager.points:
-			UpgradesManager.used += 1
-			change_sate(1)
-		else: Effector.show_float_text("no_upgrade_points")
-	elif state ==1: 
-		UpgradesManager.used -= 1
-		change_sate(0)
-
-func update_state():
-	if state != -1: modulate = Color(1,1,1,1)
-	else: modulate = Color(.4,.2,.2,1)
-	if state == 1: $Sprite.material = preload("res://assets/sh_outline.tres")
+func select(val):
+	selected = val
+	if selected: $Sprite.material = preload("res://assets/sh_outline.tres")
 	else: $Sprite.material = null

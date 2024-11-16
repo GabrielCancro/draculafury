@@ -29,6 +29,9 @@ var texts = {
 	"ui_max_dices_es":"Máximo de dados alcanzado!",
 	"ui_levelup_es":"Has pasado de nivel..\n\n + Ahora eres mas reconocido, ganas un punto de equipamiento para tu próxima partida.\n\n + Ahora eres mas habilidoso, ganas un dado extra para el resto de esta partida.",
 	"ui_level_es":"Nivel",
+	"ui_cost_es":"costo",
+	"ui_need_level_es":"Necesitas mas Nivel para desbloquear este objeto. Sigue jugando un poco mas!",
+	"ui_need_more_points_es":"No te alcanza!",
 	"player_turn_es":"ES TU TURNO",
 	"enemy_turn_es":"TURNO DE LOS ENEMIGOS",
 

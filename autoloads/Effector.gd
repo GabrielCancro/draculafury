@@ -110,3 +110,22 @@ func remove_all_children(node):
 	for sl in node.get_children(): 
 		node.remove_child(sl)
 		sl.queue_free()
+
+func change_scene_transition(scene_name):
+	var time = 1
+	var trnode = preload("res://nodes/fx/TransitionNode.tscn").instance()
+	trnode.modulate.a = 0
+	get_node("/root").add_child(trnode)
+	tween.interpolate_property(trnode,"modulate:a",0,1,time,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.start()
+	yield(get_tree().create_timer(time+.05),"timeout")
+	
+	get_tree().change_scene("res://scenes/"+scene_name+".tscn")
+	yield(get_tree().create_timer(.01),"timeout")
+	
+	var trnode2 = preload("res://nodes/fx/TransitionNode.tscn").instance()
+	get_node("/root").add_child(trnode2)
+	tween.interpolate_property(trnode2,"modulate:a",1,0,time,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.start()
+	yield(get_tree().create_timer(time+.05),"timeout")
+	trnode2.queue_free()

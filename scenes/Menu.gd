@@ -13,8 +13,8 @@ func _ready():
 func on_click(val):
 	Sounds.play_sound("button1")
 	if val=="start":
-		if SaveManager.savedData.level>1: get_tree().change_scene("res://scenes/Prestart.tscn")
-		else: get_tree().change_scene("res://scenes/Game.tscn")
+		if SaveManager.savedData.level>1: Effector.change_scene_transition("Prestart")
+		else: Effector.change_scene_transition("Game")
 	elif val=="lang":
 		Lang.change_lang()
 		localizate()

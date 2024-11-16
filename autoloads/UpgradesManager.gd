@@ -4,13 +4,13 @@ var used = 0
 var points = 0 
 
 var UPGRADES = {
-	"upg1":{"name":"life", "ico":0, "state":0},
-	"upg2":{"name":"life", "ico":1, "state":0},
-	"upg3":{"name":"life", "ico":2, "state":0},
-	"upg4":{"name":"life", "ico":0, "state":0},
-	"upg5":{"name":"life", "ico":1, "state":-1},
-	"upg6":{"name":"life", "ico":2, "state":-1},
-	"upg7":{"name":"life", "ico":0, "state":-1},
+	"upg1":{"name":"life", "ico":0, "lvreq":2, "cost":1},
+	"upg2":{"name":"life", "ico":1, "lvreq":2, "cost":2},
+	"upg3":{"name":"life", "ico":2, "lvreq":3, "cost":1},
+	"upg4":{"name":"life", "ico":0, "lvreq":3, "cost":2},
+	"upg5":{"name":"life", "ico":1, "lvreq":4, "cost":1},
+	"upg6":{"name":"life", "ico":2, "lvreq":4, "cost":1},
+	"upg7":{"name":"life", "ico":0, "lvreq":6, "cost":3},
 }
 
 func get_upgrade_data(upg_code):
