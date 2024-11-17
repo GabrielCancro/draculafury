@@ -19,6 +19,16 @@ OK-TUTORIAL
 	8 Balas de plata, las pistolas tienen 50% de hacer doble daño
 	9 Armamento, comienzas con una escopeta extra en tu cinturon
 
+OK-Waves vacias se saltean para que no queden huecos en el combate
+OK-Sonidos nuevos y musica
+OK-Transicion de escenas mejorada
+OK-Tuto actualizado (first level up)
+OK-Escena de pull inicial mejorada (aun falta implementar)
+ 
+ -Items horizontales
+ -habilidad del lobo, mientras haya algun lobo vivo, en el proximo turno aparece otro lobo pero un poco debilitado.
+
+
 OK-sable pega 2 a los de la primer y segunda casilla (incluso voladores) 
 OK-le baje la vida y daño al vampiro para que sea mas facilon y despues creamos al vampiro duro llamado engendro..
 OK-le sacamos que los dados sobrantes te den experiencia, que no hagan nada y chau..

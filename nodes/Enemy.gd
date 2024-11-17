@@ -48,6 +48,7 @@ func move(val = -enemy_data.mov):
 		var swap_en = EnemyManager.get_enemy_in_pos(enemy_data.tile_pos_x+sign(val),enemy_data.tile_pos_y)
 		if swap_en: EnemyManager.swap_enemies(self,swap_en)
 		else: set_tile_pos(enemy_data.tile_pos_x+sign(val))
+		Sounds.play_sound("move_enemy")
 		yield(get_tree().create_timer(.35),"timeout")
 	if try_attack(): yield(get_tree().create_timer(.7),"timeout")
 	yield(get_tree().create_timer(.2),"timeout")
@@ -70,7 +71,6 @@ func enemy_damage(dam):
 	if enemy_data.hp<=0:
 		Effector.disappear(self)
 		yield(get_tree().create_timer(.5),"timeout")
-		PlayerManager.PLAYER_STATS.kills += 1
 		EnemyManager.ENEMIES_ACTIVES.erase(self)
 		ItemManager.throw_with_probability(position.x+20)
 		yield(get_tree().create_timer(.5),"timeout")

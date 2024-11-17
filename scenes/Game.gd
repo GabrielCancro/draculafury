@@ -40,7 +40,7 @@ func _ready():
 	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")
 	tutorial_sequence()
 	
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(1.5),"timeout")
 	Sounds.play_music()
 
 func change_state(new_state):
@@ -78,8 +78,9 @@ func change_state(new_state):
 					yield($CLUI/TutorialPopup,"close_popup")
 			else: break
 		yield(get_tree().create_timer(.7),"timeout")
-		if PlayerManager.check_level_up(): 
-			yield(get_tree().create_timer(1.7),"timeout")
+		if PlayerManager.check_level_up() && PlayerManager.PLAYER_STATS.level<=3: 
+			$CLUI/TutorialPopup.show_popup("levelup")
+			yield($CLUI/TutorialPopup,"close_popup")
 		change_state(GameState.ENEMIES)
 	elif current_state == GameState.ENEMIES:
 		yield(get_tree().create_timer(.5),"timeout")
@@ -159,7 +160,7 @@ func goto_menu():
 func tutorial_sequence():
 	$CLUI/WaveUI.first_tuto_enemy = true
 	$CLUI/TutorialBlocker.visible = true
-	yield(get_tree().create_timer(2.5),"timeout")
+	yield(get_tree().create_timer(3),"timeout")
 	$CLUI/TutorialPopup.show_popup("welcome")
 	yield($CLUI/TutorialPopup,"close_popup")
 	

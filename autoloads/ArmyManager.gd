@@ -100,7 +100,9 @@ func _condition_dynamite(): return EnemyManager.have_close_enemy()
 func _run_dynamite():
 	var fxdyn = preload("res://nodes/fx/fx_dynamite.tscn").instance()
 	get_node("/root/Game").add_child(fxdyn)
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(.9),"timeout")
+	Sounds.play_sound("dynamite_explode")
+	yield(get_tree().create_timer(.1),"timeout")
 	for en in EnemyManager.ENEMIES_ACTIVES:
 		en.enemy_damage(2)
 	yield(get_tree().create_timer(.7),"timeout")

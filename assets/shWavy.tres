@@ -1,6 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
 code = "shader_type canvas_item;
 
 // The amplitude of the wave.
@@ -78,14 +79,14 @@ void fragment() {
 }"
 
 [resource]
-shader = SubResource( 2 )
-shader_param/waveAmplitude = 0.05
+shader = SubResource( 1 )
+shader_param/waveAmplitude = 0.08
 shader_param/correctVertex = true
-shader_param/waveFrequency = 3.0
+shader_param/waveFrequency = 10.0
 shader_param/verticalWave = true
 shader_param/keepTransparency = true
 shader_param/useTime = true
-shader_param/waveSpeed = 1.0
+shader_param/waveSpeed = 0.2
 shader_param/progress = 0.0
 shader_param/firstHalf = 0.5
 shader_param/secondHalf = 0.5

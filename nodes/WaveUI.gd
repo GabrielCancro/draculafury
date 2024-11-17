@@ -7,9 +7,11 @@ var wave_index = 0
 
 var first_tuto_enemy 
 
+signal end_wave_anim()
+
 var WAVE = []
 var ALL_WAVES = [
-	[null,null,null,"1*vampire",null,"1*vampire",null,"1*vampire"],
+	["1*vampire",null,"1*vampire",null,"1*vampire"],
 	["2*vampire",null,null,"2*bat"],
 	["1*bat",null,"1*bat","1*vampire",null,"2*bat"],
 	["1*bat","1*gargoyle","1*vampire",null,"1*vampire"],
@@ -40,6 +42,7 @@ func advance_wave():
 	if WAVE.size()<=0: return false
 	var slot_info = get_slot_info( WAVE[0] )
 	var sl = $Grid.get_child(0)
+	var skip_slot = false 
 	
 	$Tween.interpolate_property(sl,"rect_position",null,sl.rect_position+Vector2(10,55),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	$Tween.start()
@@ -57,12 +60,7 @@ func advance_wave():
 			else: break
 	else: 
 		var en = EnemyManager.get_first_enemy()
-		if !en: 
-			advance_wave()
-			return
-			Effector.show_float_text("msg_ambush")
-			EnemyManager.add_enemy("vampire")
-			en.enemy_set_hp(2)
+		if !en: skip_slot = true
 	
 	if slot_info.amount>0:
 		sl.set_data(slot_info.enemy,slot_info.amount)
@@ -82,6 +80,10 @@ func advance_wave():
 			sl.queue_free()
 		if WAVE.size()>=max_slots: add_slot(WAVE[max_slots-1])
 		else: reorder_grid()
+	
+	if skip_slot: 
+		yield(get_tree().create_timer(.6),"timeout")
+		advance_wave()
 	
 	print("************WAVE ",WAVE," ",WAVE.size())
 	return true

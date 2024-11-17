@@ -719,6 +719,71 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="levelup" type="ColorRect" parent="Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.32549 )
+
+[node name="cutted" type="TextureRect" parent="Pages/levelup"]
+modulate = Color( 0, 0, 0, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4038.0
+margin_top = -1673.0
+margin_right = 2876.0
+margin_bottom = 1089.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="Pages/levelup"]
+margin_left = 521.0
+margin_top = 5.0
+margin_right = 1220.0
+margin_bottom = 285.0
+custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+custom_constants/line_spacing = 4
+custom_fonts/font = SubResource( 2 )
+text = "Genial! Has pasado de nivel, cuendo juegues tu proxima partida tendrás objetos y mejoras nuevas para utilizar y obtener algo de ventaja!"
+valign = 1
+autowrap = true
+
+[node name="btn" type="Button" parent="Pages/levelup"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 241.0
+margin_top = -621.0
+margin_right = 490.0
+margin_bottom = -534.0
+custom_fonts/font = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Pages/levelup/btn"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label2" type="Label" parent="Pages/levelup/btn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "OK"
+align = 1
+valign = 1
+autowrap = true
+
 [node name="btn_skip" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0

@@ -27,7 +27,6 @@ var texts = {
 	"ui_no_item_face_es":"No puedes usar items ahora.",
 	"ui_player_extra_dice_es":"Dado extra",
 	"ui_max_dices_es":"Máximo de dados alcanzado!",
-	"ui_levelup_es":"Has pasado de nivel..\n\n + Ahora eres mas reconocido, ganas un punto de equipamiento para tu próxima partida.\n\n + Ahora eres mas habilidoso, ganas un dado extra para el resto de esta partida.",
 	"ui_level_es":"Nivel",
 	"ui_cost_es":"costo",
 	"ui_need_level_es":"Necesitas mas Nivel para desbloquear este objeto. Sigue jugando un poco mas!",
@@ -94,6 +93,7 @@ var texts = {
 	"tuto_startgame_es":"Ahora si. Acaba con ellos!!",
 	"tuto_getsix_es":"Cada vez que saques un SEIS en algún dado obtienes un dado extra!",
 	"tuto_deadenemy_es":"Cuando vences a un enemigo ganas experiencia. Al pasar de nivel podrás desbloquear beneficios para tu proxima travesía!",
+	"tuto_levelup_es":"Genial! Has pasado de nivel, cuendo juegues tu proxima partida tendrás objetos y mejoras nuevas para utilizar y obtener algo de ventaja!",
 }
 
 var images = {
