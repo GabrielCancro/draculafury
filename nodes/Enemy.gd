@@ -77,6 +77,11 @@ func enemy_damage(dam):
 		PlayerManager.add_xp(1)
 		queue_free()
 
+func enemy_set_hp(val):
+	enemy_data.hpm = val
+	enemy_data.hp = val
+	$Label.text = str(enemy_data.hp)
+
 func set_stoned_skin(val):
 	if !"ability" in enemy_data or enemy_data.ability!="stone_skin": return false
 	if !"stoned_skin" in enemy_data: enemy_data["stoned_skin"] = false

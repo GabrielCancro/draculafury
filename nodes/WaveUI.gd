@@ -3,13 +3,13 @@ extends Control
 var WaveSlot = preload("res://nodes/WaveSlot.tscn")
 var space_slot = 105
 var max_slots = 3
-var waves_runned = 0
+var wave_index = 0
 
 var first_tuto_enemy 
 
 var WAVE = []
 var ALL_WAVES = [
-	["1*vampire",null,"1*vampire",null,"1*vampire"],
+	[null,null,null,"1*vampire",null,"1*vampire",null,"1*vampire"],
 	["2*vampire",null,null,"2*bat"],
 	["1*bat",null,"1*bat","1*vampire",null,"2*bat"],
 	["1*bat","1*gargoyle","1*vampire",null,"1*vampire"],
@@ -29,9 +29,9 @@ func _ready():
 	#ALL_WAVES = LevelManager.get_level_waves()
 
 func next_wave():
-	waves_runned += 1
-	WAVE = ALL_WAVES.pop_front()
-	$lb_wave.text = "WAVE\n"+str(waves_runned)+"/"+str(ALL_WAVES.size()+waves_runned)
+	wave_index += 1
+	WAVE = ALL_WAVES[wave_index-1].duplicate()
+	$lb_wave.text = "WAVE\n"+str(wave_index)+"/"+str(ALL_WAVES.size()+wave_index)
 	Effector.remove_all_children($Grid)
 	yield(get_tree().create_timer(.5),"timeout")
 	for i in range(max_slots): add_slot(WAVE[i])
@@ -55,6 +55,14 @@ func advance_wave():
 					var en = EnemyManager.get_first_enemy()
 					if en: en.set_tile_pos(4)
 			else: break
+	else: 
+		var en = EnemyManager.get_first_enemy()
+		if !en: 
+			advance_wave()
+			return
+			Effector.show_float_text("msg_ambush")
+			EnemyManager.add_enemy("vampire")
+			en.enemy_set_hp(2)
 	
 	if slot_info.amount>0:
 		sl.set_data(slot_info.enemy,slot_info.amount)
@@ -99,15 +107,6 @@ func reorder_grid():
 		#$Tween.interpolate_property(sl,"rect_scale",null,Vector2(c,c),.3,Tween.TRANS_QUAD,Tween.EASE_IN_OUT,i*0.2)
 		$Tween.interpolate_property(sl,"modulate",null,color,.3,Tween.TRANS_QUAD,Tween.EASE_IN_OUT,i*0.2)
 	$Tween.start()
-
-#func check_free_space(en):
-#	if !en: return false
-#	var en_data = EnemyManager.get_enemy_data(en)
-#	if ((en_data.fly && EnemyManager.get_enemy_in_pos(EnemyManager.max_x_pos-1,1))
-#	or (!en_data.fly && EnemyManager.get_enemy_in_pos(EnemyManager.max_x_pos-1,0))):
-#		Effector.show_float_text("No hay espacio!")
-#		return false
-#	return true
 
 func get_slot_info(code):
 	var data = {"enemy":null, "amount":0}

@@ -59,9 +59,10 @@ func on_click_belt_slot(belt_slot):
 func get_random_new_army():
 	var only_once_armies = ["stake","dynamite"]
 	var armies = []
+	var wave_index = get_node("/root/Game/CLUI/WaveUI").wave_index
 	for i in range(4,ArmyManager.ARMIES.size()):
 		var ar = ArmyManager.ARMIES[i]
-		if only_once_armies.find(ar)!=-1 && SaveManager.savedData.level==0: continue
+		if only_once_armies.find(ar)!=-1 && wave_index<2: continue
 		elif only_once_armies.find(ar)!=-1 && PlayerManager.PLAYER_ARMIES.find(ar)!=-1: continue
 		else: armies.append(ar)
 	randomize()

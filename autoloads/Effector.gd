@@ -121,11 +121,11 @@ func change_scene_transition(scene_name):
 	yield(get_tree().create_timer(time+.05),"timeout")
 	
 	get_tree().change_scene("res://scenes/"+scene_name+".tscn")
-	yield(get_tree().create_timer(.01),"timeout")
+#	yield(get_tree().create_timer(.01),"timeout")
 	
-	var trnode2 = preload("res://nodes/fx/TransitionNode.tscn").instance()
-	get_node("/root").add_child(trnode2)
-	tween.interpolate_property(trnode2,"modulate:a",1,0,time,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	tween.start()
-	yield(get_tree().create_timer(time+.05),"timeout")
-	trnode2.queue_free()
+#	var trnode2 = preload("res://nodes/fx/TransitionNode.tscn").instance()
+#	get_node("/root").add_child(trnode2)
+#	tween.interpolate_property(trnode2,"modulate:a",1,0,time,Tween.TRANS_QUAD,Tween.EASE_OUT)
+#	tween.start()
+#	yield(get_tree().create_timer(time+.05),"timeout")
+#	trnode2.queue_free()
