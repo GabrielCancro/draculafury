@@ -20,7 +20,17 @@ func get_upgrade_data(upg_code):
 
 func apply_upgrades():
 	for upg_code in upgrades_selected: 
-		Effector.show_float_text(upg_code)
-		yield(get_tree().create_timer(1),"timeout")
-	yield(get_tree().create_timer(.2),"timeout")
+		yield(get_tree().create_timer(.5),"timeout")
+		if upg_code=="bag":
+			ItemManager.throw_random_item()
+			yield(get_tree().create_timer(.5),"timeout")
+			ItemManager.throw_random_item()
+		elif upg_code=="velt":
+			PlayerManager.PLAYER_STATS.hpm += 4
+			PlayerManager.heal(4)
+		else:
+			Effector.show_float_text("upg_"+upg_code+"_name")
+			yield(get_tree().create_timer(1),"timeout")
+	if upgrades_selected.size()>0: yield(get_tree().create_timer(.8),"timeout")
+	else: yield(get_tree().create_timer(.1),"timeout")
 	emit_signal("end_apply_upgrades")
