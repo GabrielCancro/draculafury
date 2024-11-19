@@ -23,7 +23,7 @@ var texts = {
 	"army_dynamite_desc_es":"Daño en area, Daño 2, a todos los enemigos, incluso voladores.",
 	
 	"ui_end_wave_es":"Fin de Oleada!",
-	"ui_upg_new_army_es":"Elige un espacio de tu cinturon para colocar tu arma nueva, si está ocupado será reemplazado.",
+	"ui_upg_new_army_es":"Elige un espacio de tu cinturon para sustituirlo y colocar tu arma nueva.",
 	"ui_no_item_face_es":"No puedes usar items ahora.",
 	"ui_player_extra_dice_es":"Dado extra",
 	"ui_max_dices_es":"Máximo de dados alcanzado!",
@@ -75,13 +75,12 @@ var texts = {
 	"prestart_title_es":"Prepara tu\n   equipo inicial..",
 	"prestart_end_es":"Continuar",
 	
-	"upg1_desc_es":"MEJORA 01: Descripcion de la mejora, cosas que hace y beneficios que otorga y beneficios que otorga y beneficios que otorga y beneficios que otorga.",
-	"upg2_desc_es":"MEJORA 02: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
-	"upg3_desc_es":"MEJORA 03: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
-	"upg4_desc_es":"MEJORA 04: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
-	"upg5_desc_es":"MEJORA 05: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
-	"upg6_desc_es":"MEJORA 06: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
-	"upg7_desc_es":"MEJORA 07: Descripcion de la mejora, cosas que hace y beneficios que otorga.",
+	"upg_amulet_name_es":"Amuleto",
+	"upg_amulet_desc_es":"Recuperas 1pv al final de cada oleada.",
+	"upg_bag_name_es":"Bolso",
+	"upg_bag_desc_es":"Empezas con dos items aleatorios.",
+	"upg_vest_name_es":"Chaleco",
+	"upg_vest_desc_es":"Tenes 4pv extra.",
 	
 	"tuto_welcome_es":"Bienvenido Cazador,\nTe estabamos esperando. Drácula ha despertado y sus criaturas rondan por todos lados, no perdamos el tiempo!",
 	"tuto_enemy_es":"Menos mal que estas aquí! Ese vampiro intentará matarte, utiliza las armas de tu cinturón para terminar con él.",

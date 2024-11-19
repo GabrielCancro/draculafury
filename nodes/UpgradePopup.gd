@@ -23,10 +23,10 @@ func show_popup():
 	if new_army_data.amount>0: $NewArmyPanel/lb_amount.text = "x"+str(new_army_data.amount)
 	$NewArmyPanel/lb_desc.text = Lang.get_text("army_"+new_army_data.name+"_desc")
 	$NewArmyPanel/Sprite.frame = ArmyManager.ARMIES.find(new_army_data.name)
-	if PlayerManager.PLAYER_ARMIES.size()<8:
-		var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
-		bs.set_army(null)
-		bs.visible = true
+#	if PlayerManager.PLAYER_ARMIES.size()<8:
+#		var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
+#		bs.set_army(null)
+#		bs.visible = true
 	visible = true
 	Effector.appear(self)
 	yield(get_tree().create_timer(1),"timeout")

@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	preloads()
+	UpgradesManager.upgrades_selected = []
 	$btn1.connect("button_down",self,"on_click",["start"])
 	$btn2.connect("button_down",self,"on_click",["lang"])
 	$btn3.connect("button_down",self,"on_click",["clear"])

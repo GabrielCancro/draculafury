@@ -9,18 +9,25 @@ func _ready():
 	$lb_desc.text = ""
 	total_points = SaveManager.savedData.level
 	for upg in $Upgrades.get_children(): 
-		var upg_code = UpgradesManager.UPGRADES.keys()[upg.get_index()]
-		upg.set_data(upg_code)
-		var btn = upg.get_node("Button")
-		btn.connect("mouse_entered",self,"on_upg_btn",[upg,"enter"])
-		btn.connect("mouse_exited",self,"on_upg_btn",[upg,"exit"])
-		btn.connect("button_down",self,"on_upg_btn",[upg,"click"])
-		if total_points>=upg.upg_data.lvreq: upg.activate(true)
+		if upg.get_index()>=UpgradesManager.UPGRADES.keys().size():
+			upg.visible = false
+			continue
+		else:
+			var upg_code = UpgradesManager.UPGRADES.keys()[upg.get_index()]
+			upg.set_data(upg_code)
+			var btn = upg.get_node("Button")
+			btn.connect("mouse_entered",self,"on_upg_btn",[upg,"enter"])
+			btn.connect("mouse_exited",self,"on_upg_btn",[upg,"exit"])
+			btn.connect("button_down",self,"on_upg_btn",[upg,"click"])
+			if total_points>=upg.upg_data.lvreq: upg.activate(true)
 	localizate()
 	update_points()
 
 func on_click_end():
 	Sounds.play_sound("button1")
+	UpgradesManager.upgrades_selected = []
+	for upg in $Upgrades.get_children(): 
+		if upg.selected: UpgradesManager.upgrades_selected.append(upg.upg_data.code)
 	Effector.change_scene_transition("Game")
 
 func on_click_back():
@@ -45,7 +52,10 @@ func on_upg_btn(upg,val):
 			Effector.shake($lb_points)
 		update_points()
 	if val=="enter": 
-		if upg.active: $lb_desc.text = "("+str(upg.upg_data.cost)+") "+Lang.get_text(upg.upg_data.code+"_desc")
+		if upg.active: 
+			$lb_desc.text = Lang.get_text("upg_"+upg.upg_data.code+"_name")
+			$lb_desc.text += " ("+Lang.get_text("ui_cost")+" "+str(upg.upg_data.cost)+")" 
+			$lb_desc.text += "\n"+Lang.get_text("upg_"+upg.upg_data.code+"_desc")
 		else: $lb_desc.text = Lang.get_text("ui_need_level")
 	if val=="exit": $lb_desc.text = ""
 

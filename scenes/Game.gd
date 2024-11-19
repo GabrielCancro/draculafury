@@ -38,6 +38,9 @@ func _ready():
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
 	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")
+	
+	UpgradesManager.apply_upgrades()
+	yield(UpgradesManager,"end_apply_upgrades")
 	tutorial_sequence()
 	
 	yield(get_tree().create_timer(1.5),"timeout")
