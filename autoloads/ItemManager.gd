@@ -60,7 +60,7 @@ func reorder_items():
 		if !is_instance_valid(it): continue
 		it.rect_scale = Vector2(1,1)
 		if !it.is_infloor:
-			it.move_to_pos(Vector2(30,50+dist*(ITEMS_PLAYER.size()-i+1)))
+			it.move_to_pos(Vector2(dist*(i+1),80+dist*1.5))
 			it.rect_scale *= SizerManager.current_scale
 			i+=1
 	enable_items_usage(items_usage_enabled)
