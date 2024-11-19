@@ -86,7 +86,7 @@ autowrap = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="UpgradeElement" parent="Upgrades" instance=ExtResource( 4 )]
+[node name="UpgradeElement1" parent="Upgrades" instance=ExtResource( 4 )]
 margin_left = 65.0
 margin_top = 226.0
 margin_right = 265.0
@@ -137,7 +137,11 @@ margin_left = 388.0
 margin_top = 286.0
 margin_right = 748.0
 margin_bottom = 386.0
+focus_mode = 0
 flat = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="TextureRect2" type="TextureRect" parent="btn1"]
 modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
@@ -167,6 +171,7 @@ margin_left = -756.0
 margin_top = -460.0
 margin_right = -680.0
 margin_bottom = -360.0
+focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_group_": true

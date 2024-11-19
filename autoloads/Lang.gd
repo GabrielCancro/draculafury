@@ -81,6 +81,8 @@ var texts = {
 	"upg_bag_desc_es":"Empezas con dos items aleatorios.",
 	"upg_vest_name_es":"Chaleco",
 	"upg_vest_desc_es":"Tenes 4pv extra.",
+	"upg_map_name_es":"Mapa",
+	"upg_map_desc_es":"Comienzas tu partida en la catedral evitando las primeras oleadas.",
 	
 	"tuto_welcome_es":"Bienvenido Cazador,\nTe estabamos esperando. Drácula ha despertado y sus criaturas rondan por todos lados, no perdamos el tiempo!",
 	"tuto_enemy_es":"Menos mal que estas aquí! Ese vampiro intentará matarte, utiliza las armas de tu cinturón para terminar con él.",

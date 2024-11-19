@@ -7,9 +7,10 @@ var upgrades_selected = []
 signal end_apply_upgrades()
 
 var UPGRADES = {
-	"amulet":{"ico":0, "lvreq":2, "cost":1},
-	"bag":{"ico":1, "lvreq":2, "cost":2},
-	"vest":{"ico":2, "lvreq":3, "cost":1},
+	"amulet":{"lvreq":2, "cost":1},
+	"bag":{"lvreq":2, "cost":2},
+	"vest":{"lvreq":3, "cost":1},
+	"map":{"lvreq":3, "cost":2},
 }
 
 func get_upgrade_data(upg_code):
@@ -25,12 +26,17 @@ func apply_upgrades():
 			ItemManager.throw_random_item()
 			yield(get_tree().create_timer(.5),"timeout")
 			ItemManager.throw_random_item()
-		elif upg_code=="velt":
+		elif upg_code=="vest":
 			PlayerManager.PLAYER_STATS.hpm += 4
+			PlayerManager.heal(0)
+			yield(get_tree().create_timer(.5),"timeout")
 			PlayerManager.heal(4)
+		elif upg_code=="map":
+			get_node("/root/Game/CLUI/WaveUI").wave_index = 4
 		else:
 			Effector.show_float_text("upg_"+upg_code+"_name")
 			yield(get_tree().create_timer(1),"timeout")
+			
 	if upgrades_selected.size()>0: yield(get_tree().create_timer(.8),"timeout")
 	else: yield(get_tree().create_timer(.1),"timeout")
 	emit_signal("end_apply_upgrades")

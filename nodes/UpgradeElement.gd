@@ -6,7 +6,7 @@ var selected = false
 
 func set_data(upg_code):
 	upg_data = UpgradesManager.get_upgrade_data(upg_code)
-	$Sprite.frame = upg_data.ico
+	$Sprite.texture = load("res://assets/upgrades/"+upg_code+".png")
 	$lb_req.text = str(upg_data.lvreq)
 	activate(false)
 	select(false)
