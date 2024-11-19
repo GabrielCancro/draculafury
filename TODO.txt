@@ -2,7 +2,7 @@
   -SOUNDS AND MUSIC
   -traduccion al ingles
   -END GAME SCENE
-  -SAVE PROGRESS (solo guardar puntos de equipamiento)
+OK-SAVE PROGRESS (solo guardar puntos de equipamiento)
   -END DEMO
 OK-TUTORIAL
   -FINAL BOSS
@@ -12,21 +12,22 @@ OK-TUTORIAL
 	1 Amuleto, cura 10% al finalizar cada wave
 	2 Bolso, empezas con 3 items randoms
 	3 Mapa, empezas en la catedral (saltea las primeras waves)
-	4 chaleco, +30% de vida
-	5 cigarretes, la habilidad de respiro sana el doble
+	4 Chaleco, +30% de vida
+	5 Cigarretes, la habilidad de respiro sana el doble
 	6 Cargadores, las pistolas tienen el doble de carga
 	7 Explosivos, cada 3 oleadas recibes un item de explosivo
 	8 Balas de plata, las pistolas tienen 50% de hacer doble daño
 	9 Armamento, comienzas con una escopeta extra en tu cinturon
+	10 Slot extra en el cinturon
 
 OK-Waves vacias se saltean para que no queden huecos en el combate
 OK-Sonidos nuevos y musica
 OK-Transicion de escenas mejorada
 OK-Tuto actualizado (first level up)
 OK-Escena de pull inicial mejorada (aun falta implementar)
- 
- -Items horizontales
- -habilidad del lobo, mientras haya algun lobo vivo, en el proximo turno aparece otro lobo pero un poco debilitado.
+  -SIEMPRE SON 5 SLOTS
+  -Items horizontales
+  -habilidad del lobo, mientras haya algun lobo vivo, en el proximo turno aparece otro lobo pero mas debil (solo 2hp)
 
 
 OK-sable pega 2 a los de la primer y segunda casilla (incluso voladores) 
