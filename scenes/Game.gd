@@ -29,6 +29,7 @@ func _ready():
 	$CLUI/Hacks/ButtonXP.connect("button_down",PlayerManager,"add_xp")
 	$CLUI/Hacks/ButtonMovEnemies.connect("button_down",EnemyManager,"force_move_enemy")
 	$CLUI/Hacks/ButtonAddItem.connect("button_down",ItemManager,"throw_random_item")
+	$CLUI/Hacks/ButtonAWolf.connect("button_down",EnemyManager,"add_enemy",["awolf"])
 	
 	$CLUI/Hacks/ButtonScale1.connect("button_down",SizerManager,"rescale_ui",[1])
 	$CLUI/Hacks/ButtonScale2.connect("button_down",SizerManager,"rescale_ui",[.9])
@@ -161,11 +162,13 @@ func goto_menu():
 	get_tree().change_scene("res://scenes/Levels.tscn")
 
 func tutorial_sequence():
-	$CLUI/WaveUI.first_tuto_enemy = true
-	$CLUI/TutorialBlocker.visible = true
-	yield(get_tree().create_timer(3),"timeout")
-	$CLUI/TutorialPopup.show_popup("welcome")
-	yield($CLUI/TutorialPopup,"close_popup")
+	if SaveManager.savedData.level>1: skip_tutorial = true
+	if !skip_tutorial:
+		$CLUI/WaveUI.first_tuto_enemy = true
+		$CLUI/TutorialBlocker.visible = true
+		yield(get_tree().create_timer(3),"timeout")
+		$CLUI/TutorialPopup.show_popup("welcome")
+		yield($CLUI/TutorialPopup,"close_popup")
 	
 	yield(get_tree().create_timer(.5),"timeout")
 	$CLUI/WaveUI.next_wave()

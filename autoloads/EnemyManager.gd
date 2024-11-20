@@ -6,7 +6,8 @@ var end_x_pos = 500
 var ENEMIES = {
 	"vampire":{"hp":3,"mov":1,"dam":1, "ran":1,"fly":false,"ability":"extra_mov"},
 	"bat":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":true},
-	"wolf":{"hp":4,"mov":2,"dam":2, "ran":1,"fly":false},
+	"wolf":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":false},
+	"awolf":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":false},
 	"gargoyle":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":true,"ability":"stone_skin"},
 }
 
@@ -17,7 +18,7 @@ func initialize_data():
 
 func get_enemy_data(code):
 	var data = ENEMIES[code].duplicate()
-	if !"ret" in data: data["ret"] = ENEMIES.keys().find(code)
+	#if !"ret" in data: data["ret"] = ENEMIES.keys().find(code)
 	data.name = code
 	return data
 
@@ -26,6 +27,9 @@ func add_enemy(code):
 	var _ypos = 0
 	if data.fly: _ypos = 1
 	var _xpos = get_rnd_free_xpos(_ypos)
+	if code=="awolf":
+		if !get_enemy_in_pos(5,0): _xpos = 5
+		else: _xpos = -1
 	if _xpos!=-1:
 		var node = preload("res://nodes/Enemy.tscn").instance()
 		node.set_data(data,_xpos)

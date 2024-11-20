@@ -15,7 +15,7 @@ func set_data(_enemy,_amount):
 	if enemy:
 		hint_data.code = "en_"+enemy+"_name"
 		$Sprite.modulate = Color(1,1,1,1)
-		$Sprite2.frame = EnemyManager.get_enemy_data(enemy).ret
+		$Sprite2.texture = load("res://assets/enemies/en_ret_"+enemy+".png")
 		$Sprite2.visible = true
 		$lb_amount.visible = true
 		$lb_amount.text = "x"+str(amount)

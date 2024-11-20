@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://nodes/HintPanelEnemy.gd" type="Script" id=2]
-[ext_resource path="res://assets/enemies/enemy_retraits.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/en_ret_vampire.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=8]
 size = 31
@@ -42,7 +42,6 @@ script = ExtResource( 2 )
 position = Vector2( 46, 98 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 3 )
-hframes = 5
 
 [node name="lb_stats" type="Label" parent="."]
 margin_left = 94.0
