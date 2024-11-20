@@ -9,16 +9,16 @@ OK-TUTORIAL
   -HACK SKIP WAVES
   -INTEGRAR ARTE (player, menu, boss final)
   -IDEAS PARA EL EQUIPAMIENTO INICIAL:
-	1 Amuleto, cura 10% al finalizar cada wave
-	2 Bolso, empezas con 3 items randoms
-	3 Mapa, empezas en la catedral (saltea las primeras waves)
-	4 Chaleco, +30% de vida
+	OK 1 Amuleto, cura 10% al finalizar cada wave
+	OK 2 Bolso, empezas con 3 items randoms
+	OK 3 Mapa, empezas en la catedral (saltea las primeras waves)
+	OK 4 Chaleco, +30% de vida
 	5 Cigarretes, la habilidad de respiro sana el doble
 	6 Cargadores, las pistolas tienen el doble de carga
 	7 Explosivos, cada 3 oleadas recibes un item de explosivo
 	8 Balas de plata, las pistolas tienen 50% de hacer doble daño
-	9 Armamento, comienzas con una escopeta extra en tu cinturon
-	10 Slot extra en el cinturon
+	9 Armamento, remplaza una de tus pistolas por una escopeta
+	10 Estuche, Empiezas con un Slot de pistola extra en el cinturon.
 
 OK-Waves vacias se saltean para que no queden huecos en el combate
 OK-Sonidos nuevos y musica
