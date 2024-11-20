@@ -40,11 +40,14 @@ var texts = {
 	"en_bat_desc_es":"Este murcielago no es solo una rata con alas, parece peligroso.",
 	"en_wolf_name_es":"Lobo",
 	"en_wolf_desc_es":"Un hambriento lobo dominado por el frenesí.",
+	"en_awolf_name_es":"Lobo Alfa",
+	"en_awolf_desc_es":"El lobo lider ganó su puesto por algo.",
 	"en_gargoyle_name_es":"Gargola",
 	"en_gargoyle_desc_es":"Rocosa criatura alada.",
 	
 	"en_ab_extra_mov_desc_es":"Movimiento Extra: tiene 30% de posibilidad de avanzar un casillero extra en su turno.",
 	"en_ab_stone_skin_desc_es":"Piel Petrea: su dura piel absorbe todo el daño del primer ataque recibido en cada turno.",
+	"en_ab_wolf_herd_desc_es":"Manada de lobos: en cada turno tiene 50% de probabilidad de convocar a otro lobo.",
 	
 	"it_crucifix_name_es":"Crucifijo",
 	"it_crucifix_desc_es":"Todos los enemigos reciben un punto de daño.",

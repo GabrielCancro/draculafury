@@ -22,7 +22,8 @@ func _ready():
 func on_click_end():
 	Sounds.play_sound("button1")
 	UpgradesManager.upgrades_selected = []
-	for upg in $Upgrades.get_children(): 
+	for spr in $Upgrades.get_children(): 
+		var upg = spr.get_node("UpgradeElement")
 		if upg.selected: UpgradesManager.upgrades_selected.append(upg.upg_data.code)
 	Effector.change_scene_transition("Game")
 

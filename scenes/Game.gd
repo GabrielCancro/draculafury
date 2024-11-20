@@ -175,6 +175,7 @@ func tutorial_sequence():
 	yield(get_tree().create_timer(2),"timeout")
 	$CLUI/WaveUI.advance_wave()
 	yield(get_tree().create_timer(2),"timeout")
+	if skip_tutorial: change_state(GameState.START)
 	
 	if skip_tutorial: return
 	$CLUI/TutorialPopup.show_popup("enemy")

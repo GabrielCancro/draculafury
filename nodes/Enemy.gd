@@ -41,8 +41,17 @@ func set_tile_pos(_x):
 
 func move(val = -enemy_data.mov):
 	yield(get_tree().create_timer(.35),"timeout")
-	if "ability" in enemy_data && enemy_data.ability=="extra_mov" && randi()%100<30: val -= 1
+	if has_ability_by_percent("extra_mov",30): val -= 1
 	set_stoned_skin(true)
+	if has_ability_by_percent("wolf_herd",50):
+		Sounds.play_sound("wolf_howl")
+		yield(get_tree().create_timer(.2),"timeout")
+		Effector.scale_boom(self)
+		yield(get_tree().create_timer(.8),"timeout")
+		EnemyManager.add_enemy("wolf")
+		yield(get_tree().create_timer(.5),"timeout")
+		emit_signal("end_move")
+		return
 	for i in abs(val):
 		if enemy_data.tile_pos_x==0 and sign(val)<0: break
 		var swap_en = EnemyManager.get_enemy_in_pos(enemy_data.tile_pos_x+sign(val),enemy_data.tile_pos_y)
@@ -95,3 +104,6 @@ func set_stoned_skin(val):
 		$Sprite.material = null
 		if have_change: Effector.shake(self)
 	return have_change
+
+func has_ability_by_percent(ab_code,percent=100):
+	return ("ability" in enemy_data && enemy_data.ability==ab_code && randi()%100<=percent)

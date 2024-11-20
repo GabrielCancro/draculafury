@@ -6,8 +6,8 @@ var end_x_pos = 500
 var ENEMIES = {
 	"vampire":{"hp":3,"mov":1,"dam":1, "ran":1,"fly":false,"ability":"extra_mov"},
 	"bat":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":true},
-	"wolf":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":false},
-	"awolf":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":false},
+	"wolf":{"hp":2,"mov":2,"dam":1, "ran":1,"fly":false},
+	"awolf":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":false,"ability":"wolf_herd"},
 	"gargoyle":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":true,"ability":"stone_skin"},
 }
 
