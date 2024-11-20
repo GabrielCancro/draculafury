@@ -8,7 +8,7 @@ var PLAYER_ARMIES
 func _ready(): initialize_data()
 
 func initialize_data():
-	PLAYER_STATS = { "hp":10, "hpm":10, "xp":0}
+	PLAYER_STATS = { "hp":10, "hpm":10, "xp":0, "kills":0}
 	PLAYER_ARMIES = ["breathe","gun","kick","gun","rapier"]
 
 func damage(dam):

@@ -3,6 +3,7 @@ extends Control
 enum GameState {START,ACTIONS,ATTACKS,ENEMIES,WAVE}
 var current_state
 var disable_dices_click = true
+var tuto_first_kill = true
 
 var skip_tutorial = false
 signal end_tuto_sequence
@@ -77,12 +78,12 @@ func change_state(new_state):
 			if army:
 				ArmyManager.run_army_action(army)
 				yield(ArmyManager,"end_army_action")
-				if UpgradesManager.points==0 && PlayerManager.PLAYER_STATS.kills==1:
+				if PlayerManager.PLAYER_STATS.kills==1 && SaveManager.savedData.level==1:
 					$CLUI/TutorialPopup.show_popup("deadenemy")
 					yield($CLUI/TutorialPopup,"close_popup")
 			else: break
 		yield(get_tree().create_timer(.7),"timeout")
-		if PlayerManager.check_level_up() && PlayerManager.PLAYER_STATS.level<=3: 
+		if SaveManager.savedData.level==1 && PlayerManager.check_level_up(): 
 			$CLUI/TutorialPopup.show_popup("levelup")
 			yield($CLUI/TutorialPopup,"close_popup")
 		change_state(GameState.ENEMIES)
@@ -175,7 +176,7 @@ func tutorial_sequence():
 	yield(get_tree().create_timer(2),"timeout")
 	$CLUI/WaveUI.advance_wave()
 	yield(get_tree().create_timer(2),"timeout")
-	if skip_tutorial: change_state(GameState.START)
+	if skip_tutorial && current_state!=GameState.START: change_state(GameState.START)
 	
 	if skip_tutorial: return
 	$CLUI/TutorialPopup.show_popup("enemy")
@@ -223,9 +224,10 @@ func tutorial_sequence():
 	#emit_signal("end_tuto_sequence")
 
 func on_skip_tutorial():
+	if skip_tutorial: return
 	skip_tutorial = true
 	$CLUI/TutorialBlocker.visible = false
 	if current_state==null: 
 		if $CLUI/WaveUI.WAVE.size()==0: yield(get_tree().create_timer(6),"timeout")
-		change_state(GameState.START)
+		if current_state!=GameState.START: change_state(GameState.START)
 	return

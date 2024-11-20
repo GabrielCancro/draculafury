@@ -82,6 +82,7 @@ func enemy_damage(dam):
 		yield(get_tree().create_timer(.5),"timeout")
 		EnemyManager.ENEMIES_ACTIVES.erase(self)
 		ItemManager.throw_with_probability(position.x+20)
+		PlayerManager.PLAYER_STATS.kills += 1
 		yield(get_tree().create_timer(.5),"timeout")
 		PlayerManager.add_xp(1)
 		queue_free()
