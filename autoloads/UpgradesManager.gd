@@ -7,10 +7,15 @@ var upgrades_selected = []
 signal end_apply_upgrades()
 
 var UPGRADES = {
-	"amulet":{"lvreq":2, "cost":1},
-	"bag":{"lvreq":2, "cost":2},
-	"vest":{"lvreq":3, "cost":1},
+	"amulet":{"lvreq":2, "cost":99},
+	"bag":{"lvreq":3, "cost":2},
 	"map":{"lvreq":3, "cost":2},
+	"cigarettes":{"lvreq":3, "cost":99},
+	"vest":{"lvreq":4, "cost":1},
+	"charger":{"lvreq":4, "cost":99},
+	"gunslot":{"lvreq":5, "cost":99},
+	"shotgun":{"lvreq":5, "cost":99},
+	"silverbullets":{"lvreq":5, "cost":99},
 }
 
 func get_upgrade_data(upg_code):

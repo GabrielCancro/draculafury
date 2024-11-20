@@ -1,10 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/backgrounds/army_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=3]
 [ext_resource path="res://nodes/UpgradeElement.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Prestart.gd" type="Script" id=5]
+[ext_resource path="res://assets/upgrades/amulet.png" type="Texture" id=6]
+[ext_resource path="res://assets/sh_outline.tres" type="Material" id=7]
+[ext_resource path="res://assets/upgrades/bag.png" type="Texture" id=8]
+[ext_resource path="res://assets/upgrades/shotgun.png" type="Texture" id=9]
+[ext_resource path="res://assets/upgrades/gunslot.png" type="Texture" id=10]
+[ext_resource path="res://assets/upgrades/cigarettes.png" type="Texture" id=11]
+[ext_resource path="res://assets/upgrades/vest.png" type="Texture" id=12]
+[ext_resource path="res://assets/upgrades/map.png" type="Texture" id=13]
+[ext_resource path="res://assets/upgrades/charger.png" type="Texture" id=14]
+[ext_resource path="res://assets/upgrades/silverbullets.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 107
@@ -86,47 +96,113 @@ autowrap = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="UpgradeElement1" parent="Upgrades" instance=ExtResource( 4 )]
-margin_left = 65.0
-margin_top = 226.0
-margin_right = 265.0
-margin_bottom = 426.0
+[node name="amulet" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 220, 377 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
 
-[node name="UpgradeElement2" parent="Upgrades" instance=ExtResource( 4 )]
-margin_left = 493.0
-margin_top = 257.0
-margin_right = 693.0
-margin_bottom = 457.0
+[node name="UpgradeElement" parent="Upgrades/amulet" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
 
-[node name="UpgradeElement3" parent="Upgrades" instance=ExtResource( 4 )]
-margin_left = 281.0
-margin_top = 430.0
-margin_right = 481.0
-margin_bottom = 630.0
+[node name="bag" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 673, 565 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
 
-[node name="UpgradeElement4" parent="Upgrades" instance=ExtResource( 4 )]
-margin_left = 726.0
-margin_top = 446.0
-margin_right = 926.0
-margin_bottom = 646.0
+[node name="UpgradeElement" parent="Upgrades/bag" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
 
-[node name="UpgradeElement5" parent="Upgrades" instance=ExtResource( 4 )]
-margin_left = 909.0
-margin_top = 241.0
-margin_right = 1109.0
-margin_bottom = 441.0
+[node name="vest" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 1448, 398 )
+texture = ExtResource( 12 )
 
-[node name="UpgradeElement6" parent="Upgrades" instance=ExtResource( 4 )]
-margin_left = 1112.0
-margin_top = 454.0
-margin_right = 1312.0
-margin_bottom = 654.0
+[node name="UpgradeElement" parent="Upgrades/vest" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
 
-[node name="UpgradeElement7" parent="Upgrades" instance=ExtResource( 4 )]
-margin_left = 1285.0
-margin_top = 244.0
-margin_right = 1485.0
-margin_bottom = 444.0
+[node name="map" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 1268, 601 )
+texture = ExtResource( 13 )
+
+[node name="UpgradeElement" parent="Upgrades/map" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
+
+[node name="charger" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 399, 521 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 14 )
+
+[node name="UpgradeElement" parent="Upgrades/charger" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
+
+[node name="cigarettes" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 1167, 375 )
+rotation = 0.407778
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 11 )
+
+[node name="UpgradeElement" parent="Upgrades/cigarettes" instance=ExtResource( 4 )]
+margin_left = -98.0
+margin_top = -78.0
+margin_right = 82.0
+margin_bottom = 89.0
+
+[node name="gunslot" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 998, 624 )
+rotation = -0.498512
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="UpgradeElement" parent="Upgrades/gunslot" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
+
+[node name="shotgun" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 685, 360 )
+rotation = 0.319455
+texture = ExtResource( 9 )
+
+[node name="UpgradeElement" parent="Upgrades/shotgun" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
+
+[node name="silverbullets" type="Sprite" parent="Upgrades"]
+material = ExtResource( 7 )
+position = Vector2( 188, 596 )
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 15 )
+
+[node name="UpgradeElement" parent="Upgrades/silverbullets" instance=ExtResource( 4 )]
+margin_left = -123.0
+margin_top = -104.0
+margin_right = 113.0
+margin_bottom = 116.0
 
 [node name="btn1" type="Button" parent="."]
 anchor_left = 0.5

@@ -83,6 +83,18 @@ var texts = {
 	"upg_vest_desc_es":"Tenes 4pv extra.",
 	"upg_map_name_es":"Mapa",
 	"upg_map_desc_es":"Comienzas tu partida en la catedral evitando las primeras oleadas.",
+	"upg_cigarettes_name_es":"Cigarros",
+	"upg_cigarettes_desc_es":"La habilidad de suspiro cura el doble.",
+	"upg_shotgun_name_es":"Recortada",
+	"upg_shotgun_desc_es":"Remplaza una de tus pistolas por una escopeta .",
+	"upg_gunslot_name_es":"Estuche",
+	"upg_gunslot_desc_es":"Comienzas con una pistola en un slot extra de tu cinturón.",
+	"upg_charger_name_es":"Cargadores",
+	"upg_charger_desc_es":"Las pistolas tienen el doble de municiones.",
+	"upg_silverbullets_name_es":"Balas de plata",
+	"upg_silverbullets_desc_es":"Las pistolas tienen 50% de hacer el doble de daño.",
+	
+	
 	
 	"tuto_welcome_es":"Bienvenido Cazador,\nTe estabamos esperando. Drácula ha despertado y sus criaturas rondan por todos lados, no perdamos el tiempo!",
 	"tuto_enemy_es":"Menos mal que estas aquí! Ese vampiro intentará matarte, utiliza las armas de tu cinturón para terminar con él.",

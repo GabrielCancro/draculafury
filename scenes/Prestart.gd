@@ -8,18 +8,14 @@ func _ready():
 	$btn2.connect("button_down",self,"on_click_back")
 	$lb_desc.text = ""
 	total_points = SaveManager.savedData.level
-	for upg in $Upgrades.get_children(): 
-		if upg.get_index()>=UpgradesManager.UPGRADES.keys().size():
-			upg.visible = false
-			continue
-		else:
-			var upg_code = UpgradesManager.UPGRADES.keys()[upg.get_index()]
-			upg.set_data(upg_code)
-			var btn = upg.get_node("Button")
-			btn.connect("mouse_entered",self,"on_upg_btn",[upg,"enter"])
-			btn.connect("mouse_exited",self,"on_upg_btn",[upg,"exit"])
-			btn.connect("button_down",self,"on_upg_btn",[upg,"click"])
-			if total_points>=upg.upg_data.lvreq: upg.activate(true)
+	for spr in $Upgrades.get_children(): 
+		var upg = spr.get_node("UpgradeElement")
+		upg.set_data(spr.name)
+		var btn = upg.get_node("Button")
+		btn.connect("mouse_entered",self,"on_upg_btn",[upg,"enter"])
+		btn.connect("mouse_exited",self,"on_upg_btn",[upg,"exit"])
+		btn.connect("button_down",self,"on_upg_btn",[upg,"click"])
+		if total_points>=upg.upg_data.lvreq: upg.activate(true)
 	localizate()
 	update_points()
 
