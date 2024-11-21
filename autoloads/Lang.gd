@@ -31,6 +31,8 @@ var texts = {
 	"ui_cost_es":"costo",
 	"ui_need_level_es":"Necesitas mas Nivel para desbloquear este objeto. Sigue jugando un poco mas!",
 	"ui_need_more_points_es":"No te alcanza!",
+	"ui_dont_hope_army_es":"No la necesito",
+	"ui_no_effect_es":"SIN EFECTO",
 	"player_turn_es":"ES TU TURNO",
 	"enemy_turn_es":"TURNO DE LOS ENEMIGOS",
 

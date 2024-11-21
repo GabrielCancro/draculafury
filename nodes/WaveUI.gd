@@ -4,7 +4,7 @@ var WaveSlot = preload("res://nodes/WaveSlot.tscn")
 var space_slot = 105
 var max_slots = 3
 var wave_index = 0
-var current_bg = "tumb"
+var current_bg = "tomb"
 
 var first_tuto_enemy 
 
@@ -120,9 +120,9 @@ func get_slot_info(code):
 	return data
 
 func check_bg():
-	if current_bg!="tomb" && wave_index<4: change_bg("tomb")
-	elif current_bg!="catedral" && wave_index<8: change_bg("catedral")
-	elif current_bg!="forest" && wave_index<12: change_bg("forest")
+	if current_bg!="forest" && wave_index>=8: change_bg("forest")
+	elif current_bg!="catedral" && wave_index>=4: change_bg("catedral")
+	elif current_bg!="tomb": change_bg("tomb")
 
 func change_bg(code):
 	current_bg = code

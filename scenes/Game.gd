@@ -12,6 +12,7 @@ func _ready():
 	set_floor_marks()
 	EnemyManager.initialize_data()
 	PlayerManager.initialize_data()
+	ItemManager.initialize_data()
 	$CLUI/TutorialBlocker.visible = false
 	$CLUI/ButtonStates.disabled = true
 	$CLUI/ButtonStates.modulate.a = 0
@@ -160,7 +161,7 @@ func set_floor_marks():
 		if fn.visible: print("fn ",fn.rect_global_position.x)
 
 func goto_menu():
-	get_tree().change_scene("res://scenes/Levels.tscn")
+	Effector.change_scene_transition("Menu")
 
 func tutorial_sequence():
 	if SaveManager.savedData.level>1: skip_tutorial = true

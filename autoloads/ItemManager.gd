@@ -16,6 +16,11 @@ var ITEMS_INFLOOR = []
 var ITEMS_PLAYER = []
 signal end_item_action()
 
+
+func initialize_data():
+	ITEMS_INFLOOR = []
+	ITEMS_PLAYER = []
+
 func get_item_data(code):
 	var _data = ITEMS_DATA[code].duplicate()
 	_data["code"]=code
@@ -69,7 +74,7 @@ func run_item_action(code):
 	yield(get_tree().create_timer(.2),"timeout")
 	#if !PLAYER: PLAYER = get_node("/root/Game/Player")
 	if has_method("_condition_"+code) && !call("_condition_"+code):
-		Effector.show_float_text("NO EFFECT!")
+		Effector.show_float_text("ui_no_effect")
 		yield(get_tree().create_timer(.5),"timeout")
 		emit_signal("end_item_action",false)
 	else:

@@ -26,14 +26,6 @@ var ALL_WAVES = {
 func _ready():
 	pass # Replace with function body.
 
-func goto_level(_lv):
-	current_level = _lv
-	set_map_spaces()
-	print("CURRENT LEVEL IS ",current_level)
-	get_tree().change_scene("res://scenes/Game.tscn")
-	yield(get_tree().create_timer(.1),"timeout")
-	SizerManager.rescale_ui()
-
 func get_level_waves():
 	var waves = ALL_WAVES["lv_"+str(current_level)].duplicate()
 	print("WAVES ",current_level)

@@ -8,6 +8,7 @@ signal on_hide_popup()
 
 func _ready():
 	for bs in $HBox.get_children(): bs.connect("on_click_belt_slot",self,"on_click_belt_slot")
+	$Button.connect("button_down",self,"on_click_leave")
 
 func show_popup():
 	modulate.a = 0
@@ -15,6 +16,7 @@ func show_popup():
 	update_belt()
 	$Label.text = Lang.get_text("ui_end_wave")
 	$Label_subtext.text = Lang.get_text("ui_upg_new_army")
+	$Button/Label.text = Lang.get_text("ui_dont_hope_army")
 	new_army = get_random_new_army()
 	new_army_data = ArmyManager.get_army_data(new_army)
 	$NewArmyPanel.modulate.a = 0
@@ -67,3 +69,6 @@ func get_random_new_army():
 		else: armies.append(ar)
 	randomize()
 	return armies[ randi()%armies.size() ]
+
+func on_click_leave():
+	hide_popup()

@@ -12,4 +12,4 @@ func show_popup():
 func on_click_ok():
 	Effector.disappear(self,true)
 	yield(get_tree().create_timer(1),"timeout")
-	get_tree().change_scene("res://scenes/Levels.tscn")
+	Effector.change_scene_transition("Menu")

@@ -27,4 +27,3 @@ func play_music():
 	
 func stop_music():
 	song.stop()
-	song.seek(0)
