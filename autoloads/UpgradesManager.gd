@@ -37,7 +37,7 @@ func apply_upgrades():
 			yield(get_tree().create_timer(.5),"timeout")
 			PlayerManager.heal(4)
 		elif upg_code=="map":
-			get_node("/root/Game/CLUI/WaveUI").wave_index = 4
+			get_node("/root/Game/CLUI/WaveUI").wave_index = 3
 		else:
 			Effector.show_float_text("upg_"+upg_code+"_name")
 			yield(get_tree().create_timer(1),"timeout")

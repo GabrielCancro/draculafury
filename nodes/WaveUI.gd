@@ -4,6 +4,7 @@ var WaveSlot = preload("res://nodes/WaveSlot.tscn")
 var space_slot = 105
 var max_slots = 3
 var wave_index = 0
+var current_bg = "tumb"
 
 var first_tuto_enemy 
 
@@ -11,18 +12,18 @@ signal end_wave_anim()
 
 var WAVE = []
 var ALL_WAVES = [
-	["1*vampire",null,"1*vampire",null,"1*vampire"],
+	["1*vampire",null,"1*vampire",null,"1*vampire"],  #1
 	["2*vampire",null,null,"2*bat"],
 	["1*bat",null,"1*bat","1*vampire",null,"2*bat"],
-	["1*bat","1*gargoyle","1*vampire",null,"1*vampire"],
+	["1*bat","1*gargoyle","1*vampire",null,"1*vampire"],  #4
 	["2*vampire",null,"1*gargoyle","2*bat"],
 	["3*bat",null,null,"1*vampire",null,"2*bat"],
 	["1*bat",null,"1*gargoyle",null,"1*gargoyle",null,"2*bat"],
+	["1*wolf",null,"2*wolf","1*bat","1*vampire"],   #8
+	["1*vampire","1*wolf",null,"1*awolf",null,null,"2*bat"],
 	["1*vampire",null,"2*wolf","1*bat","1*vampire"],
-	["1*vampire","1*wolf",null,"2*wolf",null,null,"2*bat"],
-	["1*vampire",null,"2*wolf","1*bat","1*vampire"],
-	["1*vampire","1*wolf",null,"2*wolf",null,null,"2*bat"],
-	["3*wolf",null,null,"2*wolf",null,null,null,"3*wolf"],
+	["1*vampire","1*wolf",null,"1*awolf",null,"1*bat"],
+	["3*wolf",null,null,"2*wolf",null,null,null,"3*wolf"],#12
 ]
 
 func _ready():
@@ -32,6 +33,7 @@ func _ready():
 
 func next_wave():
 	wave_index += 1
+	check_bg()
 	WAVE = ALL_WAVES[wave_index-1].duplicate()
 	$lb_wave.text = "WAVE\n"+str(wave_index)+"/"+str(ALL_WAVES.size()+wave_index)
 	Effector.remove_all_children($Grid)
@@ -116,3 +118,17 @@ func get_slot_info(code):
 		data.amount = int( code.substr(0,1) )
 		data.enemy = code.substr(2,-1) 
 	return data
+
+func check_bg():
+	if current_bg!="tomb" && wave_index<4: change_bg("tomb")
+	elif current_bg!="catedral" && wave_index<8: change_bg("catedral")
+	elif current_bg!="forest" && wave_index<12: change_bg("forest")
+
+func change_bg(code):
+	current_bg = code
+	var bg = get_node("/root/Game/CLBG/background")
+	Effector.fade_yoyo(bg)
+	yield(get_tree().create_timer(.25),"timeout")
+	if code=="tomb": bg.texture = preload("res://assets/backgrounds/bg1.jpg")
+	elif code=="catedral": bg.texture = preload("res://assets/backgrounds/bg8.jpg")
+	elif code=="forest": bg.texture = preload("res://assets/backgrounds/bg6.jpg")

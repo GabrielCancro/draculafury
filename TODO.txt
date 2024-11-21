@@ -2,12 +2,19 @@
   -SOUNDS AND MUSIC
   -traduccion al ingles
   -END GAME SCENE
-OK-SAVE PROGRESS (solo guardar puntos de equipamiento)
   -END DEMO
-OK-TUTORIAL
   -FINAL BOSS
   -HACK SKIP WAVES
   -INTEGRAR ARTE (player, menu, boss final)
+  -IMPLEMENTAR Amuleto, Cigarretes, Cargadores, Balas de plata, Recortada, Estuche, 
+
+  -AGREGAR LOBOS ALFAS A LAS WAVES
+  -CAMBIAR FONDOS CADA 4 WAVES
+  -
+
+
+OK-SAVE PROGRESS (solo guardar puntos de equipamiento)
+OK-TUTORIAL
   -IDEAS PARA EL EQUIPAMIENTO INICIAL:
 	OK 1 Amuleto, cura 10% al finalizar cada wave
 	OK 2 Bolso, empezas con 3 items randoms

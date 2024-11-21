@@ -118,3 +118,8 @@ func change_scene_transition(scene_name):
 	yield(trnode,"end_transition")
 	get_tree().change_scene("res://scenes/"+scene_name+".tscn")
 	trnode.hide_transition(true)
+
+func fade_yoyo(node):
+	tween.interpolate_property(node,"modulate",Color(1,1,1,1),Color(0,0,0,1),.25,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.interpolate_property(node,"modulate",Color(0,0,0,1),Color(1,1,1,1),.25,Tween.TRANS_QUAD,Tween.EASE_OUT,0.26)
+	tween.start()
