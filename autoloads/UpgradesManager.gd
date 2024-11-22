@@ -7,15 +7,15 @@ var upgrades_selected = []
 signal end_apply_upgrades()
 
 var UPGRADES = {
-	"amulet":{"lvreq":2, "cost":99},
-	"bag":{"lvreq":3, "cost":2},
-	"map":{"lvreq":3, "cost":2},
-	"cigarettes":{"lvreq":3, "cost":99},
-	"vest":{"lvreq":4, "cost":1},
-	"charger":{"lvreq":4, "cost":99},
-	"gunslot":{"lvreq":5, "cost":99},
-	"shotgun":{"lvreq":5, "cost":99},
-	"silverbullets":{"lvreq":5, "cost":99},
+	"amulet":{"lvreq":2, "cost":2},
+	"bag":{"lvreq":3, "cost":3},
+	"map":{"lvreq":3, "cost":3},
+	"cigarettes":{"lvreq":3, "cost":3},
+	"vest":{"lvreq":4, "cost":4},
+	"charger":{"lvreq":4, "cost":2},
+	"gunslot":{"lvreq":5, "cost":5},
+	"shotgun":{"lvreq":5, "cost":5},
+	"silverbullets":{"lvreq":5, "cost":5},
 }
 
 func get_upgrade_data(upg_code):
@@ -23,6 +23,9 @@ func get_upgrade_data(upg_code):
 	data = UPGRADES[upg_code].duplicate()
 	data["code"] = upg_code
 	return data
+
+func have_upgrade(code):
+	return (code in upgrades_selected)
 
 func apply_upgrades():
 	for upg_code in upgrades_selected: 
@@ -38,6 +41,12 @@ func apply_upgrades():
 			PlayerManager.heal(4)
 		elif upg_code=="map":
 			get_node("/root/Game/CLUI/WaveUI").wave_index = 3
+		elif upg_code=="gunslot":
+			PlayerManager.PLAYER_ARMIES.append("gun")
+			get_node("/root/Game/CLUI/Belt").update_belt()
+		elif upg_code=="shotgun":
+			PlayerManager.PLAYER_ARMIES[3] = "shotgun"
+			get_node("/root/Game/CLUI/Belt").update_belt()
 		else:
 			Effector.show_float_text("upg_"+upg_code+"_name")
 			yield(get_tree().create_timer(1),"timeout")

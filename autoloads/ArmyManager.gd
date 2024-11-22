@@ -33,6 +33,7 @@ func run_army_action(code):
 func _condition_breathe(): return !EnemyManager.have_close_enemy(1) && PlayerManager.PLAYER_STATS.hp<PlayerManager.PLAYER_STATS.hpm
 func _run_breathe():
 	PlayerManager.heal(1)
+	if UpgradesManager.have_upgrade("cigarettes"): PlayerManager.heal(1)
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 
@@ -64,7 +65,10 @@ func _condition_gun(): return EnemyManager.have_close_enemy()
 func _run_gun():
 	var en = EnemyManager.get_first_enemy()
 	if en:
-		en.enemy_damage(1)
+		if UpgradesManager.have_upgrade("silverbullets") && randi()%100<50:
+			Effector.show_float_text("upg_silverbullets_name")
+			en.enemy_damage(2)
+		else: en.enemy_damage(1)
 		yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 
@@ -109,6 +113,8 @@ func _run_dynamite():
 	emit_signal("end_army_action")
 
 func get_army_amount(code):
+	var amount = -1
 	if code in ARMIES_AMOUNT.keys():
-		return ARMIES_AMOUNT[code]
-	else: return -1
+		amount = ARMIES_AMOUNT[code]
+		if code=="gun" and UpgradesManager.have_upgrade("charger"): amount*=2
+	return amount

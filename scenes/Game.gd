@@ -106,6 +106,12 @@ func change_state(new_state):
 				yield(get_tree().create_timer(1),"timeout")
 				$CLUI/WaveUI.next_wave()
 				yield(get_tree().create_timer(2.5),"timeout")
+				if UpgradesManager.have_upgrade("amulet"):
+					yield(get_tree().create_timer(.5),"timeout")
+					Effector.show_float_text("upg_amulet_name")
+					yield(get_tree().create_timer(.2),"timeout")
+					PlayerManager.heal(1)
+					yield(get_tree().create_timer(.5),"timeout")
 			else: 
 				$CLUI/WinPopup.show_popup()
 				return
