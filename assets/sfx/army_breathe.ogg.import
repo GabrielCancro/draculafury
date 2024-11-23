@@ -11,5 +11,5 @@ dest_files=[ "res://.import/army_breathe.ogg-f852a9c22bd3e430464a4aa235750804.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
