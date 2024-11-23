@@ -16,7 +16,7 @@ func set_army(code):
 	army = code
 	if army: 
 		hint_data.code = "army_"+code
-		$Sprite.frame = ArmyManager.ARMIES.find(code)
+		$Sprite.texture = preload("res://assets/armies/arm_"+code+".png")
 		$Sprite.visible = true
 		if amount==null: amount = ArmyManager.get_army_amount(army)
 		$lb_amount.text = "x"+str(amount)

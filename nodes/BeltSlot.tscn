@@ -49,7 +49,6 @@ color = Color( 0.913725, 1, 0.301961, 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 52, 66 )
 texture = ExtResource( 3 )
-hframes = 8
 
 [node name="Button" type="Button" parent="."]
 anchor_right = 1.0
