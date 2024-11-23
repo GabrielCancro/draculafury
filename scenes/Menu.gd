@@ -1,7 +1,6 @@
 extends Control
 
 func _ready():
-	preloads()
 	UpgradesManager.upgrades_selected = []
 	$btn1.connect("button_down",self,"on_click",["start"])
 	$btn2.connect("button_down",self,"on_click",["lang"])
@@ -36,13 +35,3 @@ func localizate():
 	$btn1/Label.text = Lang.get_text("menu_start")
 	$btn2/Label.text = Lang.get_text("menu_lang")
 	$lb_level.text = Lang.get_text("ui_level")+" "+str(SaveManager.savedData.level)
-
-func preloads():
-	preload("res://assets/sfx/song1.ogg")
-	preload("res://assets/backgrounds/bg1.jpg")
-	preload("res://assets/backgrounds/bg2.jpg")
-	preload("res://assets/backgrounds/bg3.jpg")
-	preload("res://assets/backgrounds/bg4.jpg")
-	preload("res://assets/backgrounds/bg5.jpg")
-	preload("res://assets/backgrounds/bg6.jpg")
-	preload("res://assets/backgrounds/bg7.jpg")

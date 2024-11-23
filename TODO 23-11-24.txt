@@ -13,48 +13,8 @@
   -AGREGAR BOTON NO QUIERO ESTA ARMA!
   -FIXES DE AUDIO Y TEXTOS
 
-
-OK-SAVE PROGRESS (solo guardar puntos de equipamiento)
-OK-TUTORIAL
-  -IDEAS PARA EL EQUIPAMIENTO INICIAL:
-	OK 1 Amuleto, cura 10% al finalizar cada wave
-	OK 2 Bolso, empezas con 3 items randoms
-	OK 3 Mapa, empezas en la catedral (saltea las primeras waves)
-	OK 4 Chaleco, +30% de vida
-	OK 5 Cigarretes, la habilidad de respiro sana el doble
-	OK 6 Cargadores, las pistolas tienen el doble de carga
-	X 7 Explosivos, cada 3 oleadas recibes un item de explosivo
-	OK 8 Balas de plata, las pistolas tienen 50% de hacer doble daño
-	OK 9 Recortada, remplaza una de tus pistolas por una escopeta
-	OK 10 Estuche, Empiezas con un Slot de pistola extra en el cinturon.
-
-OK-Waves vacias se saltean para que no queden huecos en el combate
-OK-Sonidos nuevos y musica
-OK-Transicion de escenas mejorada
-OK-Tuto actualizado (first level up)
-OK-Escena de pull inicial mejorada (aun falta implementar)
-OK-SIEMPRE SON 5 SLOTS
-OK-Items horizontales
-OK-lobo alfa y su habilidad
-
-
-OK-sable pega 2 a los de la primer y segunda casilla (incluso voladores) 
-OK-le baje la vida y daño al vampiro para que sea mas facilon y despues creamos al vampiro duro llamado engendro..
-OK-le sacamos que los dados sobrantes te den experiencia, que no hagan nada y chau..
-OK-modificar la ballesta para que priorice voladores pero pegue tmb a los terrestres
-OK-que la dinamita y la estaca aparezcan como opcion cuando hayas pasado de nivel (en las primeras oleadas solo aparece escopeta o ballesta).
-
-OK-IMPLEMENT ACTIONS
-OK-ADD DIFFERENTS HINTS 
-OK-WAVE IMPLEMENT
-OK-WAVE UI
-OK-WAVES GENERATOR
-OK-PLAYER UI
-NO-IMPLEMENT LEVELUP UI
-OK-IMPLEMENT UPGRADES UI
-OK-IMPLEMENT ITEMS
-OK-ITEMS UI
-OK-ENEMY DROP ITEMS
-OK-ITEMS USES
-OK-ENEMIES DIFERENT ACTIONS
-OK-ENEMIES IMPROVE DAMAGE EFFECT
+-BUG NO SE GUARDA LEVEL
+-BUG CON FONDOS AL PASAR A WAVE 5
+-MEJORA, Al FINAL DE OLEADA SOLO TE SALEN ARMAS QUE NO TENES EN TU CINTURON (ESTACA Y DINAMITA DE WAVE 3 PARA ARRIBA)
+-BUG OBTENER 6 SIEMPRE MUESTRA EL TUTORIAL
+-SAQUE LAS SPRITESHEET Y USE SPRITES INDIVIDUALES PARA ARMAS Y ENEMIGOS (era un bardo cada vez que queria agregar un arma o enemigo nuevo)

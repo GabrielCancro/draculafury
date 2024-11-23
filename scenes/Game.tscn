@@ -415,6 +415,7 @@ margin_right = 1101.0
 margin_bottom = 475.0
 
 [node name="EndGamePanel" parent="CLUI" instance=ExtResource( 15 )]
+visible = false
 
 [node name="WinPopup" parent="CLUI" instance=ExtResource( 18 )]
 visible = false

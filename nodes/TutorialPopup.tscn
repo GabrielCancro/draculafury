@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=3]
-[ext_resource path="res://assets/enemies/enemy_retraits.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/en_ret_vampire.png" type="Texture" id=4]
 [ext_resource path="res://nodes/TutorialPopup.gd" type="Script" id=5]
 [ext_resource path="res://assets/cuted.png" type="Texture" id=6]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=7]
@@ -42,7 +42,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="all" type="ColorRect" parent="Pages"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -101,20 +100,17 @@ modulate = Color( 0.305882, 0.305882, 0.305882, 1 )
 position = Vector2( 1310, 263.282 )
 scale = Vector2( 1.60563, 1.60563 )
 texture = ExtResource( 4 )
-hframes = 5
 
 [node name="Sprite4" type="Sprite" parent="Pages/all"]
 modulate = Color( 0.517647, 0.517647, 0.517647, 1 )
 position = Vector2( 1262, 279.282 )
 scale = Vector2( 1.60563, 1.60563 )
 texture = ExtResource( 4 )
-hframes = 5
 
 [node name="Sprite5" type="Sprite" parent="Pages/all"]
 position = Vector2( 1222, 295.282 )
 scale = Vector2( 1.60563, 1.60563 )
 texture = ExtResource( 4 )
-hframes = 5
 
 [node name="welcome" type="ColorRect" parent="Pages"]
 visible = false
