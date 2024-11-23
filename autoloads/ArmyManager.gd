@@ -5,6 +5,7 @@ signal end_army_action()
 var ARMIES = ["breathe","kick","rapier","gun","shotgun","crossbow","stake","dynamite"]
 var ARMIES_AMOUNT = {"gun":3,"shotgun":2,"crossbow":3,"stake":1,"dynamite":1}
 var PLAYER
+var ArmyTrapNode
 
 func get_army_data(code):
 	var army_data = {"name":code,"amount":-1}
