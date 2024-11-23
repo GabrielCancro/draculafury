@@ -13,7 +13,7 @@ func add_army(_army):
 	for ar in $HBox.get_children():
 		if !ar.visible:
 			ar.modulate.a = 0
-			ar.get_node("Sprite").frame = ArmyManager.ARMIES.find(army)
+			ar.get_node("Sprite").texture = load("res://assets/armies/ico_"+army+".png")
 			armies[ar.get_index()] = army
 			Effector.appear(ar)
 			ar.visible = true

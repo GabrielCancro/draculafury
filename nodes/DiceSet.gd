@@ -53,7 +53,7 @@ func roll_all_dices():
 		print("DICE CHECKED ",checked_dices)
 		var dice = $HBoxDices.get_child(checked_dices)
 		if dice.value==6:
-			if UpgradesManager.points==0:
+			if SaveManager.savedData.level==1:
 				get_node("/root/Game/CLUI/TutorialPopup").show_popup("getsix")
 				yield(get_node("/root/Game/CLUI/TutorialPopup"),"close_popup")
 			Effector.scale_boom(dice)

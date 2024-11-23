@@ -29,7 +29,6 @@ var ALL_WAVES = [
 func _ready():
 	$lb_wave.text = ""
 	Effector.remove_all_children($Grid)
-	#ALL_WAVES = LevelManager.get_level_waves()
 
 func next_wave():
 	wave_index += 1
@@ -125,10 +124,15 @@ func check_bg():
 	elif current_bg!="tomb": change_bg("tomb")
 
 func change_bg(code):
-	current_bg = code
-	var bg = get_node("/root/Game/CLBG/background")
-	Effector.fade_yoyo(bg)
-	yield(get_tree().create_timer(.25),"timeout")
-	if code=="tomb": bg.texture = preload("res://assets/backgrounds/bg1.jpg")
-	elif code=="catedral": bg.texture = preload("res://assets/backgrounds/bg8.jpg")
-	elif code=="forest": bg.texture = preload("res://assets/backgrounds/bg6.jpg")
+	preload("res://assets/backgrounds/bg_tomb.jpg")
+	preload("res://assets/backgrounds/bg_catedral.jpg")
+	preload("res://assets/backgrounds/bg_forest.jpg")
+	var bg = "tomb"
+	if wave_index>=4: bg = "catedral"
+	if wave_index>=8: bg = "forest"
+	if current_bg != bg:
+		current_bg = bg
+		var bgnode = get_node("/root/Game/CLBG/background")
+		Effector.fade_yoyo(bgnode)
+		yield(get_tree().create_timer(.25),"timeout")
+		bgnode.texture = load("res://assets/backgrounds/bg_"+code+".jpg")

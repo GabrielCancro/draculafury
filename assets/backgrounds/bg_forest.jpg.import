@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg8.jpg-30e8afe1c05a10ae40a43268147db784.stex"
+path="res://.import/bg_forest.jpg-ce317983ce38293dd2f6773ef55d80b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/bg8.jpg"
-dest_files=[ "res://.import/bg8.jpg-30e8afe1c05a10ae40a43268147db784.stex" ]
+source_file="res://assets/backgrounds/bg_forest.jpg"
+dest_files=[ "res://.import/bg_forest.jpg-ce317983ce38293dd2f6773ef55d80b0.stex" ]
 
 [params]
 

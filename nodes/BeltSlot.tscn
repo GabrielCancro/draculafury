@@ -2,7 +2,7 @@
 
 [ext_resource path="res://nodes/BeltSlot.gd" type="Script" id=1]
 [ext_resource path="res://assets/belt_slot.png" type="Texture" id=2]
-[ext_resource path="res://assets/armies.png" type="Texture" id=3]
+[ext_resource path="res://assets/armies/arm_gun.png" type="Texture" id=3]
 [ext_resource path="res://assets/pawn.png" type="Texture" id=4]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=5]
 

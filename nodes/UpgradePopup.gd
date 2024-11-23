@@ -13,6 +13,7 @@ func _ready():
 func show_popup():
 	modulate.a = 0
 	$block.visible = false
+	$Button.modulate.a = 0
 	update_belt()
 	$Label.text = Lang.get_text("ui_end_wave")
 	$Label_subtext.text = Lang.get_text("ui_upg_new_army")
@@ -32,9 +33,11 @@ func show_popup():
 	visible = true
 	Effector.appear(self)
 	yield(get_tree().create_timer(1),"timeout")
+	Effector.appear($Button)
 	Effector.appear($NewArmyPanel)
 
 func hide_popup():
+	$Button.modulate.a = 0
 	Effector.disappear(self,true)
 	emit_signal("on_hide_popup")
 
@@ -48,6 +51,8 @@ func update_belt():
 
 func on_click_belt_slot(belt_slot):
 	Effector.disappear($NewArmyPanel)
+	Effector.disappear($Button)
+	$Button.modulate.a = 0
 	yield(get_tree().create_timer(.3),"timeout")
 	belt_slot.amount = null
 	belt_slot.set_army(new_army)
@@ -59,14 +64,13 @@ func on_click_belt_slot(belt_slot):
 	hide_popup()
 
 func get_random_new_army():
-	var only_once_armies = ["stake","dynamite"]
 	var armies = []
 	var wave_index = get_node("/root/Game/CLUI/WaveUI").wave_index
-	for i in range(4,ArmyManager.ARMIES.size()):
-		var ar = ArmyManager.ARMIES[i]
-		if only_once_armies.find(ar)!=-1 && wave_index<2: continue
-		elif only_once_armies.find(ar)!=-1 && PlayerManager.PLAYER_ARMIES.find(ar)!=-1: continue
-		else: armies.append(ar)
+	for army in ArmyManager.ARMIES:
+		if PlayerManager.PLAYER_ARMIES.find(army)!=-1: continue
+		if army=="stake" && wave_index<=2: continue
+		if army=="dynamite" && wave_index<=2: continue
+		armies.append(army)
 	randomize()
 	return armies[ randi()%armies.size() ]
 

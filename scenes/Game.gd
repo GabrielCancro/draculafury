@@ -20,7 +20,7 @@ func _ready():
 	$CLUI/DiceSet.connect("on_click_dice",self,"on_click_dice")
 	$CLUI/PlayerUI.update_stats(PlayerManager.PLAYER_STATS)
 	$CLUI/UpgradePopup.connect("on_hide_popup",$CLUI/Belt,"update_belt")
-	$CLBG/background.texture = load("res://assets/backgrounds/bg"+str(LevelManager.current_level)+".jpg")
+	#$CLBG/background.texture = load("res://assets/backgrounds/bg"+str(LevelManager.current_level)+".jpg")
 	
 	$CLUI/ButtonHacks.connect("button_down",self,"on_button_hacks")
 	$CLUI/Hacks/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
@@ -84,10 +84,16 @@ func change_state(new_state):
 					yield($CLUI/TutorialPopup,"close_popup")
 			else: break
 		yield(get_tree().create_timer(.7),"timeout")
-		if SaveManager.savedData.level==1 && PlayerManager.check_level_up(): 
-			$CLUI/TutorialPopup.show_popup("levelup")
-			yield($CLUI/TutorialPopup,"close_popup")
+		
+		#LEVEL UP
+		if PlayerManager.check_level_up():
+			if SaveManager.savedData.level==1: 
+				$CLUI/TutorialPopup.show_popup("levelup")
+				yield($CLUI/TutorialPopup,"close_popup")
+			else: 
+				yield(get_tree().create_timer(2),"timeout")
 		change_state(GameState.ENEMIES)
+		
 	elif current_state == GameState.ENEMIES:
 		yield(get_tree().create_timer(.5),"timeout")
 		Effector.show_float_text("enemy_turn")

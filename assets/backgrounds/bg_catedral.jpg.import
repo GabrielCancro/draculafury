@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg7.jpg-4563fc401ab1cdbe49d3d045ac6051c8.stex"
+path="res://.import/bg_catedral.jpg-dd5b915c00f81a6eb7b8086277f447b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/bg7.jpg"
-dest_files=[ "res://.import/bg7.jpg-4563fc401ab1cdbe49d3d045ac6051c8.stex" ]
+source_file="res://assets/backgrounds/bg_catedral.jpg"
+dest_files=[ "res://.import/bg_catedral.jpg-dd5b915c00f81a6eb7b8086277f447b6.stex" ]
 
 [params]
 

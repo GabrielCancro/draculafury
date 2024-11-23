@@ -38,9 +38,11 @@ func check_level_up():
 	if PLAYER_STATS.xp>=get_next_level_xp():
 		yield(get_tree().create_timer(.25),"timeout")
 		Effector.show_float_text("msg_level_up")
-		PLAYER_STATS.xp -= get_next_level_xp()
+		var rest = PLAYER_STATS.xp - get_next_level_xp()
+		PLAYER_STATS.xp = 0
 		emit_signal("on_change_stats",PLAYER_STATS)
 		yield(get_tree().create_timer(1.2),"timeout")
+		PLAYER_STATS.xp = rest
 		SaveManager.savedData.level += 1
 		SaveManager.save_store_data()
 		emit_signal("on_change_stats",PLAYER_STATS)
