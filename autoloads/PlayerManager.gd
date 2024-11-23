@@ -16,7 +16,7 @@ func damage(dam):
 	var player_node = get_node("/root/Game/Player")
 	Effector.shake(player_node)
 	Effector.blood_bg()
-	Sounds.play_sound("player_damage")
+	Sounds.play_hit()
 	emit_signal("on_change_stats",PLAYER_STATS)
 	if PLAYER_STATS.hp<=0:
 		yield(get_tree().create_timer(1),"timeout")

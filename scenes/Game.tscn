@@ -143,6 +143,7 @@ position = Vector2( 327, 683 )
 [node name="CLUI" type="CanvasLayer" parent="."]
 
 [node name="lb_version" type="Label" parent="CLUI"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -123.0

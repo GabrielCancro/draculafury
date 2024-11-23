@@ -27,3 +27,8 @@ func play_music():
 	
 func stop_music():
 	song.stop()
+
+func play_hit():
+	randomize()
+	var i = randi()%4+1
+	play_sound("hit"+str(i))
