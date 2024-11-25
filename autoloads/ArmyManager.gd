@@ -113,6 +113,13 @@ func _run_dynamite():
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
 
+func _condition_trap(): return true
+func _run_trap():
+	var fxdyn = preload("res://nodes/fx/fx_dynamite.tscn").instance()
+	get_node("/root/Game/ArmyTrapNode").set_trap()
+	yield(get_tree().create_timer(.7),"timeout")
+	emit_signal("end_army_action")
+
 func get_army_amount(code):
 	var amount = -1
 	if code in ARMIES_AMOUNT.keys():
