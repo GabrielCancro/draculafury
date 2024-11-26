@@ -5,12 +5,18 @@ var xpos = -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ArmyManager.ArmyTrapNode = self
+	modulate.a = 0
 	yield(get_tree().create_timer(.5),"timeout")
-	set_trap()
+	update_trap()
+
+func unset_trap():
+	xpos = -1
+	Effector.disappear(self)
+	update_trap()
 
 func set_trap():
 	var arr = []
-	var xpos = -1
+	xpos = -1
 	randomize()
 	for i in range(EnemyManager.max_x_pos-2): arr.append(i+1)
 	arr.shuffle()
@@ -20,6 +26,8 @@ func set_trap():
 		if EnemyManager.get_enemy_in_pos(i,0): continue
 		if i == xpos: continue
 		xpos = i
+		Effector.appear(self)
+		break
 	update_trap()
 
 func update_trap():

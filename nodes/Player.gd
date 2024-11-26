@@ -16,6 +16,7 @@ var ANIMS = {
 	"stake":{"start":32,"end":34},
 	"kick":{"start":28,"end":30},
 	"breathe":{"start":2,"end":7},
+	"trap":{"start":0,"end":3,"speed":.15},
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():

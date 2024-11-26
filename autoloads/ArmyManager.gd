@@ -115,7 +115,6 @@ func _run_dynamite():
 
 func _condition_trap(): return true
 func _run_trap():
-	var fxdyn = preload("res://nodes/fx/fx_dynamite.tscn").instance()
 	get_node("/root/Game/ArmyTrapNode").set_trap()
 	yield(get_tree().create_timer(.7),"timeout")
 	emit_signal("end_army_action")
@@ -126,3 +125,10 @@ func get_army_amount(code):
 		amount = ARMIES_AMOUNT[code]
 		if code=="gun" and UpgradesManager.have_upgrade("charger"): amount*=2
 	return amount
+
+func check_enemy_in_trap(en):
+	if ArmyTrapNode.xpos == en.enemy_data.tile_pos_x:
+		en.enemy_damage(2)
+		ArmyTrapNode.unset_trap()
+		return true
+	return false
