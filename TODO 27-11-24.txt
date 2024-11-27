@@ -1,0 +1,18 @@
+FIXED
+   -Ver como hacer para mostrar que al ganar experiencia ganas puntos de equipamiento
+   -SOUNDS FALTANTES (dice extra, hit enemies, use item, level up)
+   -MUSIC TRANQUI PARA MENU
+   -ARMAS, AGREGAR TRAMPA (no en demo)
+   -AGREGAR, LATIGO (no en demo)
+   -ARTE DE LOS ITEMS
+   -IMPLEMENTAR ROTAR CINTURON AL FINALIZAR EL TURNO.
+
+TODO
+  -traduccion al ingles
+  -END GAME SCENE
+  -END DEMO
+  -FINAL BOSS
+  -HACK SKIP WAVES
+  -INTEGRAR ARTE (player, menu, boss final, armas nuevas)
+  
+
