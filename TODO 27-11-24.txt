@@ -8,10 +8,10 @@ FIXED
    -IMPLEMENTAR ROTAR CINTURON AL FINALIZAR EL TURNO.
 
 TODO
-  -traduccion al ingles
+  -TRADUCCION (ingles)
   -END GAME SCENE
-  -END DEMO
-  -FINAL BOSS
+  -END DEMO (solo en demo)
+  -FINAL BOSS (no en demo)
   -HACK SKIP WAVES
   -INTEGRAR ARTE (player, menu, boss final, armas nuevas)
   
