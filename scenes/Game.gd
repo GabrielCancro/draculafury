@@ -38,8 +38,10 @@ func _ready():
 	$CLUI/Hacks/ButtonScale3.connect("button_down",SizerManager,"rescale_ui",[.8])
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.7])
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
+	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
+	$CLUI/Hacks/ButtonRotateBelt.connect("button_down",get_node("/root/Game/CLUI/Belt"),"rotate_belt")
 	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")
 	
 	UpgradesManager.apply_upgrades()

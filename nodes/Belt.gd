@@ -44,3 +44,20 @@ func set_shadow_pawn(val=0):
 	$pawn2.visible = (val!=0)
 	var pos = (pawn_pos+val-1)%max_slots
 	$pawn2.rect_global_position = $HBox.get_child(pos).rect_global_position
+
+func rotate_belt():
+	var dist = $HBox/BeltSlot1.rect_size.x
+	$HBox.rect_global_position.x -= 70
+	$pawn.modulate.a = 0
+	var amounts = []
+	for i in range(max_slots): amounts.append($HBox.get_child(0).amount)
+	var a = amounts.pop_back()
+	amounts.push_front(a)
+	for i in range(max_slots): $HBox.get_child(0).amount = amounts[i]
+	var end = PlayerManager.PLAYER_ARMIES.pop_back()
+	PlayerManager.PLAYER_ARMIES.push_front(end)
+	update_belt()
+	Effector.move_to($HBox, $HBox.rect_global_position+Vector2(70,0))
+	yield(get_tree().create_timer(.5),"timeout")
+	$pawn.rect_global_position = $HBox.get_child(pawn_pos-1).rect_global_position
+	Effector.appear($pawn)
