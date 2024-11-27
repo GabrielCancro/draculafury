@@ -28,6 +28,7 @@ func set_data(_data,_xpos):
 	set_tile_pos(_xpos)
 	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
 	set_stoned_skin(true)
+	yield(get_tree().create_timer(.5),"timeout")
 	ArmyManager.check_enemy_in_trap(self)
 
 func set_tile_pos(_x):
