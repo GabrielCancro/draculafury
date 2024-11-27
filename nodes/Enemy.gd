@@ -60,7 +60,7 @@ func move(val = -enemy_data.mov):
 		else: set_tile_pos(enemy_data.tile_pos_x+sign(val))
 		Sounds.play_sound("move_enemy")
 		yield(get_tree().create_timer(.35),"timeout")
-	if ArmyManager.check_enemy_in_trap(self): yield(get_tree().create_timer(.7),"timeout")
+		if ArmyManager.check_enemy_in_trap(self): yield(get_tree().create_timer(.7),"timeout")
 	if try_attack(): yield(get_tree().create_timer(.7),"timeout")
 	yield(get_tree().create_timer(.2),"timeout")
 	emit_signal("end_move")

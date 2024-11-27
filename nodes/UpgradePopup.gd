@@ -39,6 +39,7 @@ func show_popup():
 func hide_popup():
 	$Button.modulate.a = 0
 	Effector.disappear(self,true)
+	#get_node("/root/Game/CLUI/HintPanelEnemy").rect_global_position.y = 670
 	emit_signal("on_hide_popup")
 
 func update_belt():
