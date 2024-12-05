@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=4]
 [ext_resource path="res://assets/shWavy.tres" type="Material" id=5]
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=6]
+[ext_resource path="res://nodes/CustomButton.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Shader" id=11]
 code = "shader_type canvas_item;
@@ -144,19 +145,42 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="btn1" type="Button" parent="."]
+[node name="btn_start" parent="." instance=ExtResource( 7 )]
+margin_top = 7.0
+margin_bottom = 107.0
+focus_mode = 0
+text = "Comenzar"
+
+[node name="btn_options" parent="." instance=ExtResource( 7 )]
+margin_top = 119.0
+margin_bottom = 219.0
+focus_mode = 0
+text = "Opciones"
+
+[node name="btn_quit" parent="." instance=ExtResource( 7 )]
+margin_top = 231.0
+margin_bottom = 331.0
+focus_mode = 0
+text = "Salir"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="btn1" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -180.0
-margin_top = 54.0
-margin_right = 180.0
-margin_bottom = 154.0
+margin_left = 600.0
+margin_top = 484.0
+margin_right = 960.0
+margin_bottom = 584.0
 focus_mode = 0
 flat = true
 
-[node name="TextureRect2" type="TextureRect" parent="btn1"]
+[node name="TextureRect2" type="TextureRect" parent="Control/btn1"]
 modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -164,7 +188,7 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="btn1"]
+[node name="Label" type="Label" parent="Control/btn1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
@@ -175,19 +199,19 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="btn2" type="Button" parent="."]
+[node name="btn2" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -180.0
-margin_top = 190.0
-margin_right = 180.0
-margin_bottom = 290.0
+margin_left = 600.0
+margin_top = 620.0
+margin_right = 960.0
+margin_bottom = 720.0
 focus_mode = 0
 flat = true
 
-[node name="TextureRect2" type="TextureRect" parent="btn2"]
+[node name="TextureRect2" type="TextureRect" parent="Control/btn2"]
 modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -195,7 +219,7 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="btn2"]
+[node name="Label" type="Label" parent="Control/btn2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
@@ -206,26 +230,56 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="btn3" type="Button" parent="."]
+[node name="btn4" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 600.0
+margin_top = 740.0
+margin_right = 960.0
+margin_bottom = 840.0
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="Control/btn4"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/btn4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 1 )
+text = "Opciones"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="btn3" type="Button" parent="Control"]
 modulate = Color( 1, 0.384314, 0.384314, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -777.0
-margin_top = 351.0
-margin_right = -458.0
-margin_bottom = 431.0
+margin_left = 3.0
+margin_top = 781.0
+margin_right = 322.0
+margin_bottom = 861.0
 flat = true
 
-[node name="TextureRect2" type="TextureRect" parent="btn3"]
+[node name="TextureRect2" type="TextureRect" parent="Control/btn3"]
 modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
 expand = true
 
-[node name="Label" type="Label" parent="btn3"]
+[node name="Label" type="Label" parent="Control/btn3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )

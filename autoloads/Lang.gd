@@ -1,8 +1,17 @@
 extends Node
 
 var lang = "es"
+signal change_language()
 
 var texts = {
+	"ui_back_es":"Volver",
+	"ui_options_es":"Opciones",
+	"ui_lang_option_es":"Idioma: Español",
+	"ui_clear_data_es":"Borrar datos",
+	"ui_quit_es":"Salir",
+	"ui_start_es":"Comenzar",
+	"ui_fullscreen_es":"Pantalla completa",
+	
 	"roll_dice_es": "Estar tirando un dado!!",
 	"army_breathe_name_es":"Respiro",
 	"army_kick_name_es":"Patada",
@@ -134,3 +143,5 @@ func get_text(code):
 func change_lang():
 	if lang=="en": lang = "es"
 	else: lang = "en"
+	SaveManager.savedData()
+	emit_signal("change_language")

@@ -48,6 +48,7 @@ SizerManager="*res://autoloads/SizerManager.gd"
 UpgradesManager="*res://autoloads/UpgradesManager.gd"
 SaveManager="*res://autoloads/SaveManager.gd"
 Sounds="*res://autoloads/Sounds.gd"
+PopupManager="*res://autoloads/PopupManager.gd"
 
 [display]
 
