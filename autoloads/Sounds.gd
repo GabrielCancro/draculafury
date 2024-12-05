@@ -2,12 +2,15 @@ extends Node
 
 var scene
 var song:AudioStreamPlayer
+var MUSICS = {
+	"game":preload("res://assets/sfx/song1.ogg"),
+	"menu":preload("res://assets/sfx/ambient.mp3")
+}
 
 
 func _ready():
 	song = AudioStreamPlayer.new()
 	add_child(song)
-	song.stream = preload("res://assets/sfx/song1.ogg")
 	song.volume_db = -15
 
 func set_audio_scene(_scene):
@@ -22,7 +25,8 @@ func play_sound(id):
 	yield(audio,"finished")
 	audio.queue_free()
 
-func play_music():
+func play_music(code):
+	song.stream = MUSICS[code]
 	song.play()
 	
 func stop_music():
@@ -32,3 +36,9 @@ func play_hit():
 	randomize()
 	var i = randi()%4+1
 	play_sound("hit"+str(i))
+
+func set_vol(val):
+	var db = (val-100)*0.33
+	var bus_index = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(bus_index, db )
+	AudioServer.set_bus_mute(bus_index, (val==0) )

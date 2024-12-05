@@ -9,10 +9,9 @@ func _ready():
 	$btn_h2.connect("button_down",self,"on_click",["lvldown"])
 	Lang.connect("change_language",self,"localizate")
 	localizate()
-	Sounds.stop_music()
+	Sounds.play_music("menu")
 
 func on_click(val):
-	Sounds.play_sound("button1")
 	if val=="start":
 		if SaveManager.savedData.level>1: Effector.change_scene_transition("Prestart")
 		else: Effector.change_scene_transition("Game")
@@ -25,7 +24,6 @@ func on_click(val):
 			SaveManager.savedData.level += 1
 			SaveManager.save_store_data()
 			localizate()
-	
 	elif val=="lvldown":
 		if SaveManager.savedData.level>1: 
 			SaveManager.savedData.level -= 1

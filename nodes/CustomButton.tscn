@@ -20,6 +20,7 @@ margin_top = 294.0
 margin_right = 180.0
 margin_bottom = 394.0
 rect_pivot_offset = Vector2( 180, 50 )
+focus_mode = 0
 text = "CustomButton"
 flat = true
 script = ExtResource( 3 )
@@ -31,7 +32,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
-stretch_mode = 5
+stretch_mode = 1
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0

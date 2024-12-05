@@ -7,7 +7,6 @@ var wbase = [1100,1300,1500]
 func _ready():
 	#for i in range(wbase.size()): wbase[i] *= .5
 	get_tree().root.connect("size_changed", self, "rescale_ui")
-	get_tree().root.connect("size_changed", self, "update_res_label")
 	rescale_ui()
 
 func rescale_ui(forced=null):

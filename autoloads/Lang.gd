@@ -143,5 +143,5 @@ func get_text(code):
 func change_lang():
 	if lang=="en": lang = "es"
 	else: lang = "en"
-	SaveManager.savedData()
+	SaveManager.save_store_data()
 	emit_signal("change_language")

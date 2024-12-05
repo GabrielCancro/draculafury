@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=3]
 [ext_resource path="res://nodes/UpgradePopup.gd" type="Script" id=4]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=5]
-[ext_resource path="res://assets/armies.png" type="Texture" id=6]
+[ext_resource path="res://assets/armies/arm_gun.png" type="Texture" id=6]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -219,7 +219,6 @@ expand = true
 position = Vector2( 305, 94 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
-hframes = 8
 
 [node name="lb_amount" type="Label" parent="NewArmyPanel"]
 margin_left = 278.0

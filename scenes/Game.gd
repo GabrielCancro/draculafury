@@ -41,6 +41,7 @@ func _ready():
 	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
+	$CLUI/Hacks/ButtonOptions.connect("button_down",PopupManager,"show_popup",["options"])
 	$CLUI/Hacks/ButtonRotateBelt.connect("button_down",get_node("/root/Game/CLUI/Belt"),"rotate_belt")
 	$CLUI/TutorialPopup.connect("skip_tutorial",self,"on_skip_tutorial")
 	
@@ -49,7 +50,7 @@ func _ready():
 	tutorial_sequence()
 	
 	yield(get_tree().create_timer(1.5),"timeout")
-	Sounds.play_music()
+	Sounds.play_music("game")
 
 func change_state(new_state):
 	current_state = new_state

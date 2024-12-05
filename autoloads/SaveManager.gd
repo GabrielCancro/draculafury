@@ -12,6 +12,7 @@ func normalize_saved_data():
 	_default("language","en")
 	_default("level",1)
 	_default("fullscreen",true)
+	_default("master_vol",100)
 	save_store_data()
 
 func _default(key,val):
@@ -27,7 +28,9 @@ func save_store_data():
 	print("SAVE ",savedData)
 
 func load_store_data():    
-	if demo: return 
+	if demo: 
+		normalize_saved_data()
+		return 
 	var file = File.new()
 	file.open(fileName, File.READ)
 	var loaded_data = str2var(file.get_as_text())
