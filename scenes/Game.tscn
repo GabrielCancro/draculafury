@@ -242,6 +242,7 @@ margin_right = -8.0
 margin_bottom = 217.0
 
 [node name="Hacks" type="Control" parent="CLUI"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 

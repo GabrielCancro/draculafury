@@ -128,7 +128,9 @@ func get_army_amount(code):
 
 func check_enemy_in_trap(en):
 	if ArmyTrapNode.xpos == en.enemy_data.tile_pos_x:
-		en.enemy_damage(2)
+		yield(get_tree().create_timer(.2),"timeout")
+		Sounds.play_sound("army_crossbow")
 		ArmyTrapNode.unset_trap()
+		en.enemy_damage(2)
 		return true
 	return false

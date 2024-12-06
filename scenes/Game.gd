@@ -22,6 +22,7 @@ func _ready():
 	$CLUI/UpgradePopup.connect("on_hide_popup",$CLUI/Belt,"update_belt")
 	#$CLBG/background.texture = load("res://assets/backgrounds/bg"+str(LevelManager.current_level)+".jpg")
 	
+	$CLUI/Hacks.visible = false
 	$CLUI/ButtonHacks.connect("button_down",self,"on_button_hacks")
 	$CLUI/Hacks/ButtonAddEnemy.connect("button_down",get_node("/root/Game/CLUI/WaveUI"),"advance_wave")
 	$CLUI/Hacks/ButtonAddDice.connect("button_down",$CLUI/DiceSet,"add_extra_dice")

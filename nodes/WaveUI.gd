@@ -12,6 +12,7 @@ signal end_wave_anim()
 
 var WAVE = []
 var ALL_WAVES = [
+	["1*dracula",null,"1*vampire",null,"1*vampire"],
 	["1*vampire",null,"1*vampire",null,"1*vampire"],  #1
 	["2*vampire",null,null,"2*bat"],
 	["1*bat",null,"1*bat","1*vampire",null,"2*bat"],

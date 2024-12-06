@@ -28,11 +28,6 @@ func set_data(_data,_xpos):
 	set_tile_pos(_xpos)
 	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
 	set_stoned_skin(true)
-	check_start_enemy_trap()
-
-func check_start_enemy_trap():
-	if !is_instance_valid(self): return
-	
 
 func set_tile_pos(_x):
 	enemy_data["tile_pos_x"] = _x 
@@ -66,17 +61,20 @@ func move(val = -enemy_data.mov):
 		Sounds.play_sound("move_enemy")
 		#yield(get_tree().create_timer(.35),"timeout")
 		#if ArmyManager.check_enemy_in_trap(self): yield(get_tree().create_timer(.7),"timeout")
-	if try_attack(): yield(get_tree().create_timer(.7),"timeout")
+	if can_attack(): 
+		yield(get_tree().create_timer(.3),"timeout")
+		attack_player()
+		yield(get_tree().create_timer(.6),"timeout")
 	yield(get_tree().create_timer(.2),"timeout")
 	emit_signal("end_move")
 
-func try_attack():
-	if enemy_data.tile_pos_x < enemy_data.ran:
-		Effector.move_to_yoyo(self,Vector2(-60,0))
-		yield(get_tree().create_timer(.2),"timeout")
-		PlayerManager.damage(enemy_data.dam)
-		return true
-	else: return false
+func can_attack():
+	return (enemy_data.tile_pos_x < enemy_data.ran)
+
+func attack_player():
+	Effector.move_to_yoyo($Sprite,Vector2(-60,0))
+	yield(get_tree().create_timer(.2),"timeout")
+	PlayerManager.damage(enemy_data.dam)
 
 func enemy_damage(dam):
 	if set_stoned_skin(false): return

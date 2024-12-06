@@ -53,7 +53,8 @@ func scale_boom(node):
 
 func damage_fx(node,dam):
 	show_damage_text(dam,node.position+Vector2(0,-150))
-	shake(node)
+	var spr = get_node_or_null("Sprite")
+	if spr: shake(spr)
 	tween.interpolate_property(node,"modulate",Color(1,0,0,1),Color(1,1,1,1),.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.interpolate_property(node,"scale",Vector2(1.3,1.3),Vector2(1,1),.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
