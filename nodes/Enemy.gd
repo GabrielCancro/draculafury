@@ -83,6 +83,7 @@ func enemy_damage(dam):
 	$Label.text = str(enemy_data.hp)
 	Effector.damage_fx(self,dam)
 	if enemy_data.hp<=0:
+		resurrection_dracula()
 		Effector.disappear(self)
 		yield(get_tree().create_timer(.5),"timeout")
 		EnemyManager.ENEMIES_ACTIVES.erase(self)
@@ -113,3 +114,11 @@ func set_stoned_skin(val):
 
 func has_ability_by_percent(ab_code,percent=100):
 	return ("ability" in enemy_data && enemy_data.ability==ab_code && randi()%100<=percent)
+
+func resurrection_dracula():
+	if enemy_data.name != "dracula": return
+	var nd = preload("res://nodes/fx/DraculaFly.tscn").instance()
+	nd.global_position = global_position
+	get_node("/root/Game").add_child(nd)
+	yield(get_tree().create_timer(.7),"timeout")
+	get_node("/root/Game/CLUI/WaveUI").add_dracula_to_wave()

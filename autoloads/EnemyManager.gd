@@ -9,7 +9,7 @@ var ENEMIES = {
 	"wolf":{"hp":2,"mov":2,"dam":1, "ran":1,"fly":false},
 	"awolf":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":false,"ability":"wolf_herd"},
 	"gargoyle":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":true,"ability":"stone_skin"},
-	"dracula":{"hp":10,"mov":1,"dam":2, "ran":1,"fly":false},
+	"dracula":{"hp":1,"mov":1,"dam":1, "ran":1,"fly":false},
 }
 
 func _ready(): initialize_data()

@@ -50,6 +50,11 @@ func advance_wave():
 	$Tween.start()
 	yield(get_tree().create_timer(.3),"timeout")
 	
+	if slot_info.enemy && slot_info.enemy=="dracula": 
+		var draculapopup = get_node("/root/Game/CLUI/DraculaPopup")
+		draculapopup.show_popup()
+		yield(draculapopup,"close_popup")
+	
 	if slot_info.enemy:
 		for i in range(slot_info.amount):
 			yield(get_tree().create_timer(.3),"timeout")
@@ -137,3 +142,12 @@ func change_bg(code):
 		Effector.fade_yoyo(bgnode)
 		yield(get_tree().create_timer(.25),"timeout")
 		bgnode.texture = load("res://assets/backgrounds/bg_"+code+".jpg")
+
+func add_dracula_to_wave():
+	if WAVE.size()<=2:
+		WAVE.append("1*dracula")
+		add_slot("1*dracula")
+	else:
+		WAVE[2] = "1*dracula"
+		var sl = $Grid.get_child(2)
+		sl.set_data("dracula",1)
