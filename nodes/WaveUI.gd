@@ -12,7 +12,6 @@ signal end_wave_anim()
 
 var WAVE = []
 var ALL_WAVES = [
-	["1*dracula",null,"1*vampire",null,"1*vampire"],
 	["1*vampire",null,"1*vampire",null,"1*vampire"],  #1
 	["2*vampire",null,null,"2*bat"],
 	["1*bat",null,"1*bat","1*vampire",null,"2*bat"],
@@ -25,17 +24,19 @@ var ALL_WAVES = [
 	["1*vampire",null,"2*wolf","1*bat","1*vampire"],
 	["1*vampire","1*wolf",null,"1*awolf",null,"1*bat"],
 	["3*wolf",null,null,"2*wolf",null,null,null,"3*wolf"],#12
+	["1*dracula",null,"1*vampire",null], #final
 ]
 
 func _ready():
 	$lb_wave.text = ""
 	Effector.remove_all_children($Grid)
+	if EnemyManager.forced_dracula_wave: wave_index = ALL_WAVES.size()-1
 
 func next_wave():
 	wave_index += 1
 	check_bg()
 	WAVE = ALL_WAVES[wave_index-1].duplicate()
-	$lb_wave.text = "WAVE\n"+str(wave_index)+"/"+str(ALL_WAVES.size()+wave_index)
+	$lb_wave.text = "WAVE\n"+str(wave_index)+"/"+str(ALL_WAVES.size())
 	Effector.remove_all_children($Grid)
 	yield(get_tree().create_timer(.5),"timeout")
 	for i in range(max_slots): add_slot(WAVE[i])
@@ -49,11 +50,6 @@ func advance_wave():
 	$Tween.interpolate_property(sl,"rect_position",null,sl.rect_position+Vector2(10,55),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	$Tween.start()
 	yield(get_tree().create_timer(.3),"timeout")
-	
-	if slot_info.enemy && slot_info.enemy=="dracula": 
-		var draculapopup = get_node("/root/Game/CLUI/DraculaPopup")
-		draculapopup.show_popup()
-		yield(draculapopup,"close_popup")
 	
 	if slot_info.enemy:
 		for i in range(slot_info.amount):
@@ -81,6 +77,7 @@ func advance_wave():
 		$Tween.interpolate_property(sl,"modulate:a",null,0,.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 		$Tween.start()
 		WAVE.remove(0)
+		add_dracula_enemies()
 		yield(get_tree().create_timer(.6),"timeout")
 		if is_instance_valid(sl):
 			$Grid.remove_child(sl)
@@ -144,10 +141,13 @@ func change_bg(code):
 		bgnode.texture = load("res://assets/backgrounds/bg_"+code+".jpg")
 
 func add_dracula_to_wave():
-	if WAVE.size()<=2:
-		WAVE.append("1*dracula")
-		add_slot("1*dracula")
-	else:
-		WAVE[2] = "1*dracula"
-		var sl = $Grid.get_child(2)
-		sl.set_data("dracula",1)
+	WAVE.append("1*dracula")
+
+func add_dracula_enemies():
+	if wave_index < ALL_WAVES.size()-1: return
+	if WAVE[WAVE.size()-1]==null: 
+		randomize()
+		var arr = ["1*vampire","1*bat","1*wolf","2*bat","2*vampire"]
+		arr.shuffle()
+		WAVE.append(arr.pop_back())
+	else: WAVE.append(null)

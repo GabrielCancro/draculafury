@@ -148,19 +148,23 @@ autowrap = true
 [node name="btn_start" parent="." instance=ExtResource( 7 )]
 margin_top = 7.0
 margin_bottom = 107.0
-focus_mode = 0
 text = "Comenzar"
+
+[node name="btn_dracula" parent="." instance=ExtResource( 7 )]
+margin_left = 408.0
+margin_top = 229.0
+margin_right = 768.0
+margin_bottom = 329.0
+text = "DRACULA FIGHT"
 
 [node name="btn_options" parent="." instance=ExtResource( 7 )]
 margin_top = 119.0
 margin_bottom = 219.0
-focus_mode = 0
 text = "Opciones"
 
 [node name="btn_quit" parent="." instance=ExtResource( 7 )]
 margin_top = 231.0
 margin_bottom = 331.0
-focus_mode = 0
 text = "Salir"
 
 [node name="Control" type="Control" parent="."]

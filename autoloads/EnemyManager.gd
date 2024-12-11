@@ -3,18 +3,23 @@ extends Node
 var ENEMIES_ACTIVES = []
 var max_x_pos = 6
 var end_x_pos = 500
+var dracula_skills = ["redmoon","horde","shield","beast"]
+var dracula_resurrections = 0
+var forced_dracula_wave = false
 var ENEMIES = {
 	"vampire":{"hp":3,"mov":1,"dam":1, "ran":1,"fly":false,"ability":"extra_mov"},
 	"bat":{"hp":3,"mov":2,"dam":1, "ran":1,"fly":true},
 	"wolf":{"hp":2,"mov":2,"dam":1, "ran":1,"fly":false},
 	"awolf":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":false,"ability":"wolf_herd"},
 	"gargoyle":{"hp":4,"mov":1,"dam":2, "ran":1,"fly":true,"ability":"stone_skin"},
-	"dracula":{"hp":1,"mov":1,"dam":1, "ran":1,"fly":false},
+	"dracula":{"hp":10,"mov":2,"dam":2, "ran":1,"fly":false},
 }
 
 func _ready(): initialize_data()
 
 func initialize_data():
+	dracula_skills.shuffle()
+	dracula_resurrections = 0
 	ENEMIES_ACTIVES = []
 
 func get_enemy_data(code):
@@ -28,7 +33,7 @@ func add_enemy(code):
 	var _ypos = 0
 	if data.fly: _ypos = 1
 	var _xpos = get_rnd_free_xpos(_ypos)
-	if code=="awolf":
+	if code=="awolf" || code=="dracula":
 		if !get_enemy_in_pos(5,0): _xpos = 5
 		else: _xpos = -1
 	if _xpos!=-1:
@@ -124,3 +129,23 @@ func have_close_enemy(ran=max_x_pos+1,forced_y=-1):
 func force_move_enemy():
 	for en in re_ordered_enemies_array():
 		en.move()
+
+func apply_dracula_skill(dnode):
+	var skill = dracula_skills[dracula_resurrections]
+	if skill=="redmoon":
+		for en in ENEMIES_ACTIVES: en.enemy_data.dam += 1
+	elif skill=="horde":
+		yield(get_tree().create_timer(.5),"timeout")
+		add_enemy("vampire")
+		add_enemy("vampire")
+		add_enemy("vampire")
+	elif skill=="shield":
+		dnode.enemy_data["ability"] = "stone_skin"
+	elif skill=="beast":
+		dnode.enemy_data.hp = 5
+		dnode.enemy_data.dam = 3
+		dnode.enemy_data.mov = 3
+		dnode.enemy_data.fly = true
+		dnode.set_tile_pos(dnode.enemy_data["tile_pos_x"])
+func get_dracula_skill():
+	return dracula_skills[dracula_resurrections]

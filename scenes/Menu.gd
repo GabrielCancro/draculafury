@@ -7,12 +7,14 @@ func _ready():
 	$btn_quit.connect("button_down",self,"on_click",["quit"])
 	$btn_h1.connect("button_down",self,"on_click",["lvlup"])
 	$btn_h2.connect("button_down",self,"on_click",["lvldown"])
+	$btn_dracula.connect("button_down",self,"on_click",["dracula"])
 	Lang.connect("change_language",self,"localizate")
 	localizate()
 	Sounds.play_music("menu")
 
 func on_click(val):
 	if val=="start":
+		EnemyManager.forced_dracula_wave = false
 		if SaveManager.savedData.level>1: Effector.change_scene_transition("Prestart")
 		else: Effector.change_scene_transition("Game")
 	elif val=="options":
@@ -29,6 +31,10 @@ func on_click(val):
 			SaveManager.savedData.level -= 1
 			SaveManager.save_store_data()
 			localizate()
+	elif val=="dracula":
+		EnemyManager.forced_dracula_wave = true
+		if SaveManager.savedData.level>1: Effector.change_scene_transition("Prestart")
+		else: Effector.change_scene_transition("Game")
 
 func localizate():
 	$btn_start.text = Lang.get_text("ui_start")

@@ -27,6 +27,8 @@ func set_data(_data,_xpos):
 	position = Vector2(1300,600)
 	set_tile_pos(_xpos)
 	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
+	if enemy_data.name=="dracula": EnemyManager.apply_dracula_skill(self)
+	if EnemyManager.get_dracula_skill()=="redmoon": enemy_data.dam += 1
 	set_stoned_skin(true)
 
 func set_tile_pos(_x):
@@ -121,4 +123,5 @@ func resurrection_dracula():
 	nd.global_position = global_position
 	get_node("/root/Game").add_child(nd)
 	yield(get_tree().create_timer(.7),"timeout")
+	EnemyManager.dracula_resurrections += 1
 	get_node("/root/Game/CLUI/WaveUI").add_dracula_to_wave()

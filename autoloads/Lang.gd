@@ -55,10 +55,17 @@ var texts = {
 	"en_awolf_desc_es":"El lobo lider ganó su puesto por algo.",
 	"en_gargoyle_name_es":"Gargola",
 	"en_gargoyle_desc_es":"Rocosa criatura alada.",
+	"en_dracula_name_es":"Dracula",
+	"en_dracula_desc_es":"El señor de las bestias esta aquí.",
 	
 	"en_ab_extra_mov_desc_es":"Movimiento Extra: tiene 30% de posibilidad de avanzar un casillero extra en su turno.",
 	"en_ab_stone_skin_desc_es":"Piel Petrea: su dura piel absorbe todo el daño del primer ataque recibido en cada turno.",
 	"en_ab_wolf_herd_desc_es":"Manada de lobos: en cada turno tiene 50% de probabilidad de convocar a otro lobo.",
+	
+	"en_dracula_skill_redmoon_es":"Luna Roja: todos los enemigos hacen más daño.",
+	"en_dracula_skill_horde_es":"Horda: aparecen hasta tres vampiros más.",
+	"en_dracula_skill_shield_es":"Escudo: Tiene un escudo como la gárgola.",
+	"en_dracula_skill_beast_es":"Forma de bestia: Volador. Ataque 5, Movimiento 5, Vida 5",
 	
 	"it_crucifix_name_es":"Crucifijo",
 	"it_crucifix_desc_es":"Todos los enemigos reciben un punto de daño.",
@@ -107,7 +114,6 @@ var texts = {
 	"upg_charger_desc_es":"Las pistolas tienen el doble de municiones.",
 	"upg_silverbullets_name_es":"Balas de plata",
 	"upg_silverbullets_desc_es":"Las pistolas tienen 50% de hacer el doble de daño.",
-	
 	
 	
 	"tuto_welcome_es":"Bienvenido Cazador,\nTe estabamos esperando. Drácula ha despertado y sus criaturas rondan por todos lados, no perdamos el tiempo!",

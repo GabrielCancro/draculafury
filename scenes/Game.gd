@@ -10,6 +10,7 @@ signal end_tuto_sequence
 
 func _ready():
 	set_floor_marks()
+	if EnemyManager.forced_dracula_wave: skip_tutorial = true
 	EnemyManager.initialize_data()
 	PlayerManager.initialize_data()
 	ItemManager.initialize_data()

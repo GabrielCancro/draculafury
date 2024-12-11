@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg_forest.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://nodes/WinPopup.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=19]
 [ext_resource path="res://nodes/ArmyTrapNode.tscn" type="PackedScene" id=20]
-[ext_resource path="res://nodes/DraculaPopup.tscn" type="PackedScene" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -436,9 +435,6 @@ margin_bottom = 475.0
 visible = false
 
 [node name="WinPopup" parent="CLUI" instance=ExtResource( 18 )]
-visible = false
-
-[node name="DraculaPopup" parent="CLUI" instance=ExtResource( 21 )]
 visible = false
 
 [node name="TutorialBlocker" type="ColorRect" parent="CLUI"]
