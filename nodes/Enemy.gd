@@ -30,6 +30,7 @@ func set_data(_data,_xpos):
 	if enemy_data.name=="dracula": EnemyManager.apply_dracula_skill(self)
 	if EnemyManager.get_dracula_skill()=="redmoon": enemy_data.dam += 1
 	set_stoned_skin(true)
+	ArmyManager.check_enemy_in_trap(self)
 
 func set_tile_pos(_x):
 	enemy_data["tile_pos_x"] = _x 
@@ -40,7 +41,6 @@ func set_tile_pos(_x):
 	var nx = EnemyManager.end_x_pos + (step_size*enemy_data.tile_pos_x)
 	var ny = floor_y + ( enemy_data.tile_pos_y * fly_y )
 	Effector.move_to(self,Vector2(nx,ny))
-	ArmyManager.check_enemy_in_trap(self)
 
 func move(val = -enemy_data.mov):
 	yield(get_tree().create_timer(.35),"timeout")
@@ -61,8 +61,8 @@ func move(val = -enemy_data.mov):
 		if swap_en: EnemyManager.swap_enemies(self,swap_en)
 		else: set_tile_pos(enemy_data.tile_pos_x+sign(val))
 		Sounds.play_sound("move_enemy")
-		#yield(get_tree().create_timer(.35),"timeout")
-		#if ArmyManager.check_enemy_in_trap(self): yield(get_tree().create_timer(.7),"timeout")
+		yield(get_tree().create_timer(.35),"timeout")
+		if ArmyManager.check_enemy_in_trap(self): yield(get_tree().create_timer(.7),"timeout")
 	if can_attack(): 
 		yield(get_tree().create_timer(.3),"timeout")
 		attack_player()
