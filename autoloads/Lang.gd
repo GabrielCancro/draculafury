@@ -21,6 +21,7 @@ var texts = {
 	"army_crossbow_name_es":"Ballesta",
 	"army_stake_name_es":"Estaca",
 	"army_dynamite_name_es":"Dinamita",
+	"army_trap_name_es":"Trampa",
 
 	"army_breathe_desc_es":"Recupera un punto de salud. No puede usarse si hay un enemigo cerca.",
 	"army_kick_desc_es":"Alcance 2, Daño 2, y empuja hacia atrás al enemigo.",
@@ -30,6 +31,7 @@ var texts = {
 	"army_crossbow_desc_es":"Largo alcance, Daño 2, al primer enemigo que esté volando. Si no hay voladores, 1 daño al primer enemigo.",
 	"army_stake_desc_es":"Largo alcance, Daño 3, primer enemigo, incluso si esta volando.",
 	"army_dynamite_desc_es":"Daño en area, Daño 2, a todos los enemigos, incluso voladores.",
+	"army_trap_desc_es":"Daño 2, coloca una trampa en el suelo en una casilla vacia, quien la pise recive el daño.",
 	
 	"ui_end_wave_es":"Fin de Oleada!",
 	"ui_upg_new_army_es":"Elige un espacio de tu cinturon para sustituirlo y colocar tu arma nueva.",

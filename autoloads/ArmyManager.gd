@@ -2,20 +2,30 @@ extends Node
 
 signal end_army_action()
 
-var ARMIES = ["breathe","kick","rapier","gun","shotgun","crossbow","stake","dynamite"]
-var ARMIES_AMOUNT = {"gun":3,"shotgun":2,"crossbow":3,"stake":1,"dynamite":1}
+var ARMIES = {
+	"breathe":{"tags":["area","ability","example"]},
+	"kick":{},
+	"rapier":{},
+	"gun":{"amount":3},
+	"shotgun":{"amount":2},
+	"crossbow":{"amount":3},
+	"stake":{},
+	"dynamite":{},
+	"trap":{},
+}
+
 var PLAYER
 var ArmyTrapNode
 
 func get_army_data(code):
-	var army_data = {"name":code,"amount":-1}
-	if code in ARMIES_AMOUNT: army_data.amount = ARMIES_AMOUNT[code]
+	var army_data = ARMIES[code].duplicate()
+	army_data["name"] = code
 	return army_data
 
 func get_random_army():
 	randomize()
-	var i = randi()%ARMIES.size()
-	return ARMIES[i]
+	var i = randi()%ARMIES.keys().size()
+	return ARMIES.keys()[i]
 
 func run_army_action(code):
 	#Effector.show_float_text(code)
@@ -120,10 +130,9 @@ func _run_trap():
 	emit_signal("end_army_action")
 
 func get_army_amount(code):
-	var amount = -1
-	if code in ARMIES_AMOUNT.keys():
-		amount = ARMIES_AMOUNT[code]
-		if code=="gun" and UpgradesManager.have_upgrade("charger"): amount*=2
+	if !"amount" in ARMIES[code]: return null
+	var amount = ARMIES[code]["amount"]
+	if code=="gun" and UpgradesManager.have_upgrade("charger"): amount*=2
 	return amount
 
 func check_enemy_in_trap(en):

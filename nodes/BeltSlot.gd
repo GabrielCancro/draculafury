@@ -18,10 +18,12 @@ func set_army(code):
 		hint_data.code = "army_"+code
 		$Sprite.texture = load("res://assets/armies/arm_"+code+".png")
 		$Sprite.visible = true
-		if amount==null: amount = ArmyManager.get_army_amount(army)
+		var max_amount = ArmyManager.get_army_amount(army)
+		if max_amount==null: amount = null
+		if max_amount!=null && amount==null: amount = max_amount
 		$lb_amount.text = "x"+str(amount)
-		$lb_amount.visible = (amount!=-1)
-		$panel_reload.visible = (amount==0)
+		$lb_amount.visible = (max_amount!=null)
+		$panel_reload.visible = (max_amount!=null && amount==0)
 	else:
 		hint_data.code = "army_none"
 		$Sprite.visible = false
@@ -37,7 +39,7 @@ func set_lighted(val):
 		 Effector.disappear($bgselected)
 
 func reduce_amount():
-	if amount==-1: return true
+	if amount==null: return true
 	if amount > 0: 
 		amount -= 1
 		$lb_amount.text = "x"+str(amount)

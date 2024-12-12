@@ -23,10 +23,11 @@ func show_popup():
 	new_army_data = ArmyManager.get_army_data(new_army)
 	$NewArmyPanel.modulate.a = 0
 	$NewArmyPanel/lb_name.text = Lang.get_text("army_"+new_army_data.name+"_name")
-	$NewArmyPanel/lb_amount.text = ""
-	if new_army_data.amount>0: $NewArmyPanel/lb_amount.text = "x"+str(new_army_data.amount)
+	var max_amount = ArmyManager.get_army_amount(new_army_data.name)
+	if max_amount!=null: $NewArmyPanel/lb_amount.text = "x"+str(max_amount)
+	else: $NewArmyPanel/lb_amount.text = ""
 	$NewArmyPanel/lb_desc.text = Lang.get_text("army_"+new_army_data.name+"_desc")
-	$NewArmyPanel/Sprite.frame = ArmyManager.ARMIES.find(new_army_data.name)
+	$NewArmyPanel/Sprite.texture = load("res://assets/armies/arm_"+new_army_data.name+".png")
 #	if PlayerManager.PLAYER_ARMIES.size()<8:
 #		var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
 #		bs.set_army(null)
@@ -68,7 +69,7 @@ func on_click_belt_slot(belt_slot):
 func get_random_new_army():
 	var armies = []
 	var wave_index = get_node("/root/Game/CLUI/WaveUI").wave_index
-	for army in ArmyManager.ARMIES:
+	for army in ArmyManager.ARMIES.keys():
 		if PlayerManager.PLAYER_ARMIES.find(army)!=-1: continue
 		if army=="stake" && wave_index<=2: continue
 		if army=="dynamite" && wave_index<=2: continue
