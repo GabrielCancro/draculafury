@@ -6,14 +6,14 @@ signal end_army_action()
 # TAGS ammunition enlist exhaustible restricted
 var ARMIES = {
 	"breathe":{"tags":["ability"]},
-	"kick":{"tags":["damage","shortrange"],"damage":"2"},
-	"rapier":{"tags":["damage","shortrange","multitarget"],"damage":"2/1"},
-	"gun":{"tags":["damage","largerange","ammunition"],"damage":"1", "amount":3},
-	"shotgun":{"tags":["damage","largerange","multitarget","ammunition"],"damage":"2/1", "amount":2},
-	"crossbow":{"tags":["damage","largerange","ammunition"],"damage":"2", "amount":3},
-	"stake":{"tags":["damage","largerange","exhaustible"],"damage":"3"},
-	"dynamite":{"tags":["damage","largerange","multitarget","exhaustible"],"damage":"2"},
-	"trap":{"tags":["damage","restricted"],"damage":"2"},
+	"kick":{"tags":["damage","shortrange"],"damage":"6"},
+	"rapier":{"tags":["damage","shortrange","multitarget"],"damage":"6/3"},
+	"gun":{"tags":["damage","ammunition"],"damage":"3", "amount":3},
+	"shotgun":{"tags":["damage","multitarget","ammunition"],"damage":"6/3", "amount":2},
+	"crossbow":{"tags":["damage","largerange","ammunition"],"damage":"6", "amount":3},
+	"stake":{"tags":["damage","exhaustible"],"damage":"8"},
+	"dynamite":{"tags":["damage","multitarget","exhaustible"],"damage":"6"},
+	"trap":{"tags":["damage","restricted"],"damage":"6"},
 }
 
 var PLAYER
