@@ -11,7 +11,12 @@ func show_hint(hint_data):
 	if "amount" in army_data && army_data.amount>0: $lb_amount.text = "x"+str(army_data.amount)
 	$lb_desc.text = Lang.get_text("army_"+army_data.name+"_desc")
 	$lb_tags.text = ""
-	if "tags" in army_data: for tag in army_data.tags: $lb_tags.text += "<"+tag+"> "
+	if "tags" in army_data: 
+		for tag in army_data.tags: 
+			$lb_tags.text += "<"+tag
+			if tag=="damage": $lb_tags.text += "*"+str(army_data.damage)
+			if tag=="ammunition": $lb_tags.text += "x"+str(army_data.amount)
+			$lb_tags.text += "> "
 	#$Sprite.frame = ArmyManager.ARMIES.find(army_data.name)
 #	if "rect_global_position" in hint_data.owner: 
 #		rect_global_position.y = hint_data.owner.rect_global_position.y - 300

@@ -2,16 +2,18 @@ extends Node
 
 signal end_army_action()
 
+# TAGS ability damage largerange shortrange multitarget 
+# TAGS ammunition enlist exhaustible restricted
 var ARMIES = {
-	"breathe":{"tags":["area","ability","example"]},
-	"kick":{},
-	"rapier":{},
-	"gun":{"amount":3},
-	"shotgun":{"amount":2},
-	"crossbow":{"amount":3},
-	"stake":{},
-	"dynamite":{},
-	"trap":{},
+	"breathe":{"tags":["ability"]},
+	"kick":{"tags":["damage","shortrange"],"damage":"2"},
+	"rapier":{"tags":["damage","shortrange","multitarget"],"damage":"2/1"},
+	"gun":{"tags":["damage","largerange","ammunition"],"damage":"1", "amount":3},
+	"shotgun":{"tags":["damage","largerange","multitarget","ammunition"],"damage":"2/1", "amount":2},
+	"crossbow":{"tags":["damage","largerange","ammunition"],"damage":"2", "amount":3},
+	"stake":{"tags":["damage","largerange","exhaustible"],"damage":"3"},
+	"dynamite":{"tags":["damage","largerange","multitarget","exhaustible"],"damage":"2"},
+	"trap":{"tags":["damage","restricted"],"damage":"2"},
 }
 
 var PLAYER
@@ -143,3 +145,8 @@ func check_enemy_in_trap(en):
 		en.enemy_damage(2)
 		return true
 	return false
+
+func have_tag(code,tag):
+	if !"tags" in ARMIES[code]: return false
+	if !tag in ARMIES[code]["tags"]: return false
+	return true
