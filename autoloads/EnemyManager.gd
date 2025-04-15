@@ -2,7 +2,7 @@ extends Node
 
 var ENEMIES_ACTIVES = []
 var max_x_pos = 6
-var end_x_pos = 500
+var end_x_pos = 700
 var dracula_skills = ["redmoon","horde","shield","beast"]
 var dracula_resurrections = 0
 var forced_dracula_wave = false

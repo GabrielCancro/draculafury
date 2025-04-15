@@ -22,8 +22,8 @@ func play_sound(id):
 	audio.stream = load("res://assets/sfx/"+id+".ogg")
 	if !audio.stream: Effector.show_float_text("NO SOUND "+id)
 	audio.play()
-	yield(audio,"finished")
-	audio.queue_free()
+	audio.connect("finished",audio,"queue_free")
+	return audio
 
 func play_music(code):
 	song.stream = MUSICS[code]

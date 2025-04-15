@@ -1,7 +1,7 @@
 extends Node2D
 
 var enemy_data
-var floor_y = 670
+var floor_y = 760
 var fly_y = -220
 var fly_ttl = 0
 var step_size
@@ -21,10 +21,10 @@ func _process(delta):
 		$Sprite.position.y = sin(fly_ttl)*10
 
 func set_data(_data,_xpos):
-	step_size = (1600 - EnemyManager.end_x_pos)/EnemyManager.max_x_pos
+	step_size = (1920 - EnemyManager.end_x_pos)/EnemyManager.max_x_pos
 	enemy_data = _data
 	$Label.text = str(enemy_data.hp)
-	position = Vector2(1300,600)
+	position = Vector2(1500,floor_y)
 	set_tile_pos(_xpos)
 	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
 	if enemy_data.name=="dracula": EnemyManager.apply_dracula_skill(self)

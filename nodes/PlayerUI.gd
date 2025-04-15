@@ -16,6 +16,7 @@ func update_stats(ps):
 	$Tween.remove_all()
 	$Tween.interpolate_property($HPBar,"value",null,ps.hp*100,.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	$Tween.interpolate_property($XPBar,"value",null,ps.xp*100,.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	if $HPBar.value != ps.hp*100: Effector.scale_boom($HeartImg)
 	$Tween.start()
 #	for xp in $XPHBox.get_children():
 #		if(xp.get_index()<ps.xp): xp.modulate = Color(1,1,1,1)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pkintro_nomovie.jpg-daf8dc77579b4e7d334291cad5a9ed79.stex"
+path="res://.import/5.png-5a3928c7c59a6bbeb5563e63c5337c6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/movies/pkintro_nomovie.jpg"
-dest_files=[ "res://.import/pkintro_nomovie.jpg-daf8dc77579b4e7d334291cad5a9ed79.stex" ]
+source_file="res://assets/splash/5.png"
+dest_files=[ "res://.import/5.png-5a3928c7c59a6bbeb5563e63c5337c6f.stex" ]
 
 [params]
 

@@ -5,7 +5,7 @@
 
 [node name="DiceSet" type="Control"]
 margin_right = 553.0
-margin_bottom = 47.0
+margin_bottom = 70.0
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -17,35 +17,34 @@ color = Color( 0, 0, 0, 0.701961 )
 [node name="HBoxDices" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 19
-alignment = 1
+custom_constants/separation = 22
 
 [node name="Dice1" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 113.0
+margin_left = 0.0
 margin_top = 0.0
-margin_right = 163.0
-margin_bottom = 50.0
+margin_right = 70.0
+margin_bottom = 70.0
 
 [node name="Dice2" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 182.0
+margin_left = 92.0
 margin_top = 0.0
-margin_right = 232.0
-margin_bottom = 50.0
+margin_right = 162.0
+margin_bottom = 70.0
 
 [node name="Dice3" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 251.0
+margin_left = 184.0
 margin_top = 0.0
-margin_right = 301.0
-margin_bottom = 50.0
+margin_right = 254.0
+margin_bottom = 70.0
 
 [node name="Dice4" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 320.0
+margin_left = 276.0
 margin_top = 0.0
-margin_right = 370.0
-margin_bottom = 50.0
+margin_right = 346.0
+margin_bottom = 70.0
 
 [node name="Dice5" parent="HBoxDices" instance=ExtResource( 1 )]
-margin_left = 389.0
+margin_left = 368.0
 margin_top = 0.0
-margin_right = 439.0
-margin_bottom = 50.0
+margin_right = 438.0
+margin_bottom = 70.0

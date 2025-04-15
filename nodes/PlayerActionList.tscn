@@ -14,12 +14,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -20.0
 mouse_filter = 2
-custom_constants/separation = -8
+custom_constants/separation = 0
 alignment = 1
 
 [node name="a1" type="ColorRect" parent="HBox"]
-margin_left = 76.0
-margin_right = 156.0
+margin_left = 48.0
+margin_right = 128.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -30,12 +30,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a1"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="a2" type="ColorRect" parent="HBox"]
-margin_left = 148.0
-margin_right = 228.0
+margin_left = 128.0
+margin_right = 208.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -46,12 +46,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a2"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="a3" type="ColorRect" parent="HBox"]
-margin_left = 220.0
-margin_right = 300.0
+margin_left = 208.0
+margin_right = 288.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -62,12 +62,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a3"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="a4" type="ColorRect" parent="HBox"]
-margin_left = 292.0
-margin_right = 372.0
+margin_left = 288.0
+margin_right = 368.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -78,12 +78,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a4"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="a5" type="ColorRect" parent="HBox"]
-margin_left = 364.0
-margin_right = 444.0
+margin_left = 368.0
+margin_right = 448.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -94,12 +94,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a5"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="a6" type="ColorRect" parent="HBox"]
-margin_left = 436.0
-margin_right = 516.0
+margin_left = 448.0
+margin_right = 528.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -110,12 +110,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a6"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="a7" type="ColorRect" parent="HBox"]
-margin_left = 508.0
-margin_right = 588.0
+margin_left = 528.0
+margin_right = 608.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -126,12 +126,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a7"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="a8" type="ColorRect" parent="HBox"]
-margin_left = 580.0
-margin_right = 660.0
+margin_left = 608.0
+margin_right = 688.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -142,5 +142,5 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="HBox/a8"]
 position = Vector2( 39, 39 )
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )

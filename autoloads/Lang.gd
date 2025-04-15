@@ -48,7 +48,7 @@ var texts = {
 	"enemy_turn_es":"TURNO DE LOS ENEMIGOS",
 
 	"en_vampire_name_es":"Vampiro",
-	"en_vampire_desc_es":"Un asqueroso vampiro en busca de sangre.",
+	"en_vampire_desc_es":"Una criatura de la noche que se alimenta de sangre, elegante y mortal.",
 	"en_bat_name_es":"Murcielago",
 	"en_bat_desc_es":"Este murcielago no es solo una rata con alas, parece peligroso.",
 	"en_wolf_name_es":"Lobo",

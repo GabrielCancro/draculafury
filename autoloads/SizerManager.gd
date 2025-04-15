@@ -5,9 +5,10 @@ var gameNodes = ["PlayerUI","WaveUI","HintPanel","HintPanelEnemy","HintPanelArmy
 var wbase = [1100,1300,1500]
 
 func _ready():
+	pass
 	#for i in range(wbase.size()): wbase[i] *= .5
-	get_tree().root.connect("size_changed", self, "rescale_ui")
-	rescale_ui()
+	#get_tree().root.connect("size_changed", self, "rescale_ui")
+	#rescale_ui()
 
 func rescale_ui(forced=null):
 	if forced:

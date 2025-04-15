@@ -48,6 +48,7 @@ color = Color( 0.913725, 1, 0.301961, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 52, 66 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="."]

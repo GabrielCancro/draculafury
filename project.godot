@@ -52,10 +52,8 @@ PopupManager="*res://autoloads/PopupManager.gd"
 
 [display]
 
-window/size/width=1600
-window/size/height=900
-window/size/test_width=640
-window/size/test_height=360
+window/size/width=1920
+window/size/height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

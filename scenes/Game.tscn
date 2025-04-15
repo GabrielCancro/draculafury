@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg_forest.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -18,8 +18,9 @@
 [ext_resource path="res://nodes/TutorialPopup.tscn" type="PackedScene" id=16]
 [ext_resource path="res://nodes/HintPanelItem.tscn" type="PackedScene" id=17]
 [ext_resource path="res://nodes/WinPopup.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=19]
+[ext_resource path="res://assets/ui/lifebar.png" type="Texture" id=19]
 [ext_resource path="res://nodes/ArmyTrapNode.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/placeholder.jpg" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -28,8 +29,7 @@ outline_color = Color( 0.243137, 0.243137, 0.243137, 1 )
 font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
-outline_size = 5
+size = 41
 outline_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 font_data = ExtResource( 12 )
 
@@ -49,10 +49,19 @@ color = Color( 0.243137, 0.0862745, 0.0901961, 1 )
 [node name="background" type="TextureRect" parent="CLBG"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -113.0
+margin_top = -233.0
+margin_bottom = -120.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 7
+
+[node name="placeholder" type="TextureRect" parent="CLBG"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 21 )
+expand = true
+stretch_mode = 1
 
 [node name="blood" type="ColorRect" parent="CLBG"]
 visible = false
@@ -65,80 +74,85 @@ color = Color( 0.654902, 0, 0, 1 )
 [node name="ItemContainer" type="Control" parent="."]
 
 [node name="Floor" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -1080.0
+margin_bottom = -1080.0
 
 [node name="c1" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c2" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c3" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c4" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c5" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c6" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c7" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c8" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c9" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="c10" type="ColorRect" parent="Floor"]
 margin_left = 1450.0
-margin_top = 688.0
+margin_top = 767.0
 margin_right = 1550.0
-margin_bottom = 698.0
+margin_bottom = 777.0
 color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 unique_name_in_owner = false
-position = Vector2( 327, 683 )
+position = Vector2( 436, 778 )
+scale = Vector2( 1, 1 )
 
 [node name="CLUI" type="CanvasLayer" parent="."]
 
@@ -158,31 +172,33 @@ autowrap = true
 
 [node name="Belt" parent="CLUI" instance=ExtResource( 2 )]
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = -408.5
-margin_top = 758.0
+margin_top = -164.0
 margin_right = 408.5
-margin_bottom = 890.0
+margin_bottom = -32.0
 
 [node name="DiceSet" parent="CLUI" instance=ExtResource( 3 )]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -276.0
-margin_top = 243.0
-margin_right = 277.0
-margin_bottom = 300.0
+anchor_bottom = 1.0
+margin_left = 106.0
+margin_top = -269.0
+margin_right = 659.0
+margin_bottom = -198.0
 
 [node name="ButtonStates" type="Button" parent="CLUI"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -679.0
-margin_top = 272.0
-margin_right = -432.0
-margin_bottom = 363.0
+margin_left = -320.0
+margin_top = 274.0
+margin_right = -103.0
+margin_bottom = 353.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 5 )
 flat = true
@@ -190,8 +206,16 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="TextureRect3" type="TextureRect" parent="CLUI/ButtonStates"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 19 )
+expand = true
+
 [node name="TextureRect2" type="TextureRect" parent="CLUI/ButtonStates"]
-modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+modulate = Color( 0.529412, 0.105882, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 19 )
@@ -200,10 +224,10 @@ expand = true
 [node name="Label" type="Label" parent="CLUI/ButtonStates"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
+custom_colors/font_color = Color( 0.866667, 0.866667, 0.866667, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 2 )
-text = "ROLL"
+text = "TIRAR"
 align = 1
 valign = 1
 autowrap = true
@@ -222,10 +246,6 @@ custom_fonts/font = ExtResource( 5 )
 text = "H"
 
 [node name="PlayerUI" parent="CLUI" instance=ExtResource( 8 )]
-margin_left = 24.0
-margin_top = 32.0
-margin_right = 564.0
-margin_bottom = 236.0
 
 [node name="PlayerActionList" parent="CLUI" instance=ExtResource( 9 )]
 margin_left = -105.0
@@ -407,11 +427,10 @@ margin_right = 633.0
 margin_bottom = -102.0
 
 [node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
-visible = false
-margin_left = -651.0
-margin_top = 244.0
-margin_right = -158.0
-margin_bottom = 419.0
+margin_left = 589.0
+margin_top = 94.0
+margin_right = 589.0
+margin_bottom = 94.0
 
 [node name="HintPanelArmy" parent="CLUI" instance=ExtResource( 14 )]
 visible = false
@@ -438,6 +457,7 @@ visible = false
 visible = false
 
 [node name="TutorialBlocker" type="ColorRect" parent="CLUI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 705, 215 )
