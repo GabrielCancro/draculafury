@@ -12,7 +12,7 @@ func _ready():
 
 func show_popup():
 	modulate.a = 0
-	get_node("/root/Game/CLUI/HintPanelArmy").rect_global_position.y = 670
+	get_node("/root/Game/CLUI/HintPanelArmy").rect_global_position = Vector2(1200,220)
 	$block.visible = false
 	$Button.modulate.a = 0
 	update_belt()
@@ -21,13 +21,14 @@ func show_popup():
 	$Button/Label.text = Lang.get_text("ui_dont_hope_army")
 	new_army = get_random_new_army()
 	new_army_data = ArmyManager.get_army_data(new_army)
-	$NewArmyPanel.modulate.a = 0
-	$NewArmyPanel/lb_name.text = Lang.get_text("army_"+new_army_data.name+"_name")
+	$NewArmySlot.modulate.a = 0
+	$NewArmySlot.set_army(new_army_data.name)
+	#$NewArmyPanel/lb_name.text = Lang.get_text("army_"+new_army_data.name+"_name")
 	var max_amount = ArmyManager.get_army_amount(new_army_data.name)
-	if max_amount!=null: $NewArmyPanel/lb_amount.text = "x"+str(max_amount)
-	else: $NewArmyPanel/lb_amount.text = ""
-	$NewArmyPanel/lb_desc.text = Lang.get_text("army_"+new_army_data.name+"_desc")
-	$NewArmyPanel/Sprite.texture = load("res://assets/armies/arm_"+new_army_data.name+".png")
+	#if max_amount!=null: $NewArmyPanel/lb_amount.text = "x"+str(max_amount)
+	#else: $NewArmyPanel/lb_amount.text = ""
+	#$NewArmyPanel/lb_desc.text = Lang.get_text("army_"+new_army_data.name+"_desc")
+	#$NewArmyPanel/Sprite.texture = load("res://assets/armies/arm_"+new_army_data.name+".png")
 #	if PlayerManager.PLAYER_ARMIES.size()<8:
 #		var bs = $HBox.get_child(PlayerManager.PLAYER_ARMIES.size())
 #		bs.set_army(null)
@@ -36,7 +37,7 @@ func show_popup():
 	Effector.appear(self)
 	yield(get_tree().create_timer(1),"timeout")
 	Effector.appear($Button)
-	Effector.appear($NewArmyPanel)
+	Effector.appear($NewArmySlot)
 
 func hide_popup():
 	$Button.modulate.a = 0
@@ -53,7 +54,7 @@ func update_belt():
 			bs.set_army(PlayerManager.PLAYER_ARMIES[bs.get_index()])
 
 func on_click_belt_slot(belt_slot):
-	Effector.disappear($NewArmyPanel)
+	Effector.disappear($NewArmySlot)
 	Effector.disappear($Button)
 	$Button.modulate.a = 0
 	yield(get_tree().create_timer(.3),"timeout")

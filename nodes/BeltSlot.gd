@@ -17,6 +17,7 @@ func set_army(code):
 	if army: 
 		hint_data.code = "army_"+code
 		$Sprite.texture = load("res://assets/armies/arm_"+code+".png")
+		$panel_reload/Sprite2.texture = load("res://assets/armies/arm_"+code+".png")
 		$Sprite.visible = true
 		var max_amount = ArmyManager.get_army_amount(army)
 		if max_amount==null: amount = null

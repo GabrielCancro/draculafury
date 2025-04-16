@@ -21,6 +21,7 @@ func play_sound(id):
 	add_child(audio)
 	audio.stream = load("res://assets/sfx/"+id+".ogg")
 	if !audio.stream: Effector.show_float_text("NO SOUND "+id)
+	audio.stream.loop = false
 	audio.play()
 	audio.connect("finished",audio,"queue_free")
 	return audio

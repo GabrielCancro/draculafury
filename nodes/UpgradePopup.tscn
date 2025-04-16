@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=2]
@@ -6,16 +6,10 @@
 [ext_resource path="res://nodes/UpgradePopup.gd" type="Script" id=4]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/armies/arm_gun.png" type="Texture" id=6]
-[ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=7]
-
-
-[sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 38
-font_data = ExtResource( 1 )
+[ext_resource path="res://assets/ui/lifebar.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/bg_army.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/red_line.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/itemsbar.png" type="Texture" id=10]
 
 [sub_resource type="Shader" id=5]
 resource_local_to_scene = true
@@ -66,6 +60,16 @@ shader_param/time_scale = 0.1
 shader_param/noise = SubResource( 7 )
 shader_param/noise2 = SubResource( 8 )
 
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 38
+extra_spacing_top = 3
+extra_spacing_bottom = 3
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 41
 outline_size = 3
@@ -99,17 +103,10 @@ script = ExtResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.192157, 0.192157, 0.192157, 0.862745 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -800.0
-margin_right = 800.0
-margin_bottom = 220.0
-color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+color = Color( 0.219608, 0, 0, 0.784314 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -119,17 +116,71 @@ margin_top = -220.0
 margin_right = 800.0
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -800.0
+margin_right = 800.0
+margin_bottom = 220.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[node name="bg2" type="TextureRect" parent="."]
+margin_left = 87.0
+margin_top = 89.0
+margin_right = 888.0
+margin_bottom = 466.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+
+[node name="BG2" type="TextureRect" parent="bg2"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 916.0
+margin_top = 122.0
+margin_right = 1164.0
+margin_bottom = 345.0
+rect_rotation = 90.0
+mouse_filter = 2
+texture = ExtResource( 10 )
+expand = true
+
+[node name="l1" type="TextureRect" parent="bg2"]
+margin_left = 116.0
+margin_top = 114.0
+margin_right = 696.0
+margin_bottom = 116.0
+mouse_filter = 2
+texture = ExtResource( 9 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="bg2"]
+modulate = Color( 0.92549, 0, 0, 1 )
+material = SubResource( 13 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 541.5
+margin_top = -101.5
+margin_right = 852.5
+margin_bottom = 183.5
+rect_rotation = 89.9999
+texture = ExtResource( 5 )
+expand = true
+
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -774.0
-margin_top = -3.0
-margin_right = 134.0
-margin_bottom = 108.0
+margin_left = -929.0
+margin_top = 106.0
+margin_right = -21.0
+margin_bottom = 217.0
 custom_colors/font_color = Color( 0.792157, 0.733333, 0.733333, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
 text = "Final de Oleada!"
+align = 1
 valign = 1
 autowrap = true
 
@@ -138,62 +189,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -769.0
-margin_top = -395.0
-margin_right = 305.0
-margin_bottom = -255.0
+margin_left = -760.0
+margin_top = -311.0
+margin_right = -168.0
+margin_bottom = -134.0
 custom_colors/font_color = Color( 0.584314, 0.584314, 0.584314, 1 )
 custom_constants/line_spacing = -1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 15 )
 text = "Elige un espacio de tu cinturar para colocar tu arma nueva, si el que eliges ya está ocupado será reemplazado."
 valign = 1
 autowrap = true
 
-[node name="HBox" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -408.5
-margin_top = 64.0
-margin_right = 408.5
-margin_bottom = 194.0
-custom_constants/separation = 0
-alignment = 1
-
-[node name="BeltSlot1" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 8.0
-margin_right = 108.0
-
-[node name="BeltSlot2" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 108.0
-margin_right = 208.0
-
-[node name="BeltSlot3" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 208.0
-margin_right = 308.0
-
-[node name="BeltSlot4" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 308.0
-margin_right = 408.0
-
-[node name="BeltSlot5" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 408.0
-margin_right = 508.0
-
-[node name="BeltSlot6" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 508.0
-margin_right = 608.0
-
-[node name="BeltSlot7" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 608.0
-margin_right = 708.0
-
-[node name="BeltSlot8" parent="HBox" instance=ExtResource( 2 )]
-margin_left = 708.0
-margin_right = 808.0
+[node name="NewArmySlot" parent="." instance=ExtResource( 2 )]
+margin_left = 827.0
+margin_top = 252.0
+margin_right = 957.0
+margin_bottom = 412.0
 
 [node name="NewArmyPanel" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -786.0
@@ -218,7 +232,7 @@ expand = true
 
 [node name="Sprite" type="Sprite" parent="NewArmyPanel"]
 position = Vector2( 305, 94 )
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 6 )
 
 [node name="lb_amount" type="Label" parent="NewArmyPanel"]
@@ -266,15 +280,67 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="bg" type="TextureRect" parent="."]
+margin_left = 269.0
+margin_top = 651.0
+margin_right = 1070.0
+margin_bottom = 1028.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+
+[node name="bg2" type="TextureRect" parent="bg"]
+margin_left = 616.0
+margin_right = 1417.0
+margin_bottom = 377.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+
+[node name="HBox" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -525.0
+margin_top = 224.0
+margin_right = 525.0
+margin_bottom = 384.0
+custom_constants/separation = 100
+alignment = 1
+
+[node name="BeltSlot1" parent="HBox" instance=ExtResource( 2 )]
+margin_bottom = 160.0
+
+[node name="BeltSlot2" parent="HBox" instance=ExtResource( 2 )]
+margin_left = 230.0
+margin_right = 360.0
+margin_bottom = 160.0
+
+[node name="BeltSlot3" parent="HBox" instance=ExtResource( 2 )]
+margin_left = 460.0
+margin_right = 590.0
+margin_bottom = 160.0
+
+[node name="BeltSlot4" parent="HBox" instance=ExtResource( 2 )]
+margin_left = 690.0
+margin_right = 820.0
+margin_bottom = 160.0
+
+[node name="BeltSlot5" parent="HBox" instance=ExtResource( 2 )]
+margin_left = 920.0
+margin_right = 1050.0
+margin_bottom = 160.0
+
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 423.0
-margin_top = -335.0
-margin_right = 783.0
-margin_bottom = -252.0
+margin_left = -867.0
+margin_top = -97.0
+margin_right = -507.0
+margin_bottom = -14.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 flat = true
@@ -282,8 +348,16 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TextureRect2" type="TextureRect" parent="Button"]
-modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+[node name="TextureRect3" type="TextureRect" parent="Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 4.0
+margin_bottom = 4.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="TextureRect4" type="TextureRect" parent="Button"]
+modulate = Color( 0.529412, 0.105882, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 7 )
@@ -303,4 +377,8 @@ autowrap = true
 [node name="block" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 2.0
 color = Color( 0.00784314, 0, 1, 0.027451 )

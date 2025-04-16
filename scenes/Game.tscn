@@ -84,8 +84,6 @@ color = Color( 0.654902, 0, 0, 1 )
 
 [node name="Enemies" type="Control" parent="."]
 
-[node name="ItemContainer" type="Control" parent="."]
-
 [node name="Floor" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -256,20 +254,9 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="ButtonHacks" type="Button" parent="CLUI"]
-modulate = Color( 1, 1, 1, 0.741176 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 768.0
-margin_top = -553.0
-margin_right = 822.0
-margin_bottom = -496.0
-custom_fonts/font = ExtResource( 5 )
-text = "H"
-
 [node name="PlayerUI" parent="CLUI" instance=ExtResource( 8 )]
+
+[node name="ItemContainer" type="Control" parent="CLUI"]
 
 [node name="PlayerActionList" parent="CLUI" instance=ExtResource( 9 )]
 margin_left = 187.0
@@ -284,6 +271,67 @@ margin_left = -418.0
 margin_top = 32.0
 margin_right = -8.0
 margin_bottom = 217.0
+
+[node name="UpgradePopup" parent="CLUI" instance=ExtResource( 11 )]
+visible = false
+
+[node name="HintPanel" parent="CLUI" instance=ExtResource( 6 )]
+margin_left = 633.0
+margin_top = -102.0
+margin_right = 633.0
+margin_bottom = -102.0
+
+[node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
+margin_left = 645.0
+margin_top = 94.0
+margin_right = 645.0
+margin_bottom = 94.0
+
+[node name="HintPanelArmy" parent="CLUI" instance=ExtResource( 14 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -314.0
+margin_top = -124.0
+margin_right = -314.0
+margin_bottom = -124.0
+
+[node name="HintPanelItem" parent="CLUI" instance=ExtResource( 17 )]
+visible = false
+margin_left = 520.0
+margin_top = 300.0
+margin_right = 1101.0
+margin_bottom = 475.0
+
+[node name="EndGamePanel" parent="CLUI" instance=ExtResource( 15 )]
+visible = false
+
+[node name="WinPopup" parent="CLUI" instance=ExtResource( 18 )]
+visible = false
+
+[node name="TutorialBlocker" type="ColorRect" parent="CLUI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 705, 215 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="TutorialPopup" parent="CLUI" instance=ExtResource( 16 )]
+visible = false
+
+[node name="ButtonHacks" type="Button" parent="CLUI"]
+modulate = Color( 1, 1, 1, 0.741176 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 768.0
+margin_top = -553.0
+margin_right = 822.0
+margin_bottom = -496.0
+custom_fonts/font = ExtResource( 5 )
+text = "H"
 
 [node name="Hacks" type="Control" parent="CLUI"]
 visible = false
@@ -440,54 +488,6 @@ text = "------"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="UpgradePopup" parent="CLUI" instance=ExtResource( 11 )]
-visible = false
-
-[node name="HintPanel" parent="CLUI" instance=ExtResource( 6 )]
-margin_left = 633.0
-margin_top = -102.0
-margin_right = 633.0
-margin_bottom = -102.0
-
-[node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
-margin_left = 645.0
-margin_top = 94.0
-margin_right = 645.0
-margin_bottom = 94.0
-
-[node name="HintPanelArmy" parent="CLUI" instance=ExtResource( 14 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -314.0
-margin_top = -124.0
-margin_right = -314.0
-margin_bottom = -124.0
-
-[node name="HintPanelItem" parent="CLUI" instance=ExtResource( 17 )]
-visible = false
-margin_left = 520.0
-margin_top = 300.0
-margin_right = 1101.0
-margin_bottom = 475.0
-
-[node name="EndGamePanel" parent="CLUI" instance=ExtResource( 15 )]
-visible = false
-
-[node name="WinPopup" parent="CLUI" instance=ExtResource( 18 )]
-visible = false
-
-[node name="TutorialBlocker" type="ColorRect" parent="CLUI"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 705, 215 )
-color = Color( 0, 0, 0, 0 )
-
-[node name="TutorialPopup" parent="CLUI" instance=ExtResource( 16 )]
-visible = false
 
 [node name="ArmyTrapNode" parent="." instance=ExtResource( 20 )]
 margin_left = 53.0

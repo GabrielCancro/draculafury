@@ -30,10 +30,10 @@ func throw_item(code, xpos=null):
 	var it = preload("res://nodes/ItemNode.tscn").instance()
 	var data = get_item_data(code)
 	it.set_data(data)
-	it.rect_position = Vector2(1000,600)
+	it.rect_position = Vector2(1000,700)
 	if xpos: it.rect_position.x = xpos
 	ITEMS_INFLOOR.append(it)
-	get_node("/root/Game/ItemContainer").add_child(it)
+	get_node("/root/Game/CLUI/ItemContainer").add_child(it)
 
 func throw_random_item(xpos=null):
 	randomize()
@@ -65,7 +65,7 @@ func reorder_items():
 		if !is_instance_valid(it): continue
 		it.rect_scale = Vector2(1,1)
 		if !it.is_infloor:
-			it.move_to_pos(Vector2(dist*(i+1),80+dist*1.5))
+			it.move_to_pos(Vector2(80+dist*(i+1),45+dist*1.5))
 			it.rect_scale *= SizerManager.current_scale
 			i+=1
 	enable_items_usage(items_usage_enabled)

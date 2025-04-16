@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://nodes/Belt.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/lifebar.png" type="Texture" id=2]
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/bg_belt.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/selector_belt.png" type="Texture" id=6]
@@ -21,6 +20,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 47, -60 ), Vector2( 47, -50 ), Vector2( 47, -60 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../pawn2/sel:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1.5, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 47, -60 ), Vector2( 47, -50 ), Vector2( 47, -60 ) ]
+}
 
 [node name="Belt" type="Control"]
 margin_right = 885.0
@@ -35,36 +46,6 @@ mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
-
-[node name="pawn2" type="Control" parent="."]
-margin_left = 187.0
-margin_top = 88.0
-margin_right = 317.0
-margin_bottom = 258.0
-mouse_filter = 2
-
-[node name="sel" type="TextureRect" parent="pawn2"]
-visible = false
-modulate = Color( 1, 0, 0, 0.560784 )
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -41.5
-margin_top = -59.0
-margin_right = 41.5
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 34, 31 )
-mouse_filter = 2
-texture = ExtResource( 6 )
-expand = true
-
-[node name="HintNode" type="Sprite" parent="pawn2"]
-modulate = Color( 1, 1, 1, 0.313726 )
-position = Vector2( 63, 93 )
-rotation = 1.5708
-scale = Vector2( 0.3, 1.93358 )
-texture = ExtResource( 2 )
 
 [node name="HBox" type="Control" parent="."]
 anchor_left = 0.5
@@ -110,10 +91,10 @@ rect_min_size = Vector2( 130, 170 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="pawn" type="Control" parent="."]
-margin_left = 59.0
-margin_top = 99.0
-margin_right = 189.0
-margin_bottom = 269.0
+margin_left = 60.0
+margin_top = 100.0
+margin_right = 190.0
+margin_bottom = 270.0
 mouse_filter = 2
 
 [node name="sel" type="TextureRect" parent="pawn"]
@@ -130,3 +111,23 @@ expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pawn"]
 anims/idle = SubResource( 1 )
+
+[node name="pawn2" type="Control" parent="."]
+margin_left = 60.0
+margin_top = 100.0
+margin_right = 190.0
+margin_bottom = 270.0
+mouse_filter = 2
+
+[node name="sel" type="TextureRect" parent="pawn2"]
+modulate = Color( 0.396078, 0.545098, 1, 0.666667 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -18.0
+margin_top = -56.5483
+margin_right = 18.0
+margin_bottom = 37.4518
+rect_pivot_offset = Vector2( 34, 31 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true

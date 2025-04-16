@@ -18,7 +18,7 @@ void fragment() {
 
     float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
 
-    vec2 direction = vec2(0, 1) * burnSpeed;
+    vec2 direction = vec2(-1, 0.5) * burnSpeed;
     float noiseValue = texture(textureNoise, UV + direction * TIME).r;
 
     float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
@@ -35,6 +35,6 @@ noise = SubResource( 5 )
 shader = SubResource( 3 )
 shader_param/radius = 0.449
 shader_param/effectControl = 0.626
-shader_param/burnSpeed = 0.076
+shader_param/burnSpeed = 0.01
 shader_param/shape = 0.089
 shader_param/textureNoise = SubResource( 6 )
