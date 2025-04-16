@@ -1,16 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://nodes/HintPanelEnemy.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/enemy_stats.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/enemy_popup.png" type="Texture" id=4]
 [ext_resource path="res://assets/ui/red_line.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/birchstd.OTF" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/ui/enemy_ability.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/AnnapurnaSIL-Bold.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="DynamicFont" id=9]
-size = 44
-outline_size = 3
+[sub_resource type="DynamicFont" id=12]
+size = 99
+outline_size = 5
 extra_spacing_char = -1
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 32
@@ -28,8 +31,17 @@ outline_color = Color( 0.505882, 0.121569, 0.0588235, 1 )
 extra_spacing_char = -1
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=11]
+size = 40
+outline_color = Color( 0.184314, 0.152941, 0.215686, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 3
+extra_spacing_bottom = 3
+font_data = ExtResource( 8 )
+
 [sub_resource type="DynamicFont" id=5]
-size = 27
+size = 32
 outline_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 use_filter = true
 extra_spacing_top = 3
@@ -54,10 +66,9 @@ margin_left = 22.0
 margin_top = 14.0
 margin_right = 334.0
 margin_bottom = 62.0
-rect_scale = Vector2( 1, 1.7 )
 custom_colors/font_color = Color( 0.505882, 0.121569, 0.0588235, 1 )
 custom_constants/line_spacing = -1
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 12 )
 text = "VAMPIRO"
 valign = 1
 autowrap = true
@@ -158,14 +169,36 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="lb_ability" type="Label" parent="."]
+[node name="ability1" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ico" type="Sprite" parent="ability1"]
+position = Vector2( 42, 267 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="lb_ab_name" type="Label" parent="ability1"]
+margin_left = 31.0
+margin_top = 239.0
+margin_right = 332.0
+margin_bottom = 303.0
+custom_colors/font_color = Color( 0.207843, 0.552941, 0.741176, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 11 )
+text = "   FRENESI"
+autowrap = true
+
+[node name="lb_ab_desc" type="Label" parent="ability1"]
 margin_left = 21.0
-margin_top = 231.0
+margin_top = 244.0
 margin_right = 605.0
-margin_bottom = 358.0
-custom_colors/font_color = Color( 0.952941, 0.968627, 0.698039, 1 )
+margin_bottom = 359.0
+custom_colors/font_color = Color( 0.882353, 0.882353, 0.882353, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 5 )
-text = "MOVIMIENTO EXTRA: Tiene un 30% de moverse un casillero extra en su turno.. un casillero extra en su turno.."
-valign = 1
+text = "                 Tiene un 30% de moverse un casillero extra en su turno.. un casillero extra en su turno.."
 autowrap = true

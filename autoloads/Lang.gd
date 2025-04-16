@@ -60,7 +60,8 @@ var texts = {
 	"en_dracula_name_es":"Dracula",
 	"en_dracula_desc_es":"El señor de las bestias esta aquí.",
 	
-	"en_ab_extra_mov_desc_es":"Movimiento Extra: tiene 30% de posibilidad de avanzar un casillero extra en su turno.",
+	"en_ab_extra_mov_name_es":"Frenesí",
+	"en_ab_extra_mov_desc_es":"Tiene una pequeña probabilidad de moverse un espacio extra en su turno.",
 	"en_ab_stone_skin_desc_es":"Piel Petrea: su dura piel absorbe todo el daño del primer ataque recibido en cada turno.",
 	"en_ab_wolf_herd_desc_es":"Manada de lobos: en cada turno tiene 50% de probabilidad de convocar a otro lobo.",
 	

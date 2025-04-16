@@ -49,3 +49,4 @@ func play_anim():
 func next_scene():
 	if sfx: sfx.stop()
 	get_tree().change_scene("res://scenes/Menu.tscn")
+

@@ -2,9 +2,9 @@
 
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=2]
-[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=4]
-[ext_resource path="res://assets/shWavy.tres" type="Material" id=5]
+[ext_resource path="res://assets/shaders/shWavy.tres" type="Material" id=5]
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=6]
 [ext_resource path="res://nodes/CustomButton.tscn" type="PackedScene" id=7]
 

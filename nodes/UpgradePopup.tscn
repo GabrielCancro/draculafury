@@ -1,12 +1,13 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/TestFontTree.tres" type="DynamicFont" id=3]
 [ext_resource path="res://nodes/UpgradePopup.gd" type="Script" id=4]
 [ext_resource path="res://assets/backgrounds/mapcut.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/armies/arm_gun.png" type="Texture" id=6]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=7]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+void fragment(){
+	vec2 distortedUV = UV;
+	distortedUV.y += sin(distortedUV.x * 7.5 + floor(TIME*6.0)*0.8) * 0.005;
+	//distortedUV.x += sin(distortedUV.x * 2.0 + floor(10.0+TIME*6.0)*0.8) * 0.005;
+	COLOR = texture(TEXTURE, distortedUV);
+}"
+
+[resource]
+shader = SubResource( 3 )

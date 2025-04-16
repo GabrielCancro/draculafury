@@ -11,6 +11,7 @@ signal end_move()
 signal end_anim()
 
 func _ready():
+	$Sprite.position.y = 30 - $Sprite.texture.get_size().y/2 * $Sprite.scale.y
 	modulate.a = 0
 	Effector.appear(self)
 	Effector.add_hint(hint_data)
@@ -106,7 +107,7 @@ func set_stoned_skin(val):
 	var have_change = (enemy_data["stoned_skin"] != val)
 	enemy_data["stoned_skin"] = val
 	if val: 
-		$Sprite.material = preload("res://assets/sh_outline.tres")
+		$Sprite.material = preload("res://assets/shaders/sh_outline.tres")
 		$Sprite.material.set_shader_param("line_color",Color(.8,.8,.8,1))
 		$Sprite.material.set_shader_param("line_scale",8)
 	else: 

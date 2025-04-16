@@ -9,7 +9,7 @@ func _ready(): initialize_data()
 
 func initialize_data():
 	PLAYER_STATS = { "hp":10, "hpm":10, "xp":0, "kills":0}
-	PLAYER_ARMIES = ["breathe","gun","kick","trap","rapier"]
+	PLAYER_ARMIES = ["breathe","gun","kick","gun","rapier"] #trap
 
 func damage(dam):
 	PLAYER_STATS.hp = max(PLAYER_STATS.hp-dam,0)

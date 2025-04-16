@@ -8,8 +8,8 @@ var current_slot
 signal end_move(army_index)
 
 func _ready():
-	update_belt()
 	$pawn/AnimationPlayer.play("idle")
+	update_belt()
 	set_shadow_pawn(0)
 	current_slot = $HBox.get_child(0)
 

@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://nodes/OptionsPopup.gd" type="Script" id=1]
-[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://nodes/GCHSlider.tscn" type="PackedScene" id=3]
 [ext_resource path="res://nodes/CustomButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=5]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 60

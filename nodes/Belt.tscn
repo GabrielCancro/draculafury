@@ -1,137 +1,131 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://nodes/Belt.gd" type="Script" id=1]
-[ext_resource path="res://assets/hand.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/lifebar.png" type="Texture" id=2]
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/pawn.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/bg_belt.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/selector_belt.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
-length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("pawn_img:rect_rotation")
+tracks/0/path = NodePath("sel:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.68302, 1, 1.31951 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1.5, 1, 1 ),
 "update": 0,
-"values": [ -30.0, 0.0, -30.0 ]
+"values": [ Vector2( 47, -60 ), Vector2( 47, -50 ), Vector2( 47, -60 ) ]
 }
 
 [node name="Belt" type="Control"]
-margin_top = -18.0
-margin_right = 817.0
-margin_bottom = 132.0
-mouse_filter = 1
+margin_right = 885.0
+margin_bottom = 365.0
+mouse_filter = 2
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="pawn2" type="Control" parent="."]
+margin_left = 187.0
+margin_top = 88.0
+margin_right = 317.0
+margin_bottom = 258.0
+mouse_filter = 2
+
+[node name="sel" type="TextureRect" parent="pawn2"]
+visible = false
+modulate = Color( 1, 0, 0, 0.560784 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.5
+margin_top = -59.0
+margin_right = 41.5
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 34, 31 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+
+[node name="HintNode" type="Sprite" parent="pawn2"]
+modulate = Color( 1, 1, 1, 0.313726 )
+position = Vector2( 63, 93 )
+rotation = 1.5708
+scale = Vector2( 0.3, 1.93358 )
+texture = ExtResource( 2 )
+
+[node name="HBox" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -408.5
-margin_top = -64.0
-margin_right = 408.5
-margin_bottom = 66.0
-custom_constants/separation = 0
-alignment = 1
 
 [node name="BeltSlot1" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 8.0
-margin_right = 108.0
+margin_left = -389.5
+margin_top = -96.5
+margin_right = -259.5
+margin_bottom = 63.5
+rect_min_size = Vector2( 130, 170 )
 
 [node name="BeltSlot2" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 108.0
-margin_right = 208.0
+margin_left = -260.5
+margin_top = -96.5
+margin_right = -130.5
+margin_bottom = 63.5
+rect_min_size = Vector2( 130, 170 )
 
 [node name="BeltSlot3" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 208.0
-margin_right = 308.0
+margin_left = -65.5
+margin_top = -100.5
+margin_right = 64.5
+margin_bottom = 59.5
+rect_min_size = Vector2( 130, 170 )
 
 [node name="BeltSlot4" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 308.0
-margin_right = 408.0
+margin_left = 123.5
+margin_top = -96.5
+margin_right = 253.5
+margin_bottom = 63.5
+rect_min_size = Vector2( 130, 170 )
 
 [node name="BeltSlot5" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 408.0
-margin_right = 508.0
-
-[node name="BeltSlot6" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 508.0
-margin_right = 608.0
-
-[node name="BeltSlot7" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 608.0
-margin_right = 708.0
-
-[node name="BeltSlot8" parent="HBox" instance=ExtResource( 3 )]
-margin_left = 708.0
-margin_right = 808.0
+margin_left = 252.5
+margin_top = -96.5
+margin_right = 382.5
+margin_bottom = 63.5
+rect_min_size = Vector2( 130, 170 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="pawn2" type="Control" parent="."]
-margin_left = -108.0
-margin_top = 12.0
-margin_right = -8.0
-margin_bottom = 142.0
-mouse_filter = 2
-
-[node name="pawn_img" type="TextureRect" parent="pawn2"]
-modulate = Color( 1, 1, 1, 0.403922 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -39.0
-margin_top = -28.0
-margin_right = 31.0
-margin_bottom = 48.0
-rect_rotation = -30.0
-rect_pivot_offset = Vector2( 34, 31 )
-mouse_filter = 2
-texture = ExtResource( 2 )
-expand = true
-
 [node name="pawn" type="Control" parent="."]
-margin_left = 12.0
-margin_top = 12.0
-margin_right = 112.0
-margin_bottom = 142.0
+margin_left = 59.0
+margin_top = 99.0
+margin_right = 189.0
+margin_bottom = 269.0
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="pawn"]
-modulate = Color( 0.188235, 0.188235, 0.188235, 1 )
-margin_left = 8.0
-margin_top = 47.0
-margin_right = 79.0
-margin_bottom = 124.0
-rect_rotation = -90.0
-mouse_filter = 2
-texture = ExtResource( 4 )
-expand = true
-
-[node name="pawn_img" type="TextureRect" parent="pawn"]
-modulate = Color( 0.890196, 0.909804, 0.670588, 1 )
+[node name="sel" type="TextureRect" parent="pawn"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -39.0
-margin_top = -28.0
-margin_right = 31.0
-margin_bottom = 48.0
-rect_rotation = -30.0
+margin_left = -18.0
+margin_top = -56.5483
+margin_right = 18.0
+margin_bottom = 37.4518
 rect_pivot_offset = Vector2( 34, 31 )
 mouse_filter = 2
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pawn"]
