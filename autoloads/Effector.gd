@@ -76,7 +76,6 @@ func show_damage_text(val,pos):
 	get_node("/root/Game/CLUI").add_child(node)
 
 func add_hint(hint_data):
-	print(hint_data.owner.name)
 	#hint_data={"owner":self,"panel":null,"code":"tx_code","over_node":null,"callback":null}
 	var over_area = hint_data["owner"]
 	if "over_area" in hint_data: over_area = hint_data["owner"].get_node(hint_data["over_area"])

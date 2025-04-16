@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/gold_dices.png" type="Texture" id=1]
 [ext_resource path="res://nodes/Dice.gd" type="Script" id=2]
 [ext_resource path="res://assets/red_dices.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/dice_used.png" type="Texture" id=4]
 
 [node name="Dice" type="Control"]
 margin_left = -35.0
@@ -40,3 +41,20 @@ mouse_filter = 1
 flat = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Blocker" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -45.0
+margin_right = 45.0
+margin_bottom = 45.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 35, 36 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )

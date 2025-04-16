@@ -10,6 +10,8 @@ signal end_tuto_sequence
 
 func _ready():
 	set_floor_marks()
+	var hint_data={"owner":$CLUI/ButtonStates,"panel":null,"code":null,"over_node":"HintNode","callback":null}
+	Effector.add_hint(hint_data)
 	if EnemyManager.forced_dracula_wave: skip_tutorial = true
 	EnemyManager.initialize_data()
 	PlayerManager.initialize_data()
@@ -159,13 +161,13 @@ func on_click_dice(dice):
 	$CLUI/ButtonStates.disabled = true
 	disable_dices_click = true
 	$CLUI/Belt.move_pawn(dice.value)
+	dice.block_dice()
 	yield($CLUI/Belt,"end_move")
 	$CLUI/Belt.current_slot.set_lighted(true)
 	yield(get_tree().create_timer(.3),"timeout")
 	if $CLUI/Belt.current_slot.reduce_amount():
 		$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
 	$CLUI/Belt.clear_selected_slot()
-	dice.hide_dice()
 	yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false
 	$CLUI/ButtonStates.disabled = false
