@@ -115,7 +115,7 @@ func _run_stake():
 
 func _condition_dynamite(): return EnemyManager.have_close_enemy()
 func _run_dynamite():
-	var fxdyn = preload("res://nodes/fx/fx_dynamite.tscn").instance()
+	var fxdyn = load("res://nodes/fx/fx_dynamite.tscn").instance()
 	get_node("/root/Game").add_child(fxdyn)
 	yield(get_tree().create_timer(.9),"timeout")
 	Sounds.play_sound("dynamite_explode")

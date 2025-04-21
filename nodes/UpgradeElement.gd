@@ -26,5 +26,5 @@ func activate(val):
 
 func select(val):
 	selected = val
-	if selected: SPRITE.material = preload("res://assets/shaders/sh_outline.tres")
+	if selected: SPRITE.material = load("res://assets/shaders/sh_outline.tres")
 	else: SPRITE.material = null

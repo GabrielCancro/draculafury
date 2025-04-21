@@ -2,7 +2,7 @@ extends Node
 
 var LAYER
 var POPS = {
-	"options":preload("res://nodes/OptionsPopup.tscn"),
+	"options":load("res://nodes/OptionsPopup.tscn"),
 }
 
 signal close_popup(code)

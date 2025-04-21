@@ -1,20 +1,24 @@
 extends Control
 
-const preloads = [
-	preload("res://assets/sfx/ambient.mp3"),
-	preload("res://assets/sfx/intro_splash.ogg"),
-	preload("res://assets/sfx/song1.ogg"),
+var preloads = [
+	load("res://assets/sfx/ambient.mp3"),
+	load("res://assets/sfx/intro_splash.ogg"),
+	load("res://assets/sfx/song1.ogg"),
 ]
 var sfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Button.connect("button_down",self,"next_scene")
-	Sounds.stop_music()
+	set_autoloads()
+	get_tree().set_screen_stretch(1,1,Vector2(1920,1080))
+	Sounds.initialize_sounds()
+	#$Button.connect("button_down",self,"next_scene")
+	#Sounds.stop_music()
 	SaveManager.load_store_data()
-	OS.window_fullscreen = SaveManager.savedData.fullscreen
-	Sounds.set_vol(SaveManager.savedData.master_vol)	
-	play_anim()
+	#OS.window_fullscreen = SaveManager.savedData.fullscreen
+	#Sounds.set_vol(SaveManager.savedData.master_vol)
+	#play_anim()
+	get_tree().change_scene("res://scenes/Menu.tscn")
 
 func play_anim():
 	var cpos = get_viewport_rect().size/2
@@ -50,3 +54,19 @@ func next_scene():
 	if is_instance_valid(sfx): sfx.stop()
 	get_tree().change_scene("res://scenes/Menu.tscn")
 
+func set_autoloads():
+	var autoloads = [
+		"ArmyManager",
+		"Effector",
+		"EnemyManager",
+		"ItemManager",
+		"Lang",
+		"PlayerManager",
+		"PopupManager",
+		"SaveManager",
+		"Sounds",
+		"UpgradesManager",
+	]
+	for au in autoloads:
+		print("/root/"+au+"  ->  "+"res://autoloads/"+au+".gd")
+		get_tree().root.get_node("/root/"+au).set_script(load("res://autoloads/"+au+".gd"))

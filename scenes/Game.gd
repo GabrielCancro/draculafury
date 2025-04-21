@@ -37,12 +37,12 @@ func _ready():
 	$CLUI/Hacks/ButtonAddItem.connect("button_down",ItemManager,"throw_random_item")
 	$CLUI/Hacks/ButtonAWolf.connect("button_down",EnemyManager,"add_enemy",["awolf"])
 	
-	$CLUI/Hacks/ButtonScale1.connect("button_down",SizerManager,"rescale_ui",[1])
-	$CLUI/Hacks/ButtonScale2.connect("button_down",SizerManager,"rescale_ui",[.9])
-	$CLUI/Hacks/ButtonScale3.connect("button_down",SizerManager,"rescale_ui",[.8])
-	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.7])
-	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
-	$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
+	#$CLUI/Hacks/ButtonScale1.connect("button_down",SizerManager,"rescale_ui",[1])
+	#$CLUI/Hacks/ButtonScale2.connect("button_down",SizerManager,"rescale_ui",[.9])
+	#$CLUI/Hacks/ButtonScale3.connect("button_down",SizerManager,"rescale_ui",[.8])
+	#$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.7])
+	#$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
+	#$CLUI/Hacks/ButtonScale4.connect("button_down",SizerManager,"rescale_ui",[.6])
 	
 	$CLUI/Hacks/ButtonQuit.connect("button_down",self,"goto_menu")
 	$CLUI/Hacks/ButtonOptions.connect("button_down",PopupManager,"show_popup",["options"])

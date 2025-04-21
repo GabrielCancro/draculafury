@@ -27,7 +27,7 @@ func get_item_data(code):
 	return _data
 
 func throw_item(code, xpos=null):
-	var it = preload("res://nodes/ItemNode.tscn").instance()
+	var it = load("res://nodes/ItemNode.tscn").instance()
 	var data = get_item_data(code)
 	it.set_data(data)
 	it.rect_position = Vector2(1000,700)
@@ -60,13 +60,13 @@ func throw_with_probability(xpos=null):
 
 func reorder_items():
 	var i = 0
-	var dist = 80 * SizerManager.current_scale
+	var dist = 80 #* SizerManager.current_scale
 	for it in ITEMS_PLAYER:
 		if !is_instance_valid(it): continue
 		it.rect_scale = Vector2(1,1)
 		if !it.is_infloor:
 			it.move_to_pos(Vector2(80+dist*(i+1),45+dist*1.5))
-			it.rect_scale *= SizerManager.current_scale
+			#it.rect_scale *= SizerManager.current_scale
 			i+=1
 	enable_items_usage(items_usage_enabled)
 

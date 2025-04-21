@@ -3,12 +3,12 @@ extends Node
 var scene
 var song:AudioStreamPlayer
 var MUSICS = {
-	"game":preload("res://assets/sfx/song1.ogg"),
-	"menu":preload("res://assets/sfx/ambient.mp3")
+	"game":load("res://assets/sfx/song1.ogg"),
+	"menu":load("res://assets/sfx/ambient.mp3")
 }
 
 
-func _ready():
+func initialize_sounds():
 	song = AudioStreamPlayer.new()
 	add_child(song)
 	song.volume_db = -15

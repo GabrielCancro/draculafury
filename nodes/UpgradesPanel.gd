@@ -4,7 +4,7 @@ extends Control
 func _ready():
 	Effector.remove_all_children($Grid)
 	for upg_code in UpgradesManager.UPGRADES.keys():
-		var node = preload("res://nodes/UpgradeElement.tscn").instance()
+		var node = load("res://nodes/UpgradeElement.tscn").instance()
 		node.set_data(upg_code)
 		$Grid.add_child(node)
 		node.connect("mouse_entered",self,"on_over_upg",[node,true])

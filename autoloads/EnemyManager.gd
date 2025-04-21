@@ -37,7 +37,7 @@ func add_enemy(code):
 		if !get_enemy_in_pos(5,0): _xpos = 5
 		else: _xpos = -1
 	if _xpos!=-1:
-		var node = preload("res://nodes/Enemy.tscn").instance()
+		var node = load("res://nodes/Enemy.tscn").instance()
 		node.set_data(data,_xpos)
 		get_node("/root/Game/Enemies").add_child(node)
 		ENEMIES_ACTIVES.append(node)

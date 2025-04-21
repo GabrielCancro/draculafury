@@ -1,6 +1,6 @@
 extends Control
 
-var WaveSlot = preload("res://nodes/WaveSlot.tscn")
+var WaveSlot = load("res://nodes/WaveSlot.tscn")
 var space_slot = 105
 var max_slots = 3
 var wave_index = 0
@@ -127,9 +127,9 @@ func check_bg():
 	elif current_bg!="tomb": change_bg("tomb")
 
 func change_bg(code):
-	preload("res://assets/backgrounds/bg_tomb.jpg")
-	preload("res://assets/backgrounds/bg_catedral.jpg")
-	preload("res://assets/backgrounds/bg_forest.jpg")
+	load("res://assets/backgrounds/bg_tomb.jpg")
+	load("res://assets/backgrounds/bg_catedral.jpg")
+	load("res://assets/backgrounds/bg_forest.jpg")
 	var bg = "tomb"
 	if wave_index>=4: bg = "catedral"
 	if wave_index>=8: bg = "forest"

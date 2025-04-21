@@ -107,7 +107,7 @@ func set_stoned_skin(val):
 	var have_change = (enemy_data["stoned_skin"] != val)
 	enemy_data["stoned_skin"] = val
 	if val: 
-		$Sprite.material = preload("res://assets/shaders/sh_outline.tres")
+		$Sprite.material = load("res://assets/shaders/sh_outline.tres")
 		$Sprite.material.set_shader_param("line_color",Color(.8,.8,.8,1))
 		$Sprite.material.set_shader_param("line_scale",8)
 	else: 
@@ -120,7 +120,7 @@ func has_ability_by_percent(ab_code,percent=100):
 
 func resurrection_dracula():
 	if enemy_data.name != "dracula": return
-	var nd = preload("res://nodes/fx/DraculaFly.tscn").instance()
+	var nd = load("res://nodes/fx/DraculaFly.tscn").instance()
 	nd.global_position = global_position
 	get_node("/root/Game").add_child(nd)
 	yield(get_tree().create_timer(.7),"timeout")

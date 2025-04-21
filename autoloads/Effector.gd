@@ -66,12 +66,12 @@ func blood_bg():
 	tween.start()
 
 func show_float_text(code):
-	var node = preload("res://nodes/fx/FloatText.tscn").instance()
+	var node = load("res://nodes/fx/FloatText.tscn").instance()
 	node.set_float(code)
 	get_node("/root").add_child(node)
 
 func show_damage_text(val,pos):
-	var node = preload("res://nodes/fx/FloatText.tscn").instance()
+	var node = load("res://nodes/fx/FloatText.tscn").instance()
 	node.set_damage(val,pos)
 	get_node("/root/Game/CLUI").add_child(node)
 
@@ -112,14 +112,14 @@ func remove_all_children(node):
 		sl.queue_free()
 
 func change_scene_transition(scene_name):
-	var trnode = preload("res://nodes/fx/TransitionNode.tscn").instance()
+	var trnode = load("res://nodes/fx/TransitionNode.tscn").instance()
 	get_node("/root").add_child(trnode)
 	trnode.show_transition()
 	yield(trnode,"end_transition")
 	get_tree().change_scene("res://scenes/"+scene_name+".tscn")
 	trnode.hide_transition(true)
 	yield(get_tree().create_timer(.2),"timeout")
-	SizerManager.rescale_ui()
+	#SizerManager.rescale_ui()
 
 func fade_yoyo(node):
 	tween.interpolate_property(node,"modulate",Color(1,1,1,1),Color(0,0,0,1),.25,Tween.TRANS_QUAD,Tween.EASE_IN)
