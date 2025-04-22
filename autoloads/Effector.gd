@@ -85,7 +85,7 @@ func add_hint(hint_data):
 	#node.connect("tree_exited",self,"_on_hint_enter_area",[node,tx_code,false])
 
 func _on_hint_enter_area(hint_data,val):
-	print(hint_data)
+	#print(hint_data)
 	if hint_data.panel:
 		var HintPanel
 		if hint_data.panel=="default": HintPanel = get_node("/root/Game/CLUI/HintPanel")

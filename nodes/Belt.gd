@@ -46,6 +46,8 @@ func set_shadow_pawn(val=0):
 	$pawn2.rect_global_position = $HBox.get_child(pos).rect_global_position
 
 func rotate_belt():
+	if $pawn.modulate.a<1: return
+	Sounds.play_sound("pawn1")
 	var dist = $HBox/BeltSlot1.rect_size.x
 	$HBox.rect_global_position.x -= 70
 	$pawn.modulate.a = 0
@@ -58,6 +60,7 @@ func rotate_belt():
 	PlayerManager.PLAYER_ARMIES.push_front(end)
 	update_belt()
 	Effector.move_to($HBox, $HBox.rect_global_position+Vector2(70,0))
-	yield(get_tree().create_timer(.5),"timeout")
+	Sounds.play_sound("move_belt")
+	yield(get_tree().create_timer(.3),"timeout")
 	$pawn.rect_global_position = $HBox.get_child(pawn_pos-1).rect_global_position
-	Effector.appear($pawn)
+	$pawn.modulate.a = 1

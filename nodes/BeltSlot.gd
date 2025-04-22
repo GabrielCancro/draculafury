@@ -15,7 +15,8 @@ func _ready():
 func set_army(code):
 	army = code
 	if army: 
-		hint_data.code = "army_"+code
+		hint_data.code = code
+		if get_index()==2: hint_data.code = code+"_pow"
 		$Sprite.texture = load("res://assets/armies/arm_"+code+".png")
 		$panel_reload/Sprite2.texture = load("res://assets/armies/arm_"+code+".png")
 		$Sprite.visible = true

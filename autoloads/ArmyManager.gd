@@ -1,6 +1,8 @@
 extends Node
 
 signal end_army_action()
+var powered = false #if the current army is in the middle of belt!
+
 
 # TAGS ability damage largerange shortrange multitarget 
 # TAGS ammunition enlist exhaustible restricted
@@ -31,6 +33,8 @@ func get_random_army():
 
 func run_army_action(code):
 	#Effector.show_float_text(code)
+	powered = (code==get_node("/root/Game/CLUI/Belt/HBox").get_child(2).army)
+	print("IS POWERED ARMY!! ",code,"  ",powered)
 	yield(get_tree().create_timer(.2),"timeout")
 	if !PLAYER: PLAYER = get_node("/root/Game/Player")
 	if has_method("_condition_"+code) && !call("_condition_"+code):

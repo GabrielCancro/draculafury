@@ -9,16 +9,16 @@ var sfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_autoloads()
-	get_tree().set_screen_stretch(1,1,Vector2(1920,1080))
+	#set_autoloads()
+	#get_tree().set_screen_stretch(1,1,Vector2(1920,1080))
 	Sounds.initialize_sounds()
-	#$Button.connect("button_down",self,"next_scene")
-	#Sounds.stop_music()
+	$Button.connect("button_down",self,"next_scene")
+	Sounds.stop_music()
 	SaveManager.load_store_data()
-	#OS.window_fullscreen = SaveManager.savedData.fullscreen
-	#Sounds.set_vol(SaveManager.savedData.master_vol)
-	#play_anim()
-	get_tree().change_scene("res://scenes/Menu.tscn")
+	OS.window_fullscreen = SaveManager.savedData.fullscreen
+	Sounds.set_vol(SaveManager.savedData.master_vol)
+	play_anim()
+	#get_tree().change_scene("res://scenes/Menu.tscn")
 
 func play_anim():
 	var cpos = get_viewport_rect().size/2

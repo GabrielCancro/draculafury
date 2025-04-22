@@ -8,10 +8,10 @@ func _ready():
 func show_hint(hint_data):
 	if !hint_data.owner.army: return
 	var army_data = ArmyManager.get_army_data(hint_data.owner.army)
-	$lb_name.text = Lang.get_text("army_"+army_data.name+"_name")
+	$lb_name.text = Lang.get_text("army_"+hint_data.owner.army+"_name")
 	#$lb_amount.text = ""
 	if "amount" in army_data && army_data.amount>0: $lb_amount.text = "x"+str(army_data.amount)
-	$lb_desc.text = Lang.get_text("army_"+army_data.name+"_desc")
+	$lb_desc.text = Lang.get_text("army_"+hint_data.code+"_desc")
 	$lb_desc.remove_color_override("font_color")
 	if hint_data.owner.get_index()==2: $lb_desc.add_color_override("font_color",Color("#dfe75a"))
 	else: $lb_desc.add_color_override("font_color",Color("#d7d7d7"))

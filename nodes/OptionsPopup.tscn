@@ -6,7 +6,6 @@
 [ext_resource path="res://nodes/CustomButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/PlayerHpBar.png" type="Texture" id=5]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 60
 outline_size = 11
@@ -73,12 +72,14 @@ text = "<"
 
 [node name="volume" type="TextureRect" parent="."]
 modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 619.0
-margin_top = 584.0
-margin_right = -620.0
-margin_bottom = -214.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.5
+margin_top = 134.5
+margin_right = 179.5
+margin_bottom = 233.5
 mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true

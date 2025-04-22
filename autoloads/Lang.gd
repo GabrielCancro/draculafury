@@ -23,15 +23,32 @@ var texts = {
 	"army_dynamite_name_es":"Dinamita",
 	"army_trap_name_es":"Trampa",
 
-	"army_breathe_desc_es":"Recupera un punto de salud. No puede usarse si hay un enemigo cerca.",
-	"army_kick_desc_es":"Alcance 2, Daño 2, y empuja hacia atrás al enemigo.",
-	"army_rapier_desc_es":"Alcance 2, Daño 2, a todos los enemigos de la primera y segunda casilla, incluso voladores.",
-	"army_gun_desc_es":"Largo alcance, Daño 1, al primer enemigo, incluso si está volando.",
-	"army_shotgun_desc_es":"Largo alcance, Daños 2, al primer enemigo incluso si esta volando, además causa 1 daño al siguiente enemigo.",
-	"army_crossbow_desc_es":"Largo alcance, Daño 2, al primer enemigo que esté volando. Si no hay voladores, 1 daño al primer enemigo.",
-	"army_stake_desc_es":"Largo alcance, Daño 3, primer enemigo, incluso si esta volando.",
-	"army_dynamite_desc_es":"Daño en area, Daño 2, a todos los enemigos, incluso voladores.",
-	"army_trap_desc_es":"Daño 2, coloca una trampa en el suelo en una casilla vacia, quien la pise recive el daño.",
+	"army_breathe_desc_es":"Da una bocanada de aire que recupera UN punto de Salud. No puede usarse si hay un enemigo cerca.",
+	"army_breathe_pow_desc_es":"Da una bocanada de aire que recupera TRES punto de Salud. No puede usarse si hay un enemigo cerca.",
+	
+	"army_kick_desc_es":"Da una patada que causa UN daño a un enemigo y lo EMPUJA hacia atrás.",
+	"army_kick_pow_desc_es":"Da una patada que causa DOS daños a un enemigo y lo EMPUJA, además queda ATURDIDO.",
+	
+	"army_rapier_desc_es":"Daña a todos los enemigos de la primera y segunda casilla, incluso voladores.",
+	"army_rapier_pow_desc_es":"Daña a todos los enemigos de la primera y segunda casilla, incluso voladores. Da un segundo golpe mas débil a los de la primera casilla.",
+	
+	"army_gun_desc_es":"Hace un disparo que causa UN daño al primer enemigo incluso si esta volando.",
+	"army_gun_pow_desc_es":"Hace un disparo que causa UN daño al primer enemigo incluso si esta volando. Además hace un segundo disparo sin gastar munición.",
+	
+	"army_shotgun_desc_es":"Hace un disparo que causa DOS daños al primer enemigo y UN daño a un enemigo que esté detrás.",
+	"army_shotgun_pow_desc_es":"Hace un disparo que causa CUATRO daños al primer enemigo y DOS daño a un enemigo que esté detrás.",
+	
+	"army_crossbow_desc_es":"Lanza una flecha que causa DOS daños a un enemigo aleatorio. No puede usarse si hay un enemigo cerca.",
+	"army_crossbow_pow_desc_es":"Lanza DOS flechas que causan DOS daños a enemigos aleatorios. No puede usarse si hay un enemigo cerca.",
+	
+	"army_stake_desc_es":"Lanza una estaca de madera que causa TRES daños al primer enemigo.",
+	"army_stake_pow_desc_es":"Lanza una estaca de madera que causa CINCO daños al primer enemigo.",
+	
+	"army_dynamite_desc_es":"Causa TRES de daño a todos los enemigos. Solo una por cinturón.",
+	"army_dynamite_pow_desc_es":"Causa TRES de daño y ATURDE a todos los enemigos. Solo una por cinturón.",
+	
+	"army_trap_desc_es":"Coloca una trampa en un espacio vacío aleatorio. Al activarse causa DOS daños, luego se recupera la trampa.",
+	"army_trap_pow_desc_es":"Coloca una trampa en un espacio vacío aleatorio. Al activarse causa TRES daños y ATURDE al enemigo, luego se recupera la trampa.",
 	
 	"ui_end_wave_es":"Fin de Oleada!",
 	"ui_upg_new_army_es":"Elige un espacio de tu cinturon para sustituirlo y colocar tu arma nueva.",

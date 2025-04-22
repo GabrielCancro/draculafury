@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://nodes/Belt.gd" type="Script" id=1]
+[ext_resource path="res://assets/armies/ico_trap.png" type="Texture" id=2]
 [ext_resource path="res://nodes/BeltSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/shaders/sh_flame.tres" type="Material" id=4]
 [ext_resource path="res://assets/ui/bg_belt.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/selector_belt.png" type="Texture" id=6]
 
@@ -46,6 +48,20 @@ mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = ExtResource( 4 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -199.5
+margin_top = -185.5
+margin_right = 201.5
+margin_bottom = 196.5
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
 
 [node name="HBox" type="Control" parent="."]
 anchor_left = 0.5

@@ -1,6 +1,6 @@
 extends Control
 
-enum GameState {START,ACTIONS,ATTACKS,ENEMIES,WAVE}
+enum GameState {START,ACTIONS,ATTACKS,ENEMIES,WAVE,BELT}
 var current_state
 var disable_dices_click = true
 var tuto_first_kill = true
@@ -129,6 +129,11 @@ func change_state(new_state):
 				$CLUI/WinPopup.show_popup()
 				return
 		$CLUI/WaveUI.advance_wave()
+		yield(get_tree().create_timer(.7),"timeout")
+		change_state(GameState.BELT)
+	elif current_state == GameState.BELT:
+		yield(get_tree().create_timer(1),"timeout")
+		$CLUI/Belt.rotate_belt()
 		yield(get_tree().create_timer(.7),"timeout")
 		change_state(GameState.START)
 
