@@ -29,6 +29,7 @@ void fragment() {
 [sub_resource type="OpenSimplexNoise" id=5]
 
 [sub_resource type="NoiseTexture" id=6]
+seamless = true
 noise = SubResource( 5 )
 
 [resource]

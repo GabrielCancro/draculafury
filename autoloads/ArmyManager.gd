@@ -59,6 +59,7 @@ func _run_kick():
 	var en = EnemyManager.get_first_enemy(2,0)
 	if en:
 		en.enemy_damage(1)
+		en.add_stun()
 		yield(get_tree().create_timer(.7),"timeout")
 		EnemyManager.move_to_first_free_space(en,2)
 	yield(get_tree().create_timer(.5),"timeout")

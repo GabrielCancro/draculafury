@@ -6,12 +6,15 @@ var fly_y = -220
 var fly_ttl = 0
 var step_size
 var hint_data={"owner":self,"panel":"enemy","code":null,"over_node":null,"callback":null,"over_area":"Button"}
+var stuned = 0
 
 signal end_move()
 signal end_anim()
 
 func _ready():
 	$Sprite.position.y = 30 - $Sprite.texture.get_size().y/2 * $Sprite.scale.y
+	$Stun.position.y = 50 - $Sprite.texture.get_size().y * $Sprite.scale.y
+	$Stun.position.x = -30
 	modulate.a = 0
 	Effector.appear(self)
 	Effector.add_hint(hint_data)
@@ -56,6 +59,10 @@ func move(val = -enemy_data.mov):
 		yield(get_tree().create_timer(.5),"timeout")
 		emit_signal("end_move")
 		return
+	if is_stunned():
+		dec_stun()
+		emit_signal("end_move")
+		return
 	for i in abs(val):
 		if enemy_data.tile_pos_x==0 and sign(val)<0: break
 		var swap_en = EnemyManager.get_enemy_in_pos(enemy_data.tile_pos_x+sign(val),enemy_data.tile_pos_y)
@@ -95,6 +102,17 @@ func enemy_damage(dam):
 		yield(get_tree().create_timer(.5),"timeout")
 		PlayerManager.add_xp(1)
 		queue_free()
+
+func add_stun(val=1):
+	stuned = 1
+	$Stun.emitting = is_stunned()
+
+func dec_stun(val=1):
+	stuned = 0
+	$Stun.emitting = is_stunned()
+
+func is_stunned():
+	return (stuned>0)
 
 func enemy_set_hp(val):
 	enemy_data.hpm = val
