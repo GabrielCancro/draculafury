@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/ui/pjui.png" type="Texture" id=1]
 [ext_resource path="res://assets/player_retrait_1.png" type="Texture" id=2]
@@ -10,12 +10,7 @@
 [ext_resource path="res://assets/dice_icon.png" type="Texture" id=8]
 [ext_resource path="res://assets/ui/heart.png" type="Texture" id=9]
 [ext_resource path="res://assets/ui/itemsbar.png" type="Texture" id=10]
-
-[sub_resource type="DynamicFont" id=1]
-size = 39
-outline_size = 7
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+[ext_resource path="res://assets/fonts/AnnapurnaSIL-Bold.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -23,16 +18,22 @@ outline_size = 7
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 30
-outline_size = 6
-outline_color = Color( 0.270588, 0.278431, 0.121569, 1 )
-font_data = ExtResource( 6 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 41
 outline_size = 7
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 39
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 6
+outline_color = Color( 0.270588, 0.278431, 0.121569, 1 )
 font_data = ExtResource( 6 )
 
 [node name="PlayerUI" type="Control"]
@@ -42,11 +43,53 @@ script = ExtResource( 5 )
 
 [node name="HintNode" type="Sprite" parent="."]
 modulate = Color( 0.529412, 0.556863, 0.788235, 1 )
-position = Vector2( 275, 297 )
+position = Vector2( 275, 249 )
 rotation = -1.5708
 scale = Vector2( 0.526613, 0.534794 )
 texture = ExtResource( 7 )
 hframes = 2
+
+[node name="XPBar" type="TextureProgress" parent="."]
+margin_left = 19.0
+margin_top = 251.0
+margin_right = 156.0
+margin_bottom = 271.0
+value = 25.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 3 )
+tint_under = Color( 0.321569, 0.321569, 0.321569, 1 )
+tint_progress = Color( 0.364706, 0.627451, 0.968627, 1 )
+nine_patch_stretch = true
+
+[node name="label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -267.0
+margin_top = 204.0
+margin_right = -111.0
+margin_bottom = 252.0
+custom_colors/font_color = Color( 0.364706, 0.627451, 0.968627, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0.105882, 0.247059, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "XP: 0/10"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="lb_level" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -52.0
+margin_top = 10.0
+margin_right = 156.0
+margin_bottom = 58.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 4 )
+text = "Nivel 1"
+valign = 1
+autowrap = true
 
 [node name="RetraitImg" type="TextureRect" parent="."]
 margin_left = 7.0
@@ -65,30 +108,14 @@ expand = true
 [node name="label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -7.0
-margin_top = 62.0
-margin_right = 223.0
-margin_bottom = 110.0
+margin_left = -3.0
+margin_top = 64.0
+margin_right = 227.0
+margin_bottom = 120.0
 custom_colors/font_color = Color( 0.917647, 0.219608, 0.0980392, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
 text = "HP: 10/10"
-valign = 1
-autowrap = true
-
-[node name="label2" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -267.0
-margin_top = 276.0
-margin_right = -111.0
-margin_bottom = 324.0
-custom_colors/font_color = Color( 0.364706, 0.627451, 0.968627, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0.105882, 0.247059, 1 )
-custom_constants/line_spacing = -1
-custom_fonts/font = SubResource( 2 )
-text = "XP: 0/10"
-align = 1
 valign = 1
 autowrap = true
 
@@ -107,20 +134,6 @@ text = "Dado extra: 1/6"
 valign = 1
 autowrap = true
 
-[node name="lb_level" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -52.0
-margin_top = 10.0
-margin_right = 156.0
-margin_bottom = 58.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_constants/line_spacing = -1
-custom_fonts/font = SubResource( 4 )
-text = "Nivel 1"
-valign = 1
-autowrap = true
-
 [node name="HPBar" type="TextureProgress" parent="."]
 margin_left = 210.0
 margin_top = 111.0
@@ -130,18 +143,6 @@ value = 75.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 3 )
 tint_progress = Color( 0.917647, 0.219608, 0.0980392, 1 )
-nine_patch_stretch = true
-
-[node name="XPBar" type="TextureProgress" parent="."]
-margin_left = 19.0
-margin_top = 251.0
-margin_right = 156.0
-margin_bottom = 271.0
-value = 25.0
-texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 3 )
-tint_under = Color( 0.321569, 0.321569, 0.321569, 1 )
-tint_progress = Color( 0.364706, 0.627451, 0.968627, 1 )
 nine_patch_stretch = true
 
 [node name="HeartImg" type="TextureRect" parent="."]

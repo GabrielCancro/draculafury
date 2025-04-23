@@ -26,14 +26,14 @@ var texts = {
 	"army_breathe_desc_es":"Da una bocanada de aire que recupera UN punto de Salud. No puede usarse si hay un enemigo cerca.",
 	"army_breathe_pow_desc_es":"Da una bocanada de aire que recupera TRES punto de Salud. No puede usarse si hay un enemigo cerca.",
 	
-	"army_kick_desc_es":"Da una patada que causa UN daño a un enemigo y lo EMPUJA hacia atrás.",
-	"army_kick_pow_desc_es":"Da una patada que causa DOS daños a un enemigo y lo EMPUJA, además queda ATURDIDO.",
+	"army_kick_desc_es":"Da una patada que causa UN daño a un enemigo y lo EMPUJA hacia atrás. No afecta a VOLADORES.",
+	"army_kick_pow_desc_es":"Da una patada que causa DOS daños a un enemigo y lo EMPUJA, además queda ATURDIDO. No afecta a VOLADORES.",
 	
 	"army_rapier_desc_es":"Daña a todos los enemigos de la primera y segunda casilla, incluso voladores.",
 	"army_rapier_pow_desc_es":"Daña a todos los enemigos de la primera y segunda casilla, incluso voladores. Da un segundo golpe mas débil a los de la primera casilla.",
 	
 	"army_gun_desc_es":"Hace un disparo que causa UN daño al primer enemigo incluso si esta volando.",
-	"army_gun_pow_desc_es":"Hace un disparo que causa UN daño al primer enemigo incluso si esta volando. Además hace un segundo disparo sin gastar munición.",
+	"army_gun_pow_desc_es":"Hace un disparo que causa UN daño al primer enemigo. Además hace un segundo disparo sin gastar munición.",
 	
 	"army_shotgun_desc_es":"Hace un disparo que causa DOS daños al primer enemigo y UN daño a un enemigo que esté detrás.",
 	"army_shotgun_pow_desc_es":"Hace un disparo que causa CUATRO daños al primer enemigo y DOS daño a un enemigo que esté detrás.",

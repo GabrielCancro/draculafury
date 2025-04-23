@@ -46,9 +46,10 @@ func roll():
 
 func hide_dice():
 	print("HIDING DICE ",value)
+	if value==-1: return
 	value = -1
 	$HintNode.visible = false
-	Effector.disappear(self)
+	Effector.disappear(self,true)
 
 func block_dice():
 	blocked = true

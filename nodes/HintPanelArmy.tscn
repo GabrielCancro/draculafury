@@ -67,9 +67,9 @@ expand = true
 
 [node name="l2" type="TextureRect" parent="."]
 margin_left = 25.0
-margin_top = 291.0
+margin_top = 303.0
 margin_right = 605.0
-margin_bottom = 293.0
+margin_bottom = 305.0
 mouse_filter = 2
 texture = ExtResource( 6 )
 expand = true
@@ -101,11 +101,11 @@ autowrap = true
 [node name="lb_desc" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 120.0
-margin_right = 614.0
-margin_bottom = 287.0
+margin_right = 633.0
+margin_bottom = 305.0
 custom_colors/font_color = Color( 0.843137, 0.843137, 0.843137, 1 )
-custom_constants/line_spacing = -1
+custom_constants/line_spacing = -3
 custom_fonts/font = SubResource( 14 )
-text = "Hace un disparo que causa 1 daño al primer enemigo."
+text = "Daña a todos los enemigos de la primera y segunda casilla, incluso voladores. Da un segundo golpe mas débil a los de la primera casilla."
 valign = 1
 autowrap = true

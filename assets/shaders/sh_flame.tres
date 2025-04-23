@@ -39,12 +39,12 @@ void fragment() {
 
 [resource]
 shader = SubResource( 2 )
-shader_param/color1 = Color( 1, 1, 0, 1 )
-shader_param/color2 = Color( 1, 0, 0, 1 )
-shader_param/brightness = -0.6
+shader_param/color1 = Color( 1, 0, 0, 1 )
+shader_param/color2 = Color( 0, 0, 0, 1 )
+shader_param/brightness = -0.454
 shader_param/timeOffset = 0.0
-shader_param/timeRate = 1.0
-shader_param/noiseAmmount = -0.023
+shader_param/timeRate = 3.0
+shader_param/noiseAmmount = -0.288
 shader_param/offsetX = 0.0
 shader_param/flickerT = 0.01
 shader_param/noise = SubResource( 3 )

@@ -16,12 +16,13 @@ func set_data(_enemy,_amount):
 		hint_data.code = "en_"+enemy+"_name"
 		$Sprite.modulate = Color(1,1,1,1)
 		$Sprite2.texture = load("res://assets/enemies/en_ret_"+enemy+".png")
-		$Sprite2.visible = true
+		#$Sprite2.visible = true
 		$lb_amount.visible = true
 		$lb_amount.text = "x"+str(amount)
 	else:
 		$Sprite.modulate = Color(.8,.8,.8,1)
-		$Sprite2.visible = false
+		$Sprite2.texture = load("res://assets/enemies/en_ret_empty.png")
+		#$Sprite2.visible = false
 		$lb_amount.visible = false
 
 func hint_cb():

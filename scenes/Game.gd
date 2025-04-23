@@ -82,9 +82,10 @@ func change_state(new_state):
 #		yield($CLUI/DiceSet,"end_dice_part_collect")
 		yield(get_tree().create_timer(.2),"timeout")
 		while true:
+			var is_army_powered = $CLUI/PlayerActionList.is_first_army_powered()
 			var army = $CLUI/PlayerActionList.get_and_hide_first_army()
 			if army:
-				ArmyManager.run_army_action(army)
+				ArmyManager.run_army_action(army,is_army_powered)
 				yield(ArmyManager,"end_army_action")
 				if PlayerManager.PLAYER_STATS.kills==1 && SaveManager.savedData.level==1:
 					$CLUI/TutorialPopup.show_popup("deadenemy")
@@ -171,7 +172,8 @@ func on_click_dice(dice):
 	$CLUI/Belt.current_slot.set_lighted(true)
 	yield(get_tree().create_timer(.3),"timeout")
 	if $CLUI/Belt.current_slot.reduce_amount():
-		$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army)
+		var powered = ($CLUI/Belt.current_slot.get_index()==2)
+		$CLUI/PlayerActionList.add_army($CLUI/Belt.current_slot.army,powered)
 	$CLUI/Belt.clear_selected_slot()
 	yield(get_tree().create_timer(.3),"timeout")
 	disable_dices_click = false

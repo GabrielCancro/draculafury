@@ -2,7 +2,7 @@ extends Node2D
 
 var enemy_data
 var floor_y = 760
-var fly_y = -220
+var fly_y = -270
 var fly_ttl = 0
 var step_size
 var hint_data={"owner":self,"panel":"enemy","code":null,"over_node":null,"callback":null,"over_area":"Button"}
@@ -60,7 +60,10 @@ func move(val = -enemy_data.mov):
 		emit_signal("end_move")
 		return
 	if is_stunned():
+		Effector.scale_boom(self)
+		yield(get_tree().create_timer(.7),"timeout")
 		dec_stun()
+		yield(get_tree().create_timer(.7),"timeout")
 		emit_signal("end_move")
 		return
 	for i in abs(val):

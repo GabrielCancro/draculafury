@@ -119,7 +119,8 @@ func _run_ron():
 	belt.current_slot.set_lighted(true)
 	yield(get_tree().create_timer(.5),"timeout")
 	if belt.current_slot.reduce_amount():
-		player_action_list.add_army(belt.current_slot.army)
+		var powered = ($CLUI/Belt.current_slot.get_index()==2)
+		player_action_list.add_army(belt.current_slot.army,powered)
 	belt.clear_selected_slot()
 	yield(get_tree().create_timer(.2),"timeout")
 	emit_signal("end_item_action",true)

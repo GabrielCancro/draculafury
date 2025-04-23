@@ -62,6 +62,7 @@ func add_rnd_enemy():
 
 func get_enemy_in_pos(_x,_y):
 	for en in ENEMIES_ACTIVES: 
+		if en.enemy_data.hp<=0: continue
 		if (en.enemy_data["tile_pos_y"] == _y 
 		and en.enemy_data["tile_pos_x"] == _x): 
 			return en
@@ -83,14 +84,30 @@ func re_ordered_enemies_array():
 func get_first_enemy(ran=max_x_pos+1,forced_y=-1):
 	re_ordered_enemies_array()
 	for en in ENEMIES_ACTIVES:
+		if en.enemy_data.hp<=0: continue
 		if en.enemy_data.tile_pos_x < ran: 
 			if forced_y == -1 || en.enemy_data.tile_pos_y == forced_y: 
 				return en
 	return null
 
+func get_random_enemy(ran=max_x_pos+1,forced_y=-1):
+	re_ordered_enemies_array()
+	var candidates = []
+	for en in ENEMIES_ACTIVES:
+		if en.enemy_data.hp<=0: continue
+		if en.enemy_data.tile_pos_x < ran: 
+			if forced_y == -1 || en.enemy_data.tile_pos_y == forced_y: 
+				candidates.append(en)
+	if candidates.size()>0:
+		randomize()
+		candidates.shuffle()
+		return candidates[0]
+	else: return null
+
 func get_next_enemy_that(en_orig):
 	re_ordered_enemies_array()
 	for en in ENEMIES_ACTIVES:
+		if en.enemy_data.hp<=0: continue
 		if en.enemy_data.tile_pos_x > en_orig.enemy_data.tile_pos_x:
 			return en
 	return null

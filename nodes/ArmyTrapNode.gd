@@ -1,6 +1,7 @@
 extends Control
 
 var xpos = -1
+var powered = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,11 +11,13 @@ func _ready():
 	update_trap()
 
 func unset_trap():
+	powered = false
 	xpos = -1
 	Effector.disappear(self)
 	update_trap()
 
-func set_trap():
+func set_trap(_powered=false):
+	powered = _powered
 	var arr = []
 	xpos = -1
 	randomize()

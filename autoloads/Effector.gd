@@ -48,7 +48,8 @@ func shake(node,power=6,time=.5):
 
 func scale_boom(node):
 	var prop = "scale" if ("scale" in node) else "rect_scale"
-	tween.interpolate_property(node,prop,Vector2(1.2,1.2),Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	var start = node.scale if ("scale" in node) else node.rect_scale
+	tween.interpolate_property(node,prop,start+start*0.2,start,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
 func damage_fx(node,dam):

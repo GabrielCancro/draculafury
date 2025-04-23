@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://nodes/ArmyTagList.gd" type="Script" id=3]
 [ext_resource path="res://assets/ui/army_stats_ico.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_size = 3
+extra_spacing_char = -1
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
@@ -47,14 +53,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -27.0
+margin_left = -35.0
 margin_top = -32.0
-margin_right = 77.0
+margin_right = 83.0
 margin_bottom = 16.0
 rect_scale = Vector2( 1, 1.7 )
 custom_colors/font_color = Color( 0.945098, 0.945098, 0.945098, 1 )
+custom_colors/font_outline_modulate = Color( 0.505882, 0.121569, 0.0588235, 1 )
 custom_constants/line_spacing = -1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "2/6"
 align = 1
 valign = 1

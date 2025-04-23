@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://nodes/WaveSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/WaveUI.gd" type="Script" id=3]
-
+[ext_resource path="res://assets/ui/ui_wave.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -16,9 +16,17 @@ margin_right = 658.0
 margin_bottom = 185.0
 script = ExtResource( 3 )
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 616.0
+margin_bottom = 304.0
+texture = ExtResource( 4 )
+expand = true
+
 [node name="Grid" type="Control" parent="."]
-margin_right = 150.0
-margin_bottom = 180.0
+margin_left = 176.0
+margin_top = 57.0
+margin_right = 345.0
+margin_bottom = 296.0
 rect_min_size = Vector2( 150, 180 )
 
 [node name="WaveSlot" parent="Grid" instance=ExtResource( 2 )]

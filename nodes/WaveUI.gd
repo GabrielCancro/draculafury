@@ -1,7 +1,7 @@
 extends Control
 
 var WaveSlot = load("res://nodes/WaveSlot.tscn")
-var space_slot = 105
+var space_slot = 115
 var max_slots = 3
 var wave_index = 0
 var current_bg = "tomb"
@@ -109,7 +109,10 @@ func reorder_grid():
 		var i = sl.get_index()
 		var c = 1-i*0.15
 		var color = Color(c,c,c,1)
+		var posy = 0
+		if i==1: posy = 20
 		$Tween.interpolate_property(sl,"rect_position:x",null,i*space_slot,.3,Tween.TRANS_QUAD,Tween.EASE_IN_OUT,i*0.2)
+		$Tween.interpolate_property(sl,"rect_position:y",null,posy,.3,Tween.TRANS_QUAD,Tween.EASE_IN_OUT,i*0.2)
 		#$Tween.interpolate_property(sl,"rect_scale",null,Vector2(c,c),.3,Tween.TRANS_QUAD,Tween.EASE_IN_OUT,i*0.2)
 		$Tween.interpolate_property(sl,"modulate",null,color,.3,Tween.TRANS_QUAD,Tween.EASE_IN_OUT,i*0.2)
 	$Tween.start()

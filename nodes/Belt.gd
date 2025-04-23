@@ -52,10 +52,10 @@ func rotate_belt():
 	$HBox.rect_global_position.x -= 70
 	$pawn.modulate.a = 0
 	var amounts = []
-	for i in range(max_slots): amounts.append($HBox.get_child(0).amount)
+	for i in range(max_slots): amounts.append($HBox.get_child(i).amount)
 	var a = amounts.pop_back()
 	amounts.push_front(a)
-	for i in range(max_slots): $HBox.get_child(0).amount = amounts[i]
+	for i in range(max_slots): $HBox.get_child(i).amount = amounts[i]
 	var end = PlayerManager.PLAYER_ARMIES.pop_back()
 	PlayerManager.PLAYER_ARMIES.push_front(end)
 	update_belt()
