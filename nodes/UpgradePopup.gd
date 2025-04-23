@@ -4,6 +4,7 @@ var current_option
 var ini_belt_extra_pos
 var new_army
 var new_army_data
+var original_HintPanel_army_position
 signal on_hide_popup()
 
 func _ready():
@@ -12,6 +13,7 @@ func _ready():
 
 func show_popup():
 	modulate.a = 0
+	original_HintPanel_army_position = get_node("/root/Game/CLUI/HintPanelArmy").rect_global_position
 	get_node("/root/Game/CLUI/HintPanelArmy").rect_global_position = Vector2(1200,220)
 	$block.visible = false
 	$Button.modulate.a = 0
@@ -42,7 +44,7 @@ func show_popup():
 func hide_popup():
 	$Button.modulate.a = 0
 	Effector.disappear(self,true)
-	get_node("/root/Game/CLUI/HintPanelArmy").rect_global_position.y = 510
+	get_node("/root/Game/CLUI/HintPanelArmy").rect_global_position = original_HintPanel_army_position
 	emit_signal("on_hide_popup")
 
 func update_belt():
