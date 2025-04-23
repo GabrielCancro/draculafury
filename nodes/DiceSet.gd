@@ -17,6 +17,7 @@ func on_click_dice(dice):
 
 func show_diceset():
 	Effector.appear(self)
+	$ClickDisabler.visible = false
 	for d in $HBoxDices.get_children():
 		if d.get_index()<amount_dices: d.show_dice()
 
@@ -36,12 +37,14 @@ func get_dice_parts():
 			yield(get_tree().create_timer(.3),"timeout")
 	emit_signal("end_dice_part_collect")
 
-func clear_unused_dices():
-	yield(get_tree().create_timer(.2),"timeout")
-	for d in $HBoxDices.get_children(): 
-		if d.visible: 
-			yield(get_tree().create_timer(.1),"timeout")
-			d.hide_dice()
+func block_clicks():
+	$ClickDisabler.visible = true
+#func clear_unused_dices():
+#	yield(get_tree().create_timer(.2),"timeout")
+#	for d in $HBoxDices.get_children(): 
+#		if d.visible: 
+#			yield(get_tree().create_timer(.1),"timeout")
+#			d.hide_dice()
 
 func roll_all_dices():
 	Sounds.play_sound("roll_dices")
@@ -57,9 +60,12 @@ func roll_all_dices():
 				get_node("/root/Game/CLUI/TutorialPopup").show_popup("getsix")
 				yield(get_node("/root/Game/CLUI/TutorialPopup"),"close_popup")
 			Effector.scale_boom(dice)
+			Sounds.play_sound("xp")
 			yield(get_tree().create_timer(.7),"timeout")
 			var new_dice = add_extra_dice()
-			if new_dice: new_dice.roll()
+			if new_dice: 
+				new_dice.roll()
+				Sounds.play_sound("roll_dices")
 			else: checked_dices = 99
 			yield(get_tree().create_timer(1.2),"timeout")
 		checked_dices += 1
@@ -84,4 +90,9 @@ func get_and_hide_first_dice_army():
 			var arm = d.army
 			d.hide_dice()
 			return arm
+	return null
+
+func get_next_enable_dice():
+	for d in $HBoxDices.get_children():
+		if d.visible && !d.blocked && d.value>-1: return d
 	return null

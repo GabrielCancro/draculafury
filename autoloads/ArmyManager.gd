@@ -88,8 +88,8 @@ func _run_rapier():
 			PLAYER.set_anim("rapier")
 			Sounds.play_sound("army_rapier")
 			yield(PLAYER,"end_anim")
-			if en1: en.enemy_damage(1)
-			if en2: en.enemy_damage(1)
+			if en1: en1.enemy_damage(1)
+			if en2: en2.enemy_damage(1)
 			yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_army_action")
 

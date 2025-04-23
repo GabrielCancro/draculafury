@@ -8,12 +8,6 @@ margin_right = 553.0
 margin_bottom = 70.0
 script = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.701961 )
-
 [node name="HBoxDices" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,3 +42,13 @@ margin_left = 368.0
 margin_top = 0.0
 margin_right = 438.0
 margin_bottom = 70.0
+
+[node name="ClickDisabler" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 48.0
+margin_bottom = 17.0
+color = Color( 0, 0, 0, 0 )

@@ -50,6 +50,8 @@ func hide_dice():
 	value = -1
 	$HintNode.visible = false
 	Effector.disappear(self,true)
+	yield(get_tree().create_timer(.5),"timeout")
+	$Sprite.frame = 6
 
 func block_dice():
 	blocked = true

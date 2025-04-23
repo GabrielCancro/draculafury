@@ -74,10 +74,10 @@ func change_state(new_state):
 		show_states_button()
 	elif current_state == GameState.ATTACKS:
 		disable_dices_click = true
+		$CLUI/DiceSet.block_clicks()
 		ItemManager.enable_items_usage(false)
 		yield(get_tree().create_timer(.2),"timeout")
 		ItemManager.clear_floor_items()
-		$CLUI/DiceSet.clear_unused_dices()
 #		$CLUI/DiceSet.get_dice_parts()
 #		yield($CLUI/DiceSet,"end_dice_part_collect")
 		yield(get_tree().create_timer(.2),"timeout")
@@ -135,7 +135,15 @@ func change_state(new_state):
 	elif current_state == GameState.BELT:
 		yield(get_tree().create_timer(1),"timeout")
 		$CLUI/Belt.rotate_belt()
-		yield(get_tree().create_timer(.7),"timeout")
+		var next_dice = $CLUI/DiceSet.get_next_enable_dice()
+		while next_dice:
+			yield(get_tree().create_timer(.5),"timeout")
+			next_dice.block_dice()
+			$CLUI/Belt.rotate_belt()
+			next_dice = $CLUI/DiceSet.get_next_enable_dice()
+		yield(get_tree().create_timer(.5),"timeout")
+		$CLUI/DiceSet.hide_diceset()
+		yield(get_tree().create_timer(1),"timeout")
 		change_state(GameState.START)
 
 func on_button_states():
@@ -155,6 +163,7 @@ func show_states_button():
 	$CLUI/ButtonStates.disabled = false
 	if current_state==GameState.START: $CLUI/ButtonStates/Label.text = "ROLL"
 	elif current_state==GameState.ACTIONS: $CLUI/ButtonStates/Label.text = "END"
+	$CLUI/ButtonStates/HintNode/Label2.text = $CLUI/ButtonStates/Label.text
 	Effector.appear($CLUI/ButtonStates)
 
 func on_click_dice(dice):

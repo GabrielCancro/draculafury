@@ -14,7 +14,7 @@ func show_hint(hint_data):
 	$lb_desc.text = Lang.get_text("army_"+hint_data.code+"_desc")
 	$lb_desc.remove_color_override("font_color")
 	if hint_data.owner.get_index()==2: $lb_desc.add_color_override("font_color",Color("#dfe75a"))
-	else: $lb_desc.add_color_override("font_color",Color("#d7d7d7"))
+	else: $lb_desc.add_color_override("font_color",Color("#FFFFFF"))
 	$ArmyTagList.set_tags(army_data.name,("_pow" in hint_data.code))
 #	$lb_tags.text = ""
 #	if "tags" in army_data: 

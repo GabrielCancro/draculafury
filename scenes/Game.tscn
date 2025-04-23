@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg_forest.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -32,7 +32,13 @@ font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 41
-outline_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+outline_color = Color( 0.529412, 0.105882, 0.0862745, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 29
+outline_size = 3
+outline_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 font_data = ExtResource( 12 )
 
 [node name="Game" type="Control"]
@@ -233,18 +239,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 4.0
 margin_bottom = 4.0
-texture = ExtResource( 19 )
-expand = true
-
-[node name="HintNode" type="TextureRect" parent="CLUI/ButtonStates"]
-visible = false
-modulate = Color( 1, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -5.0
-margin_top = 3.0
-margin_right = 6.0
-margin_bottom = 7.0
+mouse_filter = 2
 texture = ExtResource( 19 )
 expand = true
 
@@ -252,13 +247,49 @@ expand = true
 modulate = Color( 0.529412, 0.105882, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 texture = ExtResource( 19 )
 expand = true
 
 [node name="Label" type="Label" parent="CLUI/ButtonStates"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.866667, 0.866667, 0.866667, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "TIRAR"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HintNode" type="Control" parent="CLUI/ButtonStates"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CLUI/ButtonStates/HintNode"]
+modulate = Color( 0.486275, 0.101961, 0.0862745, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = 5.0
+mouse_filter = 2
+texture = ExtResource( 19 )
+expand = true
+
+[node name="TextureRect4" type="TextureRect" parent="CLUI/ButtonStates/HintNode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 19 )
+expand = true
+
+[node name="Label2" type="Label" parent="CLUI/ButtonStates/HintNode"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 2 )
 text = "TIRAR"
@@ -288,10 +319,10 @@ margin_bottom = -23.0
 visible = false
 
 [node name="HintPanel" parent="CLUI" instance=ExtResource( 6 )]
-margin_left = 633.0
-margin_top = -102.0
-margin_right = 633.0
-margin_bottom = -102.0
+margin_left = 636.0
+margin_top = -165.0
+margin_right = 636.0
+margin_bottom = -165.0
 
 [node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
 margin_left = 645.0
@@ -505,3 +536,16 @@ margin_left = 53.0
 margin_top = 961.0
 margin_right = 53.0
 margin_bottom = 961.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = -256.0
+margin_top = -185.0
+margin_right = -53.0
+margin_bottom = -27.0
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 3 )
+text = "ESCALAR TODO AL 60%"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true

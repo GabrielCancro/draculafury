@@ -3,7 +3,6 @@
 [ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://nodes/fx/HintPanel.gd" type="Script" id=3]
 
-
 [sub_resource type="DynamicFont" id=4]
 size = 29
 outline_size = 3
