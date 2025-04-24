@@ -25,7 +25,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 39
+size = 29
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 11 )
@@ -43,7 +43,7 @@ script = ExtResource( 5 )
 
 [node name="HintNode" type="Sprite" parent="."]
 modulate = Color( 0.529412, 0.556863, 0.788235, 1 )
-position = Vector2( 275, 249 )
+position = Vector2( 275, 185 )
 rotation = -1.5708
 scale = Vector2( 0.526613, 0.534794 )
 texture = ExtResource( 7 )
@@ -51,9 +51,9 @@ hframes = 2
 
 [node name="XPBar" type="TextureProgress" parent="."]
 margin_left = 19.0
-margin_top = 251.0
+margin_top = 195.0
 margin_right = 156.0
-margin_bottom = 271.0
+margin_bottom = 215.0
 value = 25.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 3 )
@@ -65,9 +65,9 @@ nine_patch_stretch = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -267.0
-margin_top = 204.0
+margin_top = 148.0
 margin_right = -111.0
-margin_bottom = 252.0
+margin_bottom = 196.0
 custom_colors/font_color = Color( 0.364706, 0.627451, 0.968627, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0.105882, 0.247059, 1 )
 custom_constants/line_spacing = -1
@@ -94,24 +94,25 @@ autowrap = true
 [node name="RetraitImg" type="TextureRect" parent="."]
 margin_left = 7.0
 margin_top = -10.0
-margin_right = 225.0
-margin_bottom = 265.0
+margin_right = 197.0
+margin_bottom = 230.0
 texture = ExtResource( 2 )
 expand = true
 
 [node name="RetrairBg" type="TextureRect" parent="."]
-margin_right = 664.0
-margin_bottom = 325.0
+margin_top = 1.0
+margin_right = 566.0
+margin_bottom = 278.0
 texture = ExtResource( 1 )
 expand = true
 
 [node name="label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -3.0
-margin_top = 64.0
-margin_right = 227.0
-margin_bottom = 120.0
+margin_left = -33.0
+margin_top = 55.0
+margin_right = 171.0
+margin_bottom = 97.0
 custom_colors/font_color = Color( 0.917647, 0.219608, 0.0980392, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
@@ -135,10 +136,10 @@ valign = 1
 autowrap = true
 
 [node name="HPBar" type="TextureProgress" parent="."]
-margin_left = 210.0
-margin_top = 111.0
-margin_right = 501.0
-margin_bottom = 147.0
+margin_left = 202.0
+margin_top = 96.0
+margin_right = 422.0
+margin_bottom = 123.0
 value = 75.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 3 )
@@ -146,19 +147,19 @@ tint_progress = Color( 0.917647, 0.219608, 0.0980392, 1 )
 nine_patch_stretch = true
 
 [node name="HeartImg" type="TextureRect" parent="."]
-margin_left = 183.0
-margin_top = 86.0
-margin_right = 261.0
-margin_bottom = 169.0
+margin_left = 162.0
+margin_top = 79.0
+margin_right = 224.0
+margin_bottom = 145.0
 rect_pivot_offset = Vector2( 39, 42 )
 texture = ExtResource( 9 )
 expand = true
 
 [node name="HeartImg2" type="TextureRect" parent="."]
-margin_left = 171.0
-margin_top = 180.0
-margin_right = 430.0
-margin_bottom = 250.0
+margin_left = 146.0
+margin_top = 154.0
+margin_right = 374.0
+margin_bottom = 214.0
 rect_pivot_offset = Vector2( 39, 42 )
 texture = ExtResource( 10 )
 expand = true

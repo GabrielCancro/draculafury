@@ -7,7 +7,7 @@ func show_hint(hint_data):
 	print(hint_data)
 	if !hint_data.owner.item_data: return
 	var item_data = hint_data.owner.item_data
-	$lb_name.text = Lang.get_text("it_"+item_data.code+"_name")
+	$lb_name.text = Lang.get_text("it_"+item_data.code+"_name").to_upper()
 	$lb_desc.text = Lang.get_text("it_"+item_data.code+"_desc")
 	$Sprite2.frame = item_data.ico
 	if hint_data.owner.rect_position.x<100:

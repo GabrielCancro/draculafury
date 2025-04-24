@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/backgrounds/bg_forest.jpg" type="Texture" id=1]
 [ext_resource path="res://nodes/Belt.tscn" type="PackedScene" id=2]
@@ -18,11 +18,13 @@
 [ext_resource path="res://nodes/TutorialPopup.tscn" type="PackedScene" id=16]
 [ext_resource path="res://nodes/HintPanelItem.tscn" type="PackedScene" id=17]
 [ext_resource path="res://nodes/WinPopup.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/ui/lifebar.png" type="Texture" id=19]
+[ext_resource path="res://assets/fonts/birchstd.OTF" type="DynamicFontData" id=19]
 [ext_resource path="res://nodes/ArmyTrapNode.tscn" type="PackedScene" id=20]
-[ext_resource path="res://assets/placeholder.jpg" type="Texture" id=21]
 [ext_resource path="res://assets/shaders/sh_burning.tres" type="Material" id=22]
 [ext_resource path="res://assets/ui/ui_bottom.png" type="Texture" id=23]
+[ext_resource path="res://assets/ui/ui_button_stay.png" type="Texture" id=24]
+[ext_resource path="res://assets/ui/ui_button_press.png" type="Texture" id=25]
+[ext_resource path="res://assets/placeholders/placeholder1.webp" type="Texture" id=26]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -31,9 +33,9 @@ outline_color = Color( 0.243137, 0.243137, 0.243137, 1 )
 font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 41
+size = 52
 outline_color = Color( 0.529412, 0.105882, 0.0862745, 1 )
-font_data = ExtResource( 12 )
+font_data = ExtResource( 19 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 29
@@ -76,9 +78,10 @@ stretch_mode = 7
 
 [node name="placeholder" type="TextureRect" parent="CLBG"]
 visible = false
+modulate = Color( 0.921569, 1, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 21 )
+texture = ExtResource( 26 )
 expand = true
 stretch_mode = 1
 
@@ -177,13 +180,20 @@ scale = Vector2( 1, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -4.0
-margin_top = -291.0
-margin_right = 6.0
-margin_bottom = 4.0
+margin_left = 2.0
+margin_top = -225.0
+margin_right = 9.0
+margin_bottom = 76.0
 texture = ExtResource( 23 )
 expand = true
 stretch_mode = 5
+
+[node name="Sprite" type="Sprite" parent="CLUI/bg_bottom"]
+position = Vector2( 1605.25, 105 )
+scale = Vector2( 0.554159, 0.5 )
+texture = ExtResource( 23 )
+region_enabled = true
+region_rect = Rect2( 2709.3, -19.9489, 1154.41, 619.148 )
 
 [node name="lb_version" type="Label" parent="CLUI"]
 anchor_left = 1.0
@@ -203,10 +213,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 484.0
-margin_top = -155.0
-margin_right = 1037.0
-margin_bottom = -84.0
+margin_left = 479.0
+margin_top = -174.0
+margin_right = 779.0
+margin_bottom = -1.0
 
 [node name="Belt" parent="CLUI" instance=ExtResource( 2 )]
 anchor_left = 0.5
@@ -223,37 +233,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 389.0
-margin_top = 265.0
-margin_right = 606.0
-margin_bottom = 344.0
+margin_left = 378.0
+margin_top = 277.0
+margin_right = 595.0
+margin_bottom = 348.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 5 )
 flat = true
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="TextureRect3" type="TextureRect" parent="CLUI/ButtonStates"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 4.0
-margin_bottom = 4.0
-mouse_filter = 2
-texture = ExtResource( 19 )
-expand = true
-
-[node name="TextureRect2" type="TextureRect" parent="CLUI/ButtonStates"]
-modulate = Color( 0.529412, 0.105882, 0.0862745, 1 )
+[node name="TextureStay" type="TextureRect" parent="CLUI/ButtonStates"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource( 19 )
+texture = ExtResource( 25 )
 expand = true
 
 [node name="Label" type="Label" parent="CLUI/ButtonStates"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 4.0
+margin_bottom = 4.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 2 )
@@ -268,27 +267,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="TextureRect5" type="TextureRect" parent="CLUI/ButtonStates/HintNode"]
-modulate = Color( 0.486275, 0.101961, 0.0862745, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 5.0
-margin_bottom = 5.0
-mouse_filter = 2
-texture = ExtResource( 19 )
-expand = true
-
-[node name="TextureRect4" type="TextureRect" parent="CLUI/ButtonStates/HintNode"]
+[node name="TexturePress" type="TextureRect" parent="CLUI/ButtonStates/HintNode"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource( 19 )
+texture = ExtResource( 24 )
 expand = true
 
 [node name="Label2" type="Label" parent="CLUI/ButtonStates/HintNode"]
 modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = 5.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 2 )
@@ -298,14 +289,16 @@ valign = 1
 autowrap = true
 
 [node name="PlayerUI" parent="CLUI" instance=ExtResource( 8 )]
+margin_right = 507.0
+margin_bottom = 262.0
 
 [node name="ItemContainer" type="Control" parent="CLUI"]
 
 [node name="PlayerActionList" parent="CLUI" instance=ExtResource( 9 )]
-margin_left = 187.0
-margin_top = 832.0
-margin_right = 187.0
-margin_bottom = 832.0
+margin_left = 193.0
+margin_top = 889.0
+margin_right = 193.0
+margin_bottom = 889.0
 
 [node name="WaveUI" parent="CLUI" instance=ExtResource( 10 )]
 anchor_left = 1.0
@@ -319,32 +312,35 @@ margin_bottom = -23.0
 visible = false
 
 [node name="HintPanel" parent="CLUI" instance=ExtResource( 6 )]
+visible = false
 margin_left = 636.0
 margin_top = -165.0
 margin_right = 636.0
 margin_bottom = -165.0
 
 [node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
-margin_left = 645.0
-margin_top = 94.0
-margin_right = 645.0
-margin_bottom = 94.0
+margin_left = 517.0
+margin_top = 107.0
+margin_right = 517.0
+margin_bottom = 107.0
 
 [node name="HintPanelArmy" parent="CLUI" instance=ExtResource( 14 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -314.0
-margin_top = -124.0
-margin_right = -314.0
-margin_bottom = -124.0
+margin_left = -227.0
+margin_top = -36.0
+margin_right = -227.0
+margin_bottom = -36.0
 
 [node name="HintPanelItem" parent="CLUI" instance=ExtResource( 17 )]
-margin_left = 280.0
-margin_top = 312.0
-margin_right = 280.0
-margin_bottom = 312.0
+visible = false
+margin_left = -19.0
+margin_top = 251.0
+margin_right = -19.0
+margin_bottom = 251.0
 
 [node name="EndGamePanel" parent="CLUI" instance=ExtResource( 15 )]
 visible = false
@@ -368,10 +364,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 768.0
-margin_top = -553.0
-margin_right = 822.0
-margin_bottom = -496.0
+margin_left = 895.0
+margin_top = -272.0
+margin_right = 946.0
+margin_bottom = -235.0
 custom_fonts/font = ExtResource( 5 )
 text = "H"
 
@@ -381,70 +377,71 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="ButtonAddEnemy" type="Button" parent="CLUI/Hacks"]
-margin_left = 1241.0
-margin_top = 228.0
-margin_right = 1574.0
-margin_bottom = 279.0
+margin_left = 1574.0
+margin_top = 318.0
+margin_right = 1907.0
+margin_bottom = 369.0
 custom_fonts/font = ExtResource( 5 )
 text = "ADVANCE WAVE"
 
 [node name="ButtonAddDice" type="Button" parent="CLUI/Hacks"]
-margin_left = 1135.0
-margin_top = 692.0
-margin_right = 1343.0
-margin_bottom = 749.0
+margin_left = 1697.0
+margin_top = 434.0
+margin_right = 1905.0
+margin_bottom = 491.0
 custom_fonts/font = ExtResource( 5 )
 text = "ADD DICE"
 
 [node name="ButtonUpgrade" type="Button" parent="CLUI/Hacks"]
-margin_left = 1253.0
-margin_top = 769.0
-margin_right = 1407.0
-margin_bottom = 813.0
+margin_left = 1746.0
+margin_top = 559.0
+margin_right = 1900.0
+margin_bottom = 603.0
 custom_fonts/font = ExtResource( 5 )
 text = "Upgrade"
 
 [node name="ButtonAnim" type="Button" parent="CLUI/Hacks"]
-margin_left = 59.0
-margin_top = 834.0
-margin_right = 256.0
-margin_bottom = 878.0
+margin_left = 14.0
+margin_top = 762.0
+margin_right = 211.0
+margin_bottom = 806.0
 custom_fonts/font = ExtResource( 5 )
 text = "ANIMATE!"
 
 [node name="ButtonFxDyn" type="Button" parent="CLUI/Hacks"]
-margin_left = 13.0
-margin_top = 771.0
-margin_right = 204.0
-margin_bottom = 815.0
+margin_left = 12.0
+margin_top = 703.0
+margin_right = 203.0
+margin_bottom = 747.0
 custom_fonts/font = ExtResource( 5 )
 text = "Dynamite!"
 
 [node name="ButtonXP" type="Button" parent="CLUI/Hacks"]
-margin_left = 25.0
-margin_top = 35.0
-margin_right = 103.0
-margin_bottom = 79.0
+margin_left = 1773.0
+margin_top = 760.0
+margin_right = 1897.0
+margin_bottom = 804.0
 custom_fonts/font = ExtResource( 5 )
-text = "+XP"
+text = "ADD XP"
 
 [node name="ButtonMovEnemies" type="Button" parent="CLUI/Hacks"]
-margin_left = 1294.0
-margin_top = 299.0
-margin_right = 1585.0
-margin_bottom = 343.0
+margin_left = 1613.0
+margin_top = 380.0
+margin_right = 1904.0
+margin_bottom = 424.0
 custom_fonts/font = ExtResource( 5 )
 text = "MOVE ENEMIES"
 
 [node name="ButtonAddItem" type="Button" parent="CLUI/Hacks"]
-margin_left = 1407.0
-margin_top = 712.0
-margin_right = 1577.0
-margin_bottom = 756.0
+margin_left = 1732.0
+margin_top = 504.0
+margin_right = 1902.0
+margin_bottom = 548.0
 custom_fonts/font = ExtResource( 5 )
 text = "Add Item"
 
 [node name="ButtonScale1" type="Button" parent="CLUI/Hacks"]
+visible = false
 margin_left = 687.0
 margin_top = 24.0
 margin_right = 751.0
@@ -453,6 +450,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "1.0"
 
 [node name="ButtonScale2" type="Button" parent="CLUI/Hacks"]
+visible = false
 margin_left = 767.0
 margin_top = 24.0
 margin_right = 849.0
@@ -461,6 +459,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "0.9"
 
 [node name="ButtonScale3" type="Button" parent="CLUI/Hacks"]
+visible = false
 margin_left = 863.0
 margin_top = 24.0
 margin_right = 945.0
@@ -469,6 +468,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "0.8"
 
 [node name="ButtonScale4" type="Button" parent="CLUI/Hacks"]
+visible = false
 margin_left = 960.0
 margin_top = 24.0
 margin_right = 1042.0
@@ -477,6 +477,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "0.7"
 
 [node name="ButtonScale5" type="Button" parent="CLUI/Hacks"]
+visible = false
 margin_left = 1056.0
 margin_top = 24.0
 margin_right = 1138.0
@@ -484,39 +485,8 @@ margin_bottom = 84.0
 custom_fonts/font = ExtResource( 5 )
 text = "0.6"
 
-[node name="ButtonQuit" type="Button" parent="CLUI/Hacks"]
-margin_left = 136.0
-margin_top = -8.0
-margin_right = 235.0
-margin_bottom = 52.0
-custom_fonts/font = ExtResource( 5 )
-text = "QUIT"
-
-[node name="ButtonOptions" type="Button" parent="CLUI/Hacks"]
-margin_left = 288.0
-margin_top = -8.0
-margin_right = 420.0
-margin_bottom = 52.0
-custom_fonts/font = ExtResource( 5 )
-text = "OPT"
-
-[node name="ButtonAWolf" type="Button" parent="CLUI/Hacks"]
-margin_left = 1278.0
-margin_top = 836.0
-margin_right = 1462.0
-margin_bottom = 896.0
-custom_fonts/font = ExtResource( 5 )
-text = "AWOLF"
-
-[node name="ButtonRotateBelt" type="Button" parent="CLUI/Hacks"]
-margin_left = 1478.0
-margin_top = 772.0
-margin_right = 1566.0
-margin_bottom = 832.0
-custom_fonts/font = ExtResource( 5 )
-text = "RB"
-
 [node name="LabelScale" type="Label" parent="CLUI/Hacks"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = 723.0
@@ -531,17 +501,49 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="ButtonQuit" type="Button" parent="CLUI/Hacks"]
+margin_left = 1728.0
+margin_top = 877.0
+margin_right = 1909.0
+margin_bottom = 921.0
+custom_fonts/font = ExtResource( 5 )
+text = "QUIT GAME"
+
+[node name="ButtonOptions" type="Button" parent="CLUI/Hacks"]
+margin_left = 1762.0
+margin_top = 818.0
+margin_right = 1901.0
+margin_bottom = 868.0
+custom_fonts/font = ExtResource( 5 )
+text = "OPTIONS"
+
+[node name="ButtonAWolf" type="Button" parent="CLUI/Hacks"]
+margin_left = 1720.0
+margin_top = 688.0
+margin_right = 1904.0
+margin_bottom = 748.0
+custom_fonts/font = ExtResource( 5 )
+text = "Alpha Wolf"
+
+[node name="ButtonRotateBelt" type="Button" parent="CLUI/Hacks"]
+margin_left = 1740.0
+margin_top = 619.0
+margin_right = 1903.0
+margin_bottom = 679.0
+custom_fonts/font = ExtResource( 5 )
+text = "Rotate Belt"
+
 [node name="ArmyTrapNode" parent="." instance=ExtResource( 20 )]
-margin_left = 53.0
-margin_top = 961.0
-margin_right = 53.0
-margin_bottom = 961.0
+margin_left = -199.0
+margin_top = 351.0
+margin_right = -199.0
+margin_bottom = 351.0
 
 [node name="Label" type="Label" parent="."]
 margin_left = -256.0
-margin_top = -185.0
+margin_top = 46.0
 margin_right = -53.0
-margin_bottom = -27.0
+margin_bottom = 204.0
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 3 )
 text = "ESCALAR TODO AL 60%"

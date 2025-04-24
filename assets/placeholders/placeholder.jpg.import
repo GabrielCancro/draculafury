@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/weapon placeholder.jpg-50b86824a47e4ffb8dcd499340c081d8.stex"
+path="res://.import/placeholder.jpg-c0e46d1b934578567c9b3f4bbf41948d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/weapon placeholder.jpg"
-dest_files=[ "res://.import/weapon placeholder.jpg-50b86824a47e4ffb8dcd499340c081d8.stex" ]
+source_file="res://assets/placeholders/placeholder.jpg"
+dest_files=[ "res://.import/placeholder.jpg-c0e46d1b934578567c9b3f4bbf41948d.stex" ]
 
 [params]
 

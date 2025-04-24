@@ -8,7 +8,7 @@ func _ready():
 func show_hint(hint_data):
 	if !hint_data.owner.army: return
 	var army_data = ArmyManager.get_army_data(hint_data.owner.army)
-	$lb_name.text = Lang.get_text("army_"+hint_data.owner.army+"_name")
+	$lb_name.text = Lang.get_text("army_"+hint_data.owner.army+"_name").to_upper()
 	#$lb_amount.text = ""
 	if "amount" in army_data && army_data.amount>0: $lb_amount.text = "x"+str(army_data.amount)
 	$lb_desc.text = Lang.get_text("army_"+hint_data.code+"_desc")

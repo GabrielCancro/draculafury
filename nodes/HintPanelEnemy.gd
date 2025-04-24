@@ -5,7 +5,7 @@ func _ready():
 
 func show_hint(hint_data):
 	var enemy_data = hint_data.owner.enemy_data
-	$lb_name.text = Lang.get_text("en_"+enemy_data.name+"_name")
+	$lb_name.text = Lang.get_text("en_"+enemy_data.name+"_name").to_upper()
 	$stats/lb_dm.text = str(enemy_data.dam)
 	$stats/lb_mv.text = str(enemy_data.mov)
 	$stats/lb_hp.text = str(enemy_data.hp)

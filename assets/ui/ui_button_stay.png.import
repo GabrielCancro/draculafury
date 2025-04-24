@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholder.jpg-a06d59672ba55ac7118ae7a0deab3c7e.stex"
+path="res://.import/ui_button_stay.png-c648b6074262a8d39da97a6cc4f6d896.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholder.jpg"
-dest_files=[ "res://.import/placeholder.jpg-a06d59672ba55ac7118ae7a0deab3c7e.stex" ]
+source_file="res://assets/ui/ui_button_stay.png"
+dest_files=[ "res://.import/ui_button_stay.png-c648b6074262a8d39da97a6cc4f6d896.stex" ]
 
 [params]
 

@@ -2,9 +2,8 @@
 
 [ext_resource path="res://assets/fonts/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 
-
 [resource]
-size = 50
+size = 30
 outline_size = 5
 outline_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 font_data = ExtResource( 1 )

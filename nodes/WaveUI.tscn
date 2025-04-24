@@ -36,10 +36,10 @@ margin_right = 150.0
 [node name="Tween" type="Tween" parent="."]
 
 [node name="lb_wave" type="Label" parent="."]
-margin_left = -222.0
-margin_top = 16.0
-margin_right = -2.0
-margin_bottom = 101.0
+margin_left = -15.0
+margin_top = 44.0
+margin_right = 160.0
+margin_bottom = 129.0
 custom_colors/font_color = Color( 1, 0.764706, 0.764706, 1 )
 custom_constants/line_spacing = -1
 custom_fonts/font = SubResource( 1 )
