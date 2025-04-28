@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/en_ret_slot.png-d3e41ba776f704b44f4a89508585f5f7.stex"
+path="res://.import/ui_bottom_OLD.png-ebbe220150f6c15209eaf5971f6fa27a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/en_ret_slot.png"
-dest_files=[ "res://.import/en_ret_slot.png-d3e41ba776f704b44f4a89508585f5f7.stex" ]
+source_file="res://assets/ui/ui_bottom_OLD.png"
+dest_files=[ "res://.import/ui_bottom_OLD.png-ebbe220150f6c15209eaf5971f6fa27a.stex" ]
 
 [params]
 

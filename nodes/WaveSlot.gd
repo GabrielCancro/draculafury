@@ -12,16 +12,17 @@ func _ready():
 func set_data(_enemy,_amount):
 	enemy = _enemy
 	amount = _amount
+	randomize()
+	var mask_path = "res://assets/ui/wave_mask_"+str(randi()%3+1)+".png"
+	$Sprite.material.set_shader_param("mask", load(mask_path))
 	if enemy:
 		hint_data.code = "en_"+enemy+"_name"
-		$Sprite.modulate = Color(1,1,1,1)
-		$Sprite2.texture = load("res://assets/enemies/en_ret_"+enemy+".png")
+		$Sprite.texture = load("res://assets/enemies/en_ret_"+enemy+".png")
 		#$Sprite2.visible = true
 		$lb_amount.visible = true
 		$lb_amount.text = "x"+str(amount)
 	else:
-		$Sprite.modulate = Color(.8,.8,.8,1)
-		$Sprite2.texture = load("res://assets/enemies/en_ret_empty.png")
+		$Sprite.texture = load("res://assets/enemies/en_ret_empty.png")
 		#$Sprite2.visible = false
 		$lb_amount.visible = false
 

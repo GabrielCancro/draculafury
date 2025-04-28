@@ -92,6 +92,8 @@ anchor_bottom = 1.0
 color = Color( 0.654902, 0, 0, 1 )
 
 [node name="Enemies" type="Control" parent="."]
+margin_top = 64.0
+margin_bottom = 64.0
 
 [node name="Floor" type="Control" parent="."]
 anchor_top = 1.0
@@ -180,20 +182,13 @@ scale = Vector2( 1, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = -225.0
-margin_right = 9.0
-margin_bottom = 76.0
+margin_left = -1.0
+margin_top = -226.0
+margin_right = 6.0
+margin_bottom = 14.0
 texture = ExtResource( 23 )
 expand = true
 stretch_mode = 5
-
-[node name="Sprite" type="Sprite" parent="CLUI/bg_bottom"]
-position = Vector2( 1605.25, 105 )
-scale = Vector2( 0.554159, 0.5 )
-texture = ExtResource( 23 )
-region_enabled = true
-region_rect = Rect2( 2709.3, -19.9489, 1154.41, 619.148 )
 
 [node name="lb_version" type="Label" parent="CLUI"]
 anchor_left = 1.0
@@ -319,10 +314,10 @@ margin_right = 636.0
 margin_bottom = -165.0
 
 [node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
-margin_left = 517.0
-margin_top = 107.0
-margin_right = 517.0
-margin_bottom = 107.0
+margin_left = 544.0
+margin_top = 87.0
+margin_right = 544.0
+margin_bottom = 87.0
 
 [node name="HintPanelArmy" parent="CLUI" instance=ExtResource( 14 )]
 visible = false

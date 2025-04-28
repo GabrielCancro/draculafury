@@ -2,35 +2,60 @@ extends Node2D
 
 var enemy_data
 var floor_y = 760
-var fly_y = -270
+var fly_y = -300
 var fly_ttl = 0
 var step_size
 var hint_data={"owner":self,"panel":"enemy","code":null,"over_node":null,"callback":null,"over_area":"Button"}
 var stuned = 0
+var middle_point_y = 0
+var ttl_hpbar = 0
 
 signal end_move()
 signal end_anim()
 
 func _ready():
-	$Sprite.position.y = 30 - $Sprite.texture.get_size().y/2 * $Sprite.scale.y
-	$Stun.position.y = 50 - $Sprite.texture.get_size().y * $Sprite.scale.y
-	$Stun.position.x = -30
 	modulate.a = 0
 	Effector.appear(self)
 	Effector.add_hint(hint_data)
+	$Button.connect("mouse_entered",self,"show_hp")
+	reset_sprite_texture()
+
+func reset_sprite_texture():
+	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
+	$Sprite.position.y = 20 - $Sprite.texture.get_size().y/2 * $Sprite.scale.y
+	middle_point_y = 20 - $Sprite.texture.get_size().y/2 * $Sprite.scale.y
+	$m2.rect_position.y = - $Sprite.texture.get_size().y * $Sprite.scale.y
+	$HPBar.rect_position.y = $m2.rect_position.y
+	$Stun.position.y = 40 - $Sprite.texture.get_size().y * $Sprite.scale.y
+	$Stun.position.x = -30
+
+func show_hp(time=2):
+	ttl_hpbar = 2
 
 func _process(delta):
 	if enemy_data.fly: 
 		fly_ttl += delta*7
-		$Sprite.position.y = sin(fly_ttl)*10
+		$Sprite.position.y = middle_point_y + sin(fly_ttl)*10
+		
+	$HPBar.visible = (ttl_hpbar>0)
+	if $HPBar.visible:
+		$HPBar.modulate.a = clamp(ttl_hpbar*5,0,1)
+		if $HPBar/HPBar.value > enemy_data["hp"] * 100: $HPBar/HPBar.value -= 3
+		elif $HPBar/HPBar.value < enemy_data["hp"] * 100: $HPBar/HPBar.value += 3
+		ttl_hpbar -= delta
+	else:
+		$HPBar/DamageImg.visible = false
 
 func set_data(_data,_xpos):
 	step_size = (1920 - EnemyManager.end_x_pos)/EnemyManager.max_x_pos
 	enemy_data = _data
+	$HPBar/HPBar.value = 0
+	$HPBar/HPBar.max_value = enemy_data["hpm"] * 100
+	$HPBar/lb_name.text = Lang.get_text("en_"+enemy_data.name+"_name").to_upper()
+	show_hp()
 	$Label.text = str(enemy_data.hp)
 	position = Vector2(1500,floor_y)
 	set_tile_pos(_xpos)
-	$Sprite.texture = load("res://assets/enemies/en_"+enemy_data.name+".png")
 	if enemy_data.name=="dracula": EnemyManager.apply_dracula_skill(self)
 	if EnemyManager.get_dracula_skill()=="redmoon": enemy_data.dam += 1
 	set_stoned_skin(true)
@@ -48,6 +73,7 @@ func set_tile_pos(_x):
 
 func move(val = -enemy_data.mov):
 	yield(get_tree().create_timer(.35),"timeout")
+	show_hp()
 	if has_ability_by_percent("extra_mov",30): val -= 1
 	set_stoned_skin(true)
 	if has_ability_by_percent("wolf_herd",50):
@@ -93,8 +119,12 @@ func enemy_damage(dam):
 	if set_stoned_skin(false): return
 	enemy_data.hp -= dam
 	if enemy_data.hp<0: enemy_data.hp = 0
-	$Label.text = str(enemy_data.hp)
-	Effector.damage_fx(self,dam)
+	$HPBar/DamageImg/lb_damage.text = "-"+str(dam)
+	$HPBar/DamageImg.visible = true
+	Effector.scale_boom($HPBar/DamageImg)
+	show_hp()
+	#$Label.text = str(enemy_data.hp)
+	#Effector.damage_fx(self,dam)
 	if enemy_data.hp<=0:
 		resurrection_dracula()
 		Effector.disappear(self)

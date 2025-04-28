@@ -1,4 +1,8 @@
-ARTE
-  -acomodar tiempos y fades del upgrade popup
-
-
+BUGS
+- el icono de recarga se superpone al rotar el cinturon
+- los voladores van mas arriba
+- integrar enemigos nuevos assets
+- poner barra de vida a enemigos
+- que el popup de enemigos se mueva segun la posicion del enemigo (para no superponerse)
+- texto de las habilidades de los enemigos
+- la trampa no se mueve de lugar si la usas de nuevo, sino que falla como el respiro

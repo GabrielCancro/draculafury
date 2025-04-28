@@ -25,6 +25,7 @@ func initialize_data():
 func get_enemy_data(code):
 	var data = ENEMIES[code].duplicate()
 	#if !"ret" in data: data["ret"] = ENEMIES.keys().find(code)
+	data["hpm"] = data["hp"]
 	data.name = code
 	return data
 
