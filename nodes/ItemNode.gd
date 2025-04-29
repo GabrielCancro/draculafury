@@ -3,14 +3,15 @@ extends Control
 var item_data #"code":"cruz","ico":1}
 var is_infloor = true
 var fly_ttl = 0
-var hint_data={"owner":self,"panel":"item","code":"item_none","over_node":"HintNode","callback":null}
+var hint_data={"owner":self,"panel":null,"code":null,"over_node":"HintNode","callback":null}
 
 signal on_click_item(item_node)
 
 func set_data(_data):
 	item_data = _data
 	$Sprite.frame = item_data.ico
-	$Sprite.z_index = 150
+	$HintNode.frame = item_data.ico
+	#$Sprite.z_index = 150
 
 func _ready():
 	modulate.a = 0
@@ -51,21 +52,32 @@ func on_click():
 		var GAME = get_node("/root/Game")
 		if GAME.current_state!=GAME.GameState.ACTIONS:
 			Effector.show_float_text("ui_no_item_face")
-			return
-		$Button.disabled = true
-		rect_size = Vector2(0,0)
-		move_to_pos(rect_position+Vector2(50,0))
-		ItemManager.run_item_action(item_data.code)
-		var result = yield(ItemManager,"end_item_action")
-		yield(get_tree().create_timer(.5),"timeout")
-		if result:
-			move_to_pos(rect_position+Vector2(50,0))
-			Effector.disappear(self)
-			yield(get_tree().create_timer(.5),"timeout")
-			ItemManager.ITEMS_PLAYER.erase(self)
-			ItemManager.reorder_items()
-			queue_free()
 		else:
-			move_to_pos(rect_position+Vector2(-50,0))
-			$Button.disabled = false
-			rect_size = Vector2(100,100)
+			get_node("/root/Game/CLUI/HintPanelItem").show_hint(hint_data)
+		return
+		
+
+func on_use_item():
+	$Button.disabled = true
+	rect_size = Vector2(0,0)
+	move_to_pos(rect_position+Vector2(0,50))
+	ItemManager.run_item_action(item_data.code)
+	var result = yield(ItemManager,"end_item_action")
+	yield(get_tree().create_timer(.5),"timeout")
+	if result:
+		move_to_pos(rect_position+Vector2(0,50))
+		Effector.disappear(self)
+		yield(get_tree().create_timer(.5),"timeout")
+		ItemManager.ITEMS_PLAYER.erase(self)
+		ItemManager.reorder_items()
+		queue_free()
+	else:
+		move_to_pos(rect_position+Vector2(0,-50))
+		$Button.disabled = false
+		rect_size = Vector2(100,100)
+
+func on_discard():
+	ItemManager.throw_item(item_data.code, 600)
+	ItemManager.ITEMS_PLAYER.erase(self)
+	queue_free()
+	ItemManager.reorder_items()

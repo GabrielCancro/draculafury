@@ -60,12 +60,11 @@ func throw_with_probability(xpos=null):
 
 func reorder_items():
 	var i = 0
-	var dist = 80 #* SizerManager.current_scale
 	for it in ITEMS_PLAYER:
 		if !is_instance_valid(it): continue
 		it.rect_scale = Vector2(1,1)
 		if !it.is_infloor:
-			it.move_to_pos(Vector2(80+dist*(i+1),45+dist*1.5))
+			it.move_to_pos(Vector2(140+70*i,140))
 			#it.rect_scale *= SizerManager.current_scale
 			i+=1
 	enable_items_usage(items_usage_enabled)
@@ -130,7 +129,7 @@ func enable_items_usage(val):
 	for it in ITEMS_PLAYER:
 		if !it.is_infloor:
 			if val: it.modulate = Color(1,1,1,1)
-			else: it.modulate = Color(.4,.4,.4,1)
+			else: it.modulate = Color(.6,.6,.6,1)
 
 func clear_floor_items():
 	for it in ITEMS_INFLOOR: Effector.disappear(it)

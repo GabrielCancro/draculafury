@@ -36,6 +36,7 @@ void fragment() {
 }"
 
 [sub_resource type="NoiseTexture" id=3]
+seamless = true
 
 [resource]
 shader = SubResource( 2 )
