@@ -314,9 +314,9 @@ margin_right = 636.0
 margin_bottom = -165.0
 
 [node name="HintPanelEnemy" parent="CLUI" instance=ExtResource( 13 )]
-margin_left = 544.0
+margin_left = 583.0
 margin_top = 87.0
-margin_right = 544.0
+margin_right = 583.0
 margin_bottom = 87.0
 
 [node name="HintPanelArmy" parent="CLUI" instance=ExtResource( 14 )]

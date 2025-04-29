@@ -18,6 +18,7 @@ func _ready():
 	Effector.appear(self)
 	Effector.add_hint(hint_data)
 	$Button.connect("mouse_entered",self,"show_hp")
+	$HPBar/DamageImg.visible = false
 	reset_sprite_texture()
 
 func reset_sprite_texture():
@@ -39,7 +40,7 @@ func _process(delta):
 		
 	$HPBar.visible = (ttl_hpbar>0)
 	if $HPBar.visible:
-		$HPBar.modulate.a = clamp(ttl_hpbar*5,0,1)
+		$HPBar.modulate.a = clamp(ttl_hpbar*10,0,1)
 		if $HPBar/HPBar.value > enemy_data["hp"] * 100: $HPBar/HPBar.value -= 3
 		elif $HPBar/HPBar.value < enemy_data["hp"] * 100: $HPBar/HPBar.value += 3
 		ttl_hpbar -= delta
@@ -124,7 +125,7 @@ func enemy_damage(dam):
 	Effector.scale_boom($HPBar/DamageImg)
 	show_hp()
 	#$Label.text = str(enemy_data.hp)
-	#Effector.damage_fx(self,dam)
+	Effector.damage_fx(self,dam)
 	if enemy_data.hp<=0:
 		resurrection_dracula()
 		Effector.disappear(self)
@@ -160,7 +161,7 @@ func set_stoned_skin(val):
 	if val: 
 		$Sprite.material = load("res://assets/shaders/sh_outline.tres")
 		$Sprite.material.set_shader_param("line_color",Color(.8,.8,.8,1))
-		$Sprite.material.set_shader_param("line_scale",8)
+		$Sprite.material.set_shader_param("line_scale",12)
 	else: 
 		$Sprite.material = null
 		if have_change: Effector.shake(self)
