@@ -24,7 +24,7 @@ func set_army(code):
 		if max_amount==null: amount = null
 		if max_amount!=null && amount==null: amount = max_amount
 		$ammunition/Label.text = str(amount)
-		$ammunition.visible = (max_amount!=null)
+		$ammunition.visible = (max_amount!=null && amount!=0)
 		$panel_reload.visible = (max_amount!=null && amount==0)
 	else:
 		hint_data.code = "army_none"

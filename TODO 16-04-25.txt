@@ -1,8 +1,16 @@
 BUGS
-- el icono de recarga se superpone al rotar el cinturon
-- los voladores van mas arriba
-- integrar enemigos nuevos assets
-- poner barra de vida a enemigos
-- que el popup de enemigos se mueva segun la posicion del enemigo (para no superponerse)
+FIXED- el icono de recarga se superpone al rotar el cinturon
+FIXED- los voladores van mas arriba
+FIXED- integrar enemigos nuevos assets
+FIXED- poner barra de vida a enemigos
+FIXED- que el popup de enemigos se mueva segun la posicion del enemigo (para no superponerse)
 - texto de las habilidades de los enemigos
 - la trampa no se mueve de lugar si la usas de nuevo, sino que falla como el respiro
+
+
+LEO ULTIMA PLAYTEST
+-La interfaz del personaje me sale un pelin abajo, y se ve una linea roja arriba que es el fondo.
+-Los popup de los enemigos salen muy arriba. 
+-Los objetos que descartas deberían borrarse. Y si aparece un objeto nuevo y tenes lugar en el inventario que vaya automatico ahí. Porque cuando no te deja interactuar con los objetos, que no es tu turno es muy raro. Poco intuitivo eso.
+TESTEAR!!!-Sigue el error de las armas que necesitan recarga.
+-Y tendriamos que agregar un boton a un lado con un popup en el que se explican todo los iconos.
